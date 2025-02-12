@@ -1,0 +1,166 @@
+{
+    "name": "s-a-c/eloquent-model-generator",
+    "description": "A high-performance Laravel package that automatically generates Eloquent models from your database schema",
+    "type": "library",
+    "license": "MIT",
+    "version": "1.0.0",
+    "autoload": {
+        "psr-4": {
+            "SAC\\EloquentModelGenerator\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SAC\\EloquentModelGenerator\\Tests\\": "tests/",
+            "App\\": "tests/tmp/app/App/"
+        },
+        "exclude-from-classmap": [
+            "/tests/tmp/"
+        ]
+    },
+    "authors": [
+        {
+            "name": "StandAloneComplex",
+            "email": "embbrace.s0ul+s-a-c@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "illuminate/support": "^9.0|^10.0",
+        "illuminate/database": "^9.0|^10.0"
+    },
+    "suggest": {
+        "ext-parallel": "Required for parallel processing support"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.5",
+        "orchestra/testbench": "^7.0|^8.0",
+        "pestphp/pest": "^2.0",
+        "pestphp/pest-plugin-laravel": "^2.0",
+        "phpat/phpat": "^0.10.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SAC\\EloquentModelGenerator\\EloquentModelGeneratorServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "test-architecture": "vendor/bin/pest --arch",
+        "test-group": "vendor/bin/pest --group",
+        "test-profile": "vendor/bin/pest --profile",
+        "test-watch": "vendor/bin/pest --watch",
+
+        "test:all": [
+            "@test:lint",
+            "@test:unit",
+            "@test:feature",
+            "@test:integration",
+            "@test:performance"
+        ],
+        "test:all-mysql": "@test:all --env=mysql",
+        "test:all-pgsql": "@test:all --env=pgsql",
+        "test:all-sqlite": "@test:all --env=sqlite",
+        "test:all-sqlsrv": "@test:all --env=sqlsrv",
+
+        "test:fast": "vendor/bin/pest --group=unit,feature",
+        "test:fast-mysql": "@test:fast --env=mysql",
+        "test:fast-pgsql": "@test:fast --env=pgsql",
+        "test:fast-sqlite": "@test:fast --env=sqlite",
+        "test:fast-sqlsrv": "@test:fast --env=sqlsrv",
+
+        "test:ci": "vendor/bin/pest --coverage --min=80",
+        "test:ci-mysql": "@test:ci --env=mysql",
+        "test:ci-pgsql": "@test:ci --env=pgsql",
+        "test:ci-sqlite": "@test:ci --env=sqlite",
+        "test:ci-sqlsrv": "@test:ci --env=sqlsrv",
+
+        "test:coverage-html": "vendor/bin/pest --coverage-html coverage",
+        "test:coverage-html-mysql": "@test:coverage-html --env=mysql",
+        "test:coverage-html-pgsql": "@test:coverage-html --env=pgsql",
+        "test:coverage-html-sqlite": "@test:coverage-html --env=sqlite",
+        "test:coverage-html-sqlsrv": "@test:coverage-html --env=sqlsrv",
+
+        "test:lint": [
+            "@test-architecture"
+        ],
+
+        "test:unit": "vendor/bin/pest --group=unit",
+        "test:unit-mysql": "@test:unit --env=mysql",
+        "test:unit-pgsql": "@test:unit --env=pgsql",
+        "test:unit-sqlite": "@test:unit --env=sqlite",
+        "test:unit-sqlsrv": "@test:unit --env=sqlsrv",
+
+        "test:feature": "vendor/bin/pest --group=feature",
+        "test:feature-mysql": "@test:feature --env=mysql",
+        "test:feature-pgsql": "@test:feature --env=pgsql",
+        "test:feature-sqlite": "@test:feature --env=sqlite",
+        "test:feature-sqlsrv": "@test:feature --env=sqlsrv",
+
+        "test:integration": "vendor/bin/pest --group=integration",
+        "test:integration-mysql": "@test:integration --env=mysql",
+        "test:integration-pgsql": "@test:integration --env=pgsql",
+        "test:integration-sqlite": "@test:integration --env=sqlite",
+        "test:integration-sqlsrv": "@test:integration --env=sqlsrv",
+
+        "test:performance": "vendor/bin/pest --group=performance",
+        "test:performance-mysql": "@test:performance --env=mysql",
+        "test:performance-pgsql": "@test:performance --env=pgsql",
+        "test:performance-sqlite": "@test:performance --env=sqlite",
+        "test:performance-sqlsrv": "@test:performance --env=sqlsrv",
+
+        "test:db": [
+            "@test:mysql",
+            "@test:pgsql",
+            "@test:sqlite",
+            "@test:sqlsrv"
+        ],
+        "test:mysql": "vendor/bin/pest --group=mysql --env=mysql",
+        "test:pgsql": "vendor/bin/pest --group=pgsql --env=pgsql",
+        "test:sqlite": "vendor/bin/pest --group=sqlite --env=sqlite",
+        "test:sqlsrv": "vendor/bin/pest --group=sqlsrv --env=sqlsrv",
+
+        "test:memory-intensive": "vendor/bin/pest --group=memory-intensive",
+        "test:memory-intensive-mysql": "@test:memory-intensive --env=mysql",
+        "test:memory-intensive-pgsql": "@test:memory-intensive --env=pgsql",
+        "test:memory-intensive-sqlite": "@test:memory-intensive --env=sqlite",
+        "test:memory-intensive-sqlsrv": "@test:memory-intensive --env=sqlsrv",
+
+        "test:relationships": "vendor/bin/pest --group=relationships",
+        "test:relationships-mysql": "@test:relationships --env=mysql",
+        "test:relationships-pgsql": "@test:relationships --env=pgsql",
+        "test:relationships-sqlite": "@test:relationships --env=sqlite",
+        "test:relationships-sqlsrv": "@test:relationships --env=sqlsrv",
+
+        "test:concurrency": "vendor/bin/pest --group=concurrency",
+        "test:concurrency-mysql": "@test:concurrency --env=mysql",
+        "test:concurrency-pgsql": "@test:concurrency --env=pgsql",
+        "test:concurrency-sqlite": "@test:concurrency --env=sqlite",
+        "test:concurrency-sqlsrv": "@test:concurrency --env=sqlsrv",
+
+        "test:edge-cases": "vendor/bin/pest --group=edge-cases",
+        "test:edge-cases-mysql": "@test:edge-cases --env=mysql",
+        "test:edge-cases-pgsql": "@test:edge-cases --env=pgsql",
+        "test:edge-cases-sqlite": "@test:edge-cases --env=sqlite",
+        "test:edge-cases-sqlsrv": "@test:edge-cases --env=sqlsrv",
+
+        "test:arch": "vendor/bin/pest --group=architecture",
+        "test:contracts": "vendor/bin/pest --group=contracts",
+        "test:services": "vendor/bin/pest --group=services",
+        "test:factories": "vendor/bin/pest --group=factories",
+        "test:definitions": "vendor/bin/pest --group=definitions"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
