@@ -48,6 +48,24 @@ return [
     // Table prefix handling
     'strip_prefix' => true,
     'prefix' => '',
+
+    // Schema analysis settings
+    'schema' => [
+        // Whether to analyze foreign key constraints
+        'analyze_constraints' => true,
+
+        // Whether to detect polymorphic relationships
+        'detect_polymorphic' => true,
+
+        // Whether to analyze indexes
+        'analyze_indexes' => true,
+
+        // Maximum depth for relationship analysis
+        'relationship_depth' => 5,
+
+        // Whether to use native schema builder (no external dependencies)
+        'use_native_schema' => true,
+    ],
 ];
 ```
 
@@ -72,6 +90,24 @@ return [
 
     // Enable dates handling
     'dates' => true,
+
+    // Model name settings
+    'model_names' => [
+        // Convert table names to singular form
+        'use_singular' => true,
+
+        // Convert to StudlyCase
+        'use_studly_case' => true,
+
+        // Handle special cases (data/datum, status/statuses)
+        'handle_special_cases' => true,
+
+        // Custom model name mappings
+        'custom_names' => [
+            'user_profiles' => 'UserProfile',
+            'cms_data' => 'CmsData',
+        ],
+    ],
 ];
 ```
 
@@ -184,6 +220,12 @@ MODEL_GENERATOR_CONNECTION=mysql
 MODEL_GENERATOR_STRIP_PREFIX=true
 MODEL_GENERATOR_PREFIX=
 
+# Schema Settings
+MODEL_GENERATOR_USE_NATIVE_SCHEMA=true
+MODEL_GENERATOR_ANALYZE_CONSTRAINTS=true
+MODEL_GENERATOR_DETECT_POLYMORPHIC=true
+MODEL_GENERATOR_RELATIONSHIP_DEPTH=5
+
 # Performance Settings
 MODEL_GENERATOR_PARALLEL_ENABLED=true
 MODEL_GENERATOR_MAX_WORKERS=4
@@ -214,6 +256,10 @@ $generator->setConfig([
     'namespace' => 'App\\Models\\Admin',
     'path' => app_path('Models/Admin'),
     'parent_class' => \App\Models\BaseModel::class,
+    'schema' => [
+        'use_native_schema' => true,
+        'analyze_constraints' => true,
+    ],
 ]);
 
 $model = $generator->generate('users');
@@ -226,6 +272,7 @@ $generator->withConfig(function ($config) {
     $config->setNamespace('App\\Models\\Admin');
     $config->setPath(app_path('Models/Admin'));
     $config->enableParallelProcessing(4);
+    $config->useNativeSchema(true);
 
     return $config;
 });
@@ -240,6 +287,9 @@ return [
     'connection' => env('MODEL_GENERATOR_CONNECTION', 'mysql'),
     'path' => env('MODEL_GENERATOR_PATH', app_path('Models')),
     'namespace' => env('MODEL_GENERATOR_NAMESPACE', 'App\\Models'),
+    'schema' => [
+        'use_native_schema' => env('MODEL_GENERATOR_USE_NATIVE_SCHEMA', true),
+    ],
 ];
 ```
 

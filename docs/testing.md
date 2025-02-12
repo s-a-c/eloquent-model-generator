@@ -15,6 +15,26 @@ The package uses Pest PHP for testing and includes:
 - Stress tests
 - Edge case tests
 
+## Recent Improvements
+
+### 1. Native Schema Support
+- Removed dependency on Doctrine DBAL
+- Using Laravel's native Schema builder
+- Improved compatibility with different database platforms
+- Simplified test setup and maintenance
+
+### 2. Enhanced Model Name Validation
+- Improved case handling for table names
+- Better support for edge cases
+- Consistent naming conventions
+- Comprehensive validation rules
+
+### 3. Test Suite Isolation
+- Better test directory management
+- Improved cleanup between tests
+- Enhanced error handling
+- More reliable test execution
+
 ## Quick Start
 
 ### Running All Tests
@@ -273,6 +293,7 @@ jobs:
 - Code Coverage: Minimum 90%
 - Type Coverage: Minimum 95%
 - Architecture Compliance: 100%
+- Platform Coverage: All supported database platforms must pass tests
 
 ## Development Workflow
 
