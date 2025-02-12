@@ -1,372 +1,167 @@
 # Testing Guide
 
-This guide covers the testing capabilities and best practices for the Eloquent Model Generator package.
+This guide covers the testing features and best practices for the Eloquent Model Generator package.
+
+## Table of Contents
+
+1. [Overview](#overview)
+2. [Test Data Management](#test-data-management)
+3. [Performance Testing](#performance-testing)
+4. [Edge Cases](#edge-cases)
+5. [Best Practices](#best-practices)
 
 ## Overview
 
-The package uses Pest PHP for testing and includes:
-- Unit tests
-- Feature tests
-- Integration tests
-- Performance tests
-- Database-specific tests
-- Parallel testing support
-- Memory usage tests
-- Stress tests
-- Edge case tests
+The package includes a comprehensive test suite with various testing tools and helpers to ensure code quality and reliability.
 
-## Recent Improvements
+### Key Testing Features
 
-### 1. Native Schema Support
-- Removed dependency on Doctrine DBAL
-- Using Laravel's native Schema builder
-- Improved compatibility with different database platforms
-- Simplified test setup and maintenance
+- JSON/YAML test data loading
+- Performance monitoring and profiling
+- Edge case testing
+- Parallel test execution
+- Memory leak detection
+- Query analysis
 
-### 2. Enhanced Model Name Validation
-- Improved case handling for table names
-- Better support for edge cases
-- Consistent naming conventions
-- Comprehensive validation rules
+## Test Data Management
 
-### 3. Test Suite Isolation
-- Better test directory management
-- Improved cleanup between tests
-- Enhanced error handling
-- More reliable test execution
+### Using the WithTestData Trait
 
-## Quick Start
+The package provides a powerful `WithTestData` trait for managing test data in JSON and YAML formats. See [Test Data Loading](test-data-loading.md) for detailed documentation.
 
-### Running All Tests
+Quick example:
 
-```bash
-# Run all tests
-composer test:all
+```php
+use SAC\EloquentModelGenerator\Tests\Support\Traits\WithTestData;
 
-# Run tests in parallel
-composer test:fast
+class YourTest extends TestCase
+{
+    use WithTestData;
 
-# Run tests with coverage
-composer test:coverage-html
+    public function test_model_generation(): void
+    {
+        // Load test schema
+        $schema = $this->loadTestData('models/user.json');
+
+        // Generate and test model
+        $model = $this->generator->fromSchema($schema);
+        $this->assertModelMatchesSchema($model, $schema);
+    }
+}
 ```
 
-### Running Tests by Category
+### Test Data Organization
+
+Organize your test data files in the `tests/datasets` directory:
+
+```
+tests/
+├── datasets/
+│   ├── models/          # Model definitions
+│   ├── schemas/         # Database schemas
+│   ├── relationships/   # Relationship tests
+│   └── edge-cases/      # Edge case scenarios
+```
+
+## Performance Testing
+
+The package includes tools for performance testing:
+
+- Query count tracking
+- Memory usage analysis
+- Execution time measurement
+- Resource cleanup verification
+
+See [Performance Testing](performance-testing.md) for details.
+
+## Edge Cases
+
+Comprehensive edge case testing is available for:
+
+- Complex relationships
+- Nested JSON structures
+- Dynamic attribute casting
+- Schema variations
+
+See [Edge Cases](edge-cases.md) for more information.
+
+## Best Practices
+
+1. **Data Organization**
+   - Keep test data files organized in meaningful directories
+   - Use descriptive file names
+   - Document data structure in comments
+
+2. **Test Data Format**
+   - Use JSON for complex structures
+   - Use YAML for readable configurations
+   - Keep files focused and minimal
+
+3. **Performance Considerations**
+   - Load only needed data sections
+   - Clean up test data after use
+   - Use appropriate file format for size/complexity
+
+4. **Test Structure**
+   - Group related tests
+   - Use descriptive test names
+   - Document test purpose and requirements
+
+## Running Tests
+
+### Basic Test Execution
 
 ```bash
-# Unit tests
-composer test:unit
+composer test
+```
 
-# Feature tests
-composer test:feature
+### Specific Test Groups
 
-# Integration tests
-composer test:integration
-
-# Performance tests
-composer test:performance
+```bash
+composer test:unit          # Unit tests
+composer test:feature       # Feature tests
+composer test:integration   # Integration tests
+composer test:performance   # Performance tests
 ```
 
 ### Database-Specific Tests
 
 ```bash
-# MySQL tests
-composer test:all-mysql
-
-# PostgreSQL tests
-composer test:all-pgsql
-
-# SQLite tests
-composer test:all-sqlite
-
-# SQL Server tests
-composer test:all-sqlsrv
+composer test:mysql         # MySQL tests
+composer test:pgsql         # PostgreSQL tests
+composer test:sqlite        # SQLite tests
 ```
 
-## Test Organization
-
-### 1. Unit Tests
-
-Located in `tests/Unit`, these test individual components:
-- Model definition parsing
-- Template rendering
-- Configuration handling
-- Relationship detection
-- Validation rules generation
-
-### 2. Feature Tests
-
-Located in `tests/Feature`, these test complete features:
-- Model generation workflow
-- Command line interface
-- Configuration publishing
-- Template customization
-- Relationship mapping
-
-### 3. Integration Tests
-
-Located in `tests/Integration`, these test component interaction:
-- Database schema analysis
-- Model generation pipeline
-- Template system integration
-- Event handling
-- Cache integration
-
-### 4. Performance Tests
-
-Located in `tests/Performance`, these test system performance:
-- Query execution time
-- Memory usage
-- Cache effectiveness
-- Parallel processing
-- Resource utilization
-
-## Test Groups
-
-### 1. Core Functionality
+### Test Coverage
 
 ```bash
-# Test core features
-composer test:core
-
-# Test model generation
-composer test:models
-
-# Test relationships
-composer test:relationships
-```
-
-### 2. Database Support
-
-```bash
-# Test MySQL support
-composer test:mysql
-
-# Test PostgreSQL support
-composer test:pgsql
-
-# Test SQLite support
-composer test:sqlite
-
-# Test SQL Server support
-composer test:sqlsrv
-```
-
-### 3. Special Cases
-
-```bash
-# Test memory-intensive operations
-composer test:memory-intensive
-
-# Test concurrent operations
-composer test:concurrency
-
-# Test edge cases
-composer test:edge-cases
-```
-
-## Writing Tests
-
-### 1. Basic Test Structure
-
-```php
-use SAC\EloquentModelGenerator\Tests\TestCase;
-
-test('generates model with relationships', function () {
-    // Arrange
-    $generator = new ModelGenerator();
-    $config = ['table' => 'users'];
-
-    // Act
-    $model = $generator->generate($config);
-
-    // Assert
-    expect($model)
-        ->toHaveProperty('relationships')
-        ->and($model->relationships)
-        ->toHaveCount(2);
-});
-```
-
-### 2. Using Test Traits
-
-```php
-use SAC\EloquentModelGenerator\Tests\Support\Traits\WithDatabaseConnection;
-use SAC\EloquentModelGenerator\Tests\Support\Traits\WithModelGeneration;
-
-test('generates model from database', function () {
-    // Database connection is automatically handled
-    $table = $this->createTestTable();
-
-    // Generate model using trait helper
-    $model = $this->generateModel($table);
-
-    // Assertions
-    expect($model)->toBeInstanceOf(GeneratedModel::class);
-})->uses(WithDatabaseConnection::class, WithModelGeneration::class);
-```
-
-### 3. Testing Database Operations
-
-```php
-use SAC\EloquentModelGenerator\Tests\Support\Traits\WithDatabasePlatform;
-
-test('supports platform-specific features', function () {
-    // Test on each platform
-    $this->forEachPlatform(function ($platform) {
-        $generator = new ModelGenerator();
-        $model = $generator->generate('users');
-
-        expect($model->platform_features)
-            ->toContain($platform->getSpecificFeatures());
-    });
-})->uses(WithDatabasePlatform::class);
-```
-
-## Test Coverage
-
-### 1. Code Coverage
-
-```bash
-# Generate HTML coverage report
-composer test:coverage-html
-
-# Check coverage thresholds
-composer test:coverage
-```
-
-### 2. Type Coverage
-
-```bash
-# Check type coverage
-composer test:types
-
-# Generate type coverage report
-composer test:type-coverage
-```
-
-### 3. Architecture Coverage
-
-```bash
-# Run architecture tests
-composer test:lint
-
-# Check architectural rules
-composer test:architecture
+composer test:coverage      # Generate coverage report
+composer test:coverage-html # Generate HTML coverage report
 ```
 
 ## Continuous Integration
 
-### 1. GitHub Actions
+The package includes CI configurations for:
 
-```yaml
-name: Tests
+- GitHub Actions
+- Travis CI
+- CircleCI
 
-on: [push, pull_request]
+See the respective configuration files in the `.github/workflows` directory.
 
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        php: ['8.1', '8.2', '8.3']
-        stability: [prefer-lowest, prefer-stable]
+## Contributing Tests
 
-    steps:
-      - uses: actions/checkout@v2
+When contributing new features:
 
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php }}
-          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo
-          coverage: pcov
+1. Add appropriate test data files
+2. Write comprehensive tests
+3. Include performance tests if relevant
+4. Document test requirements
+5. Follow existing test patterns
 
-      - name: Install dependencies
-        run: composer update --${{ matrix.stability }} --prefer-dist --no-interaction
+## Additional Resources
 
-      - name: Run tests
-        run: composer test:all
-```
-
-### 2. Coverage Requirements
-
-- Code Coverage: Minimum 90%
-- Type Coverage: Minimum 95%
-- Architecture Compliance: 100%
-- Platform Coverage: All supported database platforms must pass tests
-
-## Development Workflow
-
-### 1. Test-Driven Development
-
-1. Write failing test
-2. Implement feature
-3. Run tests
-4. Refactor
-5. Repeat
-
-### 2. Testing New Features
-
-1. Add unit tests for new components
-2. Add feature tests for new functionality
-3. Add integration tests for component interaction
-4. Add performance tests if relevant
-5. Update documentation
-
-### 3. Debugging Tests
-
-```bash
-# Run tests with debugging
-composer test:debug
-
-# Run specific test with debugging
-composer test:debug -- --filter=test_name
-
-# Profile test performance
-composer test:profile
-```
-
-## Best Practices
-
-### 1. Test Organization
-
-- Group related tests
-- Use descriptive test names
-- Follow Arrange-Act-Assert pattern
-- Keep tests focused and isolated
-
-### 2. Test Data
-
-- Use factories for test data
-- Clean up after tests
-- Use realistic data sets
-- Handle edge cases
-
-### 3. Performance
-
-- Use parallel testing when possible
-- Clean up resources
-- Monitor memory usage
-- Profile slow tests
-
-## Troubleshooting
-
-### 1. Common Issues
-
-- Database connection failures
-- Memory exhaustion
-- Slow test execution
-- Platform-specific failures
-
-### 2. Solutions
-
-- Check database configuration
-- Use memory profiling
-- Enable parallel testing
-- Use platform-specific traits
-
-## Next Steps
-
-- Review [Performance Testing](./performance-testing.md) for detailed performance testing
-- Check [Configuration](./configuration.md) for test-related settings
-- See [Contributing](./contributing.md) for contribution guidelines
+- [Test Data Loading Documentation](test-data-loading.md)
+- [Performance Testing Guide](performance-testing.md)
+- [Edge Case Testing](edge-cases.md)
+- [Contributing Guidelines](../CONTRIBUTING.md)

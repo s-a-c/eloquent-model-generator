@@ -5,6 +5,7 @@ namespace SAC\EloquentModelGenerator\Tests\Unit\Support\Traits;
 use SAC\EloquentModelGenerator\Tests\TestCase;
 use SAC\EloquentModelGenerator\Tests\Support\Traits\WithTestData;
 use Illuminate\Support\Facades\File;
+use InvalidArgumentException;
 
 class WithTestDataTest extends TestCase {
     use WithTestData;
@@ -12,6 +13,11 @@ class WithTestDataTest extends TestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->initializeTestData();
+
+        // Create test datasets directory if it doesn't exist
+        if (!File::exists($this->getTestDataPath(''))) {
+            File::makeDirectory($this->getTestDataPath(''), 0755, true);
+        }
     }
 
     /** @test */
@@ -77,6 +83,102 @@ class WithTestDataTest extends TestCase {
 
     protected function tearDown(): void {
         $this->cleanupTestData();
+
+        // Clean up test files
+        collect(['test.json', 'test.yml', 'test.yaml'])
+            ->each(fn($file) => File::delete($this->getTestDataPath($file)));
+
         parent::tearDown();
+    }
+
+    public function test_can_load_json_test_data(): void {
+        $testData = [
+            'name' => 'Test Model',
+            'attributes' => ['id', 'name', 'email'],
+            'relationships' => [
+                'hasMany' => ['posts', 'comments']
+            ]
+        ];
+
+        File::put(
+            $this->getTestDataPath('test.json'),
+            json_encode($testData, JSON_PRETTY_PRINT)
+        );
+
+        $loadedData = $this->loadJsonTestData('test.json');
+        expect($loadedData)->toBe($testData);
+
+        $specificData = $this->loadJsonTestData('test.json', 'relationships.hasMany');
+        expect($specificData)->toBe(['posts', 'comments']);
+    }
+
+    public function test_can_load_yaml_test_data(): void {
+        $yamlContent = <<<YAML
+name: Test Model
+attributes:
+  - id
+  - name
+  - email
+relationships:
+  hasMany:
+    - posts
+    - comments
+YAML;
+
+        File::put($this->getTestDataPath('test.yml'), $yamlContent);
+
+        $loadedData = $this->loadYamlTestData('test.yml');
+        expect($loadedData)->toBe([
+            'name' => 'Test Model',
+            'attributes' => ['id', 'name', 'email'],
+            'relationships' => [
+                'hasMany' => ['posts', 'comments']
+            ]
+        ]);
+
+        $specificData = $this->loadYamlTestData('test.yml', 'relationships.hasMany');
+        expect($specificData)->toBe(['posts', 'comments']);
+    }
+
+    public function test_can_load_test_data_automatically_detects_format(): void {
+        // Test JSON
+        $jsonData = ['test' => 'data'];
+        File::put(
+            $this->getTestDataPath('test.json'),
+            json_encode($jsonData)
+        );
+        expect($this->loadTestData('test.json'))->toBe($jsonData);
+
+        // Test YAML
+        $yamlData = ['test' => 'data'];
+        File::put(
+            $this->getTestDataPath('test.yml'),
+            "test: data\n"
+        );
+        expect($this->loadTestData('test.yml'))->toBe($yamlData);
+    }
+
+    public function test_throws_exception_for_invalid_json(): void {
+        File::put($this->getTestDataPath('test.json'), '{invalid:json}');
+
+        expect(fn() => $this->loadJsonTestData('test.json'))
+            ->toThrow(InvalidArgumentException::class, 'Invalid JSON in test data file');
+    }
+
+    public function test_throws_exception_for_invalid_yaml(): void {
+        File::put($this->getTestDataPath('test.yml'), "test: [\ninvalid: yaml");
+
+        expect(fn() => $this->loadYamlTestData('test.yml'))
+            ->toThrow(InvalidArgumentException::class, 'Invalid YAML in test data file');
+    }
+
+    public function test_throws_exception_for_missing_file(): void {
+        expect(fn() => $this->loadTestData('missing.json'))
+            ->toThrow(InvalidArgumentException::class, 'Test data file not found');
+    }
+
+    public function test_throws_exception_for_unsupported_extension(): void {
+        expect(fn() => $this->loadTestData('test.txt'))
+            ->toThrow(InvalidArgumentException::class, 'Unsupported file extension');
     }
 }

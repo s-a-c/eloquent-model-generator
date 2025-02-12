@@ -1,0 +1,86 @@
+{
+    "name": "User",
+    "table": "users",
+    "attributes": [
+        {
+            "name": "id",
+            "type": "bigInteger",
+            "unsigned": true,
+            "autoIncrement": true,
+            "primary": true
+        },
+        {
+            "name": "name",
+            "type": "string",
+            "length": 255,
+            "nullable": false
+        },
+        {
+            "name": "email",
+            "type": "string",
+            "length": 255,
+            "unique": true,
+            "nullable": false
+        },
+        {
+            "name": "password",
+            "type": "string",
+            "length": 255,
+            "nullable": false
+        },
+        {
+            "name": "remember_token",
+            "type": "string",
+            "length": 100,
+            "nullable": true
+        },
+        {
+            "name": "created_at",
+            "type": "timestamp",
+            "nullable": true
+        },
+        {
+            "name": "updated_at",
+            "type": "timestamp",
+            "nullable": true
+        }
+    ],
+    "relationships": {
+        "hasMany": [
+            {
+                "related": "Post",
+                "foreignKey": "user_id",
+                "localKey": "id"
+            },
+            {
+                "related": "Comment",
+                "foreignKey": "user_id",
+                "localKey": "id"
+            }
+        ],
+        "belongsToMany": [
+            {
+                "related": "Role",
+                "table": "role_user",
+                "foreignPivotKey": "user_id",
+                "relatedPivotKey": "role_id"
+            }
+        ]
+    },
+    "traits": [
+        "Notifiable",
+        "HasApiTokens"
+    ],
+    "fillable": [
+        "name",
+        "email",
+        "password"
+    ],
+    "hidden": [
+        "password",
+        "remember_token"
+    ],
+    "casts": {
+        "email_verified_at": "datetime"
+    }
+}

@@ -2,8 +2,11 @@
 
 namespace SAC\EloquentModelGenerator\Tests\Support\Traits;
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+use Symfony\Component\Yaml\Yaml;
+use InvalidArgumentException;
 
 trait WithTestData {
     /**
@@ -117,5 +120,81 @@ trait WithTestData {
         if (File::exists($this->fixturesPath)) {
             File::deleteDirectory($this->fixturesPath);
         }
+    }
+
+    /**
+     * Load test data from a JSON file.
+     *
+     * @param string $path Relative path to the JSON file from the datasets directory
+     * @param string|null $key Optional key to retrieve specific data from the JSON
+     * @return mixed
+     * @throws \InvalidArgumentException
+     */
+    protected function loadJsonTestData(string $path, ?string $key = null): mixed {
+        $fullPath = $this->getTestDataPath($path);
+
+        if (!File::exists($fullPath)) {
+            throw new InvalidArgumentException("Test data file not found: {$path}");
+        }
+
+        $data = json_decode(File::get($fullPath), true);
+
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            throw new InvalidArgumentException("Invalid JSON in test data file: {$path}");
+        }
+
+        return $key ? Arr::get($data, $key) : $data;
+    }
+
+    /**
+     * Load test data from a YAML file.
+     *
+     * @param string $path Relative path to the YAML file from the datasets directory
+     * @param string|null $key Optional key to retrieve specific data from the YAML
+     * @return mixed
+     * @throws \InvalidArgumentException
+     */
+    protected function loadYamlTestData(string $path, ?string $key = null): mixed {
+        $fullPath = $this->getTestDataPath($path);
+
+        if (!File::exists($fullPath)) {
+            throw new InvalidArgumentException("Test data file not found: {$path}");
+        }
+
+        try {
+            $data = Yaml::parseFile($fullPath);
+        } catch (\Exception $e) {
+            throw new InvalidArgumentException("Invalid YAML in test data file: {$path}");
+        }
+
+        return $key ? Arr::get($data, $key) : $data;
+    }
+
+    /**
+     * Get the full path to a test data file.
+     *
+     * @param string $path Relative path from the datasets directory
+     * @return string
+     */
+    protected function getTestDataPath(string $path): string {
+        return __DIR__ . '/../../datasets/' . ltrim($path, '/');
+    }
+
+    /**
+     * Load test data from either JSON or YAML based on file extension.
+     *
+     * @param string $path Relative path to the data file from the datasets directory
+     * @param string|null $key Optional key to retrieve specific data
+     * @return mixed
+     * @throws \InvalidArgumentException
+     */
+    protected function loadTestData(string $path, ?string $key = null): mixed {
+        $extension = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+
+        return match ($extension) {
+            'json' => $this->loadJsonTestData($path, $key),
+            'yml', 'yaml' => $this->loadYamlTestData($path, $key),
+            default => throw new InvalidArgumentException("Unsupported file extension: {$extension}")
+        };
     }
 }

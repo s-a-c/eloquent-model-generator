@@ -1,0 +1,71 @@
+name: Post
+table: posts
+attributes:
+  - name: id
+    type: bigInteger
+    unsigned: true
+    autoIncrement: true
+    primary: true
+  - name: user_id
+    type: bigInteger
+    unsigned: true
+    nullable: false
+  - name: title
+    type: string
+    length: 255
+    nullable: false
+  - name: slug
+    type: string
+    length: 255
+    nullable: false
+    unique: true
+  - name: content
+    type: text
+    nullable: false
+  - name: published_at
+    type: timestamp
+    nullable: true
+  - name: created_at
+    type: timestamp
+    nullable: true
+  - name: updated_at
+    type: timestamp
+    nullable: true
+
+relationships:
+  belongsTo:
+    - related: User
+      foreignKey: user_id
+      ownerKey: id
+  hasMany:
+    - related: Comment
+      foreignKey: post_id
+      localKey: id
+  morphToMany:
+    - related: Tag
+      name: taggable
+      table: taggables
+      foreignPivotKey: taggable_id
+      relatedPivotKey: tag_id
+      morphType: taggable_type
+      morphClass: Post
+
+traits:
+  - HasFactory
+  - Sluggable
+
+fillable:
+  - user_id
+  - title
+  - content
+  - published_at
+
+casts:
+  published_at: datetime
+  content: encrypted
+
+indexes:
+  - name: posts_user_id_index
+    columns: [user_id]
+  - name: posts_published_at_index
+    columns: [published_at]

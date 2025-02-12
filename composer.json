@@ -37,7 +37,8 @@
         "orchestra/testbench": "^7.0|^8.0",
         "pestphp/pest": "^2.0",
         "pestphp/pest-plugin-laravel": "^2.0",
-        "phpat/phpat": "^0.10.0"
+        "phpat/phpat": "^0.10.0",
+        "symfony/yaml": "^6.0|^7.0"
     },
     "extra": {
         "laravel": {
