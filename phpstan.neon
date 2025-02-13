@@ -77,6 +77,11 @@ parameters:
           paths:
             - src/Services/ModelGeneratorTemplateEngine.php
 
+        # Safe package deprecation notices
+        - message: '#Safe\\.*: Implicitly marking parameter .* as nullable is deprecated#'
+          paths:
+            - vendor/thecodingmachine/safe/generated/*
+
     # Early terminating function calls
     earlyTerminatingFunctionCalls:
         - abort
