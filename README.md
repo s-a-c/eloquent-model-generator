@@ -231,3 +231,30 @@ Please review [our security policy](../../security/policy) on how to report secu
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+## Code Quality
+
+We maintain high code quality standards through automated tools and processes. Key features:
+
+- Static Analysis with PHPStan/Larastan (Level 8)
+- PSR-12 Coding Standards
+- Comprehensive Test Suite with Pest
+- Mutation Testing
+- Architecture Testing
+- Performance Monitoring
+
+For more information:
+- [Code Quality Guide](docs/code-quality.md)
+- [Contributing Guide](docs/contributing.md)
+
+Quick start:
+```bash
+# Check code quality
+composer quality
+
+# Fix common issues
+composer fix
+
+# Run all tests
+composer test:all
+```

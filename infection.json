@@ -1,0 +1,42 @@
+{
+    "source": {
+        "directories": [
+            "src"
+        ],
+        "excludes": [
+            "Contracts",
+            "Exceptions"
+        ]
+    },
+    "logs": {
+        "text": "build/infection/infection.log",
+        "html": "build/infection/infection.html",
+        "summary": "build/infection/summary.log",
+        "json": "build/infection/infection-log.json",
+        "perMutator": "build/infection/per-mutator.md",
+        "stryker": {
+            "report": "main"
+        }
+    },
+    "mutators": {
+        "@default": true,
+        "@function_signature": false,
+        "MethodCallRemoval": {
+            "ignore": [
+                "SAC\\EloquentModelGenerator\\Services\\ModelGeneratorService::generate"
+            ]
+        },
+        "PublicVisibility": {
+            "ignore": [
+                "SAC\\EloquentModelGenerator\\Contracts\\*"
+            ]
+        }
+    },
+    "testFramework": "pest",
+    "bootstrap": "./vendor/autoload.php",
+    "initialTestsPhpOptions": "-d memory_limit=4G",
+    "minMsi": 85,
+    "minCoveredMsi": 90,
+    "timeout": 30,
+    "threads": 4
+}

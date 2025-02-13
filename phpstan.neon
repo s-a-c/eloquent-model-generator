@@ -1,0 +1,54 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+    level: 8
+    paths:
+        - src
+        - config
+    tmpDir: build/phpstan
+
+    # Core checks
+    checkMissingIterableValueType: true
+    checkGenericClassInNonGenericObjectType: true
+    checkUnionTypes: true
+    checkImplicitMixed: true
+    checkBenevolentUnionTypes: true
+
+    # Laravel specific settings
+    checkModelProperties: true
+    checkModelAttributes: true
+    noUnnecessaryCollectionCall: true
+    noModelMake: false  # Allow model creation as this is a model generator
+    checkDynamicProperties: true
+
+    # Package specific settings
+    treatPhpDocTypesAsCertain: true
+    rememberPossiblyImpureFunctionValues: false
+    checkPhpDocMissingReturn: true
+    checkPhpDocMethodSignatures: true
+    checkExplicitMixed: true
+
+    ignoreErrors:
+        # Allow dynamic model property access as we're generating models
+        - '#Access to an undefined property .+Model::\$.+#'
+        - '#Call to an undefined method .+Model::.+#'
+        # Allow dynamic class instantiation for model generation
+        - '#Dynamic class name#'
+        # Ignore errors about missing return type hints in closures
+        - '#Closure returns no value, but should return#'
+
+    excludePaths:
+        - tests/*
+        - build/*
+        - vendor/*
+
+    earlyTerminatingMethodCalls:
+        SAC\EloquentModelGenerator\Services\ModelGeneratorService:
+            - abort
+            - dd
+            - dump
+        SAC\EloquentModelGenerator\Contracts\ModelGeneratorService:
+            - abort
+            - dd
+            - dump

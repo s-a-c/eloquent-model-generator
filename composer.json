@@ -33,11 +33,16 @@
         "ext-parallel": "Required for parallel processing support"
     },
     "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.40",
+        "infection/infection": "^0.27",
         "mockery/mockery": "^1.5",
+        "nunomaduro/larastan": "^2.0",
         "orchestra/testbench": "^7.0|^8.0",
         "pestphp/pest": "^2.0",
         "pestphp/pest-plugin-laravel": "^2.0",
+        "phploc/phploc": "^7.0",
         "phpat/phpat": "^0.10.0",
+        "sebastian/phpcpd": "^6.0",
         "symfony/yaml": "^6.0|^7.0"
     },
     "extra": {
@@ -86,6 +91,7 @@
         "test:coverage-html-sqlsrv": "@test:coverage-html --env=sqlsrv",
 
         "test:lint": [
+            "@format:test",
             "@test-architecture"
         ],
 
@@ -152,7 +158,62 @@
         "test:contracts": "vendor/bin/pest --group=contracts",
         "test:services": "vendor/bin/pest --group=services",
         "test:factories": "vendor/bin/pest --group=factories",
-        "test:definitions": "vendor/bin/pest --group=definitions"
+        "test:definitions": "vendor/bin/pest --group=definitions",
+
+        "format": "php-cs-fixer fix",
+        "format:dry-run": "php-cs-fixer fix --dry-run --diff",
+        "format:test": "php-cs-fixer fix --dry-run --diff --stop-on-violation",
+
+        "check": [
+            "@check:types",
+            "@check:style",
+            "@check:duplicates"
+        ],
+        "check:types": "@analyze:stan",
+        "check:style": "@format:test",
+        "check:duplicates": "@analyze:duplicates",
+
+        "fix": [
+            "@fix:style"
+        ],
+        "fix:style": "@format",
+
+        "quality": [
+            "@check",
+            "@test:mutation",
+            "@analyze:complexity",
+            "@test:architecture"
+        ],
+        "quality:ci": [
+            "@check",
+            "@test:ci",
+            "@test:mutation"
+        ],
+
+        "analyze:all": [
+            "@analyze:complexity",
+            "@analyze:duplicates",
+            "@analyze:stan",
+            "@test:arch"
+        ],
+        "analyze:complexity": "phploc --count-tests src tests",
+        "analyze:duplicates": "phpcpd --min-lines=5 --min-tokens=70 src",
+        "analyze:stan": "phpstan analyze --memory-limit=2G",
+
+        "test:mutation": [
+            "@test:coverage-html",
+            "infection --threads=4 --coverage=build/coverage --show-mutations --no-progress"
+        ],
+
+        "build": [
+            "@check",
+            "@test:all",
+            "@analyze:all"
+        ],
+        "build:clean": [
+            "rm -rf build/*",
+            "@build"
+        ]
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
