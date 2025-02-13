@@ -110,7 +110,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Contracts/ModelGeneratorService.php' => 
     array (
-      0 => '68b51b4249c224153ad86e54f6d822ac1053f904',
+      0 => '932d2632fb122f43708bc92e6f9b65ffa3d45aa8',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\contracts\\modelgeneratorservice',
@@ -330,7 +330,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/BaseModel.php' => 
     array (
-      0 => 'ba2e5f4196beed802e6b095911219cd12f547ca3',
+      0 => '9271c45e7f707a70584652f1e2e150c310dd301b',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\models\\basemodel',
@@ -725,17 +725,16 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Model/Relations.php' => 
     array (
-      0 => 'c064473b4dce96a7c508cf319124d23e261ccb46',
+      0 => 'efbedf814d529d012eee6d99df3937e9260f2a30',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\model\\relations',
       ),
       2 => 
       array (
-        0 => 'sac\\eloquentmodelgenerator\\model\\addbelongsto',
-        1 => 'sac\\eloquentmodelgenerator\\model\\addhasmany',
-        2 => 'sac\\eloquentmodelgenerator\\model\\addmanytomany',
-        3 => 'sac\\eloquentmodelgenerator\\model\\tostring',
+        0 => 'sac\\eloquentmodelgenerator\\model\\addrelation',
+        1 => 'sac\\eloquentmodelgenerator\\model\\getrelations',
+        2 => 'sac\\eloquentmodelgenerator\\model\\getrelationmethods',
       ),
       3 => 
       array (
@@ -863,16 +862,18 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Collections/ModelCollection.php' => 
     array (
-      0 => '917af26c0c8c7d7f94e71d0245a227406da363c7',
+      0 => '5daf8f61faa467dce934ad6268cbce8504c2552e',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\collections\\modelcollection',
       ),
       2 => 
       array (
-        0 => 'sac\\eloquentmodelgenerator\\collections\\getmodel',
-        1 => 'sac\\eloquentmodelgenerator\\collections\\addmodel',
-        2 => 'sac\\eloquentmodelgenerator\\collections\\removemodel',
+        0 => 'sac\\eloquentmodelgenerator\\collections\\__construct',
+        1 => 'sac\\eloquentmodelgenerator\\collections\\getmodel',
+        2 => 'sac\\eloquentmodelgenerator\\collections\\addmodel',
+        3 => 'sac\\eloquentmodelgenerator\\collections\\removemodel',
+        4 => 'sac\\eloquentmodelgenerator\\collections\\getmodels',
       ),
       3 => 
       array (
@@ -899,7 +900,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php' => 
     array (
-      0 => 'a79a483a5aec872207684f0860a7e024aa9b5840',
+      0 => 'f0d6adb9e8ceafd1942ebd97feca8897a7c89a9a',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\modelgeneratorservice',
@@ -924,7 +925,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php' => 
     array (
-      0 => '5256045668587805895cadd6a1ad33e4d23cdc41',
+      0 => '0a5d69d5d79aed157e59193598642c0e9993875f',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\modelgenerator',

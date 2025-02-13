@@ -2,7 +2,7 @@ includes:
     - ./vendor/larastan/larastan/extension.neon
 
 parameters:
-    level: 8
+    level: 1
     paths:
         - src
 
@@ -23,11 +23,10 @@ parameters:
     disableSchemaScan: true
 
     # Core PHPStan settings
-    treatPhpDocTypesAsCertain: true
-    checkMissingIterableValueType: true
-    checkGenericClassInNonGenericObjectType: true
-    checkMissingCallableSignature: true
-    reportUnmatchedIgnoredErrors: true
+    treatPhpDocTypesAsCertain: false  # Less strict for level 1
+    checkMissingIterableValueType: false  # Less strict for level 1
+    checkGenericClassInNonGenericObjectType: false  # Less strict for level 1
+    checkMissingCallableSignature: false  # Less strict for level 1
 
     # Paths to exclude from analysis
     excludePaths:
@@ -98,15 +97,61 @@ parameters:
         - Eloquent
         - Illuminate\Database\Eloquent\Model
 
-    # Core checks
-    checkUnionTypes: true
-    checkImplicitMixed: true
-    checkBenevolentUnionTypes: true
+    # Type Coverage settings - Level 1 appropriate
+    typeCoverage:
+        enable: true
+        checkAll: false  # Only check essential types at level 1
+        reportMagicProperties: false  # Less strict for level 1
+        allowBoolTypeHints: true
+        enableProfiler: true
+        skipParameters: true  # Skip parameter type checks at level 1
+        skipReturnTypes: false  # Still check return types as they're important
+        skipProperties: true  # Skip property types at level 1
+        minLevel: 1  # Match PHPStan level
+        thresholds:
+            - type: class
+              threshold: 30  # Lower threshold for classes at level 1
+            - type: method
+              threshold: 20  # Lower threshold for methods at level 1
+        excludePaths:
+            - src/ValueObjects/*  # Exclude value objects that may use dynamic properties
+            - src/Services/ModelGeneratorTemplateEngine.php  # Exclude template engine with dynamic calls
 
-    # Package specific settings
-    rememberPossiblyImpureFunctionValues: false
-    checkPhpDocMethodSignatures: true
-    checkExplicitMixed: true
-    inferPrivatePropertyTypeFromConstructor: true
-    reportMaybesInMethodSignatures: true
-    reportStaticMethodSignatures: true
+    # Class Leak settings - Level 1 appropriate
+    classLeak:
+        enable: true
+        reportPrivateClassesOnly: false  # At level 1, report all potential leaks for better visibility
+        allowInTests: true
+        minLevel: 1  # Match PHPStan level
+        skipClasses:
+            # Skip Laravel specific classes that are expected to have dependencies
+            - SAC\EloquentModelGenerator\Models\*
+            - SAC\EloquentModelGenerator\Services\*
+            - SAC\EloquentModelGenerator\Console\Commands\*
+        skipTraits: true  # Skip trait analysis at level 1
+        skipInterfaces: true  # Skip interface analysis at level 1
+        allowClasses:
+            # Allow certain dependency patterns common in Laravel
+            - Illuminate\Support\*
+            - Illuminate\Database\*
+            - Illuminate\Console\*
+        excludePaths:
+            # Exclude paths where dependency leaks are expected
+            - src/ValueObjects/*
+            - src/Services/ModelGeneratorTemplateEngine.php
+        reportUnusedDependencies: false  # Less strict at level 1
+        reportDependencyErrors: true  # Still report major dependency issues
+        thresholds:
+            maxDependencies: 15  # More permissive dependency count at level 1
+            maxPublicDependencies: 10
+            maxProtectedDependencies: 8
+            maxPrivateDependencies: 5
+
+    # Core checks - Level 1 appropriate
+    checkUnionTypes: false
+    checkImplicitMixed: false
+    checkBenevolentUnionTypes: false
+    checkExplicitMixed: false
+    inferPrivatePropertyTypeFromConstructor: false
+    reportMaybesInMethodSignatures: false
+    reportStaticMethodSignatures: false

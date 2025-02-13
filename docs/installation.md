@@ -1,283 +1,135 @@
 # Installation Guide
 
-This guide covers the installation and initial setup of the Eloquent Model Generator package.
-
 ## Requirements
 
-### Core Requirements
-- PHP 8.1 or higher
-- Laravel 10.0 or higher
-- Composer 2.0 or higher
+Before installing the package, ensure your environment meets the following requirements:
 
-### Optional Extensions
-- ext-parallel (for parallel processing support)
-- ext-xdebug (for code coverage analysis)
-- ext-pcntl (for process control)
-- ext-posix (for parallel processing)
+- PHP 8.2 or higher
+- Laravel 11.x
+- Composer 2.x
+- Required PHP extensions:
+  - ext-json
+  - ext-pdo
+  - ext-dom
 
-## Installation
+## Installation Steps
 
-### 1. Install via Composer
+1. Install the package via Composer:
 
 ```bash
 composer require sac/eloquent-model-generator
 ```
 
-### 2. Publish Configuration
+2. The package will automatically register its service provider in Laravel 11.x applications. If you need to register it manually, add the following to your `config/app.php`:
 
-```bash
-php artisan vendor:publish --provider="SAC\\EloquentModelGenerator\\Providers\\EloquentModelGeneratorServiceProvider"
+```php
+'providers' => [
+    // ...
+    SAC\EloquentModelGenerator\Providers\EloquentModelGeneratorServiceProvider::class,
+];
 ```
 
-## Code Quality Tools
-
-The package includes several code quality tools that can be installed as dev dependencies:
+3. Publish the configuration file (optional):
 
 ```bash
-composer require --dev phpstan/phpstan larastan/larastan
-composer require --dev friendsofphp/php-cs-fixer squizlabs/php_codesniffer
-composer require --dev slevomat/coding-standard doctrine/coding-standard
-composer require --dev phpmd/phpmd infection/infection
-composer require --dev vimeo/psalm phpmetrics/phpmetrics
+php artisan vendor:publish --provider="SAC\EloquentModelGenerator\Providers\EloquentModelGeneratorServiceProvider" --tag="config"
 ```
 
-## Testing Framework
-
-The package uses Pest PHP testing framework with various plugins:
+4. Publish the templates (optional):
 
 ```bash
-composer require --dev pestphp/pest
-composer require --dev pestphp/pest-plugin-laravel
-composer require --dev pestphp/pest-plugin-parallel
-composer require --dev pestphp/pest-plugin-type-coverage
+php artisan vendor:publish --provider="SAC\EloquentModelGenerator\Providers\EloquentModelGeneratorServiceProvider" --tag="stubs"
 ```
 
-## Schema Support
+## Development Tools Setup
 
-The package uses Laravel's native schema builder for database analysis, providing:
-- No external dependencies required
-- Better compatibility with Laravel's database layer
-- Improved performance and reliability
-- Support for all Laravel-supported databases
+The package includes several development tools for code quality and analysis. To set them up:
 
-### Supported Databases
+1. Install development dependencies:
 
-- MySQL 5.7+
-- PostgreSQL 10.0+
-- SQLite 3.8.8+
-- SQL Server 2017+
+```bash
+composer install --dev
+```
 
-### Schema Analysis Features
+2. Initialize the tools:
 
-- Table structure analysis
-- Foreign key constraint detection
-- Index analysis
-- Polymorphic relationship detection
-- Custom column type handling
-- Relationship depth control
-- Attribute casting inference
-- Validation rule generation
-- Factory generation support
+```bash
+# Create tool configurations
+php artisan analyze --init
+
+# Verify installation
+php artisan analyze --check
+```
 
 ## Configuration
 
-### Basic Configuration
+The package can be configured through several methods:
 
-```php
-// config/model-generator.php
+1. **Configuration File**
+   - Located at `config/eloquent-model-generator.php`
+   - Controls default behavior and paths
 
-return [
-    'namespace' => 'App\\Models',
-    'path' => app_path('Models'),
-    'parent_class' => \Illuminate\Database\Eloquent\Model::class,
-    'schema' => [
-        'use_native_schema' => true,
-        'analyze_constraints' => true,
-        'detect_polymorphic' => true,
-        'relationship_depth' => 5,
-        'generate_factories' => true,
-        'generate_validations' => true,
-        'infer_attribute_casting' => true,
-    ],
-    'quality' => [
-        'strict_types' => true,
-        'type_hints' => true,
-        'psr12_compliance' => true,
-        'docblock_annotations' => true,
-    ],
-];
-```
+2. **Environment Variables**
+   - `EMG_DEFAULT_PATH`: Default path for generated models
+   - `EMG_NAMESPACE`: Default namespace for models
+   - `EMG_BASE_MODEL_CLASS`: Base model class to extend
 
-### Environment Variables
+3. **Command Line Options**
+   - Override configuration through command options
+   - See `php artisan help generate:model` for details
 
-```env
-MODEL_GENERATOR_USE_NATIVE_SCHEMA=true
-MODEL_GENERATOR_ANALYZE_CONSTRAINTS=true
-MODEL_GENERATOR_DETECT_POLYMORPHIC=true
-MODEL_GENERATOR_RELATIONSHIP_DEPTH=5
-MODEL_GENERATOR_STRICT_TYPES=true
-MODEL_GENERATOR_TYPE_HINTS=true
-MODEL_GENERATOR_PSR12_COMPLIANCE=true
-```
+## Verification
 
-## Quick Start
+To verify the installation:
 
-### 1. Generate Models for All Tables
-
+1. Run the model generator:
 ```bash
-php artisan model:generate
+php artisan generate:model --table=users
 ```
 
-### 2. Generate Specific Models
-
+2. Run the analysis tools:
 ```bash
-php artisan model:generate users,posts,comments
+php artisan analyze
 ```
 
-### 3. Generate with Custom Configuration
-
+3. Check code quality:
 ```bash
-php artisan model:generate users --connection=mysql --namespace=App\\Models\\Admin
-```
-
-## Advanced Setup
-
-### 1. Custom Model Templates
-
-Create custom model templates in `resources/views/vendor/model-generator/`:
-
-```php
-// resources/views/vendor/model-generator/model.blade.php
-
-declare(strict_types=1);
-
-namespace {{ $namespace }};
-
-use {{ $parentClass }};
-use SAC\EloquentModelGenerator\Support\Traits\HasValidation;
-use SAC\EloquentModelGenerator\Support\Traits\HasRelationships;
-
-class {{ $className }} extends {{ $parentClass }}
-{
-    use HasValidation;
-    use HasRelationships;
-
-    protected string $table = '{{ $table }}';
-
-    /**
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        @foreach($fillable as $column)
-            '{{ $column }}',
-        @endforeach
-    ];
-
-    // ... custom template content
-}
-```
-
-### 2. Custom Model Name Handling
-
-```php
-// config/model-generator.php
-
-return [
-    'model_names' => [
-        'use_singular' => true,
-        'use_studly_case' => true,
-        'handle_special_cases' => true,
-        'custom_names' => [
-            'user_profiles' => 'UserProfile',
-            'cms_data' => 'CmsData',
-        ],
-    ],
-];
-```
-
-### 3. Performance Optimization
-
-```php
-return [
-    'parallel' => [
-        'enabled' => true,
-        'max_workers' => 4,
-    ],
-    'memory' => [
-        'limit' => '256M',
-    ],
-];
-```
-
-## Testing the Installation
-
-### 1. Run All Tests
-
-```bash
-composer test:all
-```
-
-### 2. Run Specific Test Suites
-
-```bash
-composer test:unit        # Run unit tests
-composer test:feature     # Run feature tests
-composer test:integration # Run integration tests
-```
-
-### 3. Run Quality Checks
-
-```bash
-composer check-all       # Run all checks
-composer analyse        # Run static analysis
-composer style         # Run style checks
+composer check-all
 ```
 
 ## Troubleshooting
 
 ### Common Issues
 
-1. **Permission Issues**
+1. **Composer Memory Issues**
    ```bash
-   chmod -R 775 storage/
-   chmod -R 775 bootstrap/cache/
+   COMPOSER_MEMORY_LIMIT=-1 composer require sac/eloquent-model-generator
    ```
 
-2. **Namespace Issues**
+2. **Permission Issues**
+   ```bash
+   chmod -R 755 storage bootstrap/cache
+   ```
+
+3. **Class Not Found**
+   - Clear composer autoload:
    ```bash
    composer dump-autoload
    ```
-
-3. **Memory Issues**
-   ```ini
-   # php.ini
-   memory_limit = 256M
-   ```
-
-### Solutions
-
-1. **Clear Cache**
+   - Clear Laravel cache:
    ```bash
-   php artisan config:clear
-   php artisan cache:clear
+   php artisan optimize:clear
    ```
 
-2. **Update Dependencies**
-   ```bash
-   composer update
-   ```
+### Getting Help
 
-3. **Fix Permissions**
-   ```bash
-   php artisan cache:clear
-   php artisan config:clear
-   php artisan view:clear
-   ```
+- Check the [GitHub Issues](https://github.com/s-a-c/eloquent-model-generator/issues)
+- Join our [Discord Community](https://discord.gg/example)
+- Email support: support@example.com
 
 ## Next Steps
 
-- Review [Configuration](./configuration.md) for detailed settings
-- Check [Basic Usage](./basic-usage.md) for common use cases
-- See [Advanced Usage](./advanced-usage.md) for complex scenarios
-- Read [Testing Guide](./testing.md) for testing your setup
-- Study [Code Quality](./code-quality.md) for quality standards
+- Read the [Basic Usage Guide](basic-usage.md)
+- Explore [Advanced Features](advanced-usage.md)
+- Learn about [Code Quality Tools](code-quality.md)
+- Review [Best Practices](best-practices.md)

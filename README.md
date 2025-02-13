@@ -2,292 +2,152 @@
 
 An advanced Eloquent model generator for Laravel with comprehensive static analysis and code quality tools.
 
-## Version Support
-
-- Current stable version: 0.0.1
-- Supported PHP versions: ^8.1
-- Supported Laravel versions: ^10.0
-
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/s-a-c/eloquent-model-generator.svg?style=flat-square)](https://packagist.org/packages/s-a-c/eloquent-model-generator)
-[![Total Downloads](https://img.shields.io/packagist/dt/s-a-c/eloquent-model-generator.svg?style=flat-square)](https://packagist.org/packages/s-a-c/eloquent-model-generator)
-[![Tests](https://github.com/s-a-c/eloquent-model-generator/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/s-a-c/eloquent-model-generator/actions/workflows/run-tests.yml)
-[![Check & fix styling](https://github.com/s-a-c/eloquent-model-generator/actions/workflows/fix-php-code-style-issues.yml/badge.svg?branch=main)](https://github.com/s-a-c/eloquent-model-generator/actions/workflows/fix-php-code-style-issues.yml)
-[![Type Coverage](https://shepherd.dev/github/s-a-c/eloquent-model-generator/coverage.svg)](https://shepherd.dev/github/s-a-c/eloquent-model-generator)
-
-A high-performance Laravel package that automatically generates Eloquent models from your database schema. Features include relationship detection, validation rules generation, parallel processing, and customizable templates.
-
 ## Features
 
-- 🚀 High-performance schema analysis with parallel processing
-- 🔄 Automatic relationship detection
-- ✨ Validation rules generation
-- 🎨 Customizable templates
-- 📝 PSR-12 compliant code generation
-- 🛠️ Comprehensive configuration options
-- 🧪 Extensive test suite with Pest framework
-- ⚡ Parallel model generation support
-- 📊 Performance monitoring and profiling
-- 🔍 Type coverage analysis
-- 🔄 Parallel testing capabilities
-- 💾 Multi-database platform support
-- 🔬 Stress testing support
-- 📈 Load testing capabilities
+- 🚀 Generate Eloquent models from your database schema
+- 📊 Comprehensive static analysis with multiple tools
+- 🛠️ Automated code fixes and improvements
+- 🎯 Type coverage analysis and improvements
+- 🔍 Code quality checks and enforcement
+- 📝 Detailed HTML reports
+- ⚡ Parallel processing support
+- 🔄 CI/CD integration ready
 
 ## Requirements
 
-- PHP 8.1 or higher
-- Laravel 9.0 or higher
-- Composer 2.0 or higher
-- ext-parallel extension
+- PHP 8.2 or higher
+- Laravel 11.x
+- Composer 2.x
 
 ## Installation
-
-You can install the package via composer:
 
 ```bash
 composer require sac/eloquent-model-generator
 ```
 
-Publish the configuration:
-
-```bash
-php artisan vendor:publish --provider="StandAlonecomplex\\EloquentModelGenerator\\EloquentModelGeneratorServiceProvider"
-```
-
-## Versioning
-
-This package follows [Semantic Versioning 2.0.0](https://semver.org/). The version numbers follow the format of `MAJOR.MINOR.PATCH`:
-
-- MAJOR version for incompatible API changes
-- MINOR version for added functionality in a backward compatible manner
-- PATCH version for backward compatible bug fixes
-
-Release tags can be found on the [releases page](https://github.com/s-a-c/eloquent-model-generator/releases).
-
-## Quick Start
-
-Generate models for all tables:
-
-```bash
-php artisan model:generate
-```
-
-Generate specific models:
-
-```bash
-php artisan model:generate --table=users,posts
-```
-
 ## Basic Usage
 
-```php
-use StandAlonecomplex\EloquentModelGenerator\Contracts\ModelGeneratorService;
-use StandAlonecomplex\EloquentModelGenerator\Contracts\ParallelModelGeneratorService;
-
-// Standard model generation
-public function generate(ModelGeneratorService $generator)
-{
-    // Generate a single model
-    $model = $generator->generateModel('users');
-
-    // Generate multiple models
-    $models = $generator->generateBatch(['users', 'posts']);
-}
-
-// Parallel model generation
-public function generateParallel(ParallelModelGeneratorService $generator)
-{
-    // Generate multiple models in parallel
-    $models = $generator->generateModels(['users', 'posts', 'comments']);
-}
-```
-
-## Testing
-
-The package uses Pest PHP testing framework with various plugins for comprehensive testing:
+### Generate Models
 
 ```bash
-# Quick Start
-composer test              # Run all tests
-composer test:all         # Run all test suites in sequence
-composer test:fast        # Run unit and feature tests in parallel
-composer test:ci          # Run tests for CI with coverage requirements
-
-# Database Platform Testing
-composer test:db          # Run tests for all database platforms
-composer test:all-mysql   # Run all tests on MySQL
-composer test:all-pgsql   # Run all tests on PostgreSQL
-composer test:all-sqlite  # Run all tests on SQLite
-composer test:all-sqlsrv  # Run all tests on SQL Server
-
-# Coverage and Analysis
-composer test-coverage     # Run tests with coverage
-composer test:coverage-html # Generate HTML coverage report
-composer test:watch-coverage # Watch tests with coverage
-composer test-type-coverage # Run type coverage analysis
-composer test:types        # Run type analysis with minimum threshold
-
-# Quality and Compliance
-composer test:lint         # Run architecture and type checks
-composer test-architecture # Run architecture tests
-composer test:drift        # Check for architectural drift
-composer test:stress       # Run stress tests
-
-# Test Categories (Available for all database platforms)
-composer test:unit        # Run unit tests
-composer test:unit-mysql  # Run unit tests on MySQL
-composer test:unit-pgsql  # Run unit tests on PostgreSQL
-composer test:unit-sqlite # Run unit tests on SQLite
-composer test:unit-sqlsrv # Run unit tests on SQL Server
-
-composer test:feature        # Run feature tests
-composer test:feature-mysql  # Run feature tests on MySQL
-composer test:feature-pgsql  # Run feature tests on PostgreSQL
-composer test:feature-sqlite # Run feature tests on SQLite
-composer test:feature-sqlsrv # Run feature tests on SQL Server
-
-composer test:integration        # Run integration tests
-composer test:integration-mysql  # Run integration tests on MySQL
-composer test:integration-pgsql  # Run integration tests on PostgreSQL
-composer test:integration-sqlite # Run integration tests on SQLite
-composer test:integration-sqlsrv # Run integration tests on SQL Server
-
-# Database-specific Tests
-composer test:mysql       # Run MySQL-specific tests
-composer test:pgsql       # Run PostgreSQL-specific tests
-composer test:sqlite      # Run SQLite-specific tests
-composer test:sqlsrv      # Run SQL Server-specific tests
-
-# Specialized Tests (Available for all database platforms)
-composer test:memory-intensive         # Run memory-intensive tests
-composer test:memory-intensive-mysql   # Run memory-intensive tests on MySQL
-composer test:memory-intensive-pgsql   # Run memory-intensive tests on PostgreSQL
-composer test:memory-intensive-sqlite  # Run memory-intensive tests on SQLite
-composer test:memory-intensive-sqlsrv  # Run memory-intensive tests on SQL Server
-
-composer test:relationships         # Run relationship tests
-composer test:relationships-mysql   # Run relationship tests on MySQL
-composer test:relationships-pgsql   # Run relationship tests on PostgreSQL
-composer test:relationships-sqlite  # Run relationship tests on SQLite
-composer test:relationships-sqlsrv  # Run relationship tests on SQL Server
-
-composer test:concurrency         # Run concurrency tests
-composer test:concurrency-mysql   # Run concurrency tests on MySQL
-composer test:concurrency-pgsql   # Run concurrency tests on PostgreSQL
-composer test:concurrency-sqlite  # Run concurrency tests on SQLite
-composer test:concurrency-sqlsrv  # Run concurrency tests on SQL Server
-
-composer test:edge-cases         # Run edge case tests
-composer test:edge-cases-mysql   # Run edge case tests on MySQL
-composer test:edge-cases-pgsql   # Run edge case tests on PostgreSQL
-composer test:edge-cases-sqlite  # Run edge case tests on SQLite
-composer test:edge-cases-sqlsrv  # Run edge case tests on SQL Server
-
-# Development Tools
-composer test-parallel    # Run tests in parallel
-composer test-profile     # Run performance profiling
-composer test-memory      # Run memory usage analysis
-composer test-watch      # Watch for changes and run tests
-composer test-snapshot   # Run snapshot tests
+php artisan generate:model TableName
 ```
 
-### Test Groups
+### Run Static Analysis
 
-The tests are organized into several groups and can be run on specific database platforms:
+```bash
+# Interactive mode
+php artisan analyze
 
-- **Unit Tests**: Basic unit tests for individual components
-- **Feature Tests**: Feature-level functionality tests
-- **Integration Tests**: Tests for component integration
-- **Performance Tests**: Tests for performance benchmarks
-- **Architecture Tests**: Tests for architectural compliance
-- **Database Tests**: Database-specific test suites
-  - MySQL-specific features and optimizations
-  - PostgreSQL-specific features and optimizations
-  - SQLite-specific features and optimizations
-  - SQL Server-specific features and optimizations
-- **Edge Cases**: Tests for boundary conditions and edge cases
-- **Specialized Tests**: Tests for specific features or conditions
+# With specific options
+php artisan analyze --levels=1,2,3 --directory=src
+php artisan analyze --parallel --format=html
+```
 
-### Database Platform Support
+### Fix Code Issues
 
-Each test group can be run against specific database platforms:
-- **MySQL**: Full support for MySQL 5.7+ and MariaDB 10.2+
-- **PostgreSQL**: Full support for PostgreSQL 10.0+
-- **SQLite**: Full support for SQLite 3.8.8+
-- **SQL Server**: Full support for SQL Server 2017+
+```bash
+# Interactive mode
+php artisan fix
 
-### Coverage Requirements
+# With specific options
+php artisan fix --levels=1,2,3 --all
+php artisan fix --dry-run
+```
 
-- Code Coverage: Minimum 80% (enforced in CI)
-- Type Coverage: Minimum 90%
-- Architecture Compliance: 100% drift-free
-- Platform Coverage: All supported database platforms must pass tests
+## Configuration
 
-## Documentation
+### Available Commands
 
-For detailed documentation, please visit:
+1. `analyze` - Run static analysis tools
+   - Options:
+     - `--levels` (-l): Comma-separated list of PHPStan levels to run
+     - `--directory` (-d): Directory to analyze
+     - `--parallel`: Run tools in parallel
+     - `--format`: Output format (html, json, or text)
+     - `--ci`: Run in CI mode with stricter checks
+     - `--cache`: Enable caching of analysis results
+     - `--debug`: Show detailed debug information
 
-- [Installation Guide](docs/installation.md)
-- [Configuration](docs/configuration.md)
-- [Basic Usage](docs/basic-usage.md)
-- [Advanced Usage](docs/advanced-usage.md)
-- [API Reference](docs/api-reference.md)
-- [Performance Guide](docs/performance.md)
-- [Testing Guide](docs/testing.md)
+2. `fix` - Fix static analysis issues
+   - Options:
+     - `--levels` (-l): Comma-separated list of PHPStan levels to fix
+     - `--all` (-a): Fix all detected issues
+     - `--dry-run`: Show what would be fixed without making changes
+     - `--no-backup`: Skip creating backups of files
+     - `--debug`: Show detailed debug information
+
+### Composer Scripts
+
+```bash
+# Run tests
+composer test
+composer test:coverage
+composer test:types
+composer test:parallel
+
+# Static Analysis
+composer analyze
+composer fix
+composer phpstan
+composer psalm
+composer phpmd
+
+# Code Style
+composer style
+composer cs-check
+composer cs-fix
+composer phpcs
+composer phpcs-fix
+
+# Additional Tools
+composer metrics
+composer infection
+composer rector-dry
+composer rector
+composer type-coverage
+composer class-leak
+
+# Run all checks
+composer check-all
+```
+
+## Available Tools
+
+- PHPStan (Levels 0-8)
+- Psalm
+- PHP CS Fixer
+- PHP_CodeSniffer
+- PHP Mess Detector
+- PHPMetrics
+- Infection (Mutation Testing)
+- Rector
+- Type Coverage
+- Class Leak
+
+## Reports
+
+Analysis reports are generated in the `build/reports` directory:
+
+- HTML Report (default): Comprehensive visual report
+- JSON Report: Machine-readable format
+- Text Report: Simple text output
+- Metrics Report: Detailed code metrics
+- Tool-specific reports (PHPMD, Psalm, etc.)
 
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
-## Security Vulnerabilities
+## Security
 
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
+If you discover any security related issues, please email [security@example.com](mailto:security@example.com) instead of using the issue tracker.
 
 ## Credits
 
-- [StandAloneComplex](https://github.com/s-a-c)
+- [Your Name](https://github.com/yourusername)
 - [All Contributors](../../contributors)
 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-## Code Quality
-
-We maintain high code quality standards through automated tools and processes tailored for model generation:
-
-### Static Analysis
-- Larastan (Level 8) with custom rules for model generation
-- Allows dynamic properties and method calls for models
-- Strict typing with Laravel-specific checks
-
-### Code Style & Quality
-- PSR-12 with Laravel conventions
-- PHPMD with custom rulesets:
-  - Higher complexity limits for model generation (100)
-  - Increased method limits (25 per class)
-  - Laravel Facade exceptions
-  - Model-specific naming rules
-
-### Testing
-- Pest PHP Testing Framework
-- 80% minimum coverage
-- 85% mutation score (MSI)
-- Architecture validation
-- Performance monitoring
-
-Quick start:
-```bash
-# Check code quality
-composer quality
-
-# Fix common issues
-composer fix
-
-# Run all tests
-composer test:all
-```
-
-For detailed information:
-- [Code Quality Guide](docs/code-quality.md)
-- [Contributing Guide](docs/contributing.md)

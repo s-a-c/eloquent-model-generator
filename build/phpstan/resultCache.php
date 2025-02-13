@@ -1,12 +1,12 @@
 <?php declare(strict_types = 1);
 
 return [
-	'lastFullAnalysisTime' => 1739419534,
+	'lastFullAnalysisTime' => 1739445718,
 	'meta' => array (
   'cacheVersion' => 'v12-linesToIgnore',
   'phpstanVersion' => '1.12.17',
   'phpVersion' => 80403,
-  'projectConfig' => '{conditionalTags: {Larastan\\Larastan\\Rules\\NoEnvCallsOutsideOfConfigRule: {phpstan.rules.rule: %noEnvCallsOutsideOfConfig%}, Larastan\\Larastan\\Rules\\NoModelMakeRule: {phpstan.rules.rule: %noModelMake%}, Larastan\\Larastan\\Rules\\NoUnnecessaryCollectionCallRule: {phpstan.rules.rule: %noUnnecessaryCollectionCall%}, Larastan\\Larastan\\Rules\\OctaneCompatibilityRule: {phpstan.rules.rule: %checkOctaneCompatibility%}, Larastan\\Larastan\\Rules\\UnusedViewsRule: {phpstan.rules.rule: %checkUnusedViews%}, Larastan\\Larastan\\Rules\\ModelAppendsRule: {phpstan.rules.rule: %checkModelAppends%}}, parameters: {universalObjectCratesClasses: [Illuminate\\Http\\Request, Illuminate\\Support\\Optional, Illuminate\\Http\\Request, Illuminate\\Support\\Optional], earlyTerminatingFunctionCalls: [abort, dd, abort, dd, dump], excludePaths: {analyseAndScan: [*.blade.php, /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/tests/tmp/*, /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/tests/*, /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/build/*, /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/*, *.blade.php], analyse: []}, mixinExcludeClasses: [Eloquent, Eloquent], bootstrapFiles: [/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/larastan/larastan/bootstrap.php], checkOctaneCompatibility: true, noEnvCallsOutsideOfConfig: true, noModelMake: false, noUnnecessaryCollectionCall: true, noUnnecessaryCollectionCallOnly: [all, get, toArray], noUnnecessaryCollectionCallExcept: [], squashedMigrationsPath: [], databaseMigrationsPath: [], disableMigrationScan: true, disableSchemaScan: true, viewDirectories: [], checkModelProperties: true, checkPhpDocMissingReturn: true, checkUnusedViews: false, checkModelAppends: true, level: 8, paths: [/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src], treatPhpDocTypesAsCertain: false, checkMissingIterableValueType: true, checkGenericClassInNonGenericObjectType: false, tmpDir: /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/build/phpstan, checkUnionTypes: true, checkImplicitMixed: true, checkBenevolentUnionTypes: true, rememberPossiblyImpureFunctionValues: false, checkPhpDocMethodSignatures: true, checkExplicitMixed: true}, rules: [Larastan\\Larastan\\Rules\\UselessConstructs\\NoUselessWithFunctionCallsRule, Larastan\\Larastan\\Rules\\UselessConstructs\\NoUselessValueFunctionCallsRule, Larastan\\Larastan\\Rules\\DeferrableServiceProviderMissingProvidesRule, Larastan\\Larastan\\Rules\\ConsoleCommand\\UndefinedArgumentOrOptionRule], services: [{class: Larastan\\Larastan\\Methods\\RelationForwardsCallsExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\ModelForwardsCallsExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\EloquentBuilderForwardsCallsExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\HigherOrderTapProxyExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\HigherOrderCollectionProxyExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\StorageMethodsClassReflectionExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\Extension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\ModelFactoryMethodsClassReflectionExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\RedirectResponseMethodsClassReflectionExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\MacroMethodsClassReflectionExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\ViewWithMethodsClassReflectionExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Properties\\ModelAccessorExtension, tags: [phpstan.broker.propertiesClassReflectionExtension]}, {class: Larastan\\Larastan\\Properties\\ModelPropertyExtension, tags: [phpstan.broker.propertiesClassReflectionExtension]}, {class: Larastan\\Larastan\\Properties\\HigherOrderCollectionProxyPropertyExtension, tags: [phpstan.broker.propertiesClassReflectionExtension]}, {class: Larastan\\Larastan\\Types\\RelationDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\Types\\ModelRelationsDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\HigherOrderTapProxyExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ContainerArrayAccessDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension], arguments: {className: Illuminate\\Contracts\\Container\\Container}}, {class: Larastan\\Larastan\\ReturnTypes\\ContainerArrayAccessDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension], arguments: {className: Illuminate\\Container\\Container}}, {class: Larastan\\Larastan\\ReturnTypes\\ContainerArrayAccessDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension], arguments: {className: Illuminate\\Foundation\\Application}}, {class: Larastan\\Larastan\\ReturnTypes\\ContainerArrayAccessDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension], arguments: {className: Illuminate\\Contracts\\Foundation\\Application}}, {class: Larastan\\Larastan\\Properties\\ModelRelationsExtension, tags: [phpstan.broker.propertiesClassReflectionExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ModelOnlyDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ModelFactoryDynamicStaticMethodReturnTypeExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ModelDynamicStaticMethodReturnTypeExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\AppMakeDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\AuthExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\GuardDynamicStaticMethodReturnTypeExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\AuthManagerExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\DateExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\GuardExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\RequestFileExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\RequestRouteExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\RequestUserExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\EloquentBuilderExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\RelationCollectionExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ModelFindExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\BuilderModelFindExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\TestCaseExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\Support\\CollectionHelper}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\AuthExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\CollectExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\NowAndTodayExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\ResponseExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\ValidatorExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\CollectionFilterRejectDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\CollectionWhereNotNullDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\NewModelQueryDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\FactoryDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\Types\\AbortIfFunctionTypeSpecifyingExtension, tags: [phpstan.typeSpecifier.functionTypeSpecifyingExtension], arguments: {methodName: abort, negate: false}}, {class: Larastan\\Larastan\\Types\\AbortIfFunctionTypeSpecifyingExtension, tags: [phpstan.typeSpecifier.functionTypeSpecifyingExtension], arguments: {methodName: abort, negate: true}}, {class: Larastan\\Larastan\\Types\\AbortIfFunctionTypeSpecifyingExtension, tags: [phpstan.typeSpecifier.functionTypeSpecifyingExtension], arguments: {methodName: throw, negate: false}}, {class: Larastan\\Larastan\\Types\\AbortIfFunctionTypeSpecifyingExtension, tags: [phpstan.typeSpecifier.functionTypeSpecifyingExtension], arguments: {methodName: throw, negate: true}}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\AppExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\ValueExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\StrExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\TapExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\StorageDynamicStaticMethodReturnTypeExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\Types\\GenericEloquentCollectionTypeNodeResolverExtension, tags: [phpstan.phpDoc.typeNodeResolverExtension]}, {class: Larastan\\Larastan\\Types\\ViewStringTypeNodeResolverExtension, tags: [phpstan.phpDoc.typeNodeResolverExtension]}, {class: Larastan\\Larastan\\Rules\\OctaneCompatibilityRule}, {class: Larastan\\Larastan\\Rules\\NoEnvCallsOutsideOfConfigRule}, {class: Larastan\\Larastan\\Rules\\NoModelMakeRule}, {class: Larastan\\Larastan\\Rules\\NoUnnecessaryCollectionCallRule, arguments: {onlyMethods: %noUnnecessaryCollectionCallOnly%, excludeMethods: %noUnnecessaryCollectionCallExcept%}}, {class: Larastan\\Larastan\\Rules\\ModelAppendsRule}, {class: Larastan\\Larastan\\Types\\GenericEloquentBuilderTypeNodeResolverExtension, tags: [phpstan.phpDoc.typeNodeResolverExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\AppEnvironmentReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\Types\\ModelProperty\\ModelPropertyTypeNodeResolverExtension, tags: [phpstan.phpDoc.typeNodeResolverExtension], arguments: {active: %checkModelProperties%}}, {class: Larastan\\Larastan\\Types\\RelationParserHelper, arguments: {parser: @currentPhpVersionSimpleDirectParser}}, {class: Larastan\\Larastan\\Properties\\MigrationHelper, arguments: {databaseMigrationPath: %databaseMigrationsPath%, disableMigrationScan: %disableMigrationScan%, parser: @currentPhpVersionSimpleDirectParser, reflectionProvider: @reflectionProvider}}, {class: Larastan\\Larastan\\Properties\\SquashedMigrationHelper, arguments: {schemaPaths: %squashedMigrationsPath%, disableSchemaScan: %disableSchemaScan%}}, {class: Larastan\\Larastan\\Properties\\ModelCastHelper}, {class: Larastan\\Larastan\\Properties\\ModelPropertyHelper}, {class: Larastan\\Larastan\\Rules\\ModelRuleHelper}, {class: Larastan\\Larastan\\Methods\\BuilderHelper, arguments: {checkProperties: %checkModelProperties%}}, {class: Larastan\\Larastan\\Rules\\RelationExistenceRule, tags: [phpstan.rules.rule]}, {class: Larastan\\Larastan\\Rules\\CheckDispatchArgumentTypesCompatibleWithClassConstructorRule, arguments: {dispatchableClass: Illuminate\\Foundation\\Bus\\Dispatchable}, tags: [phpstan.rules.rule]}, {class: Larastan\\Larastan\\Rules\\CheckDispatchArgumentTypesCompatibleWithClassConstructorRule, arguments: {dispatchableClass: Illuminate\\Foundation\\Events\\Dispatchable}, tags: [phpstan.rules.rule]}, {class: Larastan\\Larastan\\Properties\\Schema\\PhpMyAdminDataTypeToPhpTypeConverter}, {class: Larastan\\Larastan\\LarastanStubFilesExtension, tags: [phpstan.stubFilesExtension]}, {class: Larastan\\Larastan\\Rules\\UnusedViewsRule}, {class: Larastan\\Larastan\\Collectors\\UsedViewFunctionCollector, tags: [phpstan.collector]}, {class: Larastan\\Larastan\\Collectors\\UsedEmailViewCollector, tags: [phpstan.collector]}, {class: Larastan\\Larastan\\Collectors\\UsedViewMakeCollector, tags: [phpstan.collector]}, {class: Larastan\\Larastan\\Collectors\\UsedViewFacadeMakeCollector, tags: [phpstan.collector]}, {class: Larastan\\Larastan\\Collectors\\UsedRouteFacadeViewCollector, tags: [phpstan.collector]}, {class: Larastan\\Larastan\\Collectors\\UsedViewInAnotherViewCollector, arguments: {parser: @currentPhpVersionSimpleDirectParser}}, {class: Larastan\\Larastan\\Support\\ViewFileHelper, arguments: {viewDirectories: %viewDirectories%}}, {class: Larastan\\Larastan\\ReturnTypes\\ApplicationMakeDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ContainerMakeDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ConsoleCommand\\ArgumentDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ConsoleCommand\\HasArgumentDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ConsoleCommand\\OptionDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ConsoleCommand\\HasOptionDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\TranslatorGetReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\TransHelperReturnTypeExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\DoubleUnderscoreHelperReturnTypeExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\AppMakeHelper}, {class: Larastan\\Larastan\\Internal\\ConsoleApplicationResolver}, {class: Larastan\\Larastan\\Internal\\ConsoleApplicationHelper}, {class: Larastan\\Larastan\\Support\\HigherOrderCollectionProxyHelper}]}',
+  'projectConfig' => '{conditionalTags: {Larastan\\Larastan\\Rules\\NoEnvCallsOutsideOfConfigRule: {phpstan.rules.rule: %noEnvCallsOutsideOfConfig%}, Larastan\\Larastan\\Rules\\NoModelMakeRule: {phpstan.rules.rule: %noModelMake%}, Larastan\\Larastan\\Rules\\NoUnnecessaryCollectionCallRule: {phpstan.rules.rule: %noUnnecessaryCollectionCall%}, Larastan\\Larastan\\Rules\\OctaneCompatibilityRule: {phpstan.rules.rule: %checkOctaneCompatibility%}, Larastan\\Larastan\\Rules\\UnusedViewsRule: {phpstan.rules.rule: %checkUnusedViews%}, Larastan\\Larastan\\Rules\\ModelAppendsRule: {phpstan.rules.rule: %checkModelAppends%}}, parameters: {universalObjectCratesClasses: [Illuminate\\Http\\Request, Illuminate\\Support\\Optional, Illuminate\\Http\\Request, Illuminate\\Support\\Optional, SAC\\EloquentModelGenerator\\ValueObjects\\Column, SAC\\EloquentModelGenerator\\ValueObjects\\ModelDefinition], earlyTerminatingFunctionCalls: [abort, dd, abort, dd, dump, exit, die], excludePaths: {analyseAndScan: [*.blade.php, /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/tests/tmp/*, /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/tests/*, /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/build/*, /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/*, *.blade.php], analyse: []}, mixinExcludeClasses: [Eloquent, Eloquent, Illuminate\\Database\\Eloquent\\Model], bootstrapFiles: [/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/larastan/larastan/bootstrap.php], checkOctaneCompatibility: true, noEnvCallsOutsideOfConfig: true, noModelMake: false, noUnnecessaryCollectionCall: true, noUnnecessaryCollectionCallOnly: [all, get, toArray], noUnnecessaryCollectionCallExcept: [], squashedMigrationsPath: [], databaseMigrationsPath: [], disableMigrationScan: true, disableSchemaScan: true, viewDirectories: [], checkModelProperties: true, checkPhpDocMissingReturn: true, checkUnusedViews: false, checkModelAppends: true, level: 8, paths: [/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src], treatPhpDocTypesAsCertain: true, checkMissingIterableValueType: true, checkGenericClassInNonGenericObjectType: true, checkMissingCallableSignature: true, tmpDir: /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/build/phpstan, checkUnionTypes: true, checkImplicitMixed: true, checkBenevolentUnionTypes: true, rememberPossiblyImpureFunctionValues: false, checkPhpDocMethodSignatures: true, checkExplicitMixed: true, inferPrivatePropertyTypeFromConstructor: true, reportMaybesInMethodSignatures: true, reportStaticMethodSignatures: true}, rules: [Larastan\\Larastan\\Rules\\UselessConstructs\\NoUselessWithFunctionCallsRule, Larastan\\Larastan\\Rules\\UselessConstructs\\NoUselessValueFunctionCallsRule, Larastan\\Larastan\\Rules\\DeferrableServiceProviderMissingProvidesRule, Larastan\\Larastan\\Rules\\ConsoleCommand\\UndefinedArgumentOrOptionRule], services: [{class: Larastan\\Larastan\\Methods\\RelationForwardsCallsExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\ModelForwardsCallsExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\EloquentBuilderForwardsCallsExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\HigherOrderTapProxyExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\HigherOrderCollectionProxyExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\StorageMethodsClassReflectionExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\Extension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\ModelFactoryMethodsClassReflectionExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\RedirectResponseMethodsClassReflectionExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\MacroMethodsClassReflectionExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\ViewWithMethodsClassReflectionExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Properties\\ModelAccessorExtension, tags: [phpstan.broker.propertiesClassReflectionExtension]}, {class: Larastan\\Larastan\\Properties\\ModelPropertyExtension, tags: [phpstan.broker.propertiesClassReflectionExtension]}, {class: Larastan\\Larastan\\Properties\\HigherOrderCollectionProxyPropertyExtension, tags: [phpstan.broker.propertiesClassReflectionExtension]}, {class: Larastan\\Larastan\\Types\\RelationDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\Types\\ModelRelationsDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\HigherOrderTapProxyExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ContainerArrayAccessDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension], arguments: {className: Illuminate\\Contracts\\Container\\Container}}, {class: Larastan\\Larastan\\ReturnTypes\\ContainerArrayAccessDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension], arguments: {className: Illuminate\\Container\\Container}}, {class: Larastan\\Larastan\\ReturnTypes\\ContainerArrayAccessDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension], arguments: {className: Illuminate\\Foundation\\Application}}, {class: Larastan\\Larastan\\ReturnTypes\\ContainerArrayAccessDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension], arguments: {className: Illuminate\\Contracts\\Foundation\\Application}}, {class: Larastan\\Larastan\\Properties\\ModelRelationsExtension, tags: [phpstan.broker.propertiesClassReflectionExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ModelOnlyDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ModelFactoryDynamicStaticMethodReturnTypeExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ModelDynamicStaticMethodReturnTypeExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\AppMakeDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\AuthExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\GuardDynamicStaticMethodReturnTypeExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\AuthManagerExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\DateExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\GuardExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\RequestFileExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\RequestRouteExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\RequestUserExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\EloquentBuilderExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\RelationCollectionExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ModelFindExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\BuilderModelFindExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\TestCaseExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\Support\\CollectionHelper}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\AuthExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\CollectExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\NowAndTodayExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\ResponseExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\ValidatorExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\CollectionFilterRejectDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\CollectionWhereNotNullDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\NewModelQueryDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\FactoryDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\Types\\AbortIfFunctionTypeSpecifyingExtension, tags: [phpstan.typeSpecifier.functionTypeSpecifyingExtension], arguments: {methodName: abort, negate: false}}, {class: Larastan\\Larastan\\Types\\AbortIfFunctionTypeSpecifyingExtension, tags: [phpstan.typeSpecifier.functionTypeSpecifyingExtension], arguments: {methodName: abort, negate: true}}, {class: Larastan\\Larastan\\Types\\AbortIfFunctionTypeSpecifyingExtension, tags: [phpstan.typeSpecifier.functionTypeSpecifyingExtension], arguments: {methodName: throw, negate: false}}, {class: Larastan\\Larastan\\Types\\AbortIfFunctionTypeSpecifyingExtension, tags: [phpstan.typeSpecifier.functionTypeSpecifyingExtension], arguments: {methodName: throw, negate: true}}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\AppExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\ValueExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\StrExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\TapExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\StorageDynamicStaticMethodReturnTypeExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\Types\\GenericEloquentCollectionTypeNodeResolverExtension, tags: [phpstan.phpDoc.typeNodeResolverExtension]}, {class: Larastan\\Larastan\\Types\\ViewStringTypeNodeResolverExtension, tags: [phpstan.phpDoc.typeNodeResolverExtension]}, {class: Larastan\\Larastan\\Rules\\OctaneCompatibilityRule}, {class: Larastan\\Larastan\\Rules\\NoEnvCallsOutsideOfConfigRule}, {class: Larastan\\Larastan\\Rules\\NoModelMakeRule}, {class: Larastan\\Larastan\\Rules\\NoUnnecessaryCollectionCallRule, arguments: {onlyMethods: %noUnnecessaryCollectionCallOnly%, excludeMethods: %noUnnecessaryCollectionCallExcept%}}, {class: Larastan\\Larastan\\Rules\\ModelAppendsRule}, {class: Larastan\\Larastan\\Types\\GenericEloquentBuilderTypeNodeResolverExtension, tags: [phpstan.phpDoc.typeNodeResolverExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\AppEnvironmentReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\Types\\ModelProperty\\ModelPropertyTypeNodeResolverExtension, tags: [phpstan.phpDoc.typeNodeResolverExtension], arguments: {active: %checkModelProperties%}}, {class: Larastan\\Larastan\\Types\\RelationParserHelper, arguments: {parser: @currentPhpVersionSimpleDirectParser}}, {class: Larastan\\Larastan\\Properties\\MigrationHelper, arguments: {databaseMigrationPath: %databaseMigrationsPath%, disableMigrationScan: %disableMigrationScan%, parser: @currentPhpVersionSimpleDirectParser, reflectionProvider: @reflectionProvider}}, {class: Larastan\\Larastan\\Properties\\SquashedMigrationHelper, arguments: {schemaPaths: %squashedMigrationsPath%, disableSchemaScan: %disableSchemaScan%}}, {class: Larastan\\Larastan\\Properties\\ModelCastHelper}, {class: Larastan\\Larastan\\Properties\\ModelPropertyHelper}, {class: Larastan\\Larastan\\Rules\\ModelRuleHelper}, {class: Larastan\\Larastan\\Methods\\BuilderHelper, arguments: {checkProperties: %checkModelProperties%}}, {class: Larastan\\Larastan\\Rules\\RelationExistenceRule, tags: [phpstan.rules.rule]}, {class: Larastan\\Larastan\\Rules\\CheckDispatchArgumentTypesCompatibleWithClassConstructorRule, arguments: {dispatchableClass: Illuminate\\Foundation\\Bus\\Dispatchable}, tags: [phpstan.rules.rule]}, {class: Larastan\\Larastan\\Rules\\CheckDispatchArgumentTypesCompatibleWithClassConstructorRule, arguments: {dispatchableClass: Illuminate\\Foundation\\Events\\Dispatchable}, tags: [phpstan.rules.rule]}, {class: Larastan\\Larastan\\Properties\\Schema\\PhpMyAdminDataTypeToPhpTypeConverter}, {class: Larastan\\Larastan\\LarastanStubFilesExtension, tags: [phpstan.stubFilesExtension]}, {class: Larastan\\Larastan\\Rules\\UnusedViewsRule}, {class: Larastan\\Larastan\\Collectors\\UsedViewFunctionCollector, tags: [phpstan.collector]}, {class: Larastan\\Larastan\\Collectors\\UsedEmailViewCollector, tags: [phpstan.collector]}, {class: Larastan\\Larastan\\Collectors\\UsedViewMakeCollector, tags: [phpstan.collector]}, {class: Larastan\\Larastan\\Collectors\\UsedViewFacadeMakeCollector, tags: [phpstan.collector]}, {class: Larastan\\Larastan\\Collectors\\UsedRouteFacadeViewCollector, tags: [phpstan.collector]}, {class: Larastan\\Larastan\\Collectors\\UsedViewInAnotherViewCollector, arguments: {parser: @currentPhpVersionSimpleDirectParser}}, {class: Larastan\\Larastan\\Support\\ViewFileHelper, arguments: {viewDirectories: %viewDirectories%}}, {class: Larastan\\Larastan\\ReturnTypes\\ApplicationMakeDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ContainerMakeDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ConsoleCommand\\ArgumentDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ConsoleCommand\\HasArgumentDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ConsoleCommand\\OptionDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ConsoleCommand\\HasOptionDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\TranslatorGetReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\TransHelperReturnTypeExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\DoubleUnderscoreHelperReturnTypeExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\AppMakeHelper}, {class: Larastan\\Larastan\\Internal\\ConsoleApplicationResolver}, {class: Larastan\\Larastan\\Internal\\ConsoleApplicationHelper}, {class: Larastan\\Larastan\\Support\\HigherOrderCollectionProxyHelper}]}',
   'analysedPaths' => 
   array (
     0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src',
@@ -2294,6 +2294,41 @@ return [
 	'projectExtensionFiles' => array (
 ),
 	'errorsCallback' => static function (): array { return array (
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/GeneratorConfig.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Offset \'type\' on array{type: \'belongsTo\'|\'belongsToMany\'|\'hasMany\'|\'hasOne\'|\'morphMany\'|\'morphOne\'|\'morphTo\', model: string, foreignKey?: string, localKey?: string, table?: string, morphType?: string} in isset() always exists and is not nullable.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/GeneratorConfig.php',
+       'line' => 164,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/GeneratorConfig.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 164,
+       'nodeType' => 'PhpParser\\Node\\Expr\\Isset_',
+       'identifier' => 'isset.offset',
+       'metadata' => 
+      array (
+      ),
+    )),
+    1 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Offset \'model\' on array{type: \'belongsTo\'|\'belongsToMany\'|\'hasMany\'|\'hasOne\'|\'morphMany\'|\'morphOne\'|\'morphTo\', model: string, foreignKey?: string, localKey?: string, table?: string, morphType?: string} in isset() always exists and is not nullable.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/GeneratorConfig.php',
+       'line' => 173,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/GeneratorConfig.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 173,
+       'nodeType' => 'PhpParser\\Node\\Expr\\Isset_',
+       'identifier' => 'isset.offset',
+       'metadata' => 
+      array (
+      ),
+    )),
+  ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/GenerateModelCommand.php' => 
   array (
     0 => 
@@ -2346,6 +2381,25 @@ return [
        'nodeLine' => 39,
        'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
        'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Model/Relations.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Match arm is unreachable because previous comparison is always true.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Model/Relations.php',
+       'line' => 68,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Model/Relations.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 59,
+       'nodeType' => 'PHPStan\\Node\\MatchExpressionNode',
+       'identifier' => 'match.unreachable',
        'metadata' => 
       array (
       ),
@@ -2454,7 +2508,7 @@ return [
   array (
     0 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Property SAC\\EloquentModelGenerator\\Models\\BaseModel::$table (string|null) overriding property Illuminate\\Database\\Eloquent\\Model::$table should not have a native type.',
+       'message' => 'Property SAC\\EloquentModelGenerator\\Models\\BaseModel::$table (string) overriding property Illuminate\\Database\\Eloquent\\Model::$table should not have a native type.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/BaseModel.php',
        'line' => 21,
        'canBeIgnored' => false,
@@ -2464,6 +2518,22 @@ return [
        'nodeLine' => 21,
        'nodeType' => 'PHPStan\\Node\\ClassPropertyNode',
        'identifier' => 'property.extraNativeType',
+       'metadata' => 
+      array (
+      ),
+    )),
+    1 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $hidden (array<int, string>) of method SAC\\EloquentModelGenerator\\Models\\BaseModel::setHidden() should be contravariant with parameter $hidden (array<string>) of method Illuminate\\Database\\Eloquent\\Model::setHidden()',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/BaseModel.php',
+       'line' => 172,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/BaseModel.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 172,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'method.childParameterType',
        'metadata' => 
       array (
       ),
@@ -2521,6 +2591,22 @@ return [
     )),
     3 => 
     \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Result of || is always false.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'line' => 267,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'traitFilePath' => NULL,
+       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
+       'nodeLine' => 267,
+       'nodeType' => 'PHPStan\\Node\\BooleanOrNode',
+       'identifier' => 'booleanOr.alwaysFalse',
+       'metadata' => 
+      array (
+      ),
+    )),
+    4 => 
+    \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Parameter #2 $rule of method SAC\\EloquentModelGenerator\\Models\\GeneratedModel::validateSingleRule() expects array|string, mixed given.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
        'line' => 327,
@@ -2535,7 +2621,7 @@ return [
       array (
       ),
     )),
-    4 => 
+    5 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method SAC\\EloquentModelGenerator\\Models\\GeneratedModel::validateSingleRule() has parameter $rule with no value type specified in iterable type array.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
@@ -2551,7 +2637,23 @@ return [
       array (
       ),
     )),
-    5 => 
+    6 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Else branch is unreachable because previous condition is always true.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'line' => 350,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'traitFilePath' => NULL,
+       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
+       'nodeLine' => 347,
+       'nodeType' => 'PhpParser\\Node\\Stmt\\If_',
+       'identifier' => 'else.unreachable',
+       'metadata' => 
+      array (
+      ),
+    )),
+    7 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Part $definition[\'foreignKey\'] (mixed) of encapsed string cannot be cast to string.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
@@ -2567,7 +2669,7 @@ return [
       array (
       ),
     )),
-    6 => 
+    8 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Part $definition[\'localKey\'] (mixed) of encapsed string cannot be cast to string.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
@@ -2583,7 +2685,7 @@ return [
       array (
       ),
     )),
-    7 => 
+    9 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method SAC\\EloquentModelGenerator\\Models\\GeneratedModel::getValidationRules() return type has no value type specified in iterable type array.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
@@ -2599,7 +2701,7 @@ return [
       array (
       ),
     )),
-    8 => 
+    10 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method SAC\\EloquentModelGenerator\\Models\\GeneratedModel::setValidationRules() has parameter $rules with no value type specified in iterable type array.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
@@ -2817,6 +2919,25 @@ return [
       ),
     )),
   ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Benchmark.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\Benchmark::measure() has parameter $operation with no signature specified for callable.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Benchmark.php',
+       'line' => 8,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Benchmark.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 8,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.callable',
+       'metadata' => 
+      array (
+      ),
+    )),
+  ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/DefaultModelGenerator.php' => 
   array (
     0 => 
@@ -2936,16 +3057,80 @@ return [
   array (
     0 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $columns of method SAC\\EloquentModelGenerator\\Support\\Factories\\ModelGeneratorFactory::createModelDefinition() expects array<string, array{type: string, nullable?: bool, unsigned?: bool, length?: int|null, total?: int|null, places?: int|null, allowed?: array<string>|null, autoIncrement?: bool, ...}>, array<string, array{type: non-empty-string, nullable: bool, default?: mixed, length?: int<1, max>|null, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...}> given.',
+       'message' => 'Parameter #2 $options (array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool}) of method SAC\\EloquentModelGenerator\\Services\\ModelGenerator::generateModel() should be contravariant with parameter $options (array{class_name?: string, namespace?: string, base_class?: class-string|null, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool}) of method SAC\\EloquentModelGenerator\\Contracts\\ModelGeneratorService::generateModel()',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php',
-       'line' => 26,
+       'line' => 24,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 24,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'method.childParameterType',
+       'metadata' => 
+      array (
+      ),
+    )),
+    1 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Offset \'columns\' on array{columns: array<string, array{type: non-empty-string, nullable: bool, default?: mixed, length?: int<1, max>|null, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...}>, indexes?: array<string, array{type: \'fulltext\'|\'index\'|\'primary\'|\'spatial\'|\'unique\', columns: array<string>, name?: string, algorithm?: string, options?: array<string, mixed>}>, foreignKeys?: array<string, array{table: string, columns: array<string, string>, onDelete?: string, onUpdate?: string}>, timestamps?: bool, softDeletes?: bool, primaryKey?: string, incrementing?: bool} in isset() always exists and is not nullable.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php',
+       'line' => 27,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 27,
+       'nodeType' => 'PhpParser\\Node\\Expr\\Isset_',
+       'identifier' => 'isset.offset',
+       'metadata' => 
+      array (
+      ),
+    )),
+    2 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #2 $columns of method SAC\\EloquentModelGenerator\\Support\\Factories\\ModelGeneratorFactory::createModelDefinition() expects array<string, array{type: string, nullable?: bool, unsigned?: bool, length?: int|null, total?: int|null, places?: int|null, allowed?: array<string>|null, autoIncrement?: bool, ...}>, non-empty-array<string, array{type: non-empty-string, nullable: bool, default?: mixed, length?: int<1, max>|null, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...}> given.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php',
+       'line' => 33,
        'canBeIgnored' => true,
        'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php',
        'traitFilePath' => NULL,
        'tip' => 'Offset \'default\' (string|null) does not accept type mixed.',
-       'nodeLine' => 24,
+       'nodeLine' => 31,
        'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
        'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    3 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Offset \'relations\' on array{columns: non-empty-array<string, array{type: non-empty-string, nullable: bool, default?: mixed, length?: int<1, max>|null, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...}>, indexes?: array<string, array{type: \'fulltext\'|\'index\'|\'primary\'|\'spatial\'|\'unique\', columns: array<string>, name?: string, algorithm?: string, options?: array<string, mixed>}>, foreignKeys?: array<string, array{table: string, columns: array<string, string>, onDelete?: string, onUpdate?: string}>, timestamps?: bool, softDeletes?: bool, primaryKey?: string, incrementing?: bool} on left side of ?? does not exist.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php',
+       'line' => 34,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 34,
+       'nodeType' => 'PhpParser\\Node\\Expr\\BinaryOp\\Coalesce',
+       'identifier' => 'nullCoalesce.offset',
+       'metadata' => 
+      array (
+      ),
+    )),
+    4 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #2 $config (array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool}) of method SAC\\EloquentModelGenerator\\Services\\ModelGenerator::generateBatch() should be contravariant with parameter $config (array{class_name?: string, namespace?: string, base_class?: class-string|null, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool}) of method SAC\\EloquentModelGenerator\\Contracts\\ModelGeneratorService::generateBatch()',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php',
+       'line' => 46,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 46,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'method.childParameterType',
        'metadata' => 
       array (
       ),
@@ -2955,46 +3140,46 @@ return [
   array (
     0 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Offset \'nullable\' on array{type: string, nullable: bool, default?: mixed, length?: int|null, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...} on left side of ?? always exists and is not nullable.',
+       'message' => 'Offset \'columns\' on array{columns: array<string, array{type: non-empty-string, nullable: bool, default?: mixed, length?: int<1, max>|null, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...}>, indexes?: array<string, array{type: \'fulltext\'|\'index\'|\'primary\'|\'spatial\'|\'unique\', columns: array<string>, name?: string, algorithm?: string, options?: array<string, mixed>}>, foreignKeys?: array<string, array{table: string, columns: array<string, string>, onDelete?: string, onUpdate?: string}>, relations?: array<string, array{type: string, model?: string, foreignKey?: string, localKey?: string, morphType?: string}>, timestamps?: bool, softDeletes?: bool, primaryKey?: string, incrementing?: bool} in isset() always exists and is not nullable.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 117,
+       'line' => 109,
        'canBeIgnored' => true,
        'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 117,
-       'nodeType' => 'PhpParser\\Node\\Expr\\BinaryOp\\Coalesce',
-       'identifier' => 'nullCoalesce.offset',
+       'nodeLine' => 109,
+       'nodeType' => 'PhpParser\\Node\\Expr\\Isset_',
+       'identifier' => 'isset.offset',
        'metadata' => 
       array (
       ),
     )),
     1 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $default of class SAC\\EloquentModelGenerator\\ValueObjects\\Column constructor expects string|null, mixed given.',
+       'message' => 'Offset \'type\' on array{type: string, nullable: bool, default?: mixed, length?: int|null, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...} in isset() always exists and is not nullable.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 119,
+       'line' => 116,
        'canBeIgnored' => true,
        'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 112,
-       'nodeType' => 'PhpParser\\Node\\Expr\\New_',
-       'identifier' => 'argument.type',
+       'nodeLine' => 116,
+       'nodeType' => 'PhpParser\\Node\\Expr\\Isset_',
+       'identifier' => 'isset.offset',
        'metadata' => 
       array (
       ),
     )),
     2 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Offset \'type\' on array{type: string, model?: string, foreignKey?: string, localKey?: string, morphType?: string} on left side of ?? always exists and is not nullable.',
+       'message' => 'Offset \'nullable\' on array{type: string, nullable: bool, default?: mixed, length?: int|null, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...} on left side of ?? always exists and is not nullable.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 130,
+       'line' => 125,
        'canBeIgnored' => true,
        'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 130,
+       'nodeLine' => 125,
        'nodeType' => 'PhpParser\\Node\\Expr\\BinaryOp\\Coalesce',
        'identifier' => 'nullCoalesce.offset',
        'metadata' => 
@@ -3003,14 +3188,14 @@ return [
     )),
     3 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $className of class SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition constructor expects non-empty-string, string given.',
+       'message' => 'Parameter $default of class SAC\\EloquentModelGenerator\\ValueObjects\\Column constructor expects string|null, mixed given.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 144,
+       'line' => 127,
        'canBeIgnored' => true,
        'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 143,
+       'nodeLine' => 120,
        'nodeType' => 'PhpParser\\Node\\Expr\\New_',
        'identifier' => 'argument.type',
        'metadata' => 
@@ -3019,30 +3204,30 @@ return [
     )),
     4 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $namespace of class SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition constructor expects non-empty-string, string given.',
+       'message' => 'Offset \'type\' on array{type: string, model?: string, foreignKey?: string, localKey?: string, morphType?: string} in isset() always exists and is not nullable.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 145,
+       'line' => 136,
        'canBeIgnored' => true,
        'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 143,
-       'nodeType' => 'PhpParser\\Node\\Expr\\New_',
-       'identifier' => 'argument.type',
+       'nodeLine' => 136,
+       'nodeType' => 'PhpParser\\Node\\Expr\\Isset_',
+       'identifier' => 'isset.offset',
        'metadata' => 
       array (
       ),
     )),
     5 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $table of class SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition constructor expects non-empty-string|null, string given.',
+       'message' => 'Parameter $className of class SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition constructor expects non-empty-string, string given.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 152,
+       'line' => 156,
        'canBeIgnored' => true,
        'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 143,
+       'nodeLine' => 155,
        'nodeType' => 'PhpParser\\Node\\Expr\\New_',
        'identifier' => 'argument.type',
        'metadata' => 
@@ -3051,9 +3236,73 @@ return [
     )),
     6 => 
     \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter $namespace of class SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition constructor expects non-empty-string, string given.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'line' => 157,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 155,
+       'nodeType' => 'PhpParser\\Node\\Expr\\New_',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    7 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter $table of class SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition constructor expects non-empty-string|null, string given.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'line' => 164,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 155,
+       'nodeType' => 'PhpParser\\Node\\Expr\\New_',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    8 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Strict comparison using === between array<string> and null will always evaluate to false.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'line' => 207,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
+       'nodeLine' => 207,
+       'nodeType' => 'PhpParser\\Node\\Expr\\BinaryOp\\Identical',
+       'identifier' => 'identical.alwaysFalse',
+       'metadata' => 
+      array (
+      ),
+    )),
+    9 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Offset \'columns\' on array{columns: array<string, array{type: non-empty-string, nullable: bool, default?: mixed, length?: int<1, max>|null, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...}>, indexes?: array<string, array{type: \'fulltext\'|\'index\'|\'primary\'|\'spatial\'|\'unique\', columns: array<string>, name?: string, algorithm?: string, options?: array<string, mixed>}>, foreignKeys?: array<string, array{table: string, columns: array<string, string>, onDelete?: string, onUpdate?: string}>, relations?: array<string, array{type: string, model?: string, foreignKey?: string, localKey?: string, morphType?: string}>, timestamps?: bool, softDeletes?: bool, primaryKey?: string, incrementing?: bool} in isset() always exists and is not nullable.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'line' => 234,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 234,
+       'nodeType' => 'PhpParser\\Node\\Expr\\Isset_',
+       'identifier' => 'isset.offset',
+       'metadata' => 
+      array (
+      ),
+    )),
+    10 => 
+    \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Parameter #2 $schema of method SAC\\EloquentModelGenerator\\Services\\ModelGeneratorTemplateEngine::render() expects array{columns: array<string, array{type: non-empty-string, length?: int<1, max>|null, nullable?: bool, default?: mixed, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool}>, relations?: array<string, array{type: non-empty-string, model: class-string, foreignKey?: non-empty-string, localKey?: non-empty-string, table?: non-empty-string, morphType?: non-empty-string, morphClass?: class-string, pivotTable?: non-empty-string}>, indexes?: array<string, array{type: \'fulltext\'|\'index\'|\'primary\'|\'spatial\'|\'unique\', columns: array<string>, name?: string, algorithm?: string, options?: array<string, mixed>}>, foreignKeys?: array<string, array{table: string, columns: array<string, string>, onDelete?: string, onUpdate?: string}>, timestamps?: bool, softDeletes?: bool, primaryKey?: string, incrementing?: bool}, array{columns: array<string, array{type: non-empty-string, nullable: bool, default?: mixed, length?: int<1, max>|null, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...}>, indexes?: array<string, array{type: \'fulltext\'|\'index\'|\'primary\'|\'spatial\'|\'unique\', columns: array<string>, name?: string, algorithm?: string, options?: array<string, mixed>}>, foreignKeys?: array<string, array{table: string, columns: array<string, string>, onDelete?: string, onUpdate?: string}>, relations?: array<string, array{type: string, model?: string, foreignKey?: string, localKey?: string, morphType?: string}>, timestamps?: bool, softDeletes?: bool, primaryKey?: string, incrementing?: bool} given.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 223,
+       'line' => 266,
        'canBeIgnored' => true,
        'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
        'traitFilePath' => NULL,
@@ -3063,151 +3312,279 @@ return [
 • Offset \'relations\' (array<string, array{type: non-empty-string, model: class-string, foreignKey?: non-empty-string, localKey?: non-empty-string, table?: non-empty-string, morphType?: non-empty-string, morphClass?: class-string, pivotTable?: non-empty-string}>) does not accept type array<string, array{type: string, model?: string, foreignKey?: string, localKey?: string, morphType?: string}>: Offset \'foreignKey\' (non-empty-string) does not accept type string.
 • Offset \'relations\' (array<string, array{type: non-empty-string, model: class-string, foreignKey?: non-empty-string, localKey?: non-empty-string, table?: non-empty-string, morphType?: non-empty-string, morphClass?: class-string, pivotTable?: non-empty-string}>) does not accept type array<string, array{type: string, model?: string, foreignKey?: string, localKey?: string, morphType?: string}>: Offset \'localKey\' (non-empty-string) does not accept type string.
 • Offset \'relations\' (array<string, array{type: non-empty-string, model: class-string, foreignKey?: non-empty-string, localKey?: non-empty-string, table?: non-empty-string, morphType?: non-empty-string, morphClass?: class-string, pivotTable?: non-empty-string}>) does not accept type array<string, array{type: string, model?: string, foreignKey?: string, localKey?: string, morphType?: string}>: Offset \'morphType\' (non-empty-string) does not accept type string.',
-       'nodeLine' => 223,
+       'nodeLine' => 266,
        'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
        'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    7 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $baseClass of class SAC\\EloquentModelGenerator\\Models\\GeneratedModel constructor expects string, class-string|null given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 229,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 225,
-       'nodeType' => 'PhpParser\\Node\\Expr\\New_',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    8 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method getNotnull() on an unknown class Doctrine\\DBAL\\Schema\\Column.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 329,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 329,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    9 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method getDefault() on an unknown class Doctrine\\DBAL\\Schema\\Column.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 330,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 330,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    10 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method getLength() on an unknown class Doctrine\\DBAL\\Schema\\Column.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 331,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 331,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
        'metadata' => 
       array (
       ),
     )),
     11 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method getUnsigned() on an unknown class Doctrine\\DBAL\\Schema\\Column.',
+       'message' => 'Parameter $baseClass of class SAC\\EloquentModelGenerator\\Models\\GeneratedModel constructor expects string, class-string|null given.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 332,
+       'line' => 275,
        'canBeIgnored' => true,
        'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
        'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 332,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
+       'tip' => NULL,
+       'nodeLine' => 271,
+       'nodeType' => 'PhpParser\\Node\\Expr\\New_',
+       'identifier' => 'argument.type',
        'metadata' => 
       array (
       ),
     )),
     12 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method getAutoincrement() on an unknown class Doctrine\\DBAL\\Schema\\Column.',
+       'message' => 'Negated boolean expression is always false.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 333,
+       'line' => 297,
        'canBeIgnored' => true,
        'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
        'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 333,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
+       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
+       'nodeLine' => 297,
+       'nodeType' => 'PhpParser\\Node\\Expr\\BooleanNot',
+       'identifier' => 'booleanNot.alwaysFalse',
        'metadata' => 
       array (
       ),
     )),
     13 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method getComment() on an unknown class Doctrine\\DBAL\\Schema\\Column.',
+       'message' => 'Offset \'columns\' on array{columns: array<string, array{type: non-empty-string, nullable: bool, default?: mixed, length?: int<1, max>|null, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...}>, indexes?: array<string, array{type: \'fulltext\'|\'index\'|\'primary\'|\'spatial\'|\'unique\', columns: array<string>, name?: string, algorithm?: string, options?: array<string, mixed>}>, foreignKeys?: array<string, array{table: string, columns: array<string, string>, onDelete?: string, onUpdate?: string}>, relations?: array<string, array{type: string, model?: string, foreignKey?: string, localKey?: string, morphType?: string}>, timestamps?: bool, softDeletes?: bool, primaryKey?: string, incrementing?: bool} in isset() always exists and is not nullable.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 334,
+       'line' => 297,
        'canBeIgnored' => true,
        'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
        'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 334,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
+       'tip' => NULL,
+       'nodeLine' => 297,
+       'nodeType' => 'PhpParser\\Node\\Expr\\Isset_',
+       'identifier' => 'isset.offset',
        'metadata' => 
       array (
       ),
     )),
     14 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'PHPDoc tag @var above assignment does not specify variable name.',
+       'message' => 'Result of || is always false.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 337,
+       'line' => 297,
        'canBeIgnored' => true,
        'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
        'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 337,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Expression',
-       'identifier' => 'varTag.noVariable',
+       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
+       'nodeLine' => 297,
+       'nodeType' => 'PHPStan\\Node\\BooleanOrNode',
+       'identifier' => 'booleanOr.alwaysFalse',
        'metadata' => 
       array (
       ),
     )),
     15 => 
     \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Result of || is always false.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'line' => 297,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
+       'nodeLine' => 297,
+       'nodeType' => 'PHPStan\\Node\\BooleanOrNode',
+       'identifier' => 'booleanOr.alwaysFalse',
+       'metadata' => 
+      array (
+      ),
+    )),
+    16 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Negated boolean expression is always false.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'line' => 302,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
+       'nodeLine' => 302,
+       'nodeType' => 'PhpParser\\Node\\Expr\\BooleanNot',
+       'identifier' => 'booleanNot.alwaysFalse',
+       'metadata' => 
+      array (
+      ),
+    )),
+    17 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Offset \'type\' on array{type: non-empty-string, nullable: bool, default?: mixed, length?: int<1, max>|null, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...} in isset() always exists and is not nullable.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'line' => 302,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 302,
+       'nodeType' => 'PhpParser\\Node\\Expr\\Isset_',
+       'identifier' => 'isset.offset',
+       'metadata' => 
+      array (
+      ),
+    )),
+    18 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Result of || is always false.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'line' => 302,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
+       'nodeLine' => 302,
+       'nodeType' => 'PHPStan\\Node\\BooleanOrNode',
+       'identifier' => 'booleanOr.alwaysFalse',
+       'metadata' => 
+      array (
+      ),
+    )),
+    19 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Result of || is always false.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'line' => 302,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
+       'nodeLine' => 302,
+       'nodeType' => 'PHPStan\\Node\\BooleanOrNode',
+       'identifier' => 'booleanOr.alwaysFalse',
+       'metadata' => 
+      array (
+      ),
+    )),
+    20 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Call to method getNotnull() on an unknown class Doctrine\\DBAL\\Schema\\Column.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'line' => 375,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
+       'nodeLine' => 375,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'class.notFound',
+       'metadata' => 
+      array (
+      ),
+    )),
+    21 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Call to method getDefault() on an unknown class Doctrine\\DBAL\\Schema\\Column.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'line' => 376,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
+       'nodeLine' => 376,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'class.notFound',
+       'metadata' => 
+      array (
+      ),
+    )),
+    22 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Call to method getLength() on an unknown class Doctrine\\DBAL\\Schema\\Column.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'line' => 377,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
+       'nodeLine' => 377,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'class.notFound',
+       'metadata' => 
+      array (
+      ),
+    )),
+    23 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Call to method getUnsigned() on an unknown class Doctrine\\DBAL\\Schema\\Column.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'line' => 378,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
+       'nodeLine' => 378,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'class.notFound',
+       'metadata' => 
+      array (
+      ),
+    )),
+    24 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Call to method getAutoincrement() on an unknown class Doctrine\\DBAL\\Schema\\Column.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'line' => 379,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
+       'nodeLine' => 379,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'class.notFound',
+       'metadata' => 
+      array (
+      ),
+    )),
+    25 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Call to method getComment() on an unknown class Doctrine\\DBAL\\Schema\\Column.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'line' => 380,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
+       'nodeLine' => 380,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'class.notFound',
+       'metadata' => 
+      array (
+      ),
+    )),
+    26 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'PHPDoc tag @var above assignment does not specify variable name.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'line' => 383,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 383,
+       'nodeType' => 'PhpParser\\Node\\Stmt\\Expression',
+       'identifier' => 'varTag.noVariable',
+       'metadata' => 
+      array (
+      ),
+    )),
+    27 => 
+    \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ModelGeneratorService::analyzeColumn() should return array{type: non-empty-string, nullable: bool, default?: mixed, length?: int<1, max>|null, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...} but returns array{type: non-empty-string, nullable: bool, default?: mixed, length?: mixed, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...}|non-empty-string.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 344,
+       'line' => 390,
        'canBeIgnored' => true,
        'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
        'traitFilePath' => NULL,
        'tip' => 'Offset \'length\' (int<1, max>|null) does not accept type mixed.',
-       'nodeLine' => 344,
+       'nodeLine' => 390,
        'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
        'identifier' => 'return.type',
        'metadata' => 
@@ -5288,6 +5665,38 @@ return [
     )),
     3 => 
     \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Return type (array<string, mixed>) of method SAC\\EloquentModelGenerator\\Services\\Schema\\SQLiteSchemaAnalyzer::analyze() should be covariant with return type (array{columns: array<string, array{type: string, nullable: bool, primary?: bool, unique?: bool, index?: bool, foreign?: array{table: string, column: string}, default?: mixed}>, relationships: array<array{type: string, foreignTable: string, foreignKey: string, localKey: string}>}) of method SAC\\EloquentModelGenerator\\Contracts\\SchemaAnalyzer::analyze()',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
+       'line' => 39,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 39,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'method.childReturnType',
+       'metadata' => 
+      array (
+      ),
+    )),
+    4 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Return type (array<string, mixed>) of method SAC\\EloquentModelGenerator\\Services\\Schema\\SQLiteSchemaAnalyzer::analyze() should be covariant with return type (array{columns: array<string, array{type: string, nullable: bool, primary?: bool, unique?: bool, index?: bool, foreign?: array{table: string, column: string}, default?: mixed}>, relationships: array<array{type: string, foreignTable: string, foreignKey: string, localKey: string}>}) of method SAC\\EloquentModelGenerator\\Contracts\\SchemaAnalyzer::analyze()',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
+       'line' => 39,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 39,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'method.childReturnType',
+       'metadata' => 
+      array (
+      ),
+    )),
+    5 => 
+    \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Call to method listTableDetails() on an unknown class Doctrine\\DBAL\\Schema\\AbstractSchemaManager.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
        'line' => 46,
@@ -5302,7 +5711,7 @@ return [
       array (
       ),
     )),
-    4 => 
+    6 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Call to method listTableForeignKeys() on an unknown class Doctrine\\DBAL\\Schema\\AbstractSchemaManager.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
@@ -5318,7 +5727,7 @@ return [
       array (
       ),
     )),
-    5 => 
+    7 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Parameter #1 $table of method SAC\\EloquentModelGenerator\\Services\\Schema\\SQLiteSchemaAnalyzer::analyzeColumns() expects Doctrine\\DBAL\\Schema\\Table, mixed given.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
@@ -5334,7 +5743,7 @@ return [
       array (
       ),
     )),
-    6 => 
+    8 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Parameter #2 $foreignKeys of method SAC\\EloquentModelGenerator\\Services\\Schema\\SQLiteSchemaAnalyzer::analyzeRelationships() expects array<Doctrine\\DBAL\\Schema\\ForeignKeyConstraint>, mixed given.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
@@ -5350,7 +5759,7 @@ return [
       array (
       ),
     )),
-    7 => 
+    9 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Call to an undefined method Illuminate\\Database\\ConnectionInterface::getDoctrineSchemaManager().',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
@@ -5366,7 +5775,7 @@ return [
       array (
       ),
     )),
-    8 => 
+    10 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Cannot call method tablesExist() on mixed.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
@@ -5382,7 +5791,7 @@ return [
       array (
       ),
     )),
-    9 => 
+    11 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method SAC\\EloquentModelGenerator\\Services\\Schema\\SQLiteSchemaAnalyzer::hasTable() should return bool but returns mixed.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
@@ -5398,39 +5807,39 @@ return [
       array (
       ),
     )),
-    10 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $table of method SAC\\EloquentModelGenerator\\Services\\Schema\\SQLiteSchemaAnalyzer::analyzeColumns() has invalid type Doctrine\\DBAL\\Schema\\Table.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 133,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 133,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    11 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $table of method SAC\\EloquentModelGenerator\\Services\\Schema\\SQLiteSchemaAnalyzer::analyzeColumns() has invalid type Doctrine\\DBAL\\Schema\\Table.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 133,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 133,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
     12 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter $table of method SAC\\EloquentModelGenerator\\Services\\Schema\\SQLiteSchemaAnalyzer::analyzeColumns() has invalid type Doctrine\\DBAL\\Schema\\Table.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
+       'line' => 133,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 133,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'class.notFound',
+       'metadata' => 
+      array (
+      ),
+    )),
+    13 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter $table of method SAC\\EloquentModelGenerator\\Services\\Schema\\SQLiteSchemaAnalyzer::analyzeColumns() has invalid type Doctrine\\DBAL\\Schema\\Table.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
+       'line' => 133,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 133,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'class.notFound',
+       'metadata' => 
+      array (
+      ),
+    )),
+    14 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Call to method getPrimaryKey() on an unknown class Doctrine\\DBAL\\Schema\\Table.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
@@ -5446,7 +5855,7 @@ return [
       array (
       ),
     )),
-    13 => 
+    15 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Call to method getIndexes() on an unknown class Doctrine\\DBAL\\Schema\\Table.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
@@ -5462,7 +5871,7 @@ return [
       array (
       ),
     )),
-    14 => 
+    16 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Argument of an invalid type mixed supplied for foreach, only iterables are supported.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
@@ -5478,7 +5887,7 @@ return [
       array (
       ),
     )),
-    15 => 
+    17 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Call to method getColumns() on an unknown class Doctrine\\DBAL\\Schema\\Table.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
@@ -5494,7 +5903,7 @@ return [
       array (
       ),
     )),
-    16 => 
+    18 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Cannot call method getName() on mixed.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
@@ -5510,7 +5919,7 @@ return [
       array (
       ),
     )),
-    17 => 
+    19 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Cannot call method getName() on mixed.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
@@ -5526,7 +5935,7 @@ return [
       array (
       ),
     )),
-    18 => 
+    20 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Cannot call method getType() on mixed.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
@@ -5542,7 +5951,7 @@ return [
       array (
       ),
     )),
-    19 => 
+    21 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Parameter #1 $type of method SAC\\EloquentModelGenerator\\Services\\Schema\\SQLiteSchemaAnalyzer::mapColumnType() expects string, mixed given.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
@@ -5558,7 +5967,7 @@ return [
       array (
       ),
     )),
-    20 => 
+    22 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Cannot call method getNotnull() on mixed.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
@@ -5574,7 +5983,7 @@ return [
       array (
       ),
     )),
-    21 => 
+    23 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Cannot call method getDefault() on mixed.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
@@ -5590,7 +5999,7 @@ return [
       array (
       ),
     )),
-    22 => 
+    24 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Cannot call method getColumns() on mixed.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
@@ -5606,7 +6015,7 @@ return [
       array (
       ),
     )),
-    23 => 
+    25 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Parameter #2 $haystack of function in_array expects array, mixed given.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
@@ -5622,7 +6031,7 @@ return [
       array (
       ),
     )),
-    24 => 
+    26 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Cannot call method getAutoincrement() on mixed.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
@@ -5638,7 +6047,7 @@ return [
       array (
       ),
     )),
-    25 => 
+    27 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Argument of an invalid type mixed supplied for foreach, only iterables are supported.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
@@ -5654,7 +6063,7 @@ return [
       array (
       ),
     )),
-    26 => 
+    28 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Cannot access offset 0 on mixed.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
@@ -5670,41 +6079,9 @@ return [
       array (
       ),
     )),
-    27 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getColumns() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 151,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 151,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    28 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getColumns() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 151,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 151,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
     29 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method isUnique() on mixed.',
+       'message' => 'Cannot call method getColumns() on mixed.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
        'line' => 151,
        'canBeIgnored' => true,
@@ -5720,6 +6097,38 @@ return [
     )),
     30 => 
     \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot call method getColumns() on mixed.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
+       'line' => 151,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 151,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.nonObject',
+       'metadata' => 
+      array (
+      ),
+    )),
+    31 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot call method isUnique() on mixed.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
+       'line' => 151,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 151,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.nonObject',
+       'metadata' => 
+      array (
+      ),
+    )),
+    32 => 
+    \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Parameter #1 $value of function count expects array|Countable, mixed given.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
        'line' => 151,
@@ -5734,7 +6143,7 @@ return [
       array (
       ),
     )),
-    31 => 
+    33 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method SAC\\EloquentModelGenerator\\Services\\Schema\\SQLiteSchemaAnalyzer::analyzeColumns() should return array<string, array<string, mixed>> but returns array<array<string, mixed>>.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
@@ -5750,7 +6159,7 @@ return [
       array (
       ),
     )),
-    32 => 
+    34 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Parameter $foreignKeys of method SAC\\EloquentModelGenerator\\Services\\Schema\\SQLiteSchemaAnalyzer::analyzeRelationships() has invalid type Doctrine\\DBAL\\Schema\\ForeignKeyConstraint.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
@@ -5766,7 +6175,7 @@ return [
       array (
       ),
     )),
-    33 => 
+    35 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Call to method getForeignTableName() on an unknown class Doctrine\\DBAL\\Schema\\ForeignKeyConstraint.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
@@ -5782,7 +6191,7 @@ return [
       array (
       ),
     )),
-    34 => 
+    36 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Call to method getForeignColumns() on an unknown class Doctrine\\DBAL\\Schema\\ForeignKeyConstraint.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
@@ -5798,7 +6207,7 @@ return [
       array (
       ),
     )),
-    35 => 
+    37 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Call to method getLocalColumns() on an unknown class Doctrine\\DBAL\\Schema\\ForeignKeyConstraint.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
@@ -6531,6 +6940,25 @@ return [
       ),
     )),
   ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Templates/CachedModelTemplate.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Ternary operator condition is always false.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Templates/CachedModelTemplate.php',
+       'line' => 55,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Templates/CachedModelTemplate.php',
+       'traitFilePath' => NULL,
+       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
+       'nodeLine' => 55,
+       'nodeType' => 'PhpParser\\Node\\Expr\\Ternary',
+       'identifier' => 'ternary.alwaysFalse',
+       'metadata' => 
+      array (
+      ),
+    )),
+  ),
 ); },
 	'locallyIgnoredErrorsCallback' => static function (): array { return array (
 ); },
@@ -6543,7 +6971,7 @@ return [
 	'dependencies' => array (
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Collections/ModelCollection.php' => 
   array (
-    'fileHash' => '917af26c0c8c7d7f94e71d0245a227406da363c7',
+    'fileHash' => '5daf8f61faa467dce934ad6268cbce8504c2552e',
     'dependentFiles' => 
     array (
     ),
@@ -6589,7 +7017,7 @@ return [
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Contracts/ModelGeneratorService.php' => 
   array (
-    'fileHash' => '68b51b4249c224153ad86e54f6d822ac1053f904',
+    'fileHash' => '932d2632fb122f43708bc92e6f9b65ffa3d45aa8',
     'dependentFiles' => 
     array (
       0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/GenerateModelCommand.php',
@@ -6659,8 +7087,10 @@ return [
     'dependentFiles' => 
     array (
       0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Contracts/ModelGenerator.php',
-      1 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ModelGenerator.php',
-      2 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+      1 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Contracts/ModelGeneratorService.php',
+      2 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ModelGenerator.php',
+      3 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php',
+      4 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
     ),
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Exceptions/ModelGeneratorSchemaAnalyzerException.php' => 
@@ -6733,7 +7163,7 @@ return [
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Model/Relations.php' => 
   array (
-    'fileHash' => 'c064473b4dce96a7c508cf319124d23e261ccb46',
+    'fileHash' => 'efbedf814d529d012eee6d99df3937e9260f2a30',
     'dependentFiles' => 
     array (
     ),
@@ -6754,7 +7184,7 @@ return [
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/BaseModel.php' => 
   array (
-    'fileHash' => 'ba2e5f4196beed802e6b095911219cd12f547ca3',
+    'fileHash' => '9271c45e7f707a70584652f1e2e150c310dd301b',
     'dependentFiles' => 
     array (
     ),
@@ -6862,7 +7292,7 @@ return [
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php' => 
   array (
-    'fileHash' => '5256045668587805895cadd6a1ad33e4d23cdc41',
+    'fileHash' => '0a5d69d5d79aed157e59193598642c0e9993875f',
     'dependentFiles' => 
     array (
       0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/EloquentModelGeneratorServiceProvider.php',
@@ -6886,7 +7316,7 @@ return [
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php' => 
   array (
-    'fileHash' => 'a79a483a5aec872207684f0860a7e024aa9b5840',
+    'fileHash' => 'f0d6adb9e8ceafd1942ebd97feca8897a7c89a9a',
     'dependentFiles' => 
     array (
       0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/GenerateModelCommand.php',
@@ -7219,6 +7649,51 @@ return [
       array (
         0 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => '__construct',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Create a new model collection.
+     *
+     * @param array<TKey, TValue> $items
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Collections',
+             'uses' => 
+            array (
+              'collection' => 'Illuminate\\Support\\Collection',
+              'generatedmodel' => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'items',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'getModel',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
@@ -7263,7 +7738,7 @@ return [
           array (
           ),
         )),
-        1 => 
+        2 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'addModel',
            'phpDoc' => 
@@ -7272,7 +7747,7 @@ return [
      * Add a model to the collection
      *
      * @param TValue $model The model to add
-     * @return static<TKey, TValue>
+     * @return $this
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Collections',
              'uses' => 
@@ -7290,7 +7765,7 @@ return [
            'abstract' => false,
            'final' => false,
            'static' => false,
-           'returnType' => 'static',
+           'returnType' => 'self',
            'parameters' => 
           array (
             0 => 
@@ -7309,7 +7784,7 @@ return [
           array (
           ),
         )),
-        2 => 
+        3 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'removeModel',
            'phpDoc' => 
@@ -7350,6 +7825,40 @@ return [
               array (
               ),
             )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getModels',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get all models in the collection.
+     *
+     * @return array<TKey, TValue>
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Collections',
+             'uses' => 
+            array (
+              'collection' => 'Illuminate\\Support\\Collection',
+              'generatedmodel' => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
           ),
            'attributes' => 
           array (
@@ -8785,7 +9294,69 @@ return [
     0 => 
     \PHPStan\Dependency\ExportedNode\ExportedInterfaceNode::__set_state(array(
        'name' => 'SAC\\EloquentModelGenerator\\Contracts\\ModelGeneratorService',
-       'phpDoc' => NULL,
+       'phpDoc' => 
+      \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+         'phpDocString' => '/**
+ * @phpstan-type ColumnDefinition array{
+ *     type: non-empty-string,
+ *     nullable: bool,
+ *     default?: mixed,
+ *     length?: positive-int|null,
+ *     unsigned?: bool,
+ *     autoIncrement?: bool,
+ *     primary?: bool,
+ *     unique?: bool,
+ *     comment?: non-empty-string|null,
+ *     allowed?: array<string>|null
+ * }
+ *
+ * @phpstan-type SchemaDefinition array{
+ *     columns: array<string, ColumnDefinition>,
+ *     indexes?: array<string, array{
+ *         type: \'primary\'|\'unique\'|\'index\'|\'fulltext\'|\'spatial\',
+ *         columns: array<string>,
+ *         name?: string,
+ *         algorithm?: string,
+ *         options?: array<string, mixed>
+ *     }>,
+ *     foreignKeys?: array<string, array{
+ *         table: string,
+ *         columns: array<string, string>,
+ *         onDelete?: string,
+ *         onUpdate?: string
+ *     }>,
+ *     relations?: array<string, array{
+ *         type: string,
+ *         model?: string,
+ *         foreignKey?: string,
+ *         localKey?: string,
+ *         morphType?: string
+ *     }>,
+ *     timestamps?: bool,
+ *     softDeletes?: bool,
+ *     primaryKey?: string,
+ *     incrementing?: bool
+ * }
+ *
+ * @phpstan-type ModelOptions array{
+ *     class_name?: string,
+ *     namespace?: string,
+ *     base_class?: class-string|null,
+ *     with_soft_deletes?: bool,
+ *     with_validation?: bool,
+ *     with_relationships?: bool
+ * }
+ */',
+         'namespace' => 'SAC\\EloquentModelGenerator\\Contracts',
+         'uses' => 
+        array (
+          'modeldefinition' => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+          'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+        ),
+         'constUses' => 
+        array (
+        ),
+      )),
        'extends' => 
       array (
       ),
@@ -8800,13 +9371,15 @@ return [
      * Generate a model from a table name.
      *
      * @param string $table
-     * @param array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool} $options
+     * @param ModelOptions $options
      * @return ModelDefinition
+     * @throws ModelGeneratorException If table does not exist or schema analysis fails
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Contracts',
              'uses' => 
             array (
               'modeldefinition' => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
             ),
              'constUses' => 
             array (
@@ -8857,13 +9430,15 @@ return [
      * Generate models for multiple tables
      *
      * @param array<string> $tables
-     * @param array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool} $config
+     * @param ModelOptions $config
      * @return array<ModelDefinition>
+     * @throws ModelGeneratorException If any model generation fails
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Contracts',
              'uses' => 
             array (
               'modeldefinition' => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
             ),
              'constUses' => 
             array (
@@ -8914,11 +9489,13 @@ return [
      * Get all available tables
      *
      * @return array<string>
+     * @throws ModelGeneratorException If table list cannot be retrieved
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Contracts',
              'uses' => 
             array (
               'modeldefinition' => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
             ),
              'constUses' => 
             array (
@@ -8947,41 +9524,14 @@ return [
      * Get the schema for a table
      *
      * @param string $table
-     * @return array{
-     *     columns: array<string, array{
-     *         type: non-empty-string,
-     *         nullable: bool,
-     *         default?: mixed,
-     *         length?: positive-int|null,
-     *         unsigned?: bool,
-     *         autoIncrement?: bool,
-     *         primary?: bool,
-     *         unique?: bool,
-     *         comment?: non-empty-string|null
-     *     }>,
-     *     indexes?: array<string, array{
-     *         type: \'primary\'|\'unique\'|\'index\'|\'fulltext\'|\'spatial\',
-     *         columns: array<string>,
-     *         name?: string,
-     *         algorithm?: string,
-     *         options?: array<string, mixed>
-     *     }>,
-     *     foreignKeys?: array<string, array{
-     *         table: string,
-     *         columns: array<string, string>,
-     *         onDelete?: string,
-     *         onUpdate?: string
-     *     }>,
-     *     timestamps?: bool,
-     *     softDeletes?: bool,
-     *     primaryKey?: string,
-     *     incrementing?: bool
-     * }
+     * @return SchemaDefinition
+     * @throws ModelGeneratorException If schema analysis fails
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Contracts',
              'uses' => 
             array (
               'modeldefinition' => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
             ),
              'constUses' => 
             array (
@@ -10412,7 +10962,30 @@ return [
     0 => 
     \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
        'name' => 'SAC\\EloquentModelGenerator\\Model\\Relations',
-       'phpDoc' => NULL,
+       'phpDoc' => 
+      \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+         'phpDocString' => '/**
+ * @phpstan-type RelationType \'hasOne\'|\'hasMany\'|\'belongsTo\'|\'belongsToMany\'|\'morphTo\'|\'morphOne\'|\'morphMany\'|\'morphToMany\'
+ * @phpstan-type RelationDefinition array{
+ *     type: RelationType,
+ *     model: class-string,
+ *     name: string,
+ *     foreignKey?: string,
+ *     localKey?: string,
+ *     table?: string,
+ *     morphType?: string,
+ *     morphClass?: class-string
+ * }
+ */',
+         'namespace' => 'SAC\\EloquentModelGenerator\\Model',
+         'uses' => 
+        array (
+          'str' => 'Illuminate\\Support\\Str',
+        ),
+         'constUses' => 
+        array (
+        ),
+      )),
        'abstract' => false,
        'final' => false,
        'extends' => NULL,
@@ -10429,14 +11002,14 @@ return [
       array (
         0 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'addBelongsTo',
+           'name' => 'addRelation',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Add a belongs to relation.
+     * Add a relation definition.
      *
      * @param string $name
-     * @param class-string $model
+     * @param RelationDefinition $definition
      * @return void
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Model',
@@ -10470,8 +11043,8 @@ return [
             )),
             1 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'model',
-               'type' => 'string',
+               'name' => 'definition',
+               'type' => 'array',
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => false,
@@ -10486,15 +11059,13 @@ return [
         )),
         1 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'addHasMany',
+           'name' => 'getRelations',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Add a has many relation.
+     * Get all relations.
      *
-     * @param string $name
-     * @param class-string $model
-     * @return void
+     * @return array<string, RelationDefinition>
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Model',
              'uses' => 
@@ -10511,31 +11082,9 @@ return [
            'abstract' => false,
            'final' => false,
            'static' => false,
-           'returnType' => 'void',
+           'returnType' => 'array',
            'parameters' => 
           array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'name',
-               'type' => 'string',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            1 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'model',
-               'type' => 'string',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
           ),
            'attributes' => 
           array (
@@ -10543,69 +11092,13 @@ return [
         )),
         2 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'addManyToMany',
+           'name' => 'getRelationMethods',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Add a many to many relation.
+     * Get the relation method definition.
      *
-     * @param string $name
-     * @param class-string $model
-     * @return void
-     */',
-             'namespace' => 'SAC\\EloquentModelGenerator\\Model',
-             'uses' => 
-            array (
-              'str' => 'Illuminate\\Support\\Str',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'void',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'name',
-               'type' => 'string',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            1 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'model',
-               'type' => 'string',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        3 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'toString',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * Convert relations to string.
-     *
+     * @param array<string, RelationDefinition> $relations
      * @return string
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Model',
@@ -10626,6 +11119,17 @@ return [
            'returnType' => 'string',
            'parameters' => 
           array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'relations',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
           ),
            'attributes' => 
           array (
@@ -11141,7 +11645,7 @@ return [
              'phpDocString' => '/**
      * The table associated with the model.
      *
-     * @var string|null
+     * @var string
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Models',
              'uses' => 
@@ -11156,7 +11660,7 @@ return [
             array (
             ),
           )),
-           'type' => '?string',
+           'type' => 'string',
            'public' => false,
            'private' => false,
            'static' => false,
@@ -15067,6 +15571,7 @@ return [
      * @param string $table
      * @param array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool} $options
      * @return ModelDefinition
+     * @throws ModelGeneratorException
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Services',
              'uses' => 
@@ -15074,6 +15579,7 @@ return [
               'modelgeneratorservice' => 'SAC\\EloquentModelGenerator\\Contracts\\ModelGeneratorService',
               'modelgeneratorfactory' => 'SAC\\EloquentModelGenerator\\Support\\Factories\\ModelGeneratorFactory',
               'modeldefinition' => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
             ),
              'constUses' => 
             array (
@@ -15126,6 +15632,7 @@ return [
      * @param array<string> $tables
      * @param array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool} $config
      * @return array<ModelDefinition>
+     * @throws ModelGeneratorException
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Services',
              'uses' => 
@@ -15133,6 +15640,7 @@ return [
               'modelgeneratorservice' => 'SAC\\EloquentModelGenerator\\Contracts\\ModelGeneratorService',
               'modelgeneratorfactory' => 'SAC\\EloquentModelGenerator\\Support\\Factories\\ModelGeneratorFactory',
               'modeldefinition' => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
             ),
              'constUses' => 
             array (
@@ -15190,6 +15698,7 @@ return [
               'modelgeneratorservice' => 'SAC\\EloquentModelGenerator\\Contracts\\ModelGeneratorService',
               'modelgeneratorfactory' => 'SAC\\EloquentModelGenerator\\Support\\Factories\\ModelGeneratorFactory',
               'modeldefinition' => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
             ),
              'constUses' => 
             array (
@@ -15255,6 +15764,7 @@ return [
               'modelgeneratorservice' => 'SAC\\EloquentModelGenerator\\Contracts\\ModelGeneratorService',
               'modelgeneratorfactory' => 'SAC\\EloquentModelGenerator\\Support\\Factories\\ModelGeneratorFactory',
               'modeldefinition' => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
             ),
              'constUses' => 
             array (
@@ -15609,6 +16119,7 @@ return [
      * @param array<string> $tables
      * @param ModelOptions $config
      * @return array<ModelDefinition>
+     * @throws ModelGeneratorException If any model generation fails
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Services',
              'uses' => 

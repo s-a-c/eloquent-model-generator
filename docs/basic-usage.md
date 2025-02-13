@@ -1,163 +1,184 @@
-# Basic Usage
+# Basic Usage Guide
 
-This guide covers the basic usage of the Eloquent Model Generator.
+This guide covers the basic usage of the Eloquent Model Generator package, including model generation, static analysis, and code fixing.
 
-## Command Line Interface
+## Model Generation
 
-### Generate All Models
-
-```bash
-php artisan model:generate
-```
-
-This will generate models for all tables in your database (except excluded tables).
-
-### Generate Specific Models
+### Generate a Single Model
 
 ```bash
-php artisan model:generate --table=users,posts,comments
+php artisan generate:model --table=users
 ```
 
-### Generate with Custom Namespace
+Options:
+- `--table`: Specify the table name
+- `--connection`: Database connection to use
+- `--namespace`: Custom namespace for the model
+- `--path`: Custom path for the model file
+
+### Generate Multiple Models
 
 ```bash
-php artisan model:generate --namespace="App\\Domain\\Models"
+php artisan generate:model --table=users,posts,comments
 ```
 
-### Generate with Custom Output Path
+## Static Analysis
+
+### Run Analysis
 
 ```bash
-php artisan model:generate --output="app/Domain/Models"
+# Interactive mode
+php artisan analyze
+
+# With specific options
+php artisan analyze --levels=1,2,3 --directory=src
+php artisan analyze --parallel --format=html
 ```
 
-### Preview Generated Models
+Options:
+- `--levels` (-l): Comma-separated list of PHPStan levels to run
+- `--directory` (-d): Directory to analyze
+- `--parallel`: Run tools in parallel
+- `--format`: Output format (html, json, or text)
+- `--ci`: Run in CI mode with stricter checks
+- `--cache`: Enable caching of analysis results
+- `--debug`: Show detailed debug information
+
+### View Reports
+
+Analysis reports are generated in the `build/reports` directory:
+- HTML Report (default): `build/reports/report.html`
+- JSON Report: `build/reports/report.json`
+- Text Report: `build/reports/report.txt`
+- Tool-specific reports in `build/reports/tools/`
+
+## Code Fixing
+
+### Fix Code Issues
 
 ```bash
-php artisan model:generate --preview
+# Interactive mode
+php artisan fix
+
+# With specific options
+php artisan fix --levels=1,2,3 --all
+php artisan fix --dry-run
 ```
 
-This will show the model content without writing files.
+Options:
+- `--levels` (-l): Comma-separated list of PHPStan levels to fix
+- `--all` (-a): Fix all detected issues
+- `--dry-run`: Show what would be fixed without making changes
+- `--no-backup`: Skip creating backups of files
+- `--debug`: Show detailed debug information
 
-## Common Use Cases
+### Available Fix Strategies
 
-### Basic Model Generation
+1. Type Hint Fixer
+   - Adds missing return type hints to methods
+   - Infers types from method content
+   - Creates backups before modifications
+
+## Code Quality Tools
+
+### Run Individual Tools
 
 ```bash
-# Generate model for a single table
-php artisan model:generate --table=users
+# PHPStan
+composer phpstan
 
-# Generate models for multiple tables
-php artisan model:generate --table=users,posts,comments
+# Psalm
+composer psalm
 
-# Generate all models except specific tables
-php artisan model:generate --exclude=migrations,password_resets
+# PHP CS Fixer
+composer cs-fix
+
+# PHP_CodeSniffer
+composer phpcs
+
+# PHP Mess Detector
+composer phpmd
+
+# Metrics
+composer metrics
 ```
 
-### Customizing Model Generation
+### Run All Checks
 
 ```bash
-# Generate with relationships
-php artisan model:generate --with-relationships
-
-# Generate with validation rules
-php artisan model:generate --with-validation
-
-# Generate with soft deletes
-php artisan model:generate --with-soft-deletes
-
-# Generate with all features
-php artisan model:generate --with-relationships --with-validation --with-soft-deletes
+composer check-all
 ```
 
-### Output Control
+This will run:
+1. Tests (parallel)
+2. Type coverage analysis
+3. Static analysis
+4. Code style checks
+5. Metrics generation
+
+## Composer Scripts
+
+The package provides several composer scripts for common tasks:
 
 ```bash
-# Preview models without writing files
-php artisan model:generate --preview
+# Testing
+composer test              # Run tests
+composer test:coverage     # Run tests with coverage
+composer test:types       # Run type coverage analysis
+composer test:parallel    # Run tests in parallel
 
-# Generate with verbose output
-php artisan model:generate -v
+# Static Analysis
+composer analyze         # Run all static analysis tools
+composer fix            # Fix static analysis issues
+composer phpstan        # Run PHPStan
+composer psalm          # Run Psalm
+composer phpmd          # Run PHP Mess Detector
 
-# Generate with debug information
-php artisan model:generate --debug
+# Code Style
+composer style          # Run all code style checks
+composer cs-check       # Check code style with PHP-CS-Fixer
+composer cs-fix         # Fix code style with PHP-CS-Fixer
+composer phpcs          # Check code style with PHP_CodeSniffer
+composer phpcs-fix      # Fix code style with PHP_CodeSniffer
+
+# Additional Tools
+composer metrics        # Generate code metrics report
+composer infection      # Run mutation testing
+composer rector-dry     # Run Rector in dry-run mode
+composer rector         # Run Rector to apply changes
+composer type-coverage  # Run type coverage analysis
+composer class-leak     # Run class leak analysis
 ```
 
-## Programmatic Usage
+## Best Practices
 
-### Basic Usage
+1. **Always Run Analysis First**
+   ```bash
+   php artisan analyze
+   ```
 
-```php
-use SAC\EloquentModelGenerator\ModelGenerator;
+2. **Review Changes Before Fixing**
+   ```bash
+   php artisan fix --dry-run
+   ```
 
-public function generate(ModelGenerator $generator)
-{
-    // Generate a single model
-    $model = $generator->generate('users');
+3. **Keep Backups**
+   - Don't use `--no-backup` unless necessary
+   - Backups are stored in `build/backup/`
 
-    // Generate multiple models
-    $models = $generator->generateBatch(['users', 'posts']);
-}
-```
+4. **Use Parallel Processing**
+   ```bash
+   php artisan analyze --parallel
+   ```
 
-### With Custom Configuration
-
-```php
-use SAC\EloquentModelGenerator\ModelGenerator;
-use SAC\EloquentModelGenerator\ValueObjects\ModelDefinition;
-
-public function generateCustom(ModelGenerator $generator)
-{
-    $definition = new ModelDefinition(
-        className: 'User',
-        namespace: 'App\\Domain\\Models',
-        tableName: 'users',
-        withRelationships: true,
-        withValidation: true
-    );
-
-    $model = $generator->generate($definition);
-}
-```
-
-## Generated Model Example
-
-```php
-<?php
-
-namespace App\Models;
-
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-
-class User extends Model
-{
-    protected $table = 'users';
-
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
-
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'is_active' => 'boolean',
-    ];
-
-    public function posts(): HasMany
-    {
-        return $this->hasMany(Post::class);
-    }
-}
-```
+5. **Regular Quality Checks**
+   ```bash
+   composer check-all
+   ```
 
 ## Next Steps
 
-- Check [Advanced Usage](./advanced-usage.md) for more complex scenarios
-- Review [Configuration](./configuration.md) for customization options
-- See [API Reference](./api-reference.md) for detailed method documentation
+- Read the [Advanced Usage Guide](advanced-usage.md)
+- Learn about [Configuration Options](configuration.md)
+- Explore [Code Quality Tools](code-quality.md)
+- Check [Performance Tips](performance.md)
