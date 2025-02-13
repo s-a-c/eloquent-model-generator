@@ -44,7 +44,7 @@
 - [x] Add parallel testing support (Completed)
 - [x] Add stress testing support (Completed)
 - [x] Add JSON/YAML test data loading (Completed)
-- [~] Add methods to check model attribute casting (ETA: Next Sprint)
+- [x] Add methods to check model attribute casting (Completed)
 - [?] Add methods to validate model validation rules (Needs Discussion)
 - [ ] Add methods to test model events and observers
 - [ ] Add methods to verify index structures

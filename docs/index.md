@@ -6,6 +6,7 @@
 2. [Configuration](configuration.md)
 3. [Testing](testing.md)
    - [Test Data Loading](test-data-loading.md)
+   - [Model Casting Assertions](model-casting-assertions.md)
    - [Performance Testing](performance-testing.md)
    - [Edge Cases](edge-cases.md)
 
@@ -21,6 +22,7 @@
 
 ### Testing Features
 - JSON/YAML test data loading
+- Model attribute casting assertions
 - Performance monitoring and profiling
 - Edge case testing
 - Parallel test execution
