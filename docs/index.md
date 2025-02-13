@@ -1,5 +1,44 @@
 # Eloquent Model Generator Documentation
 
+## Getting Started
+- [Installation](installation.md)
+- [Configuration](configuration.md)
+
+## Features
+- [Model Generation](model-generation.md)
+- [Validation](validation.md)
+- [Performance Testing](performance-testing.md)
+
+## Advanced Topics
+- [Custom Model Generation](custom-model-generation.md)
+- [Testing](testing.md)
+- [Contributing](contributing.md)
+
+## API Reference
+- [Model Generator](api/model-generator.md)
+- [Model Definition](api/model-definition.md)
+- [Validation Rules](api/validation-rules.md)
+
+## Testing
+- [Unit Testing](testing/unit-testing.md)
+- [Feature Testing](testing/feature-testing.md)
+- [Performance Testing](testing/performance-testing.md)
+
+## Guides
+- [Best Practices](guides/best-practices.md)
+- [Common Patterns](guides/common-patterns.md)
+- [Troubleshooting](guides/troubleshooting.md)
+
+## Examples
+- [Basic Models](examples/basic-models.md)
+- [Complex Models](examples/complex-models.md)
+- [Validation Examples](examples/validation-examples.md)
+
+## Support
+- [FAQ](support/faq.md)
+- [Known Issues](support/known-issues.md)
+- [Community Resources](support/community-resources.md)
+
 ## Table of Contents
 
 1. [Installation](installation.md)

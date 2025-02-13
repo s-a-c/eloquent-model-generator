@@ -118,6 +118,69 @@ class GeneratedModel {
     ];
 
     /**
+     * The model's fillable attributes.
+     *
+     * @var array<string>
+     */
+    private array $fillable = [];
+
+    /**
+     * The model's hidden attributes.
+     *
+     * @var array<string>
+     */
+    private array $hidden = [];
+
+    /**
+     * The model's cast types.
+     *
+     * @var array<string, string>
+     */
+    private array $casts = [];
+
+    /**
+     * The model's date attributes.
+     *
+     * @var array<string>
+     */
+    private array $dates = [];
+
+    /**
+     * The model's validation rules.
+     *
+     * @var array<string, string|array>
+     */
+    private array $validationRules = [];
+
+    /**
+     * The model's validation messages.
+     *
+     * @var array<string, string>
+     */
+    private array $validationMessages = [];
+
+    /**
+     * The model's schema definition.
+     *
+     * @var array<string, mixed>
+     */
+    private array $schema = [];
+
+    /**
+     * The model's relationships.
+     *
+     * @var array<string, array>
+     */
+    private array $relationships = [];
+
+    /**
+     * Whether the model uses soft deletes.
+     *
+     * @var bool
+     */
+    private bool $softDeletes = false;
+
+    /**
      * Create a new generated model instance.
      *
      * @param string $className
@@ -565,7 +628,7 @@ class GeneratedModel {
     /**
      * Get the validation rules.
      *
-     * @return array<string, mixed>
+     * @return array<string, string|array>
      */
     public function getValidationRules(): array {
         return $this->validationRules;
@@ -638,6 +701,45 @@ class GeneratedModel {
      */
     public function render(): string {
         return $this->content;
+    }
+
+    /**
+     * Set the validation rules.
+     *
+     * @param array<string, string|array> $rules
+     * @return void
+     */
+    public function setValidationRules(array $rules): void {
+        $this->validationRules = $rules;
+    }
+
+    /**
+     * Set the validation messages.
+     *
+     * @param array<string, string> $messages
+     * @return void
+     */
+    public function setValidationMessages(array $messages): void {
+        $this->validationMessages = $messages;
+    }
+
+    /**
+     * Get the validation messages.
+     *
+     * @return array<string, string>
+     */
+    public function getValidationMessages(): array {
+        return $this->validationMessages;
+    }
+
+    /**
+     * Set the model content.
+     *
+     * @param string $content
+     * @return void
+     */
+    public function setContent(string $content): void {
+        $this->content = $content;
     }
 
     /**

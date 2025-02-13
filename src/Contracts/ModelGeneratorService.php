@@ -2,7 +2,7 @@
 
 namespace SAC\EloquentModelGenerator\Contracts;
 
-use SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition;
+use SAC\EloquentModelGenerator\ValueObjects\ModelDefinition;
 
 interface ModelGeneratorService {
     /**

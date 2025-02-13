@@ -6,7 +6,7 @@ use SAC\EloquentModelGenerator\Support\Definitions\RelationDefinition;
 use SAC\EloquentModelGenerator\Tests\TestCase;
 use Illuminate\Support\Facades\DB;
 use parallel\Runtime;
-use SAC\EloquentModelGenerator\Services\ModelGenerator;
+use SAC\EloquentModelGenerator\Services\ModelGeneratorService;
 
 /*
 |--------------------------------------------------------------------------
@@ -213,9 +213,9 @@ expect()->extend('toBeValidClassName', function () {
 |--------------------------------------------------------------------------
 */
 
-function createModelGenerator(array $config = []): ModelGenerator {
+function createModelGenerator(array $config = []): ModelGeneratorService {
     $app = app();
-    return $app->make(ModelGenerator::class, [
+    return $app->make(ModelGeneratorService::class, [
         'config' => array_merge([
             'namespace' => 'App\\Models',
             'path' => app_path('Models'),

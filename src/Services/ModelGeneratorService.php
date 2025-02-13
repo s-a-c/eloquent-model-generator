@@ -23,23 +23,21 @@ class ModelGeneratorService implements ModelGeneratorServiceContract {
      * Generate a model for a given table
      *
      * @param string $table
-     * @param array $config
-     * @return GeneratedModel
+     * @param array $options
+     * @return ModelDefinition
      */
-    public function generateModel(string $table, array $config = []): GeneratedModel {
+    public function generateModel(string $table, array $options = []): ModelDefinition {
         $schema = $this->analyzeTable($table);
 
-        $definition = new ModelDefinition(
-            className: $config['class_name'] ?? Str::studly(Str::singular($table)),
-            namespace: $config['namespace'] ?? 'App\\Models',
+        return new ModelDefinition(
+            className: $options['class_name'] ?? Str::studly(Str::singular($table)),
+            namespace: $options['namespace'] ?? 'App\\Models',
             tableName: $table,
-            baseClass: $config['base_class'] ?? 'Illuminate\\Database\\Eloquent\\Model',
-            withSoftDeletes: $config['with_soft_deletes'] ?? false,
-            withValidation: $config['with_validation'] ?? false,
-            withRelationships: $config['with_relationships'] ?? true
+            baseClass: $options['base_class'] ?? 'Illuminate\\Database\\Eloquent\\Model',
+            withSoftDeletes: $options['with_soft_deletes'] ?? false,
+            withValidation: $options['with_validation'] ?? false,
+            withRelationships: $options['with_relationships'] ?? true
         );
-
-        return $this->generate($definition, $schema);
     }
 
     /**
@@ -47,15 +45,10 @@ class ModelGeneratorService implements ModelGeneratorServiceContract {
      *
      * @param array $tables
      * @param array $config
-     * @return array<GeneratedModel>
+     * @return array<ModelDefinition>
      */
     public function generateBatch(array $tables, array $config = []): array {
         $models = [];
-        $schemas = [];
-
-        foreach ($tables as $table) {
-            $schemas[$table] = $this->analyzeTable($table);
-        }
 
         foreach ($tables as $table) {
             $models[] = $this->generateModel($table, $config);

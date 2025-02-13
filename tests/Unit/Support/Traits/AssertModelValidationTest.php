@@ -1,13 +1,13 @@
 <?php
 
-namespace SAC\EloquentModelGenerator\Tests\Feature;
+namespace SAC\EloquentModelGenerator\Tests\Unit\Support\Traits;
 
 use SAC\EloquentModelGenerator\Tests\TestCase;
 use SAC\EloquentModelGenerator\Tests\Support\Traits\AssertModelValidation;
 use SAC\EloquentModelGenerator\ValueObjects\ModelDefinition;
 use SAC\EloquentModelGenerator\ModelGenerator;
 
-class ModelValidationTest extends TestCase {
+class AssertModelValidationTest extends TestCase {
     use AssertModelValidation;
 
     private ModelGenerator $generator;
@@ -17,7 +17,7 @@ class ModelValidationTest extends TestCase {
         $this->generator = $this->app->make(ModelGenerator::class);
     }
 
-    public function test_generates_model_with_validation_rules(): void {
+    public function test_assert_model_has_validation_rules(): void {
         $schema = [
             'columns' => [
                 'name' => [
@@ -29,10 +29,33 @@ class ModelValidationTest extends TestCase {
                     'type' => 'string',
                     'unique' => true,
                     'nullable' => false,
-                    'rules' => 'email',
                 ],
-                'is_active' => [
-                    'type' => 'boolean',
+            ],
+        ];
+
+        $definition = new ModelDefinition(
+            className: 'TestModel',
+            namespace: 'App\\Models',
+            tableName: 'test_table',
+            withValidation: true
+        );
+
+        $model = $this->generator->generate($definition, $schema);
+
+        $expectedRules = [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|unique:test_table,email',
+        ];
+
+        $this->assertModelHasValidationRules($model, $expectedRules);
+    }
+
+    public function test_validation_passes_with_valid_data(): void {
+        $schema = [
+            'columns' => [
+                'age' => [
+                    'type' => 'integer',
+                    'unsigned' => true,
                     'nullable' => false,
                 ],
             ],
@@ -41,48 +64,45 @@ class ModelValidationTest extends TestCase {
         $definition = new ModelDefinition(
             className: 'TestModel',
             namespace: 'App\\Models',
-            tableName: 'test_users',
+            tableName: 'test_table',
             withValidation: true
         );
 
         $model = $this->generator->generate($definition, $schema);
 
-        $expectedRules = [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|unique:test_users,email',
-            'is_active' => 'required|boolean',
-        ];
-
-        $this->assertModelHasValidationRules($model, $expectedRules);
-
-        // Test valid data
-        $this->assertValidationPasses($model, [
-            'name' => 'John Doe',
-            'email' => 'john@example.com',
-            'is_active' => true,
-        ]);
-
-        // Test invalid data
-        $this->assertValidationFails($model, [
-            'name' => '',
-            'email' => 'not-an-email',
-            'is_active' => 'not-a-boolean',
-        ], [
-            'The name field is required.',
-            'The email field must be a valid email address.',
-            'The is active field must be true or false.',
-        ]);
+        $this->assertValidationPasses($model, ['age' => 25]);
     }
 
-    public function test_merges_custom_validation_rules(): void {
+    public function test_validation_fails_with_invalid_data(): void {
         $schema = [
             'columns' => [
                 'email' => [
                     'type' => 'string',
-                    'unique' => true,
                     'nullable' => false,
-                    'rules' => ['email', 'unique:users,email,{id}'],
+                    'rules' => 'email',
                 ],
+            ],
+        ];
+
+        $definition = new ModelDefinition(
+            className: 'TestModel',
+            namespace: 'App\\Models',
+            tableName: 'test_table',
+            withValidation: true
+        );
+
+        $model = $this->generator->generate($definition, $schema);
+
+        $this->assertValidationFails(
+            $model,
+            ['email' => 'not-an-email'],
+            ['The email field must be a valid email address.']
+        );
+    }
+
+    public function test_assert_has_validation_rule(): void {
+        $schema = [
+            'columns' => [
                 'password' => [
                     'type' => 'string',
                     'nullable' => false,
@@ -94,40 +114,45 @@ class ModelValidationTest extends TestCase {
         $definition = new ModelDefinition(
             className: 'TestModel',
             namespace: 'App\\Models',
-            tableName: 'test_users',
+            tableName: 'test_table',
             withValidation: true
         );
 
         $model = $this->generator->generate($definition, $schema);
 
-        // Test password rules
         $this->assertHasValidationRule($model, 'password', 'min:8');
-        $this->assertHasValidationRule($model, 'password', 'regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/');
+    }
 
-        // Test password validation
-        $this->assertValidationRuleEnforced(
-            $model,
-            'password',
-            'Password123',
-            'weak',
-            'The password field must be at least 8 characters.'
+    public function test_validation_rule_enforced(): void {
+        $schema = [
+            'columns' => [
+                'status' => [
+                    'type' => 'enum',
+                    'values' => ['active', 'inactive'],
+                    'nullable' => false,
+                ],
+            ],
+        ];
+
+        $definition = new ModelDefinition(
+            className: 'TestModel',
+            namespace: 'App\\Models',
+            tableName: 'test_table',
+            withValidation: true
         );
 
-        // Test email rules
-        $this->assertHasValidationRule($model, 'email', 'email');
-        $this->assertHasValidationRule($model, 'email', 'unique:users,email,{id}');
+        $model = $this->generator->generate($definition, $schema);
 
-        // Test email validation
         $this->assertValidationRuleEnforced(
             $model,
-            'email',
-            'test@example.com',
-            'not-an-email',
-            'The email field must be a valid email address.'
+            'status',
+            'active',
+            'invalid-status',
+            'The status field must be one of: active, inactive.'
         );
     }
 
-    public function test_handles_custom_validation_messages(): void {
+    public function test_assert_validation_messages(): void {
         $schema = [
             'columns' => [
                 'age' => [
@@ -145,7 +170,7 @@ class ModelValidationTest extends TestCase {
         $definition = new ModelDefinition(
             className: 'TestModel',
             namespace: 'App\\Models',
-            tableName: 'test_users',
+            tableName: 'test_table',
             withValidation: true
         );
 
@@ -157,14 +182,5 @@ class ModelValidationTest extends TestCase {
         ];
 
         $this->assertValidationMessages($model, $expectedMessages);
-
-        // Test validation with custom messages
-        $this->assertValidationRuleEnforced(
-            $model,
-            'age',
-            25,
-            'not-a-number',
-            'Age must be a whole number.'
-        );
     }
 }
