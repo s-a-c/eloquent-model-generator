@@ -1,12 +1,15 @@
 <?php declare(strict_types = 1);
 
 return [
-	'lastFullAnalysisTime' => 1739445718,
+	'lastFullAnalysisTime' => 1739487820,
 	'meta' => array (
   'cacheVersion' => 'v12-linesToIgnore',
-  'phpstanVersion' => '1.12.17',
+  'phpstanVersion' => '2.1.5',
+  'metaExtensions' => 
+  array (
+  ),
   'phpVersion' => 80403,
-  'projectConfig' => '{conditionalTags: {Larastan\\Larastan\\Rules\\NoEnvCallsOutsideOfConfigRule: {phpstan.rules.rule: %noEnvCallsOutsideOfConfig%}, Larastan\\Larastan\\Rules\\NoModelMakeRule: {phpstan.rules.rule: %noModelMake%}, Larastan\\Larastan\\Rules\\NoUnnecessaryCollectionCallRule: {phpstan.rules.rule: %noUnnecessaryCollectionCall%}, Larastan\\Larastan\\Rules\\OctaneCompatibilityRule: {phpstan.rules.rule: %checkOctaneCompatibility%}, Larastan\\Larastan\\Rules\\UnusedViewsRule: {phpstan.rules.rule: %checkUnusedViews%}, Larastan\\Larastan\\Rules\\ModelAppendsRule: {phpstan.rules.rule: %checkModelAppends%}}, parameters: {universalObjectCratesClasses: [Illuminate\\Http\\Request, Illuminate\\Support\\Optional, Illuminate\\Http\\Request, Illuminate\\Support\\Optional, SAC\\EloquentModelGenerator\\ValueObjects\\Column, SAC\\EloquentModelGenerator\\ValueObjects\\ModelDefinition], earlyTerminatingFunctionCalls: [abort, dd, abort, dd, dump, exit, die], excludePaths: {analyseAndScan: [*.blade.php, /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/tests/tmp/*, /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/tests/*, /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/build/*, /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/*, *.blade.php], analyse: []}, mixinExcludeClasses: [Eloquent, Eloquent, Illuminate\\Database\\Eloquent\\Model], bootstrapFiles: [/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/larastan/larastan/bootstrap.php], checkOctaneCompatibility: true, noEnvCallsOutsideOfConfig: true, noModelMake: false, noUnnecessaryCollectionCall: true, noUnnecessaryCollectionCallOnly: [all, get, toArray], noUnnecessaryCollectionCallExcept: [], squashedMigrationsPath: [], databaseMigrationsPath: [], disableMigrationScan: true, disableSchemaScan: true, viewDirectories: [], checkModelProperties: true, checkPhpDocMissingReturn: true, checkUnusedViews: false, checkModelAppends: true, level: 8, paths: [/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src], treatPhpDocTypesAsCertain: true, checkMissingIterableValueType: true, checkGenericClassInNonGenericObjectType: true, checkMissingCallableSignature: true, tmpDir: /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/build/phpstan, checkUnionTypes: true, checkImplicitMixed: true, checkBenevolentUnionTypes: true, rememberPossiblyImpureFunctionValues: false, checkPhpDocMethodSignatures: true, checkExplicitMixed: true, inferPrivatePropertyTypeFromConstructor: true, reportMaybesInMethodSignatures: true, reportStaticMethodSignatures: true}, rules: [Larastan\\Larastan\\Rules\\UselessConstructs\\NoUselessWithFunctionCallsRule, Larastan\\Larastan\\Rules\\UselessConstructs\\NoUselessValueFunctionCallsRule, Larastan\\Larastan\\Rules\\DeferrableServiceProviderMissingProvidesRule, Larastan\\Larastan\\Rules\\ConsoleCommand\\UndefinedArgumentOrOptionRule], services: [{class: Larastan\\Larastan\\Methods\\RelationForwardsCallsExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\ModelForwardsCallsExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\EloquentBuilderForwardsCallsExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\HigherOrderTapProxyExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\HigherOrderCollectionProxyExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\StorageMethodsClassReflectionExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\Extension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\ModelFactoryMethodsClassReflectionExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\RedirectResponseMethodsClassReflectionExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\MacroMethodsClassReflectionExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\ViewWithMethodsClassReflectionExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Properties\\ModelAccessorExtension, tags: [phpstan.broker.propertiesClassReflectionExtension]}, {class: Larastan\\Larastan\\Properties\\ModelPropertyExtension, tags: [phpstan.broker.propertiesClassReflectionExtension]}, {class: Larastan\\Larastan\\Properties\\HigherOrderCollectionProxyPropertyExtension, tags: [phpstan.broker.propertiesClassReflectionExtension]}, {class: Larastan\\Larastan\\Types\\RelationDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\Types\\ModelRelationsDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\HigherOrderTapProxyExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ContainerArrayAccessDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension], arguments: {className: Illuminate\\Contracts\\Container\\Container}}, {class: Larastan\\Larastan\\ReturnTypes\\ContainerArrayAccessDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension], arguments: {className: Illuminate\\Container\\Container}}, {class: Larastan\\Larastan\\ReturnTypes\\ContainerArrayAccessDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension], arguments: {className: Illuminate\\Foundation\\Application}}, {class: Larastan\\Larastan\\ReturnTypes\\ContainerArrayAccessDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension], arguments: {className: Illuminate\\Contracts\\Foundation\\Application}}, {class: Larastan\\Larastan\\Properties\\ModelRelationsExtension, tags: [phpstan.broker.propertiesClassReflectionExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ModelOnlyDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ModelFactoryDynamicStaticMethodReturnTypeExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ModelDynamicStaticMethodReturnTypeExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\AppMakeDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\AuthExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\GuardDynamicStaticMethodReturnTypeExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\AuthManagerExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\DateExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\GuardExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\RequestFileExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\RequestRouteExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\RequestUserExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\EloquentBuilderExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\RelationCollectionExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ModelFindExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\BuilderModelFindExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\TestCaseExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\Support\\CollectionHelper}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\AuthExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\CollectExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\NowAndTodayExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\ResponseExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\ValidatorExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\CollectionFilterRejectDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\CollectionWhereNotNullDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\NewModelQueryDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\FactoryDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\Types\\AbortIfFunctionTypeSpecifyingExtension, tags: [phpstan.typeSpecifier.functionTypeSpecifyingExtension], arguments: {methodName: abort, negate: false}}, {class: Larastan\\Larastan\\Types\\AbortIfFunctionTypeSpecifyingExtension, tags: [phpstan.typeSpecifier.functionTypeSpecifyingExtension], arguments: {methodName: abort, negate: true}}, {class: Larastan\\Larastan\\Types\\AbortIfFunctionTypeSpecifyingExtension, tags: [phpstan.typeSpecifier.functionTypeSpecifyingExtension], arguments: {methodName: throw, negate: false}}, {class: Larastan\\Larastan\\Types\\AbortIfFunctionTypeSpecifyingExtension, tags: [phpstan.typeSpecifier.functionTypeSpecifyingExtension], arguments: {methodName: throw, negate: true}}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\AppExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\ValueExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\StrExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\TapExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\StorageDynamicStaticMethodReturnTypeExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\Types\\GenericEloquentCollectionTypeNodeResolverExtension, tags: [phpstan.phpDoc.typeNodeResolverExtension]}, {class: Larastan\\Larastan\\Types\\ViewStringTypeNodeResolverExtension, tags: [phpstan.phpDoc.typeNodeResolverExtension]}, {class: Larastan\\Larastan\\Rules\\OctaneCompatibilityRule}, {class: Larastan\\Larastan\\Rules\\NoEnvCallsOutsideOfConfigRule}, {class: Larastan\\Larastan\\Rules\\NoModelMakeRule}, {class: Larastan\\Larastan\\Rules\\NoUnnecessaryCollectionCallRule, arguments: {onlyMethods: %noUnnecessaryCollectionCallOnly%, excludeMethods: %noUnnecessaryCollectionCallExcept%}}, {class: Larastan\\Larastan\\Rules\\ModelAppendsRule}, {class: Larastan\\Larastan\\Types\\GenericEloquentBuilderTypeNodeResolverExtension, tags: [phpstan.phpDoc.typeNodeResolverExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\AppEnvironmentReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\Types\\ModelProperty\\ModelPropertyTypeNodeResolverExtension, tags: [phpstan.phpDoc.typeNodeResolverExtension], arguments: {active: %checkModelProperties%}}, {class: Larastan\\Larastan\\Types\\RelationParserHelper, arguments: {parser: @currentPhpVersionSimpleDirectParser}}, {class: Larastan\\Larastan\\Properties\\MigrationHelper, arguments: {databaseMigrationPath: %databaseMigrationsPath%, disableMigrationScan: %disableMigrationScan%, parser: @currentPhpVersionSimpleDirectParser, reflectionProvider: @reflectionProvider}}, {class: Larastan\\Larastan\\Properties\\SquashedMigrationHelper, arguments: {schemaPaths: %squashedMigrationsPath%, disableSchemaScan: %disableSchemaScan%}}, {class: Larastan\\Larastan\\Properties\\ModelCastHelper}, {class: Larastan\\Larastan\\Properties\\ModelPropertyHelper}, {class: Larastan\\Larastan\\Rules\\ModelRuleHelper}, {class: Larastan\\Larastan\\Methods\\BuilderHelper, arguments: {checkProperties: %checkModelProperties%}}, {class: Larastan\\Larastan\\Rules\\RelationExistenceRule, tags: [phpstan.rules.rule]}, {class: Larastan\\Larastan\\Rules\\CheckDispatchArgumentTypesCompatibleWithClassConstructorRule, arguments: {dispatchableClass: Illuminate\\Foundation\\Bus\\Dispatchable}, tags: [phpstan.rules.rule]}, {class: Larastan\\Larastan\\Rules\\CheckDispatchArgumentTypesCompatibleWithClassConstructorRule, arguments: {dispatchableClass: Illuminate\\Foundation\\Events\\Dispatchable}, tags: [phpstan.rules.rule]}, {class: Larastan\\Larastan\\Properties\\Schema\\PhpMyAdminDataTypeToPhpTypeConverter}, {class: Larastan\\Larastan\\LarastanStubFilesExtension, tags: [phpstan.stubFilesExtension]}, {class: Larastan\\Larastan\\Rules\\UnusedViewsRule}, {class: Larastan\\Larastan\\Collectors\\UsedViewFunctionCollector, tags: [phpstan.collector]}, {class: Larastan\\Larastan\\Collectors\\UsedEmailViewCollector, tags: [phpstan.collector]}, {class: Larastan\\Larastan\\Collectors\\UsedViewMakeCollector, tags: [phpstan.collector]}, {class: Larastan\\Larastan\\Collectors\\UsedViewFacadeMakeCollector, tags: [phpstan.collector]}, {class: Larastan\\Larastan\\Collectors\\UsedRouteFacadeViewCollector, tags: [phpstan.collector]}, {class: Larastan\\Larastan\\Collectors\\UsedViewInAnotherViewCollector, arguments: {parser: @currentPhpVersionSimpleDirectParser}}, {class: Larastan\\Larastan\\Support\\ViewFileHelper, arguments: {viewDirectories: %viewDirectories%}}, {class: Larastan\\Larastan\\ReturnTypes\\ApplicationMakeDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ContainerMakeDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ConsoleCommand\\ArgumentDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ConsoleCommand\\HasArgumentDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ConsoleCommand\\OptionDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ConsoleCommand\\HasOptionDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\TranslatorGetReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\TransHelperReturnTypeExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\DoubleUnderscoreHelperReturnTypeExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\AppMakeHelper}, {class: Larastan\\Larastan\\Internal\\ConsoleApplicationResolver}, {class: Larastan\\Larastan\\Internal\\ConsoleApplicationHelper}, {class: Larastan\\Larastan\\Support\\HigherOrderCollectionProxyHelper}]}',
+  'projectConfig' => '{conditionalTags: {Larastan\\Larastan\\Rules\\NoEnvCallsOutsideOfConfigRule: {phpstan.rules.rule: %noEnvCallsOutsideOfConfig%}, Larastan\\Larastan\\Rules\\NoModelMakeRule: {phpstan.rules.rule: %noModelMake%}, Larastan\\Larastan\\Rules\\NoUnnecessaryCollectionCallRule: {phpstan.rules.rule: %noUnnecessaryCollectionCall%}, Larastan\\Larastan\\Rules\\OctaneCompatibilityRule: {phpstan.rules.rule: %checkOctaneCompatibility%}, Larastan\\Larastan\\Rules\\UnusedViewsRule: {phpstan.rules.rule: %checkUnusedViews%}, Larastan\\Larastan\\Rules\\ModelAppendsRule: {phpstan.rules.rule: %checkModelAppends%}}, parameters: {universalObjectCratesClasses: [Illuminate\\Http\\Request, Illuminate\\Support\\Optional, Illuminate\\Http\\Request, Illuminate\\Support\\Optional, SAC\\EloquentModelGenerator\\ValueObjects\\Column, SAC\\EloquentModelGenerator\\ValueObjects\\ModelDefinition], earlyTerminatingFunctionCalls: [abort, dd, abort, dd, dump, exit, die], mixinExcludeClasses: [Eloquent, Eloquent, Illuminate\\Database\\Eloquent\\Model], bootstrapFiles: [/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/larastan/larastan/bootstrap.php], checkOctaneCompatibility: true, noEnvCallsOutsideOfConfig: true, noModelMake: false, noUnnecessaryCollectionCall: true, noUnnecessaryCollectionCallOnly: [all, get, toArray], noUnnecessaryCollectionCallExcept: [], squashedMigrationsPath: [], databaseMigrationsPath: [], disableMigrationScan: true, disableSchemaScan: true, viewDirectories: [], checkModelProperties: true, checkUnusedViews: false, checkModelAppends: true, level: 1, paths: [/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src], checkPhpDocMissingReturn: true, treatPhpDocTypesAsCertain: false, checkMissingCallableSignature: false, excludePaths: {analyseAndScan: [/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/tests/tmp/*, /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/tests/*, /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/build/*, /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/*, *.blade.php], analyse: []}, tmpDir: /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/build/phpstan, checkUnionTypes: false, checkImplicitMixed: false, checkBenevolentUnionTypes: false, checkExplicitMixed: false, inferPrivatePropertyTypeFromConstructor: false, reportMaybesInMethodSignatures: false, reportStaticMethodSignatures: false}, rules: [Larastan\\Larastan\\Rules\\UselessConstructs\\NoUselessWithFunctionCallsRule, Larastan\\Larastan\\Rules\\UselessConstructs\\NoUselessValueFunctionCallsRule, Larastan\\Larastan\\Rules\\DeferrableServiceProviderMissingProvidesRule, Larastan\\Larastan\\Rules\\ConsoleCommand\\UndefinedArgumentOrOptionRule], services: [{class: Larastan\\Larastan\\Methods\\RelationForwardsCallsExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\ModelForwardsCallsExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\EloquentBuilderForwardsCallsExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\HigherOrderTapProxyExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\HigherOrderCollectionProxyExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\StorageMethodsClassReflectionExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\Extension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\ModelFactoryMethodsClassReflectionExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\RedirectResponseMethodsClassReflectionExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\MacroMethodsClassReflectionExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\ViewWithMethodsClassReflectionExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Properties\\ModelAccessorExtension, tags: [phpstan.broker.propertiesClassReflectionExtension]}, {class: Larastan\\Larastan\\Properties\\ModelPropertyExtension, tags: [phpstan.broker.propertiesClassReflectionExtension]}, {class: Larastan\\Larastan\\Properties\\HigherOrderCollectionProxyPropertyExtension, tags: [phpstan.broker.propertiesClassReflectionExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\HigherOrderTapProxyExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ContainerArrayAccessDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension], arguments: {className: Illuminate\\Contracts\\Container\\Container}}, {class: Larastan\\Larastan\\ReturnTypes\\ContainerArrayAccessDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension], arguments: {className: Illuminate\\Container\\Container}}, {class: Larastan\\Larastan\\ReturnTypes\\ContainerArrayAccessDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension], arguments: {className: Illuminate\\Foundation\\Application}}, {class: Larastan\\Larastan\\ReturnTypes\\ContainerArrayAccessDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension], arguments: {className: Illuminate\\Contracts\\Foundation\\Application}}, {class: Larastan\\Larastan\\Properties\\ModelRelationsExtension, tags: [phpstan.broker.propertiesClassReflectionExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ModelOnlyDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ModelFactoryDynamicStaticMethodReturnTypeExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ModelDynamicStaticMethodReturnTypeExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\AppMakeDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\AuthExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\GuardDynamicStaticMethodReturnTypeExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\AuthManagerExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\DateExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\GuardExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\RequestFileExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\RequestRouteExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\RequestUserExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\EloquentBuilderExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\RelationFindExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\RelationCollectionExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ModelFindExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\BuilderModelFindExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\TestCaseExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\Support\\CollectionHelper}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\AuthExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\CollectExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\NowAndTodayExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\ResponseExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\ValidatorExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\LiteralExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\CollectionFilterRejectDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\CollectionWhereNotNullDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\NewModelQueryDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\FactoryDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\Types\\AbortIfFunctionTypeSpecifyingExtension, tags: [phpstan.typeSpecifier.functionTypeSpecifyingExtension], arguments: {methodName: abort, negate: false}}, {class: Larastan\\Larastan\\Types\\AbortIfFunctionTypeSpecifyingExtension, tags: [phpstan.typeSpecifier.functionTypeSpecifyingExtension], arguments: {methodName: abort, negate: true}}, {class: Larastan\\Larastan\\Types\\AbortIfFunctionTypeSpecifyingExtension, tags: [phpstan.typeSpecifier.functionTypeSpecifyingExtension], arguments: {methodName: throw, negate: false}}, {class: Larastan\\Larastan\\Types\\AbortIfFunctionTypeSpecifyingExtension, tags: [phpstan.typeSpecifier.functionTypeSpecifyingExtension], arguments: {methodName: throw, negate: true}}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\AppExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\ValueExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\StrExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\TapExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\StorageDynamicStaticMethodReturnTypeExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\Types\\GenericEloquentCollectionTypeNodeResolverExtension, tags: [phpstan.phpDoc.typeNodeResolverExtension]}, {class: Larastan\\Larastan\\Types\\ViewStringTypeNodeResolverExtension, tags: [phpstan.phpDoc.typeNodeResolverExtension]}, {class: Larastan\\Larastan\\Rules\\OctaneCompatibilityRule}, {class: Larastan\\Larastan\\Rules\\NoEnvCallsOutsideOfConfigRule}, {class: Larastan\\Larastan\\Rules\\NoModelMakeRule}, {class: Larastan\\Larastan\\Rules\\NoUnnecessaryCollectionCallRule, arguments: {onlyMethods: %noUnnecessaryCollectionCallOnly%, excludeMethods: %noUnnecessaryCollectionCallExcept%}}, {class: Larastan\\Larastan\\Rules\\ModelAppendsRule}, {class: Larastan\\Larastan\\Types\\GenericEloquentBuilderTypeNodeResolverExtension, tags: [phpstan.phpDoc.typeNodeResolverExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\AppEnvironmentReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\Types\\ModelProperty\\ModelPropertyTypeNodeResolverExtension, tags: [phpstan.phpDoc.typeNodeResolverExtension], arguments: {active: %checkModelProperties%}}, {class: Larastan\\Larastan\\Properties\\MigrationHelper, arguments: {databaseMigrationPath: %databaseMigrationsPath%, disableMigrationScan: %disableMigrationScan%, parser: @currentPhpVersionSimpleDirectParser, reflectionProvider: @reflectionProvider}}, {class: Larastan\\Larastan\\Properties\\SquashedMigrationHelper, arguments: {schemaPaths: %squashedMigrationsPath%, disableSchemaScan: %disableSchemaScan%}}, {class: Larastan\\Larastan\\Properties\\ModelCastHelper}, {class: Larastan\\Larastan\\Properties\\ModelPropertyHelper}, {class: Larastan\\Larastan\\Rules\\ModelRuleHelper}, {class: Larastan\\Larastan\\Methods\\BuilderHelper, arguments: {checkProperties: %checkModelProperties%}}, {class: Larastan\\Larastan\\Rules\\RelationExistenceRule, tags: [phpstan.rules.rule]}, {class: Larastan\\Larastan\\Rules\\CheckDispatchArgumentTypesCompatibleWithClassConstructorRule, arguments: {dispatchableClass: Illuminate\\Foundation\\Bus\\Dispatchable}, tags: [phpstan.rules.rule]}, {class: Larastan\\Larastan\\Rules\\CheckDispatchArgumentTypesCompatibleWithClassConstructorRule, arguments: {dispatchableClass: Illuminate\\Foundation\\Events\\Dispatchable}, tags: [phpstan.rules.rule]}, {class: Larastan\\Larastan\\Properties\\Schema\\PhpMyAdminDataTypeToPhpTypeConverter}, {class: Larastan\\Larastan\\LarastanStubFilesExtension, tags: [phpstan.stubFilesExtension]}, {class: Larastan\\Larastan\\Rules\\UnusedViewsRule}, {class: Larastan\\Larastan\\Collectors\\UsedViewFunctionCollector, tags: [phpstan.collector]}, {class: Larastan\\Larastan\\Collectors\\UsedEmailViewCollector, tags: [phpstan.collector]}, {class: Larastan\\Larastan\\Collectors\\UsedViewMakeCollector, tags: [phpstan.collector]}, {class: Larastan\\Larastan\\Collectors\\UsedViewFacadeMakeCollector, tags: [phpstan.collector]}, {class: Larastan\\Larastan\\Collectors\\UsedRouteFacadeViewCollector, tags: [phpstan.collector]}, {class: Larastan\\Larastan\\Collectors\\UsedViewInAnotherViewCollector, arguments: {parser: @currentPhpVersionSimpleDirectParser}}, {class: Larastan\\Larastan\\Support\\ViewFileHelper, arguments: {viewDirectories: %viewDirectories%}}, {class: Larastan\\Larastan\\ReturnTypes\\ApplicationMakeDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ContainerMakeDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ConsoleCommand\\ArgumentDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ConsoleCommand\\HasArgumentDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ConsoleCommand\\OptionDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ConsoleCommand\\HasOptionDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\TranslatorGetReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\TransHelperReturnTypeExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\DoubleUnderscoreHelperReturnTypeExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\AppMakeHelper}, {class: Larastan\\Larastan\\Internal\\ConsoleApplicationResolver}, {class: Larastan\\Larastan\\Internal\\ConsoleApplicationHelper}, {class: Larastan\\Larastan\\Support\\HigherOrderCollectionProxyHelper}]}',
   'analysedPaths' => 
   array (
     0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src',
@@ -16,7 +19,7 @@ return [
   ),
   'composerLocks' => 
   array (
-    '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/composer.lock' => '510b37617a765062de6ef6e0580f1b29915f1394',
+    '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/composer.lock' => '3ff44d7892ed062154fe856e3d5e6b750715be8a',
   ),
   'composerInstalled' => 
   array (
@@ -24,11 +27,143 @@ return [
     array (
       'versions' => 
       array (
+        'amphp/amp' => 
+        array (
+          'pretty_version' => 'v3.1.0',
+          'version' => '3.1.0.0',
+          'reference' => '7cf7fef3d667bfe4b2560bc87e67d5387a7bcde9',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../amphp/amp',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
+        'amphp/byte-stream' => 
+        array (
+          'pretty_version' => 'v2.1.1',
+          'version' => '2.1.1.0',
+          'reference' => 'daa00f2efdbd71565bf64ffefa89e37542addf93',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../amphp/byte-stream',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
+        'amphp/cache' => 
+        array (
+          'pretty_version' => 'v2.0.1',
+          'version' => '2.0.1.0',
+          'reference' => '46912e387e6aa94933b61ea1ead9cf7540b7797c',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../amphp/cache',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
+        'amphp/dns' => 
+        array (
+          'pretty_version' => 'v2.4.0',
+          'version' => '2.4.0.0',
+          'reference' => '78eb3db5fc69bf2fc0cb503c4fcba667bc223c71',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../amphp/dns',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
+        'amphp/parallel' => 
+        array (
+          'pretty_version' => 'v2.3.1',
+          'version' => '2.3.1.0',
+          'reference' => '5113111de02796a782f5d90767455e7391cca190',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../amphp/parallel',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
+        'amphp/parser' => 
+        array (
+          'pretty_version' => 'v1.1.1',
+          'version' => '1.1.1.0',
+          'reference' => '3cf1f8b32a0171d4b1bed93d25617637a77cded7',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../amphp/parser',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
+        'amphp/pipeline' => 
+        array (
+          'pretty_version' => 'v1.2.2',
+          'version' => '1.2.2.0',
+          'reference' => '97cbf289f4d8877acfe58dd90ed5a4370a43caa4',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../amphp/pipeline',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
+        'amphp/process' => 
+        array (
+          'pretty_version' => 'v2.0.3',
+          'version' => '2.0.3.0',
+          'reference' => '52e08c09dec7511d5fbc1fb00d3e4e79fc77d58d',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../amphp/process',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
+        'amphp/serialization' => 
+        array (
+          'pretty_version' => 'v1.0.0',
+          'version' => '1.0.0.0',
+          'reference' => '693e77b2fb0b266c3c7d622317f881de44ae94a1',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../amphp/serialization',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
+        'amphp/socket' => 
+        array (
+          'pretty_version' => 'v2.3.1',
+          'version' => '2.3.1.0',
+          'reference' => '58e0422221825b79681b72c50c47a930be7bf1e1',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../amphp/socket',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
+        'amphp/sync' => 
+        array (
+          'pretty_version' => 'v2.3.0',
+          'version' => '2.3.0.0',
+          'reference' => '217097b785130d77cfcc58ff583cf26cd1770bf1',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../amphp/sync',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
         'brianium/paratest' => 
         array (
-          'pretty_version' => 'v7.4.8',
-          'version' => '7.4.8.0',
-          'reference' => 'cf16fcbb9b8107a7df6b97e497fc91e819774d8b',
+          'pretty_version' => 'v7.7.0',
+          'version' => '7.7.0.0',
+          'reference' => '4fb3f73bc5a4c3146bac2850af7dc72435a32daf',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../brianium/paratest',
           'aliases' => 
@@ -50,9 +185,9 @@ return [
         ),
         'carbonphp/carbon-doctrine-types' => 
         array (
-          'pretty_version' => '2.1.0',
-          'version' => '2.1.0.0',
-          'reference' => '99f76ffa36cce3b70a4a6abce41dba15ca2e84cb',
+          'pretty_version' => '3.2.0',
+          'version' => '3.2.0.0',
+          'reference' => '18ba5ddfec8976260ead6e866180bd5d2f71aa1d',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../carbonphp/carbon-doctrine-types',
           'aliases' => 
@@ -67,18 +202,6 @@ return [
           'reference' => '392dc165fce93b5bb5c637b67e59619223c931b0',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../clue/ndjson-react',
-          'aliases' => 
-          array (
-          ),
-          'dev_requirement' => true,
-        ),
-        'colinodell/json5' => 
-        array (
-          'pretty_version' => 'v2.3.0',
-          'version' => '2.3.0.0',
-          'reference' => '15b063f8cb5e6deb15f0cd39123264ec0d19c710',
-          'type' => 'library',
-          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../colinodell/json5',
           'aliases' => 
           array (
           ),
@@ -136,6 +259,30 @@ return [
             0 => '*',
           ),
         ),
+        'daverandom/libdns' => 
+        array (
+          'pretty_version' => 'v2.1.0',
+          'version' => '2.1.0.0',
+          'reference' => 'b84c94e8fe6b7ee4aecfe121bfe3b6177d303c8a',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../daverandom/libdns',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
+        'dealerdirect/phpcodesniffer-composer-installer' => 
+        array (
+          'pretty_version' => 'v1.0.0',
+          'version' => '1.0.0.0',
+          'reference' => '4be43904336affa5c2f70744a348312336afd0da',
+          'type' => 'composer-plugin',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../dealerdirect/phpcodesniffer-composer-installer',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
         'dflydev/dot-access-data' => 
         array (
           'pretty_version' => 'v3.0.3',
@@ -147,6 +294,30 @@ return [
           array (
           ),
           'dev_requirement' => false,
+        ),
+        'dnoegel/php-xdg-base-dir' => 
+        array (
+          'pretty_version' => 'v0.1.1',
+          'version' => '0.1.1.0',
+          'reference' => '8f8a6e48c5ecb0f991c2fdcf5f154a47d85f9ffd',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../dnoegel/php-xdg-base-dir',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
+        'doctrine/coding-standard' => 
+        array (
+          'pretty_version' => '12.0.0',
+          'version' => '12.0.0.0',
+          'reference' => '1b2b7dc58c68833af481fb9325c25abd40681c79',
+          'type' => 'phpcodesniffer-standard',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../doctrine/coding-standard',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
         ),
         'doctrine/deprecations' => 
         array (
@@ -232,6 +403,30 @@ return [
           ),
           'dev_requirement' => true,
         ),
+        'felixfbecker/advanced-json-rpc' => 
+        array (
+          'pretty_version' => 'v3.2.1',
+          'version' => '3.2.1.0',
+          'reference' => 'b5f37dbff9a8ad360ca341f3240dc1c168b45447',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../felixfbecker/advanced-json-rpc',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
+        'felixfbecker/language-server-protocol' => 
+        array (
+          'pretty_version' => 'v1.5.3',
+          'version' => '1.5.3.0',
+          'reference' => 'a9e113dbc7d849e35b8776da39edaf4313b7b6c9',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../felixfbecker/language-server-protocol',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
         'fidry/cpu-core-counter' => 
         array (
           'pretty_version' => '1.2.0',
@@ -292,6 +487,42 @@ return [
           ),
           'dev_requirement' => false,
         ),
+        'guzzlehttp/guzzle' => 
+        array (
+          'pretty_version' => '7.9.2',
+          'version' => '7.9.2.0',
+          'reference' => 'd281ed313b989f213357e3be1a179f02196ac99b',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../guzzlehttp/guzzle',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'guzzlehttp/promises' => 
+        array (
+          'pretty_version' => '2.0.4',
+          'version' => '2.0.4.0',
+          'reference' => 'f9c436286ab2892c7db7be8c8da4ef61ccf7b455',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../guzzlehttp/promises',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'guzzlehttp/psr7' => 
+        array (
+          'pretty_version' => '2.7.0',
+          'version' => '2.7.0.0',
+          'reference' => 'a70f5c95fb43bc83f07c9c948baa0dc1829bf201',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../guzzlehttp/psr7',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
         'guzzlehttp/uri-template' => 
         array (
           'pretty_version' => 'v1.0.4',
@@ -303,6 +534,22 @@ return [
           array (
           ),
           'dev_requirement' => false,
+        ),
+        'halleck45/php-metrics' => 
+        array (
+          'dev_requirement' => true,
+          'replaced' => 
+          array (
+            0 => '*',
+          ),
+        ),
+        'halleck45/phpmetrics' => 
+        array (
+          'dev_requirement' => true,
+          'replaced' => 
+          array (
+            0 => '*',
+          ),
         ),
         'hamcrest/hamcrest-php' => 
         array (
@@ -321,7 +568,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/broadcasting' => 
@@ -329,7 +576,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/bus' => 
@@ -337,7 +584,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/cache' => 
@@ -345,7 +592,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/collections' => 
@@ -353,7 +600,15 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
+          ),
+        ),
+        'illuminate/concurrency' => 
+        array (
+          'dev_requirement' => false,
+          'replaced' => 
+          array (
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/conditionable' => 
@@ -361,7 +616,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/config' => 
@@ -369,7 +624,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/console' => 
@@ -377,7 +632,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/container' => 
@@ -385,7 +640,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/contracts' => 
@@ -393,7 +648,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/cookie' => 
@@ -401,7 +656,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/database' => 
@@ -409,7 +664,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/encryption' => 
@@ -417,7 +672,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/events' => 
@@ -425,7 +680,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/filesystem' => 
@@ -433,7 +688,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/hashing' => 
@@ -441,7 +696,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/http' => 
@@ -449,7 +704,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/log' => 
@@ -457,7 +712,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/macroable' => 
@@ -465,7 +720,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/mail' => 
@@ -473,7 +728,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/notifications' => 
@@ -481,7 +736,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/pagination' => 
@@ -489,7 +744,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/pipeline' => 
@@ -497,7 +752,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/process' => 
@@ -505,7 +760,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/queue' => 
@@ -513,7 +768,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/redis' => 
@@ -521,7 +776,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/routing' => 
@@ -529,7 +784,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/session' => 
@@ -537,7 +792,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/support' => 
@@ -545,7 +800,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/testing' => 
@@ -553,7 +808,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/translation' => 
@@ -561,7 +816,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/validation' => 
@@ -569,7 +824,7 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
         ),
         'illuminate/view' => 
@@ -577,56 +832,8 @@ return [
           'dev_requirement' => false,
           'replaced' => 
           array (
-            0 => 'v10.48.28',
+            0 => 'v11.42.1',
           ),
-        ),
-        'infection/abstract-testframework-adapter' => 
-        array (
-          'pretty_version' => '0.5.0',
-          'version' => '0.5.0.0',
-          'reference' => '18925e20d15d1a5995bb85c9dc09e8751e1e069b',
-          'type' => 'library',
-          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../infection/abstract-testframework-adapter',
-          'aliases' => 
-          array (
-          ),
-          'dev_requirement' => true,
-        ),
-        'infection/extension-installer' => 
-        array (
-          'pretty_version' => '0.1.2',
-          'version' => '0.1.2.0',
-          'reference' => '9b351d2910b9a23ab4815542e93d541e0ca0cdcf',
-          'type' => 'composer-plugin',
-          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../infection/extension-installer',
-          'aliases' => 
-          array (
-          ),
-          'dev_requirement' => true,
-        ),
-        'infection/include-interceptor' => 
-        array (
-          'pretty_version' => '0.2.5',
-          'version' => '0.2.5.0',
-          'reference' => '0cc76d95a79d9832d74e74492b0a30139904bdf7',
-          'type' => 'library',
-          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../infection/include-interceptor',
-          'aliases' => 
-          array (
-          ),
-          'dev_requirement' => true,
-        ),
-        'infection/infection' => 
-        array (
-          'pretty_version' => '0.27.11',
-          'version' => '0.27.11.0',
-          'reference' => '6d55979c457eef2a5d0d80446c67ca533f201961',
-          'type' => 'library',
-          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../infection/infection',
-          'aliases' => 
-          array (
-          ),
-          'dev_requirement' => true,
         ),
         'jean85/pretty-package-versions' => 
         array (
@@ -640,13 +847,13 @@ return [
           ),
           'dev_requirement' => true,
         ),
-        'justinrainbow/json-schema' => 
+        'kelunik/certificate' => 
         array (
-          'pretty_version' => '5.3.0',
-          'version' => '5.3.0.0',
-          'reference' => 'feb2ca6dd1cebdaf1ed60a4c8de2e53ce11c4fd8',
+          'pretty_version' => 'v1.1.3',
+          'version' => '1.1.3.0',
+          'reference' => '7e00d498c264d5eb4f78c69f41c8bd6719c0199e',
           'type' => 'library',
-          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../justinrainbow/json-schema',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../kelunik/certificate',
           'aliases' => 
           array (
           ),
@@ -662,9 +869,9 @@ return [
         ),
         'larastan/larastan' => 
         array (
-          'pretty_version' => 'v2.9.14',
-          'version' => '2.9.14.0',
-          'reference' => '78f7f8da613e54edb2ab4afa5bede045228fb843',
+          'pretty_version' => 'v3.0.4',
+          'version' => '3.0.4.0',
+          'reference' => 'b394eba5805727423071fac9b53ea50dd7e920f4',
           'type' => 'phpstan-extension',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../larastan/larastan',
           'aliases' => 
@@ -674,9 +881,9 @@ return [
         ),
         'laravel/framework' => 
         array (
-          'pretty_version' => 'v10.48.28',
-          'version' => '10.48.28.0',
-          'reference' => 'e714e7e0c1ae51bf747e3df5b10fa60c54e3e0e1',
+          'pretty_version' => 'v11.42.1',
+          'version' => '11.42.1.0',
+          'reference' => 'ff392f42f6c55cc774ce75553a11c6b031da67f8',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../laravel/framework',
           'aliases' => 
@@ -684,11 +891,35 @@ return [
           ),
           'dev_requirement' => false,
         ),
+        'laravel/installer' => 
+        array (
+          'pretty_version' => 'v5.11.2',
+          'version' => '5.11.2.0',
+          'reference' => '2cd77ac1acddbdac01bb02b028280a3aebde878a',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../laravel/installer',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'laravel/pail' => 
+        array (
+          'pretty_version' => 'v1.2.2',
+          'version' => '1.2.2.0',
+          'reference' => 'f31f4980f52be17c4667f3eafe034e6826787db2',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../laravel/pail',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
         'laravel/prompts' => 
         array (
-          'pretty_version' => 'v0.1.25',
-          'version' => '0.1.25.0',
-          'reference' => '7b4029a84c37cb2725fc7f011586e2997040bc95',
+          'pretty_version' => 'v0.3.5',
+          'version' => '0.3.5.0',
+          'reference' => '57b8f7efe40333cdb925700891c7d7465325d3b1',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../laravel/prompts',
           'aliases' => 
@@ -698,9 +929,9 @@ return [
         ),
         'laravel/serializable-closure' => 
         array (
-          'pretty_version' => 'v1.3.7',
-          'version' => '1.3.7.0',
-          'reference' => '4f48ade902b94323ca3be7646db16209ec76be3d',
+          'pretty_version' => 'v2.0.3',
+          'version' => '2.0.3.0',
+          'reference' => 'f379c13663245f7aa4512a7869f62eb14095f23f',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../laravel/serializable-closure',
           'aliases' => 
@@ -780,6 +1011,30 @@ return [
           ),
           'dev_requirement' => false,
         ),
+        'league/uri' => 
+        array (
+          'pretty_version' => '7.5.1',
+          'version' => '7.5.1.0',
+          'reference' => '81fb5145d2644324614cc532b28efd0215bda430',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../league/uri',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'league/uri-interfaces' => 
+        array (
+          'pretty_version' => '7.5.0',
+          'version' => '7.5.0.0',
+          'reference' => '08cfc6c4f3d811584fb09c37e2849e6a7f9b0742',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../league/uri-interfaces',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
         'mockery/mockery' => 
         array (
           'pretty_version' => '1.6.12',
@@ -826,15 +1081,27 @@ return [
         ),
         'nesbot/carbon' => 
         array (
-          'pretty_version' => '2.73.0',
-          'version' => '2.73.0.0',
-          'reference' => '9228ce90e1035ff2f0db84b40ec2e023ed802075',
+          'pretty_version' => '3.8.5',
+          'version' => '3.8.5.0',
+          'reference' => 'b1a53a27898639579a67de42e8ced5d5386aa9a4',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../nesbot/carbon',
           'aliases' => 
           array (
           ),
           'dev_requirement' => false,
+        ),
+        'netresearch/jsonmapper' => 
+        array (
+          'pretty_version' => 'v4.5.0',
+          'version' => '4.5.0.0',
+          'reference' => '8e76efb98ee8b6afc54687045e1b8dba55ac76e5',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../netresearch/jsonmapper',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
         ),
         'nette/schema' => 
         array (
@@ -862,21 +1129,21 @@ return [
         ),
         'nikic/php-parser' => 
         array (
-          'pretty_version' => 'v4.19.4',
-          'version' => '4.19.4.0',
-          'reference' => '715f4d25e225bc47b293a8b997fe6ce99bf987d2',
+          'pretty_version' => 'v5.4.0',
+          'version' => '5.4.0.0',
+          'reference' => '447a020a1f875a434d62f2a401f53b82a396e494',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../nikic/php-parser',
           'aliases' => 
           array (
           ),
-          'dev_requirement' => true,
+          'dev_requirement' => false,
         ),
         'nunomaduro/collision' => 
         array (
-          'pretty_version' => 'v7.11.0',
-          'version' => '7.11.0.0',
-          'reference' => '994ea93df5d4132f69d3f1bd74730509df6e8a05',
+          'pretty_version' => 'v8.6.1',
+          'version' => '8.6.1.0',
+          'reference' => '86f003c132143d5a2ab214e19933946409e0cae7',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../nunomaduro/collision',
           'aliases' => 
@@ -886,9 +1153,9 @@ return [
         ),
         'nunomaduro/termwind' => 
         array (
-          'pretty_version' => 'v1.17.0',
-          'version' => '1.17.0.0',
-          'reference' => '5369ef84d8142c1d87e4ec278711d4ece3cbf301',
+          'pretty_version' => 'v2.3.0',
+          'version' => '2.3.0.0',
+          'reference' => '52915afe6a1044e8b9cee1bcff836fb63acf9cda',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../nunomaduro/termwind',
           'aliases' => 
@@ -896,13 +1163,13 @@ return [
           ),
           'dev_requirement' => false,
         ),
-        'ondram/ci-detector' => 
+        'openmetrics-php/exposition-text' => 
         array (
-          'pretty_version' => '4.2.0',
-          'version' => '4.2.0.0',
-          'reference' => '8b0223b5ed235fd377c75fdd1bfcad05c0f168b8',
+          'pretty_version' => 'v0.4.1',
+          'version' => '0.4.1.0',
+          'reference' => 'fcfca38f693e168f4520bbd359d91528bbb9a8e8',
           'type' => 'library',
-          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../ondram/ci-detector',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../openmetrics-php/exposition-text',
           'aliases' => 
           array (
           ),
@@ -910,9 +1177,9 @@ return [
         ),
         'orchestra/canvas' => 
         array (
-          'pretty_version' => 'v8.12.0',
-          'version' => '8.12.0.0',
-          'reference' => '76385dfcf96efae5f8533a4d522d14c3c946ac5a',
+          'pretty_version' => 'v9.2.1',
+          'version' => '9.2.1.0',
+          'reference' => '2c85fe48e31fd9976a10df7993c1ad744bede42d',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../orchestra/canvas',
           'aliases' => 
@@ -922,9 +1189,9 @@ return [
         ),
         'orchestra/canvas-core' => 
         array (
-          'pretty_version' => 'v8.10.2',
-          'version' => '8.10.2.0',
-          'reference' => '3af8fb6b1ebd85903ba5d0e6df1c81aedacfedfc',
+          'pretty_version' => 'v9.1.0',
+          'version' => '9.1.0.0',
+          'reference' => '9c8dbbe897caba072ba46c6516ad7fb4bc86d8b7',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../orchestra/canvas-core',
           'aliases' => 
@@ -934,9 +1201,9 @@ return [
         ),
         'orchestra/testbench' => 
         array (
-          'pretty_version' => 'v8.31.0',
-          'version' => '8.31.0.0',
-          'reference' => 'a8d3491e47b88c3a0dc9f97e33986a88684fed87',
+          'pretty_version' => 'v9.9.0',
+          'version' => '9.9.0.0',
+          'reference' => '2f3e8c687ca5c0bd4d8bc91c4448983d046ba32b',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../orchestra/testbench',
           'aliases' => 
@@ -946,9 +1213,9 @@ return [
         ),
         'orchestra/testbench-core' => 
         array (
-          'pretty_version' => 'v8.32.3',
-          'version' => '8.32.3.0',
-          'reference' => '8d7a3e360213ab3d41b874f94b107036223ce429',
+          'pretty_version' => 'v9.9.4',
+          'version' => '9.9.4.0',
+          'reference' => '473974c6ce2c6b10d65ff6b6f4106aa7939021f0',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../orchestra/testbench-core',
           'aliases' => 
@@ -958,9 +1225,9 @@ return [
         ),
         'orchestra/workbench' => 
         array (
-          'pretty_version' => 'v8.17.1',
-          'version' => '8.17.1.0',
-          'reference' => '436ff6c904d1b9d324c382b94f477edf1ab0f222',
+          'pretty_version' => 'v9.13.1',
+          'version' => '9.13.1.0',
+          'reference' => '35b63587694b2783e14fdb84ba58a50912420f5c',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../orchestra/workbench',
           'aliases' => 
@@ -982,9 +1249,9 @@ return [
         ),
         'pestphp/pest' => 
         array (
-          'pretty_version' => 'v2.36.0',
-          'version' => '2.36.0.0',
-          'reference' => 'f8c88bd14dc1772bfaf02169afb601ecdf2724cd',
+          'pretty_version' => 'v3.7.4',
+          'version' => '3.7.4.0',
+          'reference' => '4a987d3d5c4e3ba36c76fecbf56113baac2d1b2b',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../pestphp/pest',
           'aliases' => 
@@ -994,9 +1261,9 @@ return [
         ),
         'pestphp/pest-plugin' => 
         array (
-          'pretty_version' => 'v2.1.1',
-          'version' => '2.1.1.0',
-          'reference' => 'e05d2859e08c2567ee38ce8b005d044e72648c0b',
+          'pretty_version' => 'v3.0.0',
+          'version' => '3.0.0.0',
+          'reference' => 'e79b26c65bc11c41093b10150c1341cc5cdbea83',
           'type' => 'composer-plugin',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../pestphp/pest-plugin',
           'aliases' => 
@@ -1006,9 +1273,9 @@ return [
         ),
         'pestphp/pest-plugin-arch' => 
         array (
-          'pretty_version' => 'v2.7.0',
-          'version' => '2.7.0.0',
-          'reference' => 'd23b2d7498475354522c3818c42ef355dca3fcda',
+          'pretty_version' => 'v3.0.0',
+          'version' => '3.0.0.0',
+          'reference' => '0a27e55a270cfe73d8cb70551b91002ee2cb64b0',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../pestphp/pest-plugin-arch',
           'aliases' => 
@@ -1016,13 +1283,13 @@ return [
           ),
           'dev_requirement' => true,
         ),
-        'pestphp/pest-plugin-laravel' => 
+        'pestphp/pest-plugin-mutate' => 
         array (
-          'pretty_version' => 'v2.4.0',
-          'version' => '2.4.0.0',
-          'reference' => '53df51169a7f9595e06839cce638c73e59ace5e8',
+          'pretty_version' => 'v3.0.5',
+          'version' => '3.0.5.0',
+          'reference' => 'e10dbdc98c9e2f3890095b4fe2144f63a5717e08',
           'type' => 'library',
-          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../pestphp/pest-plugin-laravel',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../pestphp/pest-plugin-mutate',
           'aliases' => 
           array (
           ),
@@ -1047,18 +1314,6 @@ return [
           'reference' => '4f7fd7836c6f332bb2933569e566a0d6c4cbed74',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../phar-io/version',
-          'aliases' => 
-          array (
-          ),
-          'dev_requirement' => true,
-        ),
-        'phpat/phpat' => 
-        array (
-          'pretty_version' => '0.10.20',
-          'version' => '0.10.20.0',
-          'reference' => '55154db9c36d56aaae5de4bcddb7f5a1202f1910',
-          'type' => 'phpstan-extension',
-          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../phpat/phpat',
           'aliases' => 
           array (
           ),
@@ -1100,19 +1355,6 @@ return [
           ),
           'dev_requirement' => true,
         ),
-        'phploc/phploc' => 
-        array (
-          'pretty_version' => 'dev-main',
-          'version' => 'dev-main',
-          'reference' => 'f67d57cced9656b80c3f836e962333d91c76b951',
-          'type' => 'library',
-          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../phploc/phploc',
-          'aliases' => 
-          array (
-            0 => '8.0.x-dev',
-          ),
-          'dev_requirement' => true,
-        ),
         'phpmd/phpmd' => 
         array (
           'pretty_version' => '2.15.0',
@@ -1120,6 +1362,18 @@ return [
           'reference' => '74a1f56e33afad4128b886e334093e98e1b5e7c0',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../phpmd/phpmd',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
+        'phpmetrics/phpmetrics' => 
+        array (
+          'pretty_version' => 'v3.0.0rc8',
+          'version' => '3.0.0.0-RC8',
+          'reference' => '7111fe26c10092ed73c88fd325b43ddcd1b08558',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../phpmetrics/phpmetrics',
           'aliases' => 
           array (
           ),
@@ -1151,9 +1405,9 @@ return [
         ),
         'phpstan/phpdoc-parser' => 
         array (
-          'pretty_version' => '2.0.0',
-          'version' => '2.0.0.0',
-          'reference' => 'c00d78fb6b29658347f9d37ebe104bffadf36299',
+          'pretty_version' => '1.33.0',
+          'version' => '1.33.0.0',
+          'reference' => '82a311fd3690fb2bf7b64d5c98f912b3dd746140',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../phpstan/phpdoc-parser',
           'aliases' => 
@@ -1163,9 +1417,9 @@ return [
         ),
         'phpstan/phpstan' => 
         array (
-          'pretty_version' => '1.12.17',
-          'version' => '1.12.17.0',
-          'reference' => '7027b3b0270bf392de0cfba12825979768d728bf',
+          'pretty_version' => '2.1.5',
+          'version' => '2.1.5.0',
+          'reference' => '451b17f9665481ee502adc39be987cb71067ece2',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../phpstan/phpstan',
           'aliases' => 
@@ -1175,9 +1429,9 @@ return [
         ),
         'phpunit/php-code-coverage' => 
         array (
-          'pretty_version' => '10.1.16',
-          'version' => '10.1.16.0',
-          'reference' => '7e308268858ed6baedc8704a304727d20bc07c77',
+          'pretty_version' => '11.0.8',
+          'version' => '11.0.8.0',
+          'reference' => '418c59fd080954f8c4aa5631d9502ecda2387118',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../phpunit/php-code-coverage',
           'aliases' => 
@@ -1187,9 +1441,9 @@ return [
         ),
         'phpunit/php-file-iterator' => 
         array (
-          'pretty_version' => '4.1.0',
-          'version' => '4.1.0.0',
-          'reference' => 'a95037b6d9e608ba092da1b23931e537cadc3c3c',
+          'pretty_version' => '5.1.0',
+          'version' => '5.1.0.0',
+          'reference' => '118cfaaa8bc5aef3287bf315b6060b1174754af6',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../phpunit/php-file-iterator',
           'aliases' => 
@@ -1199,9 +1453,9 @@ return [
         ),
         'phpunit/php-invoker' => 
         array (
-          'pretty_version' => '4.0.0',
-          'version' => '4.0.0.0',
-          'reference' => 'f5e568ba02fa5ba0ddd0f618391d5a9ea50b06d7',
+          'pretty_version' => '5.0.1',
+          'version' => '5.0.1.0',
+          'reference' => 'c1ca3814734c07492b3d4c5f794f4b0995333da2',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../phpunit/php-invoker',
           'aliases' => 
@@ -1211,9 +1465,9 @@ return [
         ),
         'phpunit/php-text-template' => 
         array (
-          'pretty_version' => '3.0.1',
-          'version' => '3.0.1.0',
-          'reference' => '0c7b06ff49e3d5072f057eb1fa59258bf287a748',
+          'pretty_version' => '4.0.1',
+          'version' => '4.0.1.0',
+          'reference' => '3e0404dc6b300e6bf56415467ebcb3fe4f33e964',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../phpunit/php-text-template',
           'aliases' => 
@@ -1223,9 +1477,9 @@ return [
         ),
         'phpunit/php-timer' => 
         array (
-          'pretty_version' => '6.0.0',
-          'version' => '6.0.0.0',
-          'reference' => 'e2a2d67966e740530f4a3343fe2e030ffdc1161d',
+          'pretty_version' => '7.0.1',
+          'version' => '7.0.1.0',
+          'reference' => '3b415def83fbcb41f991d9ebf16ae4ad8b7837b3',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../phpunit/php-timer',
           'aliases' => 
@@ -1235,15 +1489,23 @@ return [
         ),
         'phpunit/phpunit' => 
         array (
-          'pretty_version' => '10.5.36',
-          'version' => '10.5.36.0',
-          'reference' => 'aa0a8ce701ea7ee314b0dfaa8970dc94f3f8c870',
+          'pretty_version' => '11.5.3',
+          'version' => '11.5.3.0',
+          'reference' => '30e319e578a7b5da3543073e30002bf82042f701',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../phpunit/phpunit',
           'aliases' => 
           array (
           ),
           'dev_requirement' => true,
+        ),
+        'psalm/psalm' => 
+        array (
+          'dev_requirement' => true,
+          'provided' => 
+          array (
+            0 => '6.5.1',
+          ),
         ),
         'psr/clock' => 
         array (
@@ -1305,6 +1567,66 @@ return [
             0 => '1.0',
           ),
         ),
+        'psr/http-client' => 
+        array (
+          'pretty_version' => '1.0.3',
+          'version' => '1.0.3.0',
+          'reference' => 'bb5906edc1c324c9a05aa0873d40117941e5fa90',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../psr/http-client',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'psr/http-client-implementation' => 
+        array (
+          'dev_requirement' => false,
+          'provided' => 
+          array (
+            0 => '1.0',
+          ),
+        ),
+        'psr/http-factory' => 
+        array (
+          'pretty_version' => '1.1.0',
+          'version' => '1.1.0.0',
+          'reference' => '2b4765fddfe3b508ac62f829e852b1501d3f6e8a',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../psr/http-factory',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'psr/http-factory-implementation' => 
+        array (
+          'dev_requirement' => false,
+          'provided' => 
+          array (
+            0 => '1.0',
+          ),
+        ),
+        'psr/http-message' => 
+        array (
+          'pretty_version' => '2.0',
+          'version' => '2.0.0.0',
+          'reference' => '402d35bcb92c70c026d1a6a9883f06b2ead23d71',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../psr/http-message',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'psr/http-message-implementation' => 
+        array (
+          'dev_requirement' => false,
+          'provided' => 
+          array (
+            0 => '1.0',
+          ),
+        ),
         'psr/log' => 
         array (
           'pretty_version' => '3.0.2',
@@ -1357,6 +1679,18 @@ return [
           array (
           ),
           'dev_requirement' => true,
+        ),
+        'ralouphie/getallheaders' => 
+        array (
+          'pretty_version' => '3.0.3',
+          'version' => '3.0.3.0',
+          'reference' => '120b605dfeb996808c31b6477290a714d356e822',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../ralouphie/getallheaders',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
         ),
         'ramsey/collection' => 
         array (
@@ -1466,6 +1800,42 @@ return [
           ),
           'dev_requirement' => true,
         ),
+        'rector/rector' => 
+        array (
+          'pretty_version' => '2.0.9',
+          'version' => '2.0.9.0',
+          'reference' => '4393230e478c0006795770fe74c223b5c64ed68c',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../rector/rector',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
+        'rector/swiss-knife' => 
+        array (
+          'pretty_version' => '2.1.10',
+          'version' => '2.1.10.0',
+          'reference' => '04ac1df12474cb532de40a68bcd12c29d90ac97b',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../rector/swiss-knife',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
+        'revolt/event-loop' => 
+        array (
+          'pretty_version' => 'v1.0.6',
+          'version' => '1.0.6.0',
+          'reference' => '25de49af7223ba039f64da4ae9a28ec2d10d0254',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../revolt/event-loop',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
         'rhumsaa/uuid' => 
         array (
           'dev_requirement' => false,
@@ -1474,35 +1844,11 @@ return [
             0 => '4.7.6',
           ),
         ),
-        'sanmai/later' => 
-        array (
-          'pretty_version' => '0.1.4',
-          'version' => '0.1.4.0',
-          'reference' => 'e24c4304a4b1349c2a83151a692cec0c10579f60',
-          'type' => 'library',
-          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../sanmai/later',
-          'aliases' => 
-          array (
-          ),
-          'dev_requirement' => true,
-        ),
-        'sanmai/pipeline' => 
-        array (
-          'pretty_version' => '6.12',
-          'version' => '6.12.0.0',
-          'reference' => 'ad7dbc3f773eeafb90d5459522fbd8f188532e25',
-          'type' => 'library',
-          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../sanmai/pipeline',
-          'aliases' => 
-          array (
-          ),
-          'dev_requirement' => true,
-        ),
         'sebastian/cli-parser' => 
         array (
-          'pretty_version' => '2.0.1',
-          'version' => '2.0.1.0',
-          'reference' => 'c34583b87e7b7a8055bf6c450c2c77ce32a24084',
+          'pretty_version' => '3.0.2',
+          'version' => '3.0.2.0',
+          'reference' => '15c5dd40dc4f38794d383bb95465193f5e0ae180',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../sebastian/cli-parser',
           'aliases' => 
@@ -1512,9 +1858,9 @@ return [
         ),
         'sebastian/code-unit' => 
         array (
-          'pretty_version' => '2.0.0',
-          'version' => '2.0.0.0',
-          'reference' => 'a81fee9eef0b7a76af11d121767abc44c104e503',
+          'pretty_version' => '3.0.2',
+          'version' => '3.0.2.0',
+          'reference' => 'ee88b0cdbe74cf8dd3b54940ff17643c0d6543ca',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../sebastian/code-unit',
           'aliases' => 
@@ -1524,9 +1870,9 @@ return [
         ),
         'sebastian/code-unit-reverse-lookup' => 
         array (
-          'pretty_version' => '3.0.0',
-          'version' => '3.0.0.0',
-          'reference' => '5e3a687f7d8ae33fb362c5c0743794bbb2420a1d',
+          'pretty_version' => '4.0.1',
+          'version' => '4.0.1.0',
+          'reference' => '183a9b2632194febd219bb9246eee421dad8d45e',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../sebastian/code-unit-reverse-lookup',
           'aliases' => 
@@ -1536,9 +1882,9 @@ return [
         ),
         'sebastian/comparator' => 
         array (
-          'pretty_version' => '5.0.3',
-          'version' => '5.0.3.0',
-          'reference' => 'a18251eb0b7a2dcd2f7aa3d6078b18545ef0558e',
+          'pretty_version' => '6.3.0',
+          'version' => '6.3.0.0',
+          'reference' => 'd4e47a769525c4dd38cea90e5dcd435ddbbc7115',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../sebastian/comparator',
           'aliases' => 
@@ -1548,9 +1894,9 @@ return [
         ),
         'sebastian/complexity' => 
         array (
-          'pretty_version' => '3.2.0',
-          'version' => '3.2.0.0',
-          'reference' => '68ff824baeae169ec9f2137158ee529584553799',
+          'pretty_version' => '4.0.1',
+          'version' => '4.0.1.0',
+          'reference' => 'ee41d384ab1906c68852636b6de493846e13e5a0',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../sebastian/complexity',
           'aliases' => 
@@ -1560,9 +1906,9 @@ return [
         ),
         'sebastian/diff' => 
         array (
-          'pretty_version' => '5.1.1',
-          'version' => '5.1.1.0',
-          'reference' => 'c41e007b4b62af48218231d6c2275e4c9b975b2e',
+          'pretty_version' => '6.0.2',
+          'version' => '6.0.2.0',
+          'reference' => 'b4ccd857127db5d41a5b676f24b51371d76d8544',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../sebastian/diff',
           'aliases' => 
@@ -1572,9 +1918,9 @@ return [
         ),
         'sebastian/environment' => 
         array (
-          'pretty_version' => '6.1.0',
-          'version' => '6.1.0.0',
-          'reference' => '8074dbcd93529b357029f5cc5058fd3e43666984',
+          'pretty_version' => '7.2.0',
+          'version' => '7.2.0.0',
+          'reference' => '855f3ae0ab316bbafe1ba4e16e9f3c078d24a0c5',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../sebastian/environment',
           'aliases' => 
@@ -1584,9 +1930,9 @@ return [
         ),
         'sebastian/exporter' => 
         array (
-          'pretty_version' => '5.1.2',
-          'version' => '5.1.2.0',
-          'reference' => '955288482d97c19a372d3f31006ab3f37da47adf',
+          'pretty_version' => '6.3.0',
+          'version' => '6.3.0.0',
+          'reference' => '3473f61172093b2da7de1fb5782e1f24cc036dc3',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../sebastian/exporter',
           'aliases' => 
@@ -1596,9 +1942,9 @@ return [
         ),
         'sebastian/global-state' => 
         array (
-          'pretty_version' => '6.0.2',
-          'version' => '6.0.2.0',
-          'reference' => '987bafff24ecc4c9ac418cab1145b96dd6e9cbd9',
+          'pretty_version' => '7.0.2',
+          'version' => '7.0.2.0',
+          'reference' => '3be331570a721f9a4b5917f4209773de17f747d7',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../sebastian/global-state',
           'aliases' => 
@@ -1608,9 +1954,9 @@ return [
         ),
         'sebastian/lines-of-code' => 
         array (
-          'pretty_version' => '2.0.2',
-          'version' => '2.0.2.0',
-          'reference' => '856e7f6a75a84e339195d48c556f23be2ebf75d0',
+          'pretty_version' => '3.0.1',
+          'version' => '3.0.1.0',
+          'reference' => 'd36ad0d782e5756913e42ad87cb2890f4ffe467a',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../sebastian/lines-of-code',
           'aliases' => 
@@ -1620,9 +1966,9 @@ return [
         ),
         'sebastian/object-enumerator' => 
         array (
-          'pretty_version' => '5.0.0',
-          'version' => '5.0.0.0',
-          'reference' => '202d0e344a580d7f7d04b3fafce6933e59dae906',
+          'pretty_version' => '6.0.1',
+          'version' => '6.0.1.0',
+          'reference' => 'f5b498e631a74204185071eb41f33f38d64608aa',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../sebastian/object-enumerator',
           'aliases' => 
@@ -1632,9 +1978,9 @@ return [
         ),
         'sebastian/object-reflector' => 
         array (
-          'pretty_version' => '3.0.0',
-          'version' => '3.0.0.0',
-          'reference' => '24ed13d98130f0e7122df55d06c5c4942a577957',
+          'pretty_version' => '4.0.1',
+          'version' => '4.0.1.0',
+          'reference' => '6e1a43b411b2ad34146dee7524cb13a068bb35f9',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../sebastian/object-reflector',
           'aliases' => 
@@ -1644,9 +1990,9 @@ return [
         ),
         'sebastian/recursion-context' => 
         array (
-          'pretty_version' => '5.0.0',
-          'version' => '5.0.0.0',
-          'reference' => '05909fb5bc7df4c52992396d0116aed689f93712',
+          'pretty_version' => '6.0.2',
+          'version' => '6.0.2.0',
+          'reference' => '694d156164372abbd149a4b85ccda2e4670c0e16',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../sebastian/recursion-context',
           'aliases' => 
@@ -1656,9 +2002,9 @@ return [
         ),
         'sebastian/type' => 
         array (
-          'pretty_version' => '4.0.0',
-          'version' => '4.0.0.0',
-          'reference' => '462699a16464c3944eefc02ebdd77882bd3925bf',
+          'pretty_version' => '5.1.0',
+          'version' => '5.1.0.0',
+          'reference' => '461b9c5da241511a2a0e8f240814fb23ce5c0aac',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../sebastian/type',
           'aliases' => 
@@ -1668,15 +2014,83 @@ return [
         ),
         'sebastian/version' => 
         array (
-          'pretty_version' => '4.0.1',
-          'version' => '4.0.1.0',
-          'reference' => 'c51fa83a5d8f43f1402e3f32a005e6262244ef17',
+          'pretty_version' => '5.0.2',
+          'version' => '5.0.2.0',
+          'reference' => 'c687e3387b99f5b03b6caa64c74b63e2936ff874',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../sebastian/version',
           'aliases' => 
           array (
           ),
           'dev_requirement' => true,
+        ),
+        'slevomat/coding-standard' => 
+        array (
+          'pretty_version' => '8.15.0',
+          'version' => '8.15.0.0',
+          'reference' => '7d1d957421618a3803b593ec31ace470177d7817',
+          'type' => 'phpcodesniffer-standard',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../slevomat/coding-standard',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
+        'spatie/array-to-xml' => 
+        array (
+          'pretty_version' => '3.4.0',
+          'version' => '3.4.0.0',
+          'reference' => '7dcfc67d60b0272926dabad1ec01f6b8a5fb5e67',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../spatie/array-to-xml',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
+        'spatie/once' => 
+        array (
+          'dev_requirement' => false,
+          'replaced' => 
+          array (
+            0 => '*',
+          ),
+        ),
+        'squizlabs/php_codesniffer' => 
+        array (
+          'pretty_version' => '3.11.3',
+          'version' => '3.11.3.0',
+          'reference' => 'ba05f990e79cbe69b9f35c8c1ac8dca7eecc3a10',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../squizlabs/php_codesniffer',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
+        'staabm/side-effects-detector' => 
+        array (
+          'pretty_version' => '1.0.5',
+          'version' => '1.0.5.0',
+          'reference' => 'd8334211a140ce329c13726d4a715adbddd0a163',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../staabm/side-effects-detector',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
+        'symfony/clock' => 
+        array (
+          'pretty_version' => 'v7.2.0',
+          'version' => '7.2.0.0',
+          'reference' => 'b81435fbd6648ea425d1ee96a2d8e68f4ceacd24',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../symfony/clock',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
         ),
         'symfony/config' => 
         array (
@@ -1692,9 +2106,9 @@ return [
         ),
         'symfony/console' => 
         array (
-          'pretty_version' => 'v6.4.17',
-          'version' => '6.4.17.0',
-          'reference' => '799445db3f15768ecc382ac5699e6da0520a0a04',
+          'pretty_version' => 'v7.2.1',
+          'version' => '7.2.1.0',
+          'reference' => 'fefcc18c0f5d0efe3ab3152f15857298868dc2c3',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../symfony/console',
           'aliases' => 
@@ -1740,9 +2154,9 @@ return [
         ),
         'symfony/error-handler' => 
         array (
-          'pretty_version' => 'v6.4.18',
-          'version' => '6.4.18.0',
-          'reference' => 'e8d3b5b1975e67812a54388b1ba8e9ec28eb770e',
+          'pretty_version' => 'v7.2.3',
+          'version' => '7.2.3.0',
+          'reference' => '959a74d044a6db21f4caa6d695648dcb5584cb49',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../symfony/error-handler',
           'aliases' => 
@@ -1796,9 +2210,9 @@ return [
         ),
         'symfony/finder' => 
         array (
-          'pretty_version' => 'v6.4.17',
-          'version' => '6.4.17.0',
-          'reference' => '1d0e8266248c5d9ab6a87e3789e6dc482af3c9c7',
+          'pretty_version' => 'v7.2.2',
+          'version' => '7.2.2.0',
+          'reference' => '87a71856f2f56e4100373e92529eed3171695cfb',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../symfony/finder',
           'aliases' => 
@@ -1808,9 +2222,9 @@ return [
         ),
         'symfony/http-foundation' => 
         array (
-          'pretty_version' => 'v6.4.18',
-          'version' => '6.4.18.0',
-          'reference' => 'd0492d6217e5ab48f51fca76f64cf8e78919d0db',
+          'pretty_version' => 'v7.2.3',
+          'version' => '7.2.3.0',
+          'reference' => 'ee1b504b8926198be89d05e5b6fc4c3810c090f0',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../symfony/http-foundation',
           'aliases' => 
@@ -1820,9 +2234,9 @@ return [
         ),
         'symfony/http-kernel' => 
         array (
-          'pretty_version' => 'v6.4.18',
-          'version' => '6.4.18.0',
-          'reference' => 'fca7197bfe9e99dfae7fb1ad3f7f5bd9ef80e1b7',
+          'pretty_version' => 'v7.2.3',
+          'version' => '7.2.3.0',
+          'reference' => 'caae9807f8e25a9b43ce8cc6fafab6cf91f0cc9b',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../symfony/http-kernel',
           'aliases' => 
@@ -1832,9 +2246,9 @@ return [
         ),
         'symfony/mailer' => 
         array (
-          'pretty_version' => 'v6.4.18',
-          'version' => '6.4.18.0',
-          'reference' => 'e93a6ae2767d7f7578c2b7961d9d8e27580b2b11',
+          'pretty_version' => 'v7.2.3',
+          'version' => '7.2.3.0',
+          'reference' => 'f3871b182c44997cf039f3b462af4a48fb85f9d3',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../symfony/mailer',
           'aliases' => 
@@ -1844,9 +2258,9 @@ return [
         ),
         'symfony/mime' => 
         array (
-          'pretty_version' => 'v6.4.18',
-          'version' => '6.4.18.0',
-          'reference' => '917d77981eb1ea963608d5cda4d9c0cf72eaa68e',
+          'pretty_version' => 'v7.2.3',
+          'version' => '7.2.3.0',
+          'reference' => '2fc3b4bd67e4747e45195bc4c98bea4628476204',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../symfony/mime',
           'aliases' => 
@@ -1962,6 +2376,18 @@ return [
           ),
           'dev_requirement' => false,
         ),
+        'symfony/polyfill-php84' => 
+        array (
+          'pretty_version' => 'v1.31.0',
+          'version' => '1.31.0.0',
+          'reference' => 'e5493eb51311ab0b1cc2243416613f06ed8f18bd',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../symfony/polyfill-php84',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
         'symfony/polyfill-uuid' => 
         array (
           'pretty_version' => 'v1.31.0',
@@ -1976,9 +2402,9 @@ return [
         ),
         'symfony/process' => 
         array (
-          'pretty_version' => 'v6.4.15',
-          'version' => '6.4.15.0',
-          'reference' => '3cb242f059c14ae08591c5c4087d1fe443564392',
+          'pretty_version' => 'v7.2.0',
+          'version' => '7.2.0.0',
+          'reference' => 'd34b22ba9390ec19d2dd966c40aa9e8462f27a7e',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../symfony/process',
           'aliases' => 
@@ -1988,9 +2414,9 @@ return [
         ),
         'symfony/routing' => 
         array (
-          'pretty_version' => 'v6.4.18',
-          'version' => '6.4.18.0',
-          'reference' => 'e9bfc94953019089acdfb9be51c1b9142c4afa68',
+          'pretty_version' => 'v7.2.3',
+          'version' => '7.2.3.0',
+          'reference' => 'ee9a67edc6baa33e5fae662f94f91fd262930996',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../symfony/routing',
           'aliases' => 
@@ -2044,9 +2470,9 @@ return [
         ),
         'symfony/translation' => 
         array (
-          'pretty_version' => 'v6.4.13',
-          'version' => '6.4.13.0',
-          'reference' => 'bee9bfabfa8b4045a66bf82520e492cddbaffa66',
+          'pretty_version' => 'v7.2.2',
+          'version' => '7.2.2.0',
+          'reference' => 'e2674a30132b7cc4d74540d6c2573aa363f05923',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../symfony/translation',
           'aliases' => 
@@ -2076,9 +2502,9 @@ return [
         ),
         'symfony/uid' => 
         array (
-          'pretty_version' => 'v6.4.13',
-          'version' => '6.4.13.0',
-          'reference' => '18eb207f0436a993fffbdd811b5b8fa35fa5e007',
+          'pretty_version' => 'v7.2.0',
+          'version' => '7.2.0.0',
+          'reference' => '2d294d0c48df244c71c105a169d0190bfb080426',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../symfony/uid',
           'aliases' => 
@@ -2088,9 +2514,9 @@ return [
         ),
         'symfony/var-dumper' => 
         array (
-          'pretty_version' => 'v6.4.18',
-          'version' => '6.4.18.0',
-          'reference' => '4ad10cf8b020e77ba665305bb7804389884b4837',
+          'pretty_version' => 'v7.2.3',
+          'version' => '7.2.3.0',
+          'reference' => '82b478c69745d8878eb60f9a049a4d584996f73a',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../symfony/var-dumper',
           'aliases' => 
@@ -2112,9 +2538,9 @@ return [
         ),
         'symfony/yaml' => 
         array (
-          'pretty_version' => 'v6.4.18',
-          'version' => '6.4.18.0',
-          'reference' => 'bf598c9d9bb4a22f495a4e26e4c4fce2f8ecefc5',
+          'pretty_version' => 'v7.2.3',
+          'version' => '7.2.3.0',
+          'reference' => 'ac238f173df0c9c1120f862d0f599e17535a87ec',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../symfony/yaml',
           'aliases' => 
@@ -2129,18 +2555,6 @@ return [
           'reference' => '89f0dea1cb0f0d5744d3ec1764a286af5e006636',
           'type' => 'library',
           'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../ta-tikoma/phpunit-architecture-test',
-          'aliases' => 
-          array (
-          ),
-          'dev_requirement' => true,
-        ),
-        'thecodingmachine/safe' => 
-        array (
-          'pretty_version' => 'v2.5.0',
-          'version' => '2.5.0.0',
-          'reference' => '3115ecd6b4391662b4931daac4eba6b07a2ac1f0',
-          'type' => 'library',
-          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../thecodingmachine/safe',
           'aliases' => 
           array (
           ),
@@ -2169,6 +2583,42 @@ return [
           array (
           ),
           'dev_requirement' => false,
+        ),
+        'tomasvotruba/class-leak' => 
+        array (
+          'pretty_version' => '2.0.3',
+          'version' => '2.0.3.0',
+          'reference' => '4fcf2aa7c7b819bd2007b4540fe2deb89ae070a0',
+          'type' => 'library',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../tomasvotruba/class-leak',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
+        'tomasvotruba/type-coverage' => 
+        array (
+          'pretty_version' => '2.0.2',
+          'version' => '2.0.2.0',
+          'reference' => 'd033429580f2c18bda538fa44f2939236a990e0c',
+          'type' => 'phpstan-extension',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../tomasvotruba/type-coverage',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
+        ),
+        'vimeo/psalm' => 
+        array (
+          'pretty_version' => '6.5.1',
+          'version' => '6.5.1.0',
+          'reference' => '3f17a6b24a2dbe543e21408c2b19108cf6a355ef',
+          'type' => 'project',
+          'install_path' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/composer/../vimeo/psalm',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => true,
         ),
         'vlucas/phpdotenv' => 
         array (
@@ -2289,465 +2739,89 @@ return [
   'stubFiles' => 
   array (
   ),
-  'level' => '8',
+  'level' => '2',
 ),
 	'projectExtensionFiles' => array (
 ),
 	'errorsCallback' => static function (): array { return array (
-  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/GeneratorConfig.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Offset \'type\' on array{type: \'belongsTo\'|\'belongsToMany\'|\'hasMany\'|\'hasOne\'|\'morphMany\'|\'morphOne\'|\'morphTo\', model: string, foreignKey?: string, localKey?: string, table?: string, morphType?: string} in isset() always exists and is not nullable.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/GeneratorConfig.php',
-       'line' => 164,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/GeneratorConfig.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 164,
-       'nodeType' => 'PhpParser\\Node\\Expr\\Isset_',
-       'identifier' => 'isset.offset',
-       'metadata' => 
-      array (
-      ),
-    )),
-    1 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Offset \'model\' on array{type: \'belongsTo\'|\'belongsToMany\'|\'hasMany\'|\'hasOne\'|\'morphMany\'|\'morphOne\'|\'morphTo\', model: string, foreignKey?: string, localKey?: string, table?: string, morphType?: string} in isset() always exists and is not nullable.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/GeneratorConfig.php',
-       'line' => 173,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/GeneratorConfig.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 173,
-       'nodeType' => 'PhpParser\\Node\\Expr\\Isset_',
-       'identifier' => 'isset.offset',
-       'metadata' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/GenerateModelCommand.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $options of method SAC\\EloquentModelGenerator\\Services\\ModelGeneratorService::generateModel() expects array{class_name?: string, namespace?: string, base_class?: class-string|null, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool}, array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool} given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/GenerateModelCommand.php',
-       'line' => 108,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/GenerateModelCommand.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Offset \'base_class\' (class-string|null) does not accept type string.',
-       'nodeLine' => 108,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Jobs/GenerateModelJob.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $options of method SAC\\EloquentModelGenerator\\Services\\ModelGeneratorService::generateModel() expects array{class_name?: string, namespace?: string, base_class?: class-string|null, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool}, array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool} given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Jobs/GenerateModelJob.php',
-       'line' => 37,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Jobs/GenerateModelJob.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Offset \'base_class\' (class-string|null) does not accept type string.',
-       'nodeLine' => 37,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Jobs/ProcessModelChunkJob.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $options of method SAC\\EloquentModelGenerator\\Services\\ModelGeneratorService::generateModel() expects array{class_name?: string, namespace?: string, base_class?: class-string|null, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool}, array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool} given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Jobs/ProcessModelChunkJob.php',
-       'line' => 39,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Jobs/ProcessModelChunkJob.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Offset \'base_class\' (class-string|null) does not accept type string.',
-       'nodeLine' => 39,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Model/Relations.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Match arm is unreachable because previous comparison is always true.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Model/Relations.php',
-       'line' => 68,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Model/Relations.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 59,
-       'nodeType' => 'PHPStan\\Node\\MatchExpressionNode',
-       'identifier' => 'match.unreachable',
-       'metadata' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ModelGenerator.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $schema of method SAC\\EloquentModelGenerator\\Services\\ModelGeneratorService::generate() expects array{columns: array<string, array{type: non-empty-string, nullable: bool, default?: mixed, length?: int<1, max>|null, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...}>, indexes?: array<string, array{type: \'fulltext\'|\'index\'|\'primary\'|\'spatial\'|\'unique\', columns: array<string>, name?: string, algorithm?: string, options?: array<string, mixed>}>, foreignKeys?: array<string, array{table: string, columns: array<string, string>, onDelete?: string, onUpdate?: string}>, relations?: array<string, array{type: string, model?: string, foreignKey?: string, localKey?: string, morphType?: string}>, timestamps?: bool, softDeletes?: bool, primaryKey?: string, incrementing?: bool}, array<string, mixed> given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ModelGenerator.php',
-       'line' => 35,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ModelGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 35,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    1 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #3 $subject of function preg_replace expects array|string, string|null given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ModelGenerator.php',
-       'line' => 117,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ModelGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 114,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    2 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\ModelGenerator::injectValidationTraits() should return string but returns string|null.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ModelGenerator.php',
-       'line' => 120,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ModelGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 120,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    3 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\ModelGenerator::injectValidationRules() has parameter $rules with no value type specified in iterable type array.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ModelGenerator.php',
-       'line' => 130,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ModelGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 130,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    4 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\ModelGenerator::injectValidationRules() should return string but returns string|null.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ModelGenerator.php',
-       'line' => 149,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ModelGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 149,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    5 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\ModelGenerator::injectValidationMessages() should return string but returns string|null.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ModelGenerator.php',
-       'line' => 174,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ModelGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 174,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/BaseModel.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Property SAC\\EloquentModelGenerator\\Models\\BaseModel::$table (string) overriding property Illuminate\\Database\\Eloquent\\Model::$table should not have a native type.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/BaseModel.php',
-       'line' => 21,
-       'canBeIgnored' => false,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/BaseModel.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 21,
-       'nodeType' => 'PHPStan\\Node\\ClassPropertyNode',
-       'identifier' => 'property.extraNativeType',
-       'metadata' => 
-      array (
-      ),
-    )),
-    1 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $hidden (array<int, string>) of method SAC\\EloquentModelGenerator\\Models\\BaseModel::setHidden() should be contravariant with parameter $hidden (array<string>) of method Illuminate\\Database\\Eloquent\\Model::setHidden()',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/BaseModel.php',
-       'line' => 172,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/BaseModel.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 172,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'method.childParameterType',
-       'metadata' => 
-      array (
-      ),
-    )),
-  ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php' => 
   array (
     0 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Property SAC\\EloquentModelGenerator\\Models\\GeneratedModel::$validationRules type has no value type specified in iterable type array.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
-       'line' => 153,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 153,
-       'nodeType' => 'PHPStan\\Node\\ClassPropertyNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    1 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Property SAC\\EloquentModelGenerator\\Models\\GeneratedModel::$relationships type has no value type specified in iterable type array.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
-       'line' => 174,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 174,
-       'nodeType' => 'PHPStan\\Node\\ClassPropertyNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    2 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Models\\GeneratedModel::validateArrays() is unused.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
-       'line' => 210,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 7,
-       'nodeType' => 'PHPStan\\Node\\ClassMethodsNode',
-       'identifier' => 'method.unused',
-       'metadata' => 
-      array (
-      ),
-    )),
-    3 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Result of || is always false.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
-       'line' => 267,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
-       'nodeLine' => 267,
-       'nodeType' => 'PHPStan\\Node\\BooleanOrNode',
-       'identifier' => 'booleanOr.alwaysFalse',
-       'metadata' => 
-      array (
-      ),
-    )),
-    4 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $rule of method SAC\\EloquentModelGenerator\\Models\\GeneratedModel::validateSingleRule() expects array|string, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
-       'line' => 327,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 327,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    5 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Models\\GeneratedModel::validateSingleRule() has parameter $rule with no value type specified in iterable type array.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
-       'line' => 339,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 339,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    6 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Else branch is unreachable because previous condition is always true.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
-       'line' => 350,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
-       'nodeLine' => 347,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\If_',
-       'identifier' => 'else.unreachable',
-       'metadata' => 
-      array (
-      ),
-    )),
-    7 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $definition[\'foreignKey\'] (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
-       'line' => 457,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 457,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\Encapsed',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    8 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $definition[\'localKey\'] (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
-       'line' => 462,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 462,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\Encapsed',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    9 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Models\\GeneratedModel::getValidationRules() return type has no value type specified in iterable type array.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
-       'line' => 633,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 633,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    10 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Models\\GeneratedModel::setValidationRules() has parameter $rules with no value type specified in iterable type array.',
+       'message' => 'Method SAC\\EloquentModelGenerator\\Models\\GeneratedModel::validateSingleRule() invoked with 1 parameter, 2 required.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
        'line' => 712,
        'canBeIgnored' => true,
        'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
        'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 712,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/EloquentModelGeneratorServiceProvider.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method make() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/EloquentModelGeneratorServiceProvider.php',
-       'line' => 22,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/EloquentModelGeneratorServiceProvider.php',
-       'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 22,
+       'nodeLine' => 712,
        'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
+       'identifier' => 'arguments.count',
        'metadata' => 
       array (
       ),
     )),
     1 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method make() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/EloquentModelGeneratorServiceProvider.php',
-       'line' => 30,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/EloquentModelGeneratorServiceProvider.php',
+       'message' => 'Cannot redeclare method SAC\\EloquentModelGenerator\\Models\\GeneratedModel::validateArrays().',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'line' => 760,
+       'canBeIgnored' => false,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 30,
+       'nodeLine' => 7,
+       'nodeType' => 'PHPStan\\Node\\InClassNode',
+       'identifier' => 'class.duplicateMethod',
+       'metadata' => 
+      array (
+      ),
+    )),
+    2 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot redeclare method SAC\\EloquentModelGenerator\\Models\\GeneratedModel::validateSingleRule().',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'line' => 782,
+       'canBeIgnored' => false,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 7,
+       'nodeType' => 'PHPStan\\Node\\InClassNode',
+       'identifier' => 'class.duplicateMethod',
+       'metadata' => 
+      array (
+      ),
+    )),
+    3 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Models\\GeneratedModel::validateArrays() invoked with 1 parameter, 0 required.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'line' => 784,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 784,
        'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
+       'identifier' => 'arguments.count',
+       'metadata' => 
+      array (
+      ),
+    )),
+    4 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Result of method SAC\\EloquentModelGenerator\\Models\\GeneratedModel::validateArrays() (void) is used.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'line' => 784,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 784,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.void',
        'metadata' => 
       array (
       ),
@@ -2787,267 +2861,37 @@ return [
       array (
       ),
     )),
-    2 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'db\' on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/ModelGeneratorServiceProvider.php',
-       'line' => 24,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/ModelGeneratorServiceProvider.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 24,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    3 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method connection() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/ModelGeneratorServiceProvider.php',
-       'line' => 24,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/ModelGeneratorServiceProvider.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 24,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    4 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getDriverName() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/ModelGeneratorServiceProvider.php',
-       'line' => 25,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/ModelGeneratorServiceProvider.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 25,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    5 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $connection of class SAC\\EloquentModelGenerator\\Services\\Schema\\MySQLSchemaAnalyzer constructor expects Illuminate\\Database\\ConnectionInterface, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/ModelGeneratorServiceProvider.php',
-       'line' => 28,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/ModelGeneratorServiceProvider.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 28,
-       'nodeType' => 'PhpParser\\Node\\Expr\\New_',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    6 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $connection of class SAC\\EloquentModelGenerator\\Services\\Schema\\PostgreSQLSchemaAnalyzer constructor expects Illuminate\\Database\\ConnectionInterface, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/ModelGeneratorServiceProvider.php',
-       'line' => 29,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/ModelGeneratorServiceProvider.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 29,
-       'nodeType' => 'PhpParser\\Node\\Expr\\New_',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    7 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $connection of class SAC\\EloquentModelGenerator\\Services\\Schema\\SQLiteSchemaAnalyzer constructor expects Illuminate\\Database\\ConnectionInterface, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/ModelGeneratorServiceProvider.php',
-       'line' => 30,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/ModelGeneratorServiceProvider.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 30,
-       'nodeType' => 'PhpParser\\Node\\Expr\\New_',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    8 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $driver (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/ModelGeneratorServiceProvider.php',
-       'line' => 31,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/ModelGeneratorServiceProvider.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 31,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\Encapsed',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
   ),
-  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/SchemaParser.php' => 
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/TypeHintFixStrategy.php' => 
   array (
     0 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\SchemaParser::parseColumns() should return array<string, array{type: string, cast?: string}> but returns array<string, array{type: string, cast: string|null}>.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/SchemaParser.php',
-       'line' => 39,
+       'message' => 'Access to undefined constant PhpParser\\ParserFactory::PREFER_PHP7.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/TypeHintFixStrategy.php',
+       'line' => 21,
        'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/SchemaParser.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Offset \'cast\' (string) does not accept type string|null.',
-       'nodeLine' => 39,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Benchmark.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\Benchmark::measure() has parameter $operation with no signature specified for callable.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Benchmark.php',
-       'line' => 8,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Benchmark.php',
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/TypeHintFixStrategy.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 8,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.callable',
-       'metadata' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/DefaultModelGenerator.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Property SAC\\EloquentModelGenerator\\Services\\DefaultModelGenerator::$configService is never read, only written.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/DefaultModelGenerator.php',
-       'line' => 14,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/DefaultModelGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/developing-extensions/always-read-written-properties',
-       'nodeLine' => 12,
-       'nodeType' => 'PHPStan\\Node\\ClassPropertiesNode',
-       'identifier' => 'property.onlyWritten',
+       'nodeLine' => 21,
+       'nodeType' => 'PhpParser\\Node\\Expr\\ClassConstFetch',
+       'identifier' => 'classConstant.notFound',
        'metadata' => 
       array (
       ),
     )),
     1 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $className of class SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition constructor expects non-empty-string, string given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/DefaultModelGenerator.php',
-       'line' => 38,
+       'message' => 'Call to an undefined method PhpParser\\ParserFactory::create().',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/TypeHintFixStrategy.php',
+       'line' => 21,
        'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/DefaultModelGenerator.php',
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/TypeHintFixStrategy.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 37,
-       'nodeType' => 'PhpParser\\Node\\Expr\\New_',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    2 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $namespace of class SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition constructor expects non-empty-string, string given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/DefaultModelGenerator.php',
-       'line' => 39,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/DefaultModelGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 37,
-       'nodeType' => 'PhpParser\\Node\\Expr\\New_',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    3 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $baseClass of class SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition constructor expects class-string|null, string given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/DefaultModelGenerator.php',
-       'line' => 42,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/DefaultModelGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 37,
-       'nodeType' => 'PhpParser\\Node\\Expr\\New_',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    4 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $table of class SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition constructor expects non-empty-string|null, string given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/DefaultModelGenerator.php',
-       'line' => 46,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/DefaultModelGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 37,
-       'nodeType' => 'PhpParser\\Node\\Expr\\New_',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    5 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #4 $baseClass of method SAC\\EloquentModelGenerator\\Services\\DefaultModelGenerator::generateModelContent() expects string, class-string|null given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/DefaultModelGenerator.php',
-       'line' => 53,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/DefaultModelGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 49,
+       'nodeLine' => 21,
        'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    6 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $baseClass of class SAC\\EloquentModelGenerator\\Models\\GeneratedModel constructor expects string, class-string|null given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/DefaultModelGenerator.php',
-       'line' => 61,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/DefaultModelGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 57,
-       'nodeType' => 'PhpParser\\Node\\Expr\\New_',
-       'identifier' => 'argument.type',
+       'identifier' => 'method.notFound',
        'metadata' => 
       array (
       ),
@@ -3057,80 +2901,16 @@ return [
   array (
     0 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $options (array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool}) of method SAC\\EloquentModelGenerator\\Services\\ModelGenerator::generateModel() should be contravariant with parameter $options (array{class_name?: string, namespace?: string, base_class?: class-string|null, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool}) of method SAC\\EloquentModelGenerator\\Contracts\\ModelGeneratorService::generateModel()',
+       'message' => 'Method SAC\\EloquentModelGenerator\\Support\\Factories\\ModelGeneratorFactory::createModelDefinition() invoked with 4 parameters, 2-3 required.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php',
-       'line' => 24,
+       'line' => 30,
        'canBeIgnored' => true,
        'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 24,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'method.childParameterType',
-       'metadata' => 
-      array (
-      ),
-    )),
-    1 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Offset \'columns\' on array{columns: array<string, array{type: non-empty-string, nullable: bool, default?: mixed, length?: int<1, max>|null, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...}>, indexes?: array<string, array{type: \'fulltext\'|\'index\'|\'primary\'|\'spatial\'|\'unique\', columns: array<string>, name?: string, algorithm?: string, options?: array<string, mixed>}>, foreignKeys?: array<string, array{table: string, columns: array<string, string>, onDelete?: string, onUpdate?: string}>, timestamps?: bool, softDeletes?: bool, primaryKey?: string, incrementing?: bool} in isset() always exists and is not nullable.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php',
-       'line' => 27,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 27,
-       'nodeType' => 'PhpParser\\Node\\Expr\\Isset_',
-       'identifier' => 'isset.offset',
-       'metadata' => 
-      array (
-      ),
-    )),
-    2 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $columns of method SAC\\EloquentModelGenerator\\Support\\Factories\\ModelGeneratorFactory::createModelDefinition() expects array<string, array{type: string, nullable?: bool, unsigned?: bool, length?: int|null, total?: int|null, places?: int|null, allowed?: array<string>|null, autoIncrement?: bool, ...}>, non-empty-array<string, array{type: non-empty-string, nullable: bool, default?: mixed, length?: int<1, max>|null, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...}> given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php',
-       'line' => 33,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Offset \'default\' (string|null) does not accept type mixed.',
-       'nodeLine' => 31,
+       'nodeLine' => 30,
        'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    3 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Offset \'relations\' on array{columns: non-empty-array<string, array{type: non-empty-string, nullable: bool, default?: mixed, length?: int<1, max>|null, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...}>, indexes?: array<string, array{type: \'fulltext\'|\'index\'|\'primary\'|\'spatial\'|\'unique\', columns: array<string>, name?: string, algorithm?: string, options?: array<string, mixed>}>, foreignKeys?: array<string, array{table: string, columns: array<string, string>, onDelete?: string, onUpdate?: string}>, timestamps?: bool, softDeletes?: bool, primaryKey?: string, incrementing?: bool} on left side of ?? does not exist.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php',
-       'line' => 34,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 34,
-       'nodeType' => 'PhpParser\\Node\\Expr\\BinaryOp\\Coalesce',
-       'identifier' => 'nullCoalesce.offset',
-       'metadata' => 
-      array (
-      ),
-    )),
-    4 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $config (array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool}) of method SAC\\EloquentModelGenerator\\Services\\ModelGenerator::generateBatch() should be contravariant with parameter $config (array{class_name?: string, namespace?: string, base_class?: class-string|null, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool}) of method SAC\\EloquentModelGenerator\\Contracts\\ModelGeneratorService::generateBatch()',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php',
-       'line' => 46,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 46,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'method.childParameterType',
+       'identifier' => 'arguments.count',
        'metadata' => 
       array (
       ),
@@ -3140,426 +2920,37 @@ return [
   array (
     0 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Offset \'columns\' on array{columns: array<string, array{type: non-empty-string, nullable: bool, default?: mixed, length?: int<1, max>|null, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...}>, indexes?: array<string, array{type: \'fulltext\'|\'index\'|\'primary\'|\'spatial\'|\'unique\', columns: array<string>, name?: string, algorithm?: string, options?: array<string, mixed>}>, foreignKeys?: array<string, array{table: string, columns: array<string, string>, onDelete?: string, onUpdate?: string}>, relations?: array<string, array{type: string, model?: string, foreignKey?: string, localKey?: string, morphType?: string}>, timestamps?: bool, softDeletes?: bool, primaryKey?: string, incrementing?: bool} in isset() always exists and is not nullable.',
+       'message' => 'Call to an undefined method Illuminate\\Database\\Schema\\Builder::getAllTables().',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 109,
+       'line' => 206,
        'canBeIgnored' => true,
        'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 109,
-       'nodeType' => 'PhpParser\\Node\\Expr\\Isset_',
-       'identifier' => 'isset.offset',
+       'nodeLine' => 206,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.notFound',
        'metadata' => 
       array (
       ),
     )),
     1 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Offset \'type\' on array{type: string, nullable: bool, default?: mixed, length?: int|null, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...} in isset() always exists and is not nullable.',
+       'message' => 'Call to an undefined method Illuminate\\Database\\Connection::getDoctrineColumn().',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 116,
+       'line' => 373,
        'canBeIgnored' => true,
        'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 116,
-       'nodeType' => 'PhpParser\\Node\\Expr\\Isset_',
-       'identifier' => 'isset.offset',
+       'nodeLine' => 373,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.notFound',
        'metadata' => 
       array (
       ),
     )),
     2 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Offset \'nullable\' on array{type: string, nullable: bool, default?: mixed, length?: int|null, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...} on left side of ?? always exists and is not nullable.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 125,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 125,
-       'nodeType' => 'PhpParser\\Node\\Expr\\BinaryOp\\Coalesce',
-       'identifier' => 'nullCoalesce.offset',
-       'metadata' => 
-      array (
-      ),
-    )),
-    3 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $default of class SAC\\EloquentModelGenerator\\ValueObjects\\Column constructor expects string|null, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 127,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 120,
-       'nodeType' => 'PhpParser\\Node\\Expr\\New_',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    4 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Offset \'type\' on array{type: string, model?: string, foreignKey?: string, localKey?: string, morphType?: string} in isset() always exists and is not nullable.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 136,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 136,
-       'nodeType' => 'PhpParser\\Node\\Expr\\Isset_',
-       'identifier' => 'isset.offset',
-       'metadata' => 
-      array (
-      ),
-    )),
-    5 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $className of class SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition constructor expects non-empty-string, string given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 156,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 155,
-       'nodeType' => 'PhpParser\\Node\\Expr\\New_',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    6 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $namespace of class SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition constructor expects non-empty-string, string given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 157,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 155,
-       'nodeType' => 'PhpParser\\Node\\Expr\\New_',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    7 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $table of class SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition constructor expects non-empty-string|null, string given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 164,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 155,
-       'nodeType' => 'PhpParser\\Node\\Expr\\New_',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    8 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Strict comparison using === between array<string> and null will always evaluate to false.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 207,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
-       'nodeLine' => 207,
-       'nodeType' => 'PhpParser\\Node\\Expr\\BinaryOp\\Identical',
-       'identifier' => 'identical.alwaysFalse',
-       'metadata' => 
-      array (
-      ),
-    )),
-    9 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Offset \'columns\' on array{columns: array<string, array{type: non-empty-string, nullable: bool, default?: mixed, length?: int<1, max>|null, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...}>, indexes?: array<string, array{type: \'fulltext\'|\'index\'|\'primary\'|\'spatial\'|\'unique\', columns: array<string>, name?: string, algorithm?: string, options?: array<string, mixed>}>, foreignKeys?: array<string, array{table: string, columns: array<string, string>, onDelete?: string, onUpdate?: string}>, relations?: array<string, array{type: string, model?: string, foreignKey?: string, localKey?: string, morphType?: string}>, timestamps?: bool, softDeletes?: bool, primaryKey?: string, incrementing?: bool} in isset() always exists and is not nullable.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 234,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 234,
-       'nodeType' => 'PhpParser\\Node\\Expr\\Isset_',
-       'identifier' => 'isset.offset',
-       'metadata' => 
-      array (
-      ),
-    )),
-    10 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $schema of method SAC\\EloquentModelGenerator\\Services\\ModelGeneratorTemplateEngine::render() expects array{columns: array<string, array{type: non-empty-string, length?: int<1, max>|null, nullable?: bool, default?: mixed, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool}>, relations?: array<string, array{type: non-empty-string, model: class-string, foreignKey?: non-empty-string, localKey?: non-empty-string, table?: non-empty-string, morphType?: non-empty-string, morphClass?: class-string, pivotTable?: non-empty-string}>, indexes?: array<string, array{type: \'fulltext\'|\'index\'|\'primary\'|\'spatial\'|\'unique\', columns: array<string>, name?: string, algorithm?: string, options?: array<string, mixed>}>, foreignKeys?: array<string, array{table: string, columns: array<string, string>, onDelete?: string, onUpdate?: string}>, timestamps?: bool, softDeletes?: bool, primaryKey?: string, incrementing?: bool}, array{columns: array<string, array{type: non-empty-string, nullable: bool, default?: mixed, length?: int<1, max>|null, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...}>, indexes?: array<string, array{type: \'fulltext\'|\'index\'|\'primary\'|\'spatial\'|\'unique\', columns: array<string>, name?: string, algorithm?: string, options?: array<string, mixed>}>, foreignKeys?: array<string, array{table: string, columns: array<string, string>, onDelete?: string, onUpdate?: string}>, relations?: array<string, array{type: string, model?: string, foreignKey?: string, localKey?: string, morphType?: string}>, timestamps?: bool, softDeletes?: bool, primaryKey?: string, incrementing?: bool} given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 266,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => '• Offset \'relations\' (array<string, array{type: non-empty-string, model: class-string, foreignKey?: non-empty-string, localKey?: non-empty-string, table?: non-empty-string, morphType?: non-empty-string, morphClass?: class-string, pivotTable?: non-empty-string}>) does not accept type array<string, array{type: string, model?: string, foreignKey?: string, localKey?: string, morphType?: string}>: Offset \'type\' (non-empty-string) does not accept type string.
-• Offset \'relations\' (array<string, array{type: non-empty-string, model: class-string, foreignKey?: non-empty-string, localKey?: non-empty-string, table?: non-empty-string, morphType?: non-empty-string, morphClass?: class-string, pivotTable?: non-empty-string}>) does not accept type array<string, array{type: string, model?: string, foreignKey?: string, localKey?: string, morphType?: string}>: Array might not have offset \'model\'.
-• Offset \'relations\' (array<string, array{type: non-empty-string, model: class-string, foreignKey?: non-empty-string, localKey?: non-empty-string, table?: non-empty-string, morphType?: non-empty-string, morphClass?: class-string, pivotTable?: non-empty-string}>) does not accept type array<string, array{type: string, model?: string, foreignKey?: string, localKey?: string, morphType?: string}>: Offset \'model\' (class-string) does not accept type string.
-• Offset \'relations\' (array<string, array{type: non-empty-string, model: class-string, foreignKey?: non-empty-string, localKey?: non-empty-string, table?: non-empty-string, morphType?: non-empty-string, morphClass?: class-string, pivotTable?: non-empty-string}>) does not accept type array<string, array{type: string, model?: string, foreignKey?: string, localKey?: string, morphType?: string}>: Offset \'foreignKey\' (non-empty-string) does not accept type string.
-• Offset \'relations\' (array<string, array{type: non-empty-string, model: class-string, foreignKey?: non-empty-string, localKey?: non-empty-string, table?: non-empty-string, morphType?: non-empty-string, morphClass?: class-string, pivotTable?: non-empty-string}>) does not accept type array<string, array{type: string, model?: string, foreignKey?: string, localKey?: string, morphType?: string}>: Offset \'localKey\' (non-empty-string) does not accept type string.
-• Offset \'relations\' (array<string, array{type: non-empty-string, model: class-string, foreignKey?: non-empty-string, localKey?: non-empty-string, table?: non-empty-string, morphType?: non-empty-string, morphClass?: class-string, pivotTable?: non-empty-string}>) does not accept type array<string, array{type: string, model?: string, foreignKey?: string, localKey?: string, morphType?: string}>: Offset \'morphType\' (non-empty-string) does not accept type string.',
-       'nodeLine' => 266,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    11 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $baseClass of class SAC\\EloquentModelGenerator\\Models\\GeneratedModel constructor expects string, class-string|null given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 275,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 271,
-       'nodeType' => 'PhpParser\\Node\\Expr\\New_',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    12 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Negated boolean expression is always false.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 297,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
-       'nodeLine' => 297,
-       'nodeType' => 'PhpParser\\Node\\Expr\\BooleanNot',
-       'identifier' => 'booleanNot.alwaysFalse',
-       'metadata' => 
-      array (
-      ),
-    )),
-    13 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Offset \'columns\' on array{columns: array<string, array{type: non-empty-string, nullable: bool, default?: mixed, length?: int<1, max>|null, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...}>, indexes?: array<string, array{type: \'fulltext\'|\'index\'|\'primary\'|\'spatial\'|\'unique\', columns: array<string>, name?: string, algorithm?: string, options?: array<string, mixed>}>, foreignKeys?: array<string, array{table: string, columns: array<string, string>, onDelete?: string, onUpdate?: string}>, relations?: array<string, array{type: string, model?: string, foreignKey?: string, localKey?: string, morphType?: string}>, timestamps?: bool, softDeletes?: bool, primaryKey?: string, incrementing?: bool} in isset() always exists and is not nullable.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 297,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 297,
-       'nodeType' => 'PhpParser\\Node\\Expr\\Isset_',
-       'identifier' => 'isset.offset',
-       'metadata' => 
-      array (
-      ),
-    )),
-    14 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Result of || is always false.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 297,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
-       'nodeLine' => 297,
-       'nodeType' => 'PHPStan\\Node\\BooleanOrNode',
-       'identifier' => 'booleanOr.alwaysFalse',
-       'metadata' => 
-      array (
-      ),
-    )),
-    15 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Result of || is always false.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 297,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
-       'nodeLine' => 297,
-       'nodeType' => 'PHPStan\\Node\\BooleanOrNode',
-       'identifier' => 'booleanOr.alwaysFalse',
-       'metadata' => 
-      array (
-      ),
-    )),
-    16 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Negated boolean expression is always false.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 302,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
-       'nodeLine' => 302,
-       'nodeType' => 'PhpParser\\Node\\Expr\\BooleanNot',
-       'identifier' => 'booleanNot.alwaysFalse',
-       'metadata' => 
-      array (
-      ),
-    )),
-    17 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Offset \'type\' on array{type: non-empty-string, nullable: bool, default?: mixed, length?: int<1, max>|null, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...} in isset() always exists and is not nullable.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 302,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 302,
-       'nodeType' => 'PhpParser\\Node\\Expr\\Isset_',
-       'identifier' => 'isset.offset',
-       'metadata' => 
-      array (
-      ),
-    )),
-    18 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Result of || is always false.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 302,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
-       'nodeLine' => 302,
-       'nodeType' => 'PHPStan\\Node\\BooleanOrNode',
-       'identifier' => 'booleanOr.alwaysFalse',
-       'metadata' => 
-      array (
-      ),
-    )),
-    19 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Result of || is always false.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 302,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
-       'nodeLine' => 302,
-       'nodeType' => 'PHPStan\\Node\\BooleanOrNode',
-       'identifier' => 'booleanOr.alwaysFalse',
-       'metadata' => 
-      array (
-      ),
-    )),
-    20 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method getNotnull() on an unknown class Doctrine\\DBAL\\Schema\\Column.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 375,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 375,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    21 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method getDefault() on an unknown class Doctrine\\DBAL\\Schema\\Column.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 376,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 376,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    22 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method getLength() on an unknown class Doctrine\\DBAL\\Schema\\Column.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 377,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 377,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    23 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method getUnsigned() on an unknown class Doctrine\\DBAL\\Schema\\Column.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 378,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 378,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    24 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method getAutoincrement() on an unknown class Doctrine\\DBAL\\Schema\\Column.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 379,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 379,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    25 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method getComment() on an unknown class Doctrine\\DBAL\\Schema\\Column.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 380,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 380,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    26 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'PHPDoc tag @var above assignment does not specify variable name.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
@@ -3575,110 +2966,14 @@ return [
       array (
       ),
     )),
-    27 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ModelGeneratorService::analyzeColumn() should return array{type: non-empty-string, nullable: bool, default?: mixed, length?: int<1, max>|null, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...} but returns array{type: non-empty-string, nullable: bool, default?: mixed, length?: mixed, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...}|non-empty-string.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'line' => 390,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Offset \'length\' (int<1, max>|null) does not accept type mixed.',
-       'nodeLine' => 390,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php' => 
   array (
     0 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Property SAC\\EloquentModelGenerator\\Services\\ModelGeneratorTemplateEngine::$placeholders is never read, only written.',
+       'message' => 'PHPDoc tag @param has invalid value (array<string, array{type: \'primary\'|\'unique\'|\'index\'|\'fulltext\'|\'spatial\', columns: array<string>, name?: string, algorithm?: string, options?: array<string, mixed>} $indexes): Unexpected token "$indexes", expected \'>\' at offset 264 on line 5',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php',
-       'line' => 119,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/developing-extensions/always-read-written-properties',
-       'nodeLine' => 110,
-       'nodeType' => 'PHPStan\\Node\\ClassPropertiesNode',
-       'identifier' => 'property.onlyWritten',
-       'metadata' => 
-      array (
-      ),
-    )),
-    1 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $replacements of method SAC\\EloquentModelGenerator\\Services\\ModelGeneratorTemplateEngine::replacePlaceholders() expects array<string, string>, array<string, string|null> given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php',
-       'line' => 148,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 148,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    2 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ModelGeneratorTemplateEngine::getCasts() should return array<non-empty-string, non-empty-string> but returns array<mixed, mixed>.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php',
-       'line' => 285,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 285,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    3 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 ...$arrays of function array_merge expects array, string given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php',
-       'line' => 285,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 285,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    4 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ModelGeneratorTemplateEngine::addModelIndexes() has parameter $indexes with no value type specified in iterable type array.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php',
-       'line' => 390,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 390,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    5 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'PHPDoc tag @param has invalid value (array<string, array{type: \'primary\'|\'unique\'|\'index\'|\'fulltext\'|\'spatial\', columns: array<string>, name?: string, algorithm?: string, options?: array<string, mixed>} $indexes): Unexpected token "$indexes", expected \'>\' at offset 264',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php',
-       'line' => 390,
+       'line' => 387,
        'canBeIgnored' => true,
        'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php',
        'traitFilePath' => NULL,
@@ -3690,205 +2985,10 @@ return [
       array (
       ),
     )),
-    6 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $name of method SAC\\EloquentModelGenerator\\Services\\ModelGeneratorTemplateEngine::generateIndexMethod() expects string, (int|string) given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php',
-       'line' => 394,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 394,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    7 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $index of method SAC\\EloquentModelGenerator\\Services\\ModelGeneratorTemplateEngine::generateIndexMethod() expects array{type: \'fulltext\'|\'index\'|\'primary\'|\'spatial\'|\'unique\', columns: array<string>, name?: string, algorithm?: string, options?: array<string, mixed>}, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php',
-       'line' => 394,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 394,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGenerator.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ParallelModelGenerator::generateModels() has parameter $options with no value type specified in iterable type array.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGenerator.php',
-       'line' => 32,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 32,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    1 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ParallelModelGenerator::generateModels() has parameter $tables with no value type specified in iterable type array.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGenerator.php',
-       'line' => 32,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 32,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    2 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $table of method SAC\\EloquentModelGenerator\\Support\\Factories\\ModelGeneratorFactory::createModelDefinition() expects string, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGenerator.php',
-       'line' => 41,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 40,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    3 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset mixed on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGenerator.php',
-       'line' => 42,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 42,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    4 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $columns of method SAC\\EloquentModelGenerator\\Support\\Factories\\ModelGeneratorFactory::createModelDefinition() expects array<string, array{type: string, nullable?: bool, unsigned?: bool, length?: int|null, total?: int|null, places?: int|null, allowed?: array<string>|null, autoIncrement?: bool, ...}>, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGenerator.php',
-       'line' => 42,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 40,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    5 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset mixed on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGenerator.php',
-       'line' => 43,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 43,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    6 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #3 $relations of method SAC\\EloquentModelGenerator\\Support\\Factories\\ModelGeneratorFactory::createModelDefinition() expects array<string, array{type: string, model?: string|null, foreignKey?: string|null, localKey?: string|null, morphType?: string|null}>, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGenerator.php',
-       'line' => 43,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 40,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    7 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method value() on parallel\\Future|null.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGenerator.php',
-       'line' => 50,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 50,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    8 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ParallelModelGenerator::generateModels() should return array<SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition> but returns array<int<0, max>, mixed>.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGenerator.php',
-       'line' => 53,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 53,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php' => 
   array (
     0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $config of class SAC\\EloquentModelGenerator\\Jobs\\GenerateModelJob constructor expects array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool}, array<string, mixed> given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php',
-       'line' => 49,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 49,
-       'nodeType' => 'PhpParser\\Node\\Expr\\New_',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    1 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Access to an undefined property Illuminate\\Bus\\Batch::$jobs.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php',
@@ -3904,87 +3004,7 @@ return [
       array (
       ),
     )),
-    2 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ParallelModelGeneratorService::generateModels() should return array<SAC\\EloquentModelGenerator\\Models\\GeneratedModel> but returns array.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php',
-       'line' => 56,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 56,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    3 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $items of static method Illuminate\\Support\\Collection<(int|string),mixed>::make() expects Illuminate\\Contracts\\Support\\Arrayable<(int|string), mixed>|iterable<(int|string), mixed>|null, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php',
-       'line' => 56,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 56,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    4 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Unable to resolve the template type TMakeKey in call to method static method Illuminate\\Support\\Collection<(int|string),mixed>::make()',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php',
-       'line' => 56,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-error-unable-to-resolve-template-type',
-       'nodeLine' => 56,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'argument.templateType',
-       'metadata' => 
-      array (
-      ),
-    )),
-    5 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Unable to resolve the template type TMakeValue in call to method static method Illuminate\\Support\\Collection<(int|string),mixed>::make()',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php',
-       'line' => 56,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-error-unable-to-resolve-template-type',
-       'nodeLine' => 56,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'argument.templateType',
-       'metadata' => 
-      array (
-      ),
-    )),
-    6 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access property $result on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php',
-       'line' => 57,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 57,
-       'nodeType' => 'PhpParser\\Node\\Expr\\PropertyFetch',
-       'identifier' => 'property.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    7 => 
+    1 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Instantiated class SAC\\EloquentModelGenerator\\ValueObjects\\ModelDefinition not found.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php',
@@ -4000,2887 +3020,53 @@ return [
       array (
       ),
     )),
-    8 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $definition of method SAC\\EloquentModelGenerator\\Contracts\\ModelGenerator::generate() expects SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition, SAC\\EloquentModelGenerator\\ValueObjects\\ModelDefinition given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php',
-       'line' => 91,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 91,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php' => 
   array (
     0 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Property SAC\\EloquentModelGenerator\\Services\\Schema\\BaseSchemaAnalyzer::$schemaManager has unknown class Doctrine\\DBAL\\Schema\\AbstractSchemaManager as its type.',
+       'message' => 'Call to an undefined method Illuminate\\Database\\ConnectionInterface::getTablePrefix().',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'line' => 25,
+       'line' => 31,
        'canBeIgnored' => true,
        'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
        'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 25,
-       'nodeType' => 'PHPStan\\Node\\ClassPropertyNode',
-       'identifier' => 'class.notFound',
+       'tip' => NULL,
+       'nodeLine' => 31,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.notFound',
        'metadata' => 
       array (
       ),
     )),
     1 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Property SAC\\EloquentModelGenerator\\Services\\Schema\\BaseSchemaAnalyzer::$schemaManager has unknown class Doctrine\\DBAL\\Schema\\AbstractSchemaManager as its type.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'line' => 25,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 25,
-       'nodeType' => 'PHPStan\\Node\\ClassPropertyNode',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    2 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Call to an undefined method Illuminate\\Database\\ConnectionInterface::getSchemaBuilder().',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'line' => 41,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 41,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    3 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Property SAC\\EloquentModelGenerator\\Services\\Schema\\BaseSchemaAnalyzer::$schemaBuilder (Illuminate\\Database\\Schema\\Builder|null) does not accept mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'line' => 41,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 41,
-       'nodeType' => 'PHPStan\\Node\\PropertyAssignNode',
-       'identifier' => 'assign.propertyType',
-       'metadata' => 
-      array (
-      ),
-    )),
-    4 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\Schema\\BaseSchemaAnalyzer::getSchemaBuilder() should return Illuminate\\Database\\Schema\\Builder but returns mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'line' => 44,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 44,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    5 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\Schema\\BaseSchemaAnalyzer::getSchemaManager() has invalid return type Doctrine\\DBAL\\Schema\\AbstractSchemaManager.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'line' => 52,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 52,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    6 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\Schema\\BaseSchemaAnalyzer::getSchemaManager() has invalid return type Doctrine\\DBAL\\Schema\\AbstractSchemaManager.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'line' => 52,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 52,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    7 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to an undefined method Illuminate\\Database\\ConnectionInterface::getDoctrineSchemaManager().',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'line' => 54,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 54,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    8 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Property SAC\\EloquentModelGenerator\\Services\\Schema\\BaseSchemaAnalyzer::$schemaManager (Doctrine\\DBAL\\Schema\\AbstractSchemaManager|null) does not accept mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'line' => 54,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 54,
-       'nodeType' => 'PHPStan\\Node\\PropertyAssignNode',
-       'identifier' => 'assign.propertyType',
-       'metadata' => 
-      array (
-      ),
-    )),
-    9 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\Schema\\BaseSchemaAnalyzer::getSchemaManager() should return Doctrine\\DBAL\\Schema\\AbstractSchemaManager but returns mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'line' => 57,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 57,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    10 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to an undefined method Illuminate\\Database\\ConnectionInterface::getTablePrefix().',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'line' => 66,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 66,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    11 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\Schema\\BaseSchemaAnalyzer::getTablePrefix() should return string but returns mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'line' => 66,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 66,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    12 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method listTableNames() on an unknown class Doctrine\\DBAL\\Schema\\AbstractSchemaManager.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'line' => 81,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 81,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    13 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\Schema\\BaseSchemaAnalyzer::getTables() should return array<string> but returns mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'line' => 81,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 81,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    14 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\Schema\\BaseSchemaAnalyzer::getForeignKeyDefinition() should return array{table: string, column: string} but returns array{table: mixed, column: mixed}.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'line' => 118,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => '• Offset \'table\' (string) does not accept type mixed.
-• Offset \'column\' (string) does not accept type mixed.',
-       'nodeLine' => 118,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    15 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\Schema\\BaseSchemaAnalyzer::getRelationshipDefinition() should return array{type: string, foreignTable: string, foreignKey: string, localKey: string} but returns array{type: string, foreignTable: mixed, foreignKey: mixed, localKey: mixed}.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'line' => 142,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => '• Offset \'foreignTable\' (string) does not accept type mixed.
-• Offset \'foreignKey\' (string) does not accept type mixed.
-• Offset \'localKey\' (string) does not accept type mixed.',
-       'nodeLine' => 142,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to an undefined method Illuminate\\Database\\ConnectionInterface::getDoctrineSchemaManager().',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
        'line' => 39,
        'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
        'nodeLine' => 39,
        'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
        'identifier' => 'method.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    1 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method listTableNames() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 39,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 39,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
        'metadata' => 
       array (
       ),
     )),
     2 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\Schema\\MySQLSchemaAnalyzer::getTables() should return array<string> but returns mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 39,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 39,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    3 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to an undefined method Illuminate\\Database\\ConnectionInterface::getDoctrineSchemaManager().',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 49,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 49,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    4 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method tablesExist() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 49,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 49,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    5 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\Schema\\MySQLSchemaAnalyzer::hasTable() should return bool but returns mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 49,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 49,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    6 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to an undefined method Illuminate\\Database\\ConnectionInterface::getDoctrineSchemaManager().',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
+       'message' => 'Call to an undefined method Illuminate\\Database\\Schema\\Builder::getAllTables().',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
        'line' => 60,
        'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
        'nodeLine' => 60,
        'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
        'identifier' => 'method.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    7 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method listTableDetails() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 61,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 61,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    8 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Argument of an invalid type mixed supplied for foreach, only iterables are supported.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 63,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 63,
-       'nodeType' => 'PHPStan\\Node\\InForeachNode',
-       'identifier' => 'foreach.nonIterable',
-       'metadata' => 
-      array (
-      ),
-    )),
-    9 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getColumns() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 63,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 63,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    10 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getName() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 65,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 65,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    11 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $name of class SAC\\EloquentModelGenerator\\ValueObjects\\Column constructor expects string, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 65,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 64,
-       'nodeType' => 'PhpParser\\Node\\Expr\\New_',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    12 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getName() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 66,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 66,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    13 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getType() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 66,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 66,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    14 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $type of class SAC\\EloquentModelGenerator\\ValueObjects\\Column constructor expects string, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 66,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 64,
-       'nodeType' => 'PhpParser\\Node\\Expr\\New_',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    15 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getColumns() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 67,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 67,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    16 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getName() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 67,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 67,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    17 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getPrimaryKey() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 67,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 67,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    18 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method hasPrimaryKey() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 67,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 67,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    19 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $haystack of function in_array expects array, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 67,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 67,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    20 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getAutoincrement() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 68,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 68,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    21 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $isAutoIncrement of class SAC\\EloquentModelGenerator\\ValueObjects\\Column constructor expects bool, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 68,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 64,
-       'nodeType' => 'PhpParser\\Node\\Expr\\New_',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    22 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getNotnull() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 69,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 69,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    23 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getName() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 70,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 70,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    24 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $table of method SAC\\EloquentModelGenerator\\Services\\Schema\\MySQLSchemaAnalyzer::isColumnUnique() expects Doctrine\\DBAL\\Schema\\Table, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 70,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 70,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    25 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $columnName of method SAC\\EloquentModelGenerator\\Services\\Schema\\MySQLSchemaAnalyzer::isColumnUnique() expects string, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 70,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 70,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    26 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getDefault() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 71,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 71,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    27 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $default of class SAC\\EloquentModelGenerator\\ValueObjects\\Column constructor expects string|null, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 71,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 64,
-       'nodeType' => 'PhpParser\\Node\\Expr\\New_',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    28 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getLength() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 72,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 72,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    29 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $length of class SAC\\EloquentModelGenerator\\ValueObjects\\Column constructor expects int|null, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 72,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 64,
-       'nodeType' => 'PhpParser\\Node\\Expr\\New_',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    30 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'enum_values\' on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 73,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 73,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    31 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getName() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 73,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 73,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    32 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getPlatformOptions() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 73,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 73,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    33 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getType() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 73,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 73,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    34 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $enumValues of class SAC\\EloquentModelGenerator\\ValueObjects\\Column constructor expects array<string>|null, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 73,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 64,
-       'nodeType' => 'PhpParser\\Node\\Expr\\New_',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    35 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $table of method SAC\\EloquentModelGenerator\\Services\\Schema\\MySQLSchemaAnalyzer::isColumnUnique() has invalid type Doctrine\\DBAL\\Schema\\Table.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 87,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 87,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    36 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $table of method SAC\\EloquentModelGenerator\\Services\\Schema\\MySQLSchemaAnalyzer::isColumnUnique() has invalid type Doctrine\\DBAL\\Schema\\Table.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 87,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 87,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    37 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Argument of an invalid type mixed supplied for foreach, only iterables are supported.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 88,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 88,
-       'nodeType' => 'PHPStan\\Node\\InForeachNode',
-       'identifier' => 'foreach.nonIterable',
-       'metadata' => 
-      array (
-      ),
-    )),
-    38 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method getIndexes() on an unknown class Doctrine\\DBAL\\Schema\\Table.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 88,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 88,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    39 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset 0 on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 89,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 89,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    40 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getColumns() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 89,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 89,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    41 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getColumns() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 89,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 89,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    42 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method isUnique() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 89,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 89,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    43 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $value of function count expects array|Countable, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 89,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 89,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    44 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\Schema\\MySQLSchemaAnalyzer::getTypeMap() return type has no value type specified in iterable type array.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 99,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 99,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    45 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\Schema\\MySQLSchemaAnalyzer::getCastType() should return string but returns mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 143,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 143,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    46 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'SAC\\EloquentModelGenerator\\Services\\Schema\\MySQLSchemaAnalyzer::getCastType() calls parent::getCastType() but SAC\\EloquentModelGenerator\\Services\\Schema\\MySQLSchemaAnalyzer does not extend any class.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'line' => 147,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 147,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.noParent',
-       'metadata' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method listTableDetails() on an unknown class Doctrine\\DBAL\\Schema\\AbstractSchemaManager.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 44,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 44,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    1 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Argument of an invalid type mixed supplied for foreach, only iterables are supported.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 46,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 46,
-       'nodeType' => 'PHPStan\\Node\\InForeachNode',
-       'identifier' => 'foreach.nonIterable',
-       'metadata' => 
-      array (
-      ),
-    )),
-    2 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getColumns() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 46,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 46,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    3 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getName() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 47,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 47,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    4 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getName() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 48,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 48,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    5 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getType() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 48,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 48,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    6 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $databaseType of method SAC\\EloquentModelGenerator\\Services\\Schema\\BaseSchemaAnalyzer::mapColumnType() expects string, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 48,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 48,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    7 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getNotnull() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 49,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 49,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    8 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getDefault() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 50,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 50,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    9 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getColumns() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 54,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 54,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    10 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getName() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 54,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 54,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    11 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getPrimaryKey() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 54,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 54,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    12 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getPrimaryKey() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 54,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 54,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    13 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $haystack of function in_array expects array, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 54,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 54,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    14 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getName() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 55,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 55,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    15 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Argument of an invalid type mixed supplied for foreach, only iterables are supported.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 59,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 59,
-       'nodeType' => 'PHPStan\\Node\\InForeachNode',
-       'identifier' => 'foreach.nonIterable',
-       'metadata' => 
-      array (
-      ),
-    )),
-    16 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getIndexes() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 59,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 59,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    17 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getColumns() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 60,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 60,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    18 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getName() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 60,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 60,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    19 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method isUnique() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 60,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 60,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    20 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $haystack of function in_array expects array, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 60,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 60,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    21 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getName() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 61,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 61,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    22 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getName() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 66,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 66,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    23 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getType() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 66,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 66,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    24 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $haystack of function str_ends_with expects string, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 66,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 66,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    25 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getName() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 67,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 67,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    26 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\Schema\\PostgreSQLSchemaAnalyzer::analyzeColumns() should return array<string, array{type: string, nullable: bool, primary?: bool, unique?: bool, index?: bool, foreign?: array{table: string, column: string}, default?: mixed}> but returns array<array{default: mixed, nullable: bool, primary?: true, type: string, unique?: true}>.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 71,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 71,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    27 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method listTableForeignKeys() on an unknown class Doctrine\\DBAL\\Schema\\AbstractSchemaManager.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 83,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 83,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    28 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Argument of an invalid type mixed supplied for foreach, only iterables are supported.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 85,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 85,
-       'nodeType' => 'PHPStan\\Node\\InForeachNode',
-       'identifier' => 'foreach.nonIterable',
-       'metadata' => 
-      array (
-      ),
-    )),
-    29 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getForeignTableName() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 87,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 87,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    30 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset 0 on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 88,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 88,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    31 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getForeignColumns() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 88,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 88,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    32 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset 0 on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 89,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 89,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    33 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getLocalColumns() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 89,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 89,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    34 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method listTableForeignKeys() on an unknown class Doctrine\\DBAL\\Schema\\AbstractSchemaManager.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 154,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 154,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    35 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $value of function count expects array|Countable, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'line' => 157,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 157,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to an undefined method Illuminate\\Database\\ConnectionInterface::getDoctrineSchemaManager().',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 26,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 26,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    1 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method listTableNames() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 26,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 26,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    2 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\Schema\\SQLiteSchemaAnalyzer::getTables() should return array<string> but returns mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 26,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 26,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    3 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Return type (array<string, mixed>) of method SAC\\EloquentModelGenerator\\Services\\Schema\\SQLiteSchemaAnalyzer::analyze() should be covariant with return type (array{columns: array<string, array{type: string, nullable: bool, primary?: bool, unique?: bool, index?: bool, foreign?: array{table: string, column: string}, default?: mixed}>, relationships: array<array{type: string, foreignTable: string, foreignKey: string, localKey: string}>}) of method SAC\\EloquentModelGenerator\\Contracts\\SchemaAnalyzer::analyze()',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 39,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 39,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'method.childReturnType',
-       'metadata' => 
-      array (
-      ),
-    )),
-    4 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Return type (array<string, mixed>) of method SAC\\EloquentModelGenerator\\Services\\Schema\\SQLiteSchemaAnalyzer::analyze() should be covariant with return type (array{columns: array<string, array{type: string, nullable: bool, primary?: bool, unique?: bool, index?: bool, foreign?: array{table: string, column: string}, default?: mixed}>, relationships: array<array{type: string, foreignTable: string, foreignKey: string, localKey: string}>}) of method SAC\\EloquentModelGenerator\\Contracts\\SchemaAnalyzer::analyze()',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 39,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 39,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'method.childReturnType',
-       'metadata' => 
-      array (
-      ),
-    )),
-    5 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method listTableDetails() on an unknown class Doctrine\\DBAL\\Schema\\AbstractSchemaManager.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 46,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 46,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    6 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method listTableForeignKeys() on an unknown class Doctrine\\DBAL\\Schema\\AbstractSchemaManager.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 47,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 47,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    7 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $table of method SAC\\EloquentModelGenerator\\Services\\Schema\\SQLiteSchemaAnalyzer::analyzeColumns() expects Doctrine\\DBAL\\Schema\\Table, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 49,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 49,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    8 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $foreignKeys of method SAC\\EloquentModelGenerator\\Services\\Schema\\SQLiteSchemaAnalyzer::analyzeRelationships() expects array<Doctrine\\DBAL\\Schema\\ForeignKeyConstraint>, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 50,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 50,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    9 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to an undefined method Illuminate\\Database\\ConnectionInterface::getDoctrineSchemaManager().',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 73,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 73,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    10 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method tablesExist() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 73,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 73,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    11 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\Schema\\SQLiteSchemaAnalyzer::hasTable() should return bool but returns mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 73,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 73,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    12 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $table of method SAC\\EloquentModelGenerator\\Services\\Schema\\SQLiteSchemaAnalyzer::analyzeColumns() has invalid type Doctrine\\DBAL\\Schema\\Table.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 133,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 133,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    13 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $table of method SAC\\EloquentModelGenerator\\Services\\Schema\\SQLiteSchemaAnalyzer::analyzeColumns() has invalid type Doctrine\\DBAL\\Schema\\Table.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 133,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 133,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    14 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method getPrimaryKey() on an unknown class Doctrine\\DBAL\\Schema\\Table.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 135,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 135,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    15 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method getIndexes() on an unknown class Doctrine\\DBAL\\Schema\\Table.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 136,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 136,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    16 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Argument of an invalid type mixed supplied for foreach, only iterables are supported.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 138,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 138,
-       'nodeType' => 'PHPStan\\Node\\InForeachNode',
-       'identifier' => 'foreach.nonIterable',
-       'metadata' => 
-      array (
-      ),
-    )),
-    17 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method getColumns() on an unknown class Doctrine\\DBAL\\Schema\\Table.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 138,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 138,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    18 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getName() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 139,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 139,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    19 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getName() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 141,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 141,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    20 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getType() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 141,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 141,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    21 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $type of method SAC\\EloquentModelGenerator\\Services\\Schema\\SQLiteSchemaAnalyzer::mapColumnType() expects string, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 141,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 141,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    22 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getNotnull() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 142,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 142,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    23 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getDefault() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 143,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 143,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    24 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getColumns() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 144,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 144,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    25 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $haystack of function in_array expects array, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 144,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 144,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    26 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getAutoincrement() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 146,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 146,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    27 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Argument of an invalid type mixed supplied for foreach, only iterables are supported.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 150,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 150,
-       'nodeType' => 'PHPStan\\Node\\InForeachNode',
-       'identifier' => 'foreach.nonIterable',
-       'metadata' => 
-      array (
-      ),
-    )),
-    28 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset 0 on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 151,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 151,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    29 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getColumns() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 151,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 151,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    30 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method getColumns() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 151,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 151,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    31 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method isUnique() on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 151,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 151,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    32 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $value of function count expects array|Countable, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 151,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 151,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    33 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\Schema\\SQLiteSchemaAnalyzer::analyzeColumns() should return array<string, array<string, mixed>> but returns array<array<string, mixed>>.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 158,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 158,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    34 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $foreignKeys of method SAC\\EloquentModelGenerator\\Services\\Schema\\SQLiteSchemaAnalyzer::analyzeRelationships() has invalid type Doctrine\\DBAL\\Schema\\ForeignKeyConstraint.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 166,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 166,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    35 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method getForeignTableName() on an unknown class Doctrine\\DBAL\\Schema\\ForeignKeyConstraint.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 172,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 172,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    36 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method getForeignColumns() on an unknown class Doctrine\\DBAL\\Schema\\ForeignKeyConstraint.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 173,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 173,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    37 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method getLocalColumns() on an unknown class Doctrine\\DBAL\\Schema\\ForeignKeyConstraint.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'line' => 174,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 174,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ValidationRuleGenerator::generateRules() has parameter $schema with no value type specified in iterable type array.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 15,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 15,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    1 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ValidationRuleGenerator::generateRules() return type has no value type specified in iterable type array.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 15,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 15,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    2 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Argument of an invalid type mixed supplied for foreach, only iterables are supported.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 19,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 19,
-       'nodeType' => 'PHPStan\\Node\\InForeachNode',
-       'identifier' => 'foreach.nonIterable',
-       'metadata' => 
-      array (
-      ),
-    )),
-    3 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $column of method SAC\\EloquentModelGenerator\\Services\\ValidationRuleGenerator::generateColumnRules() expects string, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 24,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 24,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    4 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $definition of method SAC\\EloquentModelGenerator\\Services\\ValidationRuleGenerator::generateColumnRules() expects array, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 24,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 24,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    5 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #3 $tableName of method SAC\\EloquentModelGenerator\\Services\\ValidationRuleGenerator::generateColumnRules() expects string, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 24,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 24,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    6 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ValidationRuleGenerator::generateRules() should return array<string, array|string> but returns array<array|string>.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 30,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 30,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    7 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ValidationRuleGenerator::generateColumnRules() has parameter $definition with no value type specified in iterable type array.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 41,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 41,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    8 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ValidationRuleGenerator::generateColumnRules() return type has no value type specified in iterable type array.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 41,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 41,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    9 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $definition[\'length\'] (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 56,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 56,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\Encapsed',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    10 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $string of function explode expects string, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 68,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 68,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    11 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ValidationRuleGenerator::getTypeRules() has parameter $definition with no value type specified in iterable type array.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 81,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 81,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    12 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ValidationRuleGenerator::getTypeRules() return type has no value type specified in iterable type array.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 81,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 81,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    13 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $definition[\'scale\'] (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 102,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 102,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\Encapsed',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    14 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $array of function implode expects array<string>, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 122,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 122,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    15 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $array of function implode expects array|null, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 122,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 122,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    16 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ValidationRuleGenerator::generateMessages() has parameter $schema with no value type specified in iterable type array.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 149,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 149,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    17 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Argument of an invalid type mixed supplied for foreach, only iterables are supported.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 152,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 152,
-       'nodeType' => 'PHPStan\\Node\\InForeachNode',
-       'identifier' => 'foreach.nonIterable',
-       'metadata' => 
-      array (
-      ),
-    )),
-    18 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'messages\' on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 158,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 158,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    19 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Argument of an invalid type mixed supplied for foreach, only iterables are supported.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 159,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 159,
-       'nodeType' => 'PHPStan\\Node\\InForeachNode',
-       'identifier' => 'foreach.nonIterable',
-       'metadata' => 
-      array (
-      ),
-    )),
-    20 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset non-falsy-string on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 160,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 160,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    21 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $column (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 160,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 160,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\Encapsed',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    22 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $rule (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 160,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 160,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\Encapsed',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    23 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $value of static method Illuminate\\Support\\Str::title() expects string, (array<int, string>|string) given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 166,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 166,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    24 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #3 $subject of function str_replace expects array|string, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 166,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 166,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    25 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'nullable\' on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 168,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 168,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    26 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset non-falsy-string on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 169,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 169,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    27 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $column (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 169,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 169,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\Encapsed',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    28 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'unique\' on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 172,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 172,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    29 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset non-falsy-string on mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 173,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 173,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    30 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $column (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 173,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 173,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\Encapsed',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    31 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $column of method SAC\\EloquentModelGenerator\\Services\\ValidationRuleGenerator::addTypeSpecificMessages() expects string, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 177,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 177,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    32 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #4 $definition of method SAC\\EloquentModelGenerator\\Services\\ValidationRuleGenerator::addTypeSpecificMessages() expects array, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 177,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 177,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    33 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ValidationRuleGenerator::generateMessages() should return array<string, string> but returns mixed.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 180,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 180,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    34 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ValidationRuleGenerator::addTypeSpecificMessages() has parameter $definition with no value type specified in iterable type array.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 191,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 191,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    35 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ValidationRuleGenerator::addTypeSpecificMessages() has parameter $messages with no value type specified in iterable type array.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 191,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 191,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    36 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $definition[\'scale\'] (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 205,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 205,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\Encapsed',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    37 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $array of function implode expects array<string>, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 231,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 231,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    38 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $array of function implode expects array|null, mixed given.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'line' => 231,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 231,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Builders/ModelBuilder.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Property SAC\\EloquentModelGenerator\\Support\\Builders\\ModelBuilder::$configService is never read, only written.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Builders/ModelBuilder.php',
-       'line' => 10,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Builders/ModelBuilder.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/developing-extensions/always-read-written-properties',
-       'nodeLine' => 8,
-       'nodeType' => 'PHPStan\\Node\\ClassPropertiesNode',
-       'identifier' => 'property.onlyWritten',
-       'metadata' => 
-      array (
-      ),
-    )),
-    1 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method SAC\\EloquentModelGenerator\\Support\\Builders\\ModelBuilder::build() has parameter $schema with no value type specified in iterable type array.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Builders/ModelBuilder.php',
-       'line' => 14,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Builders/ModelBuilder.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 14,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
        'metadata' => 
       array (
       ),
@@ -6923,18 +3109,53 @@ return [
       array (
       ),
     )),
-    1 => 
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/TypeHintFixer.php' => 
+  array (
+    0 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Property SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition::$table (non-empty-string) does not accept string.',
-       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Factories/ModelGeneratorFactory.php',
-       'line' => 85,
+       'message' => 'Access to undefined constant PhpParser\\ParserFactory::ONLY_PHP7.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/TypeHintFixer.php',
+       'line' => 59,
        'canBeIgnored' => true,
-       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Factories/ModelGeneratorFactory.php',
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/TypeHintFixer.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
+       'nodeLine' => 59,
+       'nodeType' => 'PhpParser\\Node\\Expr\\ClassConstFetch',
+       'identifier' => 'classConstant.notFound',
+       'metadata' => 
+      array (
+      ),
+    )),
+    1 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Call to an undefined method PhpParser\\ParserFactory::create().',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/TypeHintFixer.php',
+       'line' => 59,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/TypeHintFixer.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 59,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.notFound',
+       'metadata' => 
+      array (
+      ),
+    )),
+    2 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Access to an undefined property PhpParser\\Node::$expr.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/TypeHintFixer.php',
+       'line' => 85,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/TypeHintFixer.php',
+       'traitFilePath' => NULL,
+       'tip' => 'Learn more: <fg=cyan>https://phpstan.org/blog/solving-phpstan-access-to-undefined-property</>',
        'nodeLine' => 85,
-       'nodeType' => 'PHPStan\\Node\\PropertyAssignNode',
-       'identifier' => 'assign.propertyType',
+       'nodeType' => 'PhpParser\\Node\\Expr\\PropertyFetch',
+       'identifier' => 'property.notFound',
        'metadata' => 
       array (
       ),
@@ -6944,16 +3165,32 @@ return [
   array (
     0 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Ternary operator condition is always false.',
+       'message' => 'PHPDoc tag @var with type non-empty-string is not subtype of native type non-falsy-string.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Templates/CachedModelTemplate.php',
        'line' => 55,
        'canBeIgnored' => true,
        'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Templates/CachedModelTemplate.php',
        'traitFilePath' => NULL,
-       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
+       'tip' => NULL,
        'nodeLine' => 55,
-       'nodeType' => 'PhpParser\\Node\\Expr\\Ternary',
-       'identifier' => 'ternary.alwaysFalse',
+       'nodeType' => 'PHPStan\\Node\\VarTagChangedExpressionTypeNode',
+       'identifier' => 'varTag.nativeType',
+       'metadata' => 
+      array (
+      ),
+    )),
+    1 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'PHPDoc tag @var with type non-empty-string is not subtype of native type lowercase-string&non-falsy-string.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Templates/CachedModelTemplate.php',
+       'line' => 66,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Templates/CachedModelTemplate.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 66,
+       'nodeType' => 'PHPStan\\Node\\VarTagChangedExpressionTypeNode',
+       'identifier' => 'varTag.nativeType',
        'metadata' => 
       array (
       ),
@@ -6976,6 +3213,15 @@ return [
     array (
     ),
   ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/AnalysisConfig.php' => 
+  array (
+    'fileHash' => '698f07a0ab7d07e5383f1b33538a1ae877862074',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/AnalyzeCommand.php',
+      1 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php',
+    ),
+  ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/GeneratorConfig.php' => 
   array (
     'fileHash' => '9258f4ee339bcc39ddff89ee9609ad923232f8d2',
@@ -6990,9 +3236,26 @@ return [
     array (
     ),
   ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/AnalyzeCommand.php' => 
+  array (
+    'fileHash' => 'b024e92a1c3b59f68aed240fa9e6eeb89d7489ba',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Kernel.php',
+      1 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/EloquentModelGeneratorServiceProvider.php',
+    ),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php' => 
+  array (
+    'fileHash' => '42ba7c1159aab3bfdfd95d08890330952a874351',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/EloquentModelGeneratorServiceProvider.php',
+    ),
+  ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/GenerateModelCommand.php' => 
   array (
-    'fileHash' => '0c3d1249832d10bf4477df6a38b9a469e339666b',
+    'fileHash' => 'ab72ebb5290f6795ee9d82e4cdb208844b6c04d0',
     'dependentFiles' => 
     array (
       0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/EloquentModelGeneratorServiceProvider.php',
@@ -7000,9 +3263,25 @@ return [
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/ListTablesCommand.php' => 
   array (
-    'fileHash' => 'b41886890d7b766ad5d6895979f9dd41a5ba8393',
+    'fileHash' => '8c430222bf9bea743345f479aa252931053520d0',
     'dependentFiles' => 
     array (
+    ),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Kernel.php' => 
+  array (
+    'fileHash' => '790b15dd3ec5c7ea9f5d023fcb57500278bcc5ed',
+    'dependentFiles' => 
+    array (
+    ),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Contracts/FixStrategy.php' => 
+  array (
+    'fileHash' => '7d3bcf515709e5f731342a6b685dbffb9bf63e78',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/AbstractFixStrategy.php',
+      1 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/TypeHintFixer.php',
     ),
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Contracts/ModelGenerator.php' => 
@@ -7048,8 +3327,9 @@ return [
       0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/ModelGeneratorServiceProvider.php',
       1 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php',
       2 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-      3 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-      4 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
+      3 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
+      4 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
+      5 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
     ),
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Database/migrations/2024_01_01_000000_create_model_generator_tables.php' => 
@@ -7091,6 +3371,10 @@ return [
       2 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ModelGenerator.php',
       3 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php',
       4 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+      5 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
+      6 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
+      7 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
+      8 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
     ),
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Exceptions/ModelGeneratorSchemaAnalyzerException.php' => 
@@ -7099,9 +3383,6 @@ return [
     'dependentFiles' => 
     array (
       0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Contracts/SchemaAnalyzer.php',
-      1 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
-      2 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-      3 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
     ),
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Exceptions/ModelGeneratorTemplateException.php' => 
@@ -7163,7 +3444,7 @@ return [
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Model/Relations.php' => 
   array (
-    'fileHash' => 'efbedf814d529d012eee6d99df3937e9260f2a30',
+    'fileHash' => '29b60486511312a837d747c2f5bc90039bdbabbe',
     'dependentFiles' => 
     array (
     ),
@@ -7184,14 +3465,14 @@ return [
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/BaseModel.php' => 
   array (
-    'fileHash' => '9271c45e7f707a70584652f1e2e150c310dd301b',
+    'fileHash' => '98a9d4897be4939babc7001e8c1e2679fe3eceff',
     'dependentFiles' => 
     array (
     ),
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php' => 
   array (
-    'fileHash' => '96b0eb1af19f7cedda3ca70e7c7677673e5d8444',
+    'fileHash' => '2b270c9d970e8823918b41b346dc3aab4ace7a2e',
     'dependentFiles' => 
     array (
       0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Collections/ModelCollection.php',
@@ -7231,7 +3512,7 @@ return [
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/EloquentModelGeneratorServiceProvider.php' => 
   array (
-    'fileHash' => '5ee1c509751aa6af4cebdac64403be476a3b8e53',
+    'fileHash' => 'c5dadf9b4cc1f68946ef1eec42a8acbd8cefd512',
     'dependentFiles' => 
     array (
     ),
@@ -7248,6 +3529,16 @@ return [
     'fileHash' => 'c65fcf066fa4e8993dc5485b5e6754cf13b65732',
     'dependentFiles' => 
     array (
+    ),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php' => 
+  array (
+    'fileHash' => '2da93c41751969d2e85ef3902c68d78630ee5a5c',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/AnalyzeCommand.php',
+      1 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php',
+      2 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/EloquentModelGeneratorServiceProvider.php',
     ),
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/BatchModelGeneratorService.php' => 
@@ -7274,7 +3565,7 @@ return [
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ConfigurationService.php' => 
   array (
-    'fileHash' => '05bc55ee5c7a338a82a9e63db1c78a8df3ceada3',
+    'fileHash' => 'fbdd080340f5094f50103761386178786fb095a9',
     'dependentFiles' => 
     array (
       0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/DefaultModelGenerator.php',
@@ -7290,9 +3581,76 @@ return [
       0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/ModelGeneratorServiceProvider.php',
     ),
   ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/DocBlockFixStrategy.php' => 
+  array (
+    'fileHash' => '975b95d2ec5ff0ea2f0f69c00030408034d736e0',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/EloquentModelGeneratorServiceProvider.php',
+      1 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategyManager.php',
+    ),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/FixStrategyInterface.php' => 
+  array (
+    'fileHash' => '4111eda0a6c025e8c51ec275cd66aec8987549c2',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php',
+      1 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/EloquentModelGeneratorServiceProvider.php',
+      2 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/DocBlockFixStrategy.php',
+      3 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/PhpmdFixStrategy.php',
+      4 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/PsalmFixStrategy.php',
+      5 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/RectorFixStrategy.php',
+      6 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/TypeHintFixStrategy.php',
+      7 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategyManager.php',
+    ),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/PhpmdFixStrategy.php' => 
+  array (
+    'fileHash' => '120107c55d11de569dca6a238b550268c019d25c',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/EloquentModelGeneratorServiceProvider.php',
+    ),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/PsalmFixStrategy.php' => 
+  array (
+    'fileHash' => '4a14a2d07584c48bdadf87ae6a32f4efaa806b4f',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/EloquentModelGeneratorServiceProvider.php',
+    ),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/RectorFixStrategy.php' => 
+  array (
+    'fileHash' => '9ef180acd4c15a7d1ba33cd1ce76c2d97842d82e',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/EloquentModelGeneratorServiceProvider.php',
+      1 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategyManager.php',
+    ),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/TypeHintFixStrategy.php' => 
+  array (
+    'fileHash' => '5996a37705e44dc02cd71aa012980f6dcf068995',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/EloquentModelGeneratorServiceProvider.php',
+      1 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategyManager.php',
+    ),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategyManager.php' => 
+  array (
+    'fileHash' => '0d59308f6de922e18b1696eb217d6e8558a12afe',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php',
+      1 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/EloquentModelGeneratorServiceProvider.php',
+    ),
+  ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php' => 
   array (
-    'fileHash' => '0a5d69d5d79aed157e59193598642c0e9993875f',
+    'fileHash' => 'd07aa23de3b9e30588860424b6e1ec019a444583',
     'dependentFiles' => 
     array (
       0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/EloquentModelGeneratorServiceProvider.php',
@@ -7371,12 +3729,13 @@ return [
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php' => 
   array (
-    'fileHash' => '9beb76f5ddb5dbbe2ca9ed0f0eca357137f773fc',
+    'fileHash' => '11f602f9c0fbf4361367640b1818cb11af1632cf',
     'dependentFiles' => 
     array (
       0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/ModelGeneratorServiceProvider.php',
-      1 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
-      2 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
+      1 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
+      2 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php',
+      3 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php',
     ),
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/CachedSchemaAnalyzer.php' => 
@@ -7395,7 +3754,7 @@ return [
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php' => 
   array (
-    'fileHash' => 'd27f43d64a911e3dc3c53efc19c2ff8ac914e87d',
+    'fileHash' => 'de589d25e006bc9c4956ade4bdae474a2a6c64f6',
     'dependentFiles' => 
     array (
       0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/ModelGeneratorServiceProvider.php',
@@ -7403,7 +3762,7 @@ return [
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php' => 
   array (
-    'fileHash' => 'ceb306bdfe0af5bc69bfc887b5bb136a9234b02d',
+    'fileHash' => '335a6e340baf5406df2e2f8d8a71369fd03ecf9d',
     'dependentFiles' => 
     array (
       0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/ModelGeneratorServiceProvider.php',
@@ -7411,7 +3770,7 @@ return [
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php' => 
   array (
-    'fileHash' => '603fcb5af352b3b65be7c23ab94c332d685a3f14',
+    'fileHash' => '1f1e80ab1391e5f23205069dec21e0a4b7c4f369',
     'dependentFiles' => 
     array (
       0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/ModelGeneratorServiceProvider.php',
@@ -7422,8 +3781,6 @@ return [
     'fileHash' => '824ce1b28f27b2f0a495e75c685cfc371b95220d',
     'dependentFiles' => 
     array (
-      0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/ModelGeneratorServiceProvider.php',
-      1 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
     ),
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php' => 
@@ -7486,6 +3843,21 @@ return [
     array (
       0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php',
       1 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGenerator.php',
+    ),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/AbstractFixStrategy.php' => 
+  array (
+    'fileHash' => 'd052bc80b40d4e690abe559e26e75be41878029e',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/TypeHintFixer.php',
+    ),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/TypeHintFixer.php' => 
+  array (
+    'fileHash' => '08b4f3e48867da6369246f43936784d10b00918e',
+    'dependentFiles' => 
+    array (
     ),
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Providers/ModelGeneratorServiceProvider.php' => 
@@ -7582,11 +3954,10 @@ return [
     'dependentFiles' => 
     array (
       0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
-      1 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-      2 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Definitions/ModelDefinition.php',
-      3 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Definitions/SchemaDefinition.php',
-      4 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Factories/ModelGeneratorFactory.php',
-      5 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/TableSchema.php',
+      1 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Definitions/ModelDefinition.php',
+      2 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Definitions/SchemaDefinition.php',
+      3 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Factories/ModelGeneratorFactory.php',
+      4 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/TableSchema.php',
     ),
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/Index.php' => 
@@ -7605,8 +3976,7 @@ return [
     array (
       0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/DefaultModelGenerator.php',
       1 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorInterface.php',
-      2 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php',
-      3 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SchemaAnalyzerInterface.php',
+      2 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SchemaAnalyzerInterface.php',
     ),
   ),
 ),
@@ -7857,6 +4227,326 @@ return [
            'final' => false,
            'static' => false,
            'returnType' => 'array',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/AnalysisConfig.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'SAC\\EloquentModelGenerator\\Config\\AnalysisConfig',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => '__construct',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'targetDir',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'levels',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            2 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'tools',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            3 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'options',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+            4 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'cacheKey',
+               'type' => '?string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'fromFile',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => true,
+           'returnType' => 'self',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'path',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'toFile',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'void',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'path',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'withTargetDir',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'self',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'targetDir',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'withLevels',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'self',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'levels',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        5 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'withTools',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'self',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'tools',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        6 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'withOptions',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'self',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'options',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        7 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'withCacheKey',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'self',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'cacheKey',
+               'type' => '?string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        8 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'validate',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'void',
            'parameters' => 
           array (
           ),
@@ -8735,6 +5425,299 @@ return [
       ),
     )),
   ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/AnalyzeCommand.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'SAC\\EloquentModelGenerator\\Console\\Commands\\AnalyzeCommand',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'Illuminate\\Console\\Command',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'signature',
+          ),
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Console\\Commands',
+             'uses' => 
+            array (
+              'command' => 'Illuminate\\Console\\Command',
+              'file' => 'Illuminate\\Support\\Facades\\File',
+              'analysisconfig' => 'SAC\\EloquentModelGenerator\\Config\\AnalysisConfig',
+              'analysistoolmanager' => 'SAC\\EloquentModelGenerator\\Services\\AnalysisToolManager',
+              'outputinterface' => 'Symfony\\Component\\Console\\Output\\OutputInterface',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'type' => NULL,
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'description',
+          ),
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * The console command description.
+     *
+     * @var string
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Console\\Commands',
+             'uses' => 
+            array (
+              'command' => 'Illuminate\\Console\\Command',
+              'file' => 'Illuminate\\Support\\Facades\\File',
+              'analysisconfig' => 'SAC\\EloquentModelGenerator\\Config\\AnalysisConfig',
+              'analysistoolmanager' => 'SAC\\EloquentModelGenerator\\Services\\AnalysisToolManager',
+              'outputinterface' => 'Symfony\\Component\\Console\\Output\\OutputInterface',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'type' => NULL,
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => '__construct',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Create a new command instance.
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Console\\Commands',
+             'uses' => 
+            array (
+              'command' => 'Illuminate\\Console\\Command',
+              'file' => 'Illuminate\\Support\\Facades\\File',
+              'analysisconfig' => 'SAC\\EloquentModelGenerator\\Config\\AnalysisConfig',
+              'analysistoolmanager' => 'SAC\\EloquentModelGenerator\\Services\\AnalysisToolManager',
+              'outputinterface' => 'Symfony\\Component\\Console\\Output\\OutputInterface',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'toolManager',
+               'type' => 'SAC\\EloquentModelGenerator\\Services\\AnalysisToolManager',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'handle',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Execute the console command.
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Console\\Commands',
+             'uses' => 
+            array (
+              'command' => 'Illuminate\\Console\\Command',
+              'file' => 'Illuminate\\Support\\Facades\\File',
+              'analysisconfig' => 'SAC\\EloquentModelGenerator\\Config\\AnalysisConfig',
+              'analysistoolmanager' => 'SAC\\EloquentModelGenerator\\Services\\AnalysisToolManager',
+              'outputinterface' => 'Symfony\\Component\\Console\\Output\\OutputInterface',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'int',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'SAC\\EloquentModelGenerator\\Console\\Commands\\FixCommand',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'Illuminate\\Console\\Command',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'signature',
+          ),
+           'phpDoc' => NULL,
+           'type' => NULL,
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'description',
+          ),
+           'phpDoc' => NULL,
+           'type' => NULL,
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => '__construct',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'toolManager',
+               'type' => 'SAC\\EloquentModelGenerator\\Services\\AnalysisToolManager',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'fixManager',
+               'type' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategyManager',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'handle',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'int',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/GenerateModelCommand.php' => 
   array (
     0 => 
@@ -8969,6 +5952,7 @@ return [
             array (
               'command' => 'Illuminate\\Console\\Command',
               'modelgeneratorservice' => 'SAC\\EloquentModelGenerator\\Services\\ModelGeneratorService',
+              'outputinterface' => 'Symfony\\Component\\Console\\Output\\OutputInterface',
             ),
              'constUses' => 
             array (
@@ -9001,6 +5985,7 @@ return [
             array (
               'command' => 'Illuminate\\Console\\Command',
               'modelgeneratorservice' => 'SAC\\EloquentModelGenerator\\Services\\ModelGeneratorService',
+              'outputinterface' => 'Symfony\\Component\\Console\\Output\\OutputInterface',
             ),
              'constUses' => 
             array (
@@ -9028,6 +6013,7 @@ return [
             array (
               'command' => 'Illuminate\\Console\\Command',
               'modelgeneratorservice' => 'SAC\\EloquentModelGenerator\\Services\\ModelGeneratorService',
+              'outputinterface' => 'Symfony\\Component\\Console\\Output\\OutputInterface',
             ),
              'constUses' => 
             array (
@@ -9071,6 +6057,7 @@ return [
             array (
               'command' => 'Illuminate\\Console\\Command',
               'modelgeneratorservice' => 'SAC\\EloquentModelGenerator\\Services\\ModelGeneratorService',
+              'outputinterface' => 'Symfony\\Component\\Console\\Output\\OutputInterface',
             ),
              'constUses' => 
             array (
@@ -9093,6 +6080,215 @@ return [
       ),
        'attributes' => 
       array (
+      ),
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Kernel.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'SAC\\EloquentModelGenerator\\Console\\Kernel',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'Illuminate\\Foundation\\Console\\Kernel',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'commands',
+          ),
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * The Artisan commands provided by your application.
+     *
+     * @var array<class-string>
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Console',
+             'uses' => 
+            array (
+              'consolekernel' => 'Illuminate\\Foundation\\Console\\Kernel',
+              'analyzecommand' => 'SAC\\EloquentModelGenerator\\Console\\Commands\\AnalyzeCommand',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'type' => NULL,
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'commands',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Register the commands for the application.
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Console',
+             'uses' => 
+            array (
+              'consolekernel' => 'Illuminate\\Foundation\\Console\\Kernel',
+              'analyzecommand' => 'SAC\\EloquentModelGenerator\\Console\\Commands\\AnalyzeCommand',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'void',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Contracts/FixStrategy.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedInterfaceNode::__set_state(array(
+       'name' => 'SAC\\EloquentModelGenerator\\Contracts\\FixStrategy',
+       'phpDoc' => NULL,
+       'extends' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'canFix',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'error',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'fix',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'file',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'error',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getDescription',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'string',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getPriority',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'int',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
       ),
     )),
   ),
@@ -11002,15 +8198,19 @@ return [
       array (
         0 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'addRelation',
+           'name' => '__construct',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Add a relation definition.
-     *
-     * @param string $name
-     * @param RelationDefinition $definition
-     * @return void
+     * @param array<string, array{
+     *     type: string,
+     *     model: string,
+     *     name: string,
+     *     foreignKey?: string,
+     *     localKey?: string,
+     *     table?: string,
+     *     pivotColumns?: array<string>
+     * }> $relations
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Model',
              'uses' => 
@@ -11027,27 +8227,16 @@ return [
            'abstract' => false,
            'final' => false,
            'static' => false,
-           'returnType' => 'void',
+           'returnType' => NULL,
            'parameters' => 
           array (
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'name',
-               'type' => 'string',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            1 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'definition',
+               'name' => 'relations',
                'type' => 'array',
                'byRef' => false,
                'variadic' => false,
-               'hasDefault' => false,
+               'hasDefault' => true,
                'attributes' => 
               array (
               ),
@@ -11063,9 +8252,15 @@ return [
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Get all relations.
-     *
-     * @return array<string, RelationDefinition>
+     * @return array<string, array{
+     *     type: string,
+     *     model: string,
+     *     name: string,
+     *     foreignKey?: string,
+     *     localKey?: string,
+     *     table?: string,
+     *     pivotColumns?: array<string>
+     * }>
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Model',
              'uses' => 
@@ -11091,6 +8286,56 @@ return [
           ),
         )),
         2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'addRelation',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param array{
+     *     type: string,
+     *     model: string,
+     *     name: string,
+     *     foreignKey?: string,
+     *     localKey?: string,
+     *     table?: string,
+     *     pivotColumns?: array<string>
+     * } $relation
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Model',
+             'uses' => 
+            array (
+              'str' => 'Illuminate\\Support\\Str',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'void',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'relation',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'getRelationMethods',
            'phpDoc' => 
@@ -11660,7 +8905,7 @@ return [
             array (
             ),
           )),
-           'type' => 'string',
+           'type' => NULL,
            'public' => false,
            'private' => false,
            'static' => false,
@@ -12698,6 +9943,68 @@ return [
        'statements' => 
       array (
         0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'validationRules',
+          ),
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * The validation rules for the model.
+     *
+     * @var array<string, array<string>|string>
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Models',
+             'uses' => 
+            array (
+              'invalidargumentexception' => 'InvalidArgumentException',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'type' => 'array',
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'relationships',
+          ),
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * The relationships defined for the model.
+     *
+     * @var array<string, array{type: string, model: string, foreignKey?: string, localKey?: string, table?: string, pivotColumns?: array<string>}>
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Models',
+             'uses' => 
+            array (
+              'invalidargumentexception' => 'InvalidArgumentException',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'type' => 'array',
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => '__construct',
            'phpDoc' => 
@@ -12789,7 +10096,7 @@ return [
           array (
           ),
         )),
-        1 => 
+        3 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'getClassName',
            'phpDoc' => 
@@ -12822,7 +10129,7 @@ return [
           array (
           ),
         )),
-        2 => 
+        4 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'getNamespace',
            'phpDoc' => 
@@ -12855,7 +10162,7 @@ return [
           array (
           ),
         )),
-        3 => 
+        5 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'getTableName',
            'phpDoc' => 
@@ -12888,7 +10195,7 @@ return [
           array (
           ),
         )),
-        4 => 
+        6 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'getBaseClass',
            'phpDoc' => 
@@ -12921,7 +10228,7 @@ return [
           array (
           ),
         )),
-        5 => 
+        7 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'getSchema',
            'phpDoc' => 
@@ -12954,7 +10261,7 @@ return [
           array (
           ),
         )),
-        6 => 
+        8 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'getRelationships',
            'phpDoc' => 
@@ -12962,7 +10269,7 @@ return [
              'phpDocString' => '/**
      * Get the relationships.
      *
-     * @return array<string, mixed>
+     * @return array<string, array{type: string, model: string, foreignKey?: string, localKey?: string, table?: string, pivotColumns?: array<string>}>
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Models',
              'uses' => 
@@ -12987,7 +10294,7 @@ return [
           array (
           ),
         )),
-        7 => 
+        9 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'getCasts',
            'phpDoc' => 
@@ -13020,7 +10327,7 @@ return [
           array (
           ),
         )),
-        8 => 
+        10 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'getFillable',
            'phpDoc' => 
@@ -13053,7 +10360,7 @@ return [
           array (
           ),
         )),
-        9 => 
+        11 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'getHidden',
            'phpDoc' => 
@@ -13086,7 +10393,7 @@ return [
           array (
           ),
         )),
-        10 => 
+        12 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'getValidationRules',
            'phpDoc' => 
@@ -13094,7 +10401,7 @@ return [
              'phpDocString' => '/**
      * Get the validation rules.
      *
-     * @return array<string, string|array>
+     * @return array<string, array<string>|string>
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Models',
              'uses' => 
@@ -13119,7 +10426,7 @@ return [
           array (
           ),
         )),
-        11 => 
+        13 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'getDates',
            'phpDoc' => 
@@ -13152,7 +10459,7 @@ return [
           array (
           ),
         )),
-        12 => 
+        14 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'usesSoftDeletes',
            'phpDoc' => 
@@ -13185,7 +10492,7 @@ return [
           array (
           ),
         )),
-        13 => 
+        15 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'getFilePath',
            'phpDoc' => 
@@ -13230,7 +10537,7 @@ return [
           array (
           ),
         )),
-        14 => 
+        16 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'toArray',
            'phpDoc' => 
@@ -13263,7 +10570,7 @@ return [
           array (
           ),
         )),
-        15 => 
+        17 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'getFullyQualifiedClassName',
            'phpDoc' => 
@@ -13296,7 +10603,7 @@ return [
           array (
           ),
         )),
-        16 => 
+        18 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'render',
            'phpDoc' => 
@@ -13329,7 +10636,7 @@ return [
           array (
           ),
         )),
-        17 => 
+        19 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'setValidationRules',
            'phpDoc' => 
@@ -13337,8 +10644,7 @@ return [
              'phpDocString' => '/**
      * Set the validation rules.
      *
-     * @param array<string, string|array> $rules
-     * @return void
+     * @param array<string, array<string>|string> $rules
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Models',
              'uses' => 
@@ -13374,7 +10680,7 @@ return [
           array (
           ),
         )),
-        18 => 
+        20 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'setValidationMessages',
            'phpDoc' => 
@@ -13419,7 +10725,7 @@ return [
           array (
           ),
         )),
-        19 => 
+        21 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'getValidationMessages',
            'phpDoc' => 
@@ -13452,7 +10758,7 @@ return [
           array (
           ),
         )),
-        20 => 
+        22 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'setContent',
            'phpDoc' => 
@@ -13497,7 +10803,7 @@ return [
           array (
           ),
         )),
-        21 => 
+        23 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'getContent',
            'phpDoc' => 
@@ -13525,6 +10831,108 @@ return [
            'returnType' => 'string',
            'parameters' => 
           array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        24 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'validateArrays',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Validate array values in validation rules
+     *
+     * @param array<string, string|array<string>> $rules
+     * @return bool
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Models',
+             'uses' => 
+            array (
+              'invalidargumentexception' => 'InvalidArgumentException',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'rules',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        25 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'validateSingleRule',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Validate a single rule
+     *
+     * @param string $field
+     * @param string|array<string> $rule
+     * @return bool
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Models',
+             'uses' => 
+            array (
+              'invalidargumentexception' => 'InvalidArgumentException',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'field',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'rule',
+               'type' => NULL,
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
           ),
            'attributes' => 
           array (
@@ -14374,9 +11782,19 @@ return [
              'uses' => 
             array (
               'serviceprovider' => 'Illuminate\\Support\\ServiceProvider',
+              'analyzecommand' => 'SAC\\EloquentModelGenerator\\Console\\Commands\\AnalyzeCommand',
+              'fixcommand' => 'SAC\\EloquentModelGenerator\\Console\\Commands\\FixCommand',
               'generatemodelcommand' => 'SAC\\EloquentModelGenerator\\Console\\Commands\\GenerateModelCommand',
+              'analysistoolmanager' => 'SAC\\EloquentModelGenerator\\Services\\AnalysisToolManager',
+              'docblockfixstrategy' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\DocBlockFixStrategy',
+              'phpmdfixstrategy' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\PhpmdFixStrategy',
+              'psalmfixstrategy' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\PsalmFixStrategy',
+              'rectorfixstrategy' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\RectorFixStrategy',
+              'typehintfixstrategy' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\TypeHintFixStrategy',
+              'fixstrategymanager' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategyManager',
               'modelgeneratorservice' => 'SAC\\EloquentModelGenerator\\Services\\ModelGeneratorService',
               'modelgeneratortemplateengine' => 'SAC\\EloquentModelGenerator\\Services\\ModelGeneratorTemplateEngine',
+              'typehintfixer' => 'SAC\\EloquentModelGenerator\\Support\\Fixes\\TypeHintFixer',
             ),
              'constUses' => 
             array (
@@ -14408,9 +11826,19 @@ return [
              'uses' => 
             array (
               'serviceprovider' => 'Illuminate\\Support\\ServiceProvider',
+              'analyzecommand' => 'SAC\\EloquentModelGenerator\\Console\\Commands\\AnalyzeCommand',
+              'fixcommand' => 'SAC\\EloquentModelGenerator\\Console\\Commands\\FixCommand',
               'generatemodelcommand' => 'SAC\\EloquentModelGenerator\\Console\\Commands\\GenerateModelCommand',
+              'analysistoolmanager' => 'SAC\\EloquentModelGenerator\\Services\\AnalysisToolManager',
+              'docblockfixstrategy' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\DocBlockFixStrategy',
+              'phpmdfixstrategy' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\PhpmdFixStrategy',
+              'psalmfixstrategy' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\PsalmFixStrategy',
+              'rectorfixstrategy' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\RectorFixStrategy',
+              'typehintfixstrategy' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\TypeHintFixStrategy',
+              'fixstrategymanager' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategyManager',
               'modelgeneratorservice' => 'SAC\\EloquentModelGenerator\\Services\\ModelGeneratorService',
               'modelgeneratortemplateengine' => 'SAC\\EloquentModelGenerator\\Services\\ModelGeneratorTemplateEngine',
+              'typehintfixer' => 'SAC\\EloquentModelGenerator\\Support\\Fixes\\TypeHintFixer',
             ),
              'constUses' => 
             array (
@@ -14604,6 +12032,330 @@ return [
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
                'name' => 'indexes',
                'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'SAC\\EloquentModelGenerator\\Services\\AnalysisToolManager',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'registerTool',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'self',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'name',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'command',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            2 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'configTemplate',
+               'type' => '?string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getAvailableTools',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'runTool',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'name',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'targetDir',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            2 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'options',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'runToolsInParallel',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'tools',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'targetDir',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            2 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'options',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getResults',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'tool',
+               'type' => '?string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        5 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'hasIssues',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'tool',
+               'type' => '?string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        6 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getAffectedFiles',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'tool',
+               'type' => '?string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        7 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'ensureConfig',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'void',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'tool',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'targetDir',
+               'type' => 'string',
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => false,
@@ -15061,7 +12813,7 @@ return [
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Get all configuration values.
+     * Get all configuration values
      *
      * @return array<string, mixed>
      */',
@@ -15510,6 +13262,824 @@ return [
       ),
     )),
   ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/DocBlockFixStrategy.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\DocBlockFixStrategy',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\FixStrategyInterface',
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getName',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'string',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'supportsLevel',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'level',
+               'type' => 'int',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'fix',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'file',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'description',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/FixStrategyInterface.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedInterfaceNode::__set_state(array(
+       'name' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\FixStrategyInterface',
+       'phpDoc' => NULL,
+       'extends' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getName',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'string',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'supportsLevel',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'level',
+               'type' => 'int',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'fix',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'file',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'description',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/PhpmdFixStrategy.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\PhpmdFixStrategy',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\FixStrategyInterface',
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getName',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'string',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'fix',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'file',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'description',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'supportsLevel',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'level',
+               'type' => 'int',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/PsalmFixStrategy.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\PsalmFixStrategy',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\FixStrategyInterface',
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getName',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'string',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'fix',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'file',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'description',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'supportsLevel',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'level',
+               'type' => 'int',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/RectorFixStrategy.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\RectorFixStrategy',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\FixStrategyInterface',
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getName',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'string',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'supportsLevel',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'level',
+               'type' => 'int',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'fix',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'file',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'description',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/TypeHintFixStrategy.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\TypeHintFixStrategy',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\FixStrategyInterface',
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getName',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'string',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'supportsLevel',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'level',
+               'type' => 'int',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'fix',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'file',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'description',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategyManager.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategyManager',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => '__construct',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'registerStrategy',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Register a fix strategy.
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Services',
+             'uses' => 
+            array (
+              'fixstrategyinterface' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\FixStrategyInterface',
+              'rectorfixstrategy' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\RectorFixStrategy',
+              'typehintfixstrategy' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\TypeHintFixStrategy',
+              'docblockfixstrategy' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\DocBlockFixStrategy',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'void',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'name',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'strategy',
+               'type' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\FixStrategyInterface',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getStrategiesForLevel',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get all registered strategies for a specific PHPStan level.
+     *
+     * @return array<FixStrategyInterface>
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Services',
+             'uses' => 
+            array (
+              'fixstrategyinterface' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\FixStrategyInterface',
+              'rectorfixstrategy' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\RectorFixStrategy',
+              'typehintfixstrategy' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\TypeHintFixStrategy',
+              'docblockfixstrategy' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\DocBlockFixStrategy',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'level',
+               'type' => 'int',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php' => 
   array (
     0 => 
@@ -15569,7 +14139,7 @@ return [
      * Generate a model from a table name.
      *
      * @param string $table
-     * @param array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool} $options
+     * @param array<string, mixed> $options
      * @return ModelDefinition
      * @throws ModelGeneratorException
      */',
@@ -15579,6 +14149,7 @@ return [
               'modelgeneratorservice' => 'SAC\\EloquentModelGenerator\\Contracts\\ModelGeneratorService',
               'modelgeneratorfactory' => 'SAC\\EloquentModelGenerator\\Support\\Factories\\ModelGeneratorFactory',
               'modeldefinition' => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+              'schemadefinition' => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\SchemaDefinition',
               'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
             ),
              'constUses' => 
@@ -15630,8 +14201,8 @@ return [
      * Generate models for multiple tables.
      *
      * @param array<string> $tables
-     * @param array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool} $config
-     * @return array<ModelDefinition>
+     * @param array<string, mixed> $config
+     * @return array<int, ModelDefinition>
      * @throws ModelGeneratorException
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Services',
@@ -15640,6 +14211,7 @@ return [
               'modelgeneratorservice' => 'SAC\\EloquentModelGenerator\\Contracts\\ModelGeneratorService',
               'modelgeneratorfactory' => 'SAC\\EloquentModelGenerator\\Support\\Factories\\ModelGeneratorFactory',
               'modeldefinition' => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+              'schemadefinition' => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\SchemaDefinition',
               'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
             ),
              'constUses' => 
@@ -15698,6 +14270,7 @@ return [
               'modelgeneratorservice' => 'SAC\\EloquentModelGenerator\\Contracts\\ModelGeneratorService',
               'modelgeneratorfactory' => 'SAC\\EloquentModelGenerator\\Support\\Factories\\ModelGeneratorFactory',
               'modeldefinition' => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+              'schemadefinition' => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\SchemaDefinition',
               'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
             ),
              'constUses' => 
@@ -15729,33 +14302,20 @@ return [
      * @param string $table
      * @return array{
      *     columns: array<string, array{
-     *         type: non-empty-string,
+     *         type: string,
      *         nullable: bool,
      *         default?: mixed,
-     *         length?: positive-int|null,
+     *         length?: int|null,
      *         unsigned?: bool,
      *         autoIncrement?: bool,
      *         primary?: bool,
-     *         unique?: bool,
-     *         comment?: non-empty-string|null
+     *         unique?: bool
      *     }>,
-     *     indexes?: array<string, array{
-     *         type: \'primary\'|\'unique\'|\'index\'|\'fulltext\'|\'spatial\',
-     *         columns: array<string>,
-     *         name?: string,
-     *         algorithm?: string,
-     *         options?: array<string, mixed>
-     *     }>,
-     *     foreignKeys?: array<string, array{
+     *     relations?: array<string, array{
+     *         type: string,
      *         table: string,
-     *         columns: array<string, string>,
-     *         onDelete?: string,
-     *         onUpdate?: string
-     *     }>,
-     *     timestamps?: bool,
-     *     softDeletes?: bool,
-     *     primaryKey?: string,
-     *     incrementing?: bool
+     *         columns: array<string, string>
+     *     }>
      * }
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Services',
@@ -15764,6 +14324,7 @@ return [
               'modelgeneratorservice' => 'SAC\\EloquentModelGenerator\\Contracts\\ModelGeneratorService',
               'modelgeneratorfactory' => 'SAC\\EloquentModelGenerator\\Support\\Factories\\ModelGeneratorFactory',
               'modeldefinition' => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+              'schemadefinition' => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\SchemaDefinition',
               'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
             ),
              'constUses' => 
@@ -17258,27 +15819,26 @@ return [
         \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
            'names' => 
           array (
-            0 => 'connection',
+            0 => 'tablePrefix',
           ),
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * @var ConnectionInterface
+     * @var string
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
              'uses' => 
             array (
               'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
               'builder' => 'Illuminate\\Database\\Schema\\Builder',
-              'abstractschemamanager' => 'Doctrine\\DBAL\\Schema\\AbstractSchemaManager',
               'schemaanalyzer' => 'SAC\\EloquentModelGenerator\\Contracts\\SchemaAnalyzer',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
             ),
              'constUses' => 
             array (
             ),
           )),
-           'type' => 'Illuminate\\Database\\ConnectionInterface',
+           'type' => 'string',
            'public' => false,
            'private' => false,
            'static' => false,
@@ -17300,9 +15860,8 @@ return [
             array (
               'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
               'builder' => 'Illuminate\\Database\\Schema\\Builder',
-              'abstractschemamanager' => 'Doctrine\\DBAL\\Schema\\AbstractSchemaManager',
               'schemaanalyzer' => 'SAC\\EloquentModelGenerator\\Contracts\\SchemaAnalyzer',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
             ),
              'constUses' => 
             array (
@@ -17340,24 +15899,21 @@ return [
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
      * Get the schema builder instance.
-     *
-     * @return Builder
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
              'uses' => 
             array (
               'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
               'builder' => 'Illuminate\\Database\\Schema\\Builder',
-              'abstractschemamanager' => 'Doctrine\\DBAL\\Schema\\AbstractSchemaManager',
               'schemaanalyzer' => 'SAC\\EloquentModelGenerator\\Contracts\\SchemaAnalyzer',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
             ),
              'constUses' => 
             array (
             ),
           )),
            'byRef' => false,
-           'public' => false,
+           'public' => true,
            'private' => false,
            'abstract' => false,
            'final' => false,
@@ -17372,66 +15928,26 @@ return [
         )),
         3 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'getSchemaManager',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * Get the Doctrine schema manager instance.
-     *
-     * @return AbstractSchemaManager
-     */',
-             'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
-             'uses' => 
-            array (
-              'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
-              'builder' => 'Illuminate\\Database\\Schema\\Builder',
-              'abstractschemamanager' => 'Doctrine\\DBAL\\Schema\\AbstractSchemaManager',
-              'schemaanalyzer' => 'SAC\\EloquentModelGenerator\\Contracts\\SchemaAnalyzer',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => false,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'Doctrine\\DBAL\\Schema\\AbstractSchemaManager',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        4 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'getTablePrefix',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
      * Get the table prefix.
-     *
-     * @return string
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
              'uses' => 
             array (
               'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
               'builder' => 'Illuminate\\Database\\Schema\\Builder',
-              'abstractschemamanager' => 'Doctrine\\DBAL\\Schema\\AbstractSchemaManager',
               'schemaanalyzer' => 'SAC\\EloquentModelGenerator\\Contracts\\SchemaAnalyzer',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
             ),
              'constUses' => 
             array (
             ),
           )),
            'byRef' => false,
-           'public' => false,
+           'public' => true,
            'private' => false,
            'abstract' => false,
            'final' => false,
@@ -17444,22 +15960,58 @@ return [
           array (
           ),
         )),
-        5 => 
+        4 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'tableExists',
+           'name' => 'getTables',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * @inheritDoc
+     * Get all available tables.
+     *
+     * @return array<string>
+     * @throws ModelGeneratorException
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
              'uses' => 
             array (
               'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
               'builder' => 'Illuminate\\Database\\Schema\\Builder',
-              'abstractschemamanager' => 'Doctrine\\DBAL\\Schema\\AbstractSchemaManager',
               'schemaanalyzer' => 'SAC\\EloquentModelGenerator\\Contracts\\SchemaAnalyzer',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        5 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'hasTable',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Check if a table exists.
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
+             'uses' => 
+            array (
+              'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
+              'builder' => 'Illuminate\\Database\\Schema\\Builder',
+              'schemaanalyzer' => 'SAC\\EloquentModelGenerator\\Contracts\\SchemaAnalyzer',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
             ),
              'constUses' => 
             array (
@@ -17492,57 +16044,21 @@ return [
         )),
         6 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'getTables',
+           'name' => 'getForeignKeyDefinition',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * @inheritDoc
-     */',
-             'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
-             'uses' => 
-            array (
-              'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
-              'builder' => 'Illuminate\\Database\\Schema\\Builder',
-              'abstractschemamanager' => 'Doctrine\\DBAL\\Schema\\AbstractSchemaManager',
-              'schemaanalyzer' => 'SAC\\EloquentModelGenerator\\Contracts\\SchemaAnalyzer',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'array',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        7 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'getTypeMap',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * Get the column type mapping.
+     * Get foreign key definition.
      *
-     * @return array<string, string>
+     * @return array{table: string, column: string}
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
              'uses' => 
             array (
               'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
               'builder' => 'Illuminate\\Database\\Schema\\Builder',
-              'abstractschemamanager' => 'Doctrine\\DBAL\\Schema\\AbstractSchemaManager',
               'schemaanalyzer' => 'SAC\\EloquentModelGenerator\\Contracts\\SchemaAnalyzer',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
             ),
              'constUses' => 
             array (
@@ -17551,12 +16067,114 @@ return [
            'byRef' => false,
            'public' => false,
            'private' => false,
-           'abstract' => true,
+           'abstract' => false,
            'final' => false,
            'static' => false,
            'returnType' => 'array',
            'parameters' => 
           array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'foreignTable',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'foreignColumn',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        7 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getRelationshipDefinition',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get relationship definition.
+     *
+     * @return array{type: string, foreignTable: string, foreignKey: string, localKey: string}
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
+             'uses' => 
+            array (
+              'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
+              'builder' => 'Illuminate\\Database\\Schema\\Builder',
+              'schemaanalyzer' => 'SAC\\EloquentModelGenerator\\Contracts\\SchemaAnalyzer',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'type',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'foreignTable',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            2 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'foreignKey',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            3 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'localKey',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
           ),
            'attributes' => 
           array (
@@ -17568,19 +16186,17 @@ return [
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Map database type to PHP type.
+     * Map database column type to PHP type.
      *
-     * @param string $databaseType
-     * @return string
+     * @return non-empty-string
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
              'uses' => 
             array (
               'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
               'builder' => 'Illuminate\\Database\\Schema\\Builder',
-              'abstractschemamanager' => 'Doctrine\\DBAL\\Schema\\AbstractSchemaManager',
               'schemaanalyzer' => 'SAC\\EloquentModelGenerator\\Contracts\\SchemaAnalyzer',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
             ),
              'constUses' => 
             array (
@@ -17613,153 +16229,6 @@ return [
         )),
         9 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'getForeignKeyDefinition',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * Get foreign key definition.
-     *
-     * @param array<string, mixed> $foreignKey
-     * @return array{table: string, column: string}
-     */',
-             'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
-             'uses' => 
-            array (
-              'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
-              'builder' => 'Illuminate\\Database\\Schema\\Builder',
-              'abstractschemamanager' => 'Doctrine\\DBAL\\Schema\\AbstractSchemaManager',
-              'schemaanalyzer' => 'SAC\\EloquentModelGenerator\\Contracts\\SchemaAnalyzer',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => false,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'array',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'foreignKey',
-               'type' => 'array',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        10 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'determineRelationshipType',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * Determine relationship type based on foreign key.
-     *
-     * @param array<string, mixed> $foreignKey
-     * @return string
-     */',
-             'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
-             'uses' => 
-            array (
-              'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
-              'builder' => 'Illuminate\\Database\\Schema\\Builder',
-              'abstractschemamanager' => 'Doctrine\\DBAL\\Schema\\AbstractSchemaManager',
-              'schemaanalyzer' => 'SAC\\EloquentModelGenerator\\Contracts\\SchemaAnalyzer',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => false,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'string',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'foreignKey',
-               'type' => 'array',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        11 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'getRelationshipDefinition',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * Get relationship definition.
-     *
-     * @param array<string, mixed> $foreignKey
-     * @return array{type: string, foreignTable: string, foreignKey: string, localKey: string}
-     */',
-             'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
-             'uses' => 
-            array (
-              'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
-              'builder' => 'Illuminate\\Database\\Schema\\Builder',
-              'abstractschemamanager' => 'Doctrine\\DBAL\\Schema\\AbstractSchemaManager',
-              'schemaanalyzer' => 'SAC\\EloquentModelGenerator\\Contracts\\SchemaAnalyzer',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => false,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'array',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'foreignKey',
-               'type' => 'array',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        12 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'getCastType',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
@@ -17774,9 +16243,8 @@ return [
             array (
               'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
               'builder' => 'Illuminate\\Database\\Schema\\Builder',
-              'abstractschemamanager' => 'Doctrine\\DBAL\\Schema\\AbstractSchemaManager',
               'schemaanalyzer' => 'SAC\\EloquentModelGenerator\\Contracts\\SchemaAnalyzer',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
             ),
              'constUses' => 
             array (
@@ -17807,170 +16275,21 @@ return [
           array (
           ),
         )),
-      ),
-       'attributes' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php' => 
-  array (
-    0 => 
-    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
-       'name' => 'SAC\\EloquentModelGenerator\\Services\\Schema\\MySQLSchemaAnalyzer',
-       'phpDoc' => NULL,
-       'abstract' => false,
-       'final' => false,
-       'extends' => NULL,
-       'implements' => 
-      array (
-        0 => 'SAC\\EloquentModelGenerator\\Services\\Schema\\SchemaAnalyzerInterface',
-      ),
-       'usedTraits' => 
-      array (
-      ),
-       'traitUseAdaptations' => 
-      array (
-      ),
-       'statements' => 
-      array (
-        0 => 
+        10 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => '__construct',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => NULL,
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'connection',
-               'type' => 'Illuminate\\Database\\ConnectionInterface',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        1 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'analyze',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * Analyze the schema of a table.
-     *
-     * @param string $table
-     * @return TableSchema
-     */',
-             'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
-             'uses' => 
-            array (
-              'tableschema' => 'SAC\\EloquentModelGenerator\\ValueObjects\\TableSchema',
-              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
-              'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
-              'collection' => 'Illuminate\\Support\\Collection',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
-              'connection' => 'Illuminate\\Database\\Connection',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'SAC\\EloquentModelGenerator\\ValueObjects\\TableSchema',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'table',
-               'type' => 'string',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        2 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'getTables',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * Get all available tables.
-     *
-     * @return array<string>
-     */',
-             'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
-             'uses' => 
-            array (
-              'tableschema' => 'SAC\\EloquentModelGenerator\\ValueObjects\\TableSchema',
-              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
-              'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
-              'collection' => 'Illuminate\\Support\\Collection',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
-              'connection' => 'Illuminate\\Database\\Connection',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'array',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        3 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'hasTable',
+           'name' => 'tableExists',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
      * Check if a table exists.
-     *
-     * @param string $table
-     * @return bool
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
              'uses' => 
             array (
-              'tableschema' => 'SAC\\EloquentModelGenerator\\ValueObjects\\TableSchema',
-              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
               'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
-              'collection' => 'Illuminate\\Support\\Collection',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
-              'connection' => 'Illuminate\\Database\\Connection',
+              'builder' => 'Illuminate\\Database\\Schema\\Builder',
+              'schemaanalyzer' => 'SAC\\EloquentModelGenerator\\Contracts\\SchemaAnalyzer',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
             ),
              'constUses' => 
             array (
@@ -18001,23 +16320,125 @@ return [
           array (
           ),
         )),
-        4 => 
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'SAC\\EloquentModelGenerator\\Services\\Schema\\MySQLSchemaAnalyzer',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'SAC\\EloquentModelGenerator\\Services\\Schema\\BaseSchemaAnalyzer',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'getTypeMap',
+           'name' => 'analyze',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * @inheritDoc
+     * Analyze table schema.
+     *
+     * @param string $table
+     * @return array{
+     *     columns: array<string, array{
+     *         type: string,
+     *         nullable: bool,
+     *         default?: mixed,
+     *         length?: int|null,
+     *         unsigned?: bool,
+     *         autoIncrement?: bool,
+     *         primary?: bool,
+     *         unique?: bool,
+     *         comment?: string|null
+     *     }>,
+     *     relationships: array<array{
+     *         type: string,
+     *         foreignTable: string,
+     *         foreignKey: string,
+     *         localKey: string
+     *     }>
+     * }
+     * @throws ModelGeneratorException
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
              'uses' => 
             array (
-              'tableschema' => 'SAC\\EloquentModelGenerator\\ValueObjects\\TableSchema',
-              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
-              'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
               'collection' => 'Illuminate\\Support\\Collection',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
-              'connection' => 'Illuminate\\Database\\Connection',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'table',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'analyzeColumns',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Analyze table columns.
+     *
+     * @param string $table
+     * @return array<string, array{
+     *     type: string,
+     *     nullable: bool,
+     *     default?: mixed,
+     *     length?: int|null,
+     *     unsigned?: bool,
+     *     autoIncrement?: bool,
+     *     primary?: bool,
+     *     unique?: bool,
+     *     comment?: string|null
+     * }>
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
+             'uses' => 
+            array (
+              'collection' => 'Illuminate\\Support\\Collection',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
             ),
              'constUses' => 
             array (
@@ -18032,31 +16453,39 @@ return [
            'returnType' => 'array',
            'parameters' => 
           array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'table',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
           ),
            'attributes' => 
           array (
           ),
         )),
-        5 => 
+        2 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'getCastType',
+           'name' => 'analyzeRelationships',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Get the cast type for a column type.
+     * Analyze table relationships.
      *
-     * @param string $type
-     * @return string
+     * @param string $table
+     * @return array<array{type: string, foreignTable: string, foreignKey: string, localKey: string}>
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
              'uses' => 
             array (
-              'tableschema' => 'SAC\\EloquentModelGenerator\\ValueObjects\\TableSchema',
-              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
-              'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
               'collection' => 'Illuminate\\Support\\Collection',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
-              'connection' => 'Illuminate\\Database\\Connection',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
             ),
              'constUses' => 
             array (
@@ -18068,12 +16497,177 @@ return [
            'abstract' => false,
            'final' => false,
            'static' => false,
-           'returnType' => 'string',
+           'returnType' => 'array',
            'parameters' => 
           array (
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'type',
+               'name' => 'table',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getColumnLength',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get column length.
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
+             'uses' => 
+            array (
+              'collection' => 'Illuminate\\Support\\Collection',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => '?int',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'table',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'column',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'isColumnUnsigned',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Check if column is unsigned.
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
+             'uses' => 
+            array (
+              'collection' => 'Illuminate\\Support\\Collection',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'table',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'column',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        5 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'isColumnAutoIncrement',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Check if column is auto-increment.
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
+             'uses' => 
+            array (
+              'collection' => 'Illuminate\\Support\\Collection',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'table',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'column',
                'type' => 'string',
                'byRef' => false,
                'variadic' => false,
@@ -18089,24 +16683,18 @@ return [
         )),
         6 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'mapColumnType',
+           'name' => 'isColumnPrimary',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Maps MySQL column types to PHP types.
-     *
-     * @param string $type
-     * @return string
+     * Check if column is primary key.
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
              'uses' => 
             array (
-              'tableschema' => 'SAC\\EloquentModelGenerator\\ValueObjects\\TableSchema',
-              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
-              'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
               'collection' => 'Illuminate\\Support\\Collection',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
-              'connection' => 'Illuminate\\Database\\Connection',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
             ),
              'constUses' => 
             array (
@@ -18118,12 +16706,133 @@ return [
            'abstract' => false,
            'final' => false,
            'static' => false,
-           'returnType' => 'string',
+           'returnType' => 'bool',
            'parameters' => 
           array (
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'type',
+               'name' => 'table',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'column',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        7 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'isColumnUnique',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Check if column is unique.
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
+             'uses' => 
+            array (
+              'collection' => 'Illuminate\\Support\\Collection',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'table',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'column',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        8 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getColumnComment',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get column comment.
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
+             'uses' => 
+            array (
+              'collection' => 'Illuminate\\Support\\Collection',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => '?string',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'table',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'column',
                'type' => 'string',
                'byRef' => false,
                'variadic' => false,
@@ -18169,14 +16878,36 @@ return [
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * @inheritDoc
+     * Analyze table schema.
+     *
+     * @param string $table
+     * @return array{
+     *     columns: array<string, array{
+     *         type: string,
+     *         nullable: bool,
+     *         default?: mixed,
+     *         length?: int|null,
+     *         unsigned?: bool,
+     *         autoIncrement?: bool,
+     *         primary?: bool,
+     *         unique?: bool,
+     *         comment?: string|null
+     *     }>,
+     *     relationships: array<array{
+     *         type: string,
+     *         foreignTable: string,
+     *         foreignKey: string,
+     *         localKey: string
+     *     }>
+     * }
+     * @throws ModelGeneratorException
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
              'uses' => 
             array (
-              'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
-              'connection' => 'Illuminate\\Database\\Connection',
+              'collection' => 'Illuminate\\Support\\Collection',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
             ),
              'constUses' => 
             array (
@@ -18216,15 +16947,24 @@ return [
      * Analyze table columns.
      *
      * @param string $table
-     * @return array<string, array{type: string, nullable: bool, primary?: bool, unique?: bool, index?: bool, foreign?: array{table: string, column: string}, default?: mixed}>
-     * @throws \\Exception
+     * @return array<string, array{
+     *     type: string,
+     *     nullable: bool,
+     *     default?: mixed,
+     *     length?: int|null,
+     *     unsigned?: bool,
+     *     autoIncrement?: bool,
+     *     primary?: bool,
+     *     unique?: bool,
+     *     comment?: string|null
+     * }>
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
              'uses' => 
             array (
-              'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
-              'connection' => 'Illuminate\\Database\\Connection',
+              'collection' => 'Illuminate\\Support\\Collection',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
             ),
              'constUses' => 
             array (
@@ -18265,14 +17005,13 @@ return [
      *
      * @param string $table
      * @return array<array{type: string, foreignTable: string, foreignKey: string, localKey: string}>
-     * @throws \\Exception
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
              'uses' => 
             array (
-              'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
-              'connection' => 'Illuminate\\Database\\Connection',
+              'collection' => 'Illuminate\\Support\\Collection',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
             ),
              'constUses' => 
             array (
@@ -18305,18 +17044,18 @@ return [
         )),
         3 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'getTypeMap',
+           'name' => 'getColumnLength',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * @inheritDoc
+     * Get column length.
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
              'uses' => 
             array (
-              'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
-              'connection' => 'Illuminate\\Database\\Connection',
+              'collection' => 'Illuminate\\Support\\Collection',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
             ),
              'constUses' => 
             array (
@@ -18328,9 +17067,31 @@ return [
            'abstract' => false,
            'final' => false,
            'static' => false,
-           'returnType' => 'array',
+           'returnType' => '?int',
            'parameters' => 
           array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'table',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'column',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
           ),
            'attributes' => 
           array (
@@ -18338,18 +17099,18 @@ return [
         )),
         4 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'determineRelationshipType',
+           'name' => 'isColumnAutoIncrement',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * @inheritDoc
+     * Check if column is auto-increment.
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
              'uses' => 
             array (
-              'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
-              'connection' => 'Illuminate\\Database\\Connection',
+              'collection' => 'Illuminate\\Support\\Collection',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
             ),
              'constUses' => 
             array (
@@ -18361,13 +17122,24 @@ return [
            'abstract' => false,
            'final' => false,
            'static' => false,
-           'returnType' => 'string',
+           'returnType' => 'bool',
            'parameters' => 
           array (
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'foreignKey',
-               'type' => 'array',
+               'name' => 'table',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'column',
+               'type' => 'string',
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => false,
@@ -18382,21 +17154,18 @@ return [
         )),
         5 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'getCastType',
+           'name' => 'isColumnPrimary',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Get the cast type for a column type.
-     *
-     * @param string $type
-     * @return string
+     * Check if column is primary key.
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
              'uses' => 
             array (
-              'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
-              'connection' => 'Illuminate\\Database\\Connection',
+              'collection' => 'Illuminate\\Support\\Collection',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
             ),
              'constUses' => 
             array (
@@ -18408,12 +17177,133 @@ return [
            'abstract' => false,
            'final' => false,
            'static' => false,
-           'returnType' => 'string',
+           'returnType' => 'bool',
            'parameters' => 
           array (
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'type',
+               'name' => 'table',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'column',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        6 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'isColumnUnique',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Check if column is unique.
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
+             'uses' => 
+            array (
+              'collection' => 'Illuminate\\Support\\Collection',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'table',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'column',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        7 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getColumnComment',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get column comment.
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
+             'uses' => 
+            array (
+              'collection' => 'Illuminate\\Support\\Collection',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => '?string',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'table',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'column',
                'type' => 'string',
                'byRef' => false,
                'variadic' => false,
@@ -18455,68 +17345,40 @@ return [
       array (
         0 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => '__construct',
+           'name' => 'analyze',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Create a new SQLite schema analyzer instance.
-     */',
-             'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
-             'uses' => 
-            array (
-              'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
-              'str' => 'Illuminate\\Support\\Str',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
-              'foreignkeyconstraint' => 'Doctrine\\DBAL\\Schema\\ForeignKeyConstraint',
-              'table' => 'Doctrine\\DBAL\\Schema\\Table',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => NULL,
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'connection',
-               'type' => 'Illuminate\\Database\\ConnectionInterface',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        1 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'getTables',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * Get all available tables.
+     * Analyze table schema.
      *
-     * @return array<string>
+     * @param string $table
+     * @return array{
+     *     columns: array<string, array{
+     *         type: string,
+     *         nullable: bool,
+     *         default?: mixed,
+     *         length?: int|null,
+     *         unsigned?: bool,
+     *         autoIncrement?: bool,
+     *         primary?: bool,
+     *         unique?: bool,
+     *         comment?: string|null
+     *     }>,
+     *     relationships: array<array{
+     *         type: string,
+     *         foreignTable: string,
+     *         foreignKey: string,
+     *         localKey: string
+     *     }>
+     * }
+     * @throws ModelGeneratorException
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
              'uses' => 
             array (
-              'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
-              'str' => 'Illuminate\\Support\\Str',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
-              'foreignkeyconstraint' => 'Doctrine\\DBAL\\Schema\\ForeignKeyConstraint',
-              'table' => 'Doctrine\\DBAL\\Schema\\Table',
+              'collection' => 'Illuminate\\Support\\Collection',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
             ),
              'constUses' => 
             array (
@@ -18531,6 +17393,74 @@ return [
            'returnType' => 'array',
            'parameters' => 
           array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'table',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'analyzeColumns',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Analyze table columns.
+     *
+     * @param string $table
+     * @return array<string, array{
+     *     type: string,
+     *     nullable: bool,
+     *     default?: mixed,
+     *     length?: int|null,
+     *     unsigned?: bool,
+     *     autoIncrement?: bool,
+     *     primary?: bool,
+     *     unique?: bool,
+     *     comment?: string|null
+     * }>
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
+             'uses' => 
+            array (
+              'collection' => 'Illuminate\\Support\\Collection',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'table',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
           ),
            'attributes' => 
           array (
@@ -18538,31 +17468,28 @@ return [
         )),
         2 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'analyze',
+           'name' => 'analyzeRelationships',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Analyze a table\'s schema.
+     * Analyze table relationships.
      *
      * @param string $table
-     * @return array<string, mixed>
-     * @throws ModelGeneratorSchemaAnalyzerException
+     * @return array<array{type: string, foreignTable: string, foreignKey: string, localKey: string}>
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
              'uses' => 
             array (
-              'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
-              'str' => 'Illuminate\\Support\\Str',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
-              'foreignkeyconstraint' => 'Doctrine\\DBAL\\Schema\\ForeignKeyConstraint',
-              'table' => 'Doctrine\\DBAL\\Schema\\Table',
+              'collection' => 'Illuminate\\Support\\Collection',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
             ),
              'constUses' => 
             array (
             ),
           )),
            'byRef' => false,
-           'public' => true,
+           'public' => false,
            'private' => false,
            'abstract' => false,
            'final' => false,
@@ -18588,30 +17515,80 @@ return [
         )),
         3 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'hasTable',
+           'name' => 'getColumnLength',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Check if a table exists.
-     *
-     * @param string $table
-     * @return bool
+     * Get column length.
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
              'uses' => 
             array (
-              'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
-              'str' => 'Illuminate\\Support\\Str',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
-              'foreignkeyconstraint' => 'Doctrine\\DBAL\\Schema\\ForeignKeyConstraint',
-              'table' => 'Doctrine\\DBAL\\Schema\\Table',
+              'collection' => 'Illuminate\\Support\\Collection',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
             ),
              'constUses' => 
             array (
             ),
           )),
            'byRef' => false,
-           'public' => true,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => '?int',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'table',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'column',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'isColumnUnsigned',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Check if column is unsigned.
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
+             'uses' => 
+            array (
+              'collection' => 'Illuminate\\Support\\Collection',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => false,
            'private' => false,
            'abstract' => false,
            'final' => false,
@@ -18630,47 +17607,9 @@ return [
               array (
               ),
             )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        4 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'mapColumnType',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * Maps SQLite column types to PHP types.
-     *
-     * @param string $type
-     * @return string
-     */',
-             'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
-             'uses' => 
-            array (
-              'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
-              'str' => 'Illuminate\\Support\\Str',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
-              'foreignkeyconstraint' => 'Doctrine\\DBAL\\Schema\\ForeignKeyConstraint',
-              'table' => 'Doctrine\\DBAL\\Schema\\Table',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => false,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'string',
-           'parameters' => 
-          array (
-            0 => 
+            1 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'type',
+               'name' => 'column',
                'type' => 'string',
                'byRef' => false,
                'variadic' => false,
@@ -18686,20 +17625,18 @@ return [
         )),
         5 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'getTypeMap',
+           'name' => 'isColumnAutoIncrement',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * @inheritDoc
+     * Check if column is auto-increment.
      */',
              'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
              'uses' => 
             array (
-              'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
-              'str' => 'Illuminate\\Support\\Str',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
-              'foreignkeyconstraint' => 'Doctrine\\DBAL\\Schema\\ForeignKeyConstraint',
-              'table' => 'Doctrine\\DBAL\\Schema\\Table',
+              'collection' => 'Illuminate\\Support\\Collection',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
             ),
              'constUses' => 
             array (
@@ -18711,91 +17648,7 @@ return [
            'abstract' => false,
            'final' => false,
            'static' => false,
-           'returnType' => 'array',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        6 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'analyzeColumns',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @param Table $table
-     * @return array<string, array<string, mixed>>
-     */',
-             'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
-             'uses' => 
-            array (
-              'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
-              'str' => 'Illuminate\\Support\\Str',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
-              'foreignkeyconstraint' => 'Doctrine\\DBAL\\Schema\\ForeignKeyConstraint',
-              'table' => 'Doctrine\\DBAL\\Schema\\Table',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => false,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'array',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'table',
-               'type' => 'Doctrine\\DBAL\\Schema\\Table',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        7 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'analyzeRelationships',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @param string $table
-     * @param array<ForeignKeyConstraint> $foreignKeys
-     * @return array<array<string, mixed>>
-     */',
-             'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
-             'uses' => 
-            array (
-              'connectioninterface' => 'Illuminate\\Database\\ConnectionInterface',
-              'str' => 'Illuminate\\Support\\Str',
-              'modelgeneratorschemaanalyzerexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorSchemaAnalyzerException',
-              'foreignkeyconstraint' => 'Doctrine\\DBAL\\Schema\\ForeignKeyConstraint',
-              'table' => 'Doctrine\\DBAL\\Schema\\Table',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => false,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'array',
+           'returnType' => 'bool',
            'parameters' => 
           array (
             0 => 
@@ -18811,8 +17664,173 @@ return [
             )),
             1 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'foreignKeys',
-               'type' => 'array',
+               'name' => 'column',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        6 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'isColumnPrimary',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Check if column is primary key.
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
+             'uses' => 
+            array (
+              'collection' => 'Illuminate\\Support\\Collection',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'table',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'column',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        7 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'isColumnUnique',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Check if column is unique.
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
+             'uses' => 
+            array (
+              'collection' => 'Illuminate\\Support\\Collection',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'table',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'column',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        8 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getColumnComment',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get column comment.
+     */',
+             'namespace' => 'SAC\\EloquentModelGenerator\\Services\\Schema',
+             'uses' => 
+            array (
+              'collection' => 'Illuminate\\Support\\Collection',
+              'modelgeneratorexception' => 'SAC\\EloquentModelGenerator\\Exceptions\\ModelGeneratorException',
+              'column' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => '?string',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'table',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'column',
+               'type' => 'string',
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => false,
@@ -20842,6 +19860,416 @@ return [
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/AbstractFixStrategy.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'SAC\\EloquentModelGenerator\\Support\\Fixes\\AbstractFixStrategy',
+       'phpDoc' => NULL,
+       'abstract' => true,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Contracts\\FixStrategy',
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'pattern',
+          ),
+           'phpDoc' => NULL,
+           'type' => 'string',
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'priority',
+          ),
+           'phpDoc' => NULL,
+           'type' => 'int',
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'description',
+          ),
+           'phpDoc' => NULL,
+           'type' => 'string',
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'canFix',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'error',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getPriority',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'int',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        5 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getDescription',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'string',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        6 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'readFile',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'string',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'file',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        7 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'writeFile',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'void',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'file',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'content',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        8 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'backupFile',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'void',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'file',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        9 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'restoreFile',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'void',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'file',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        10 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'parseError',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'error',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/TypeHintFixer.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'SAC\\EloquentModelGenerator\\Support\\Fixes\\TypeHintFixer',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'SAC\\EloquentModelGenerator\\Support\\Fixes\\AbstractFixStrategy',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'pattern',
+          ),
+           'phpDoc' => NULL,
+           'type' => 'string',
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'priority',
+          ),
+           'phpDoc' => NULL,
+           'type' => 'int',
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'description',
+          ),
+           'phpDoc' => NULL,
+           'type' => 'string',
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'fix',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'file',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'error',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
                'attributes' => 
               array (
               ),

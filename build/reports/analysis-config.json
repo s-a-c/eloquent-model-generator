@@ -1,0 +1,22 @@
+{
+    "targetDir": "\/Users\/s-a-c\/Herd\/laravel-package-dev\/packages\/StandAlonecomplex\/EloquentModelGenerator\/src",
+    "levels": [
+        2
+    ],
+    "tools": [
+        "phpstan",
+        "phpmd",
+        "psalm",
+        "metrics",
+        "class-leak",
+        "type-coverage"
+    ],
+    "options": {
+        "parallel": false,
+        "format": "html",
+        "ci": false,
+        "cache": false,
+        "debug": false
+    },
+    "cacheKey": null
+}

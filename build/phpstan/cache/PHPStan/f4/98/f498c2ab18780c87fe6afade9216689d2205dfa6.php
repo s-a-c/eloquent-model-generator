@@ -1,7 +1,0 @@
-<?php declare(strict_types = 1);
-
-// variadic-method-SAC\EloquentModelGenerator\ValueObjects\Column-__construct-/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/Column.php
-return \PHPStan\Cache\CacheItem::__set_state(array(
-   'variableKey' => '1739412123-v4',
-   'data' => false,
-));

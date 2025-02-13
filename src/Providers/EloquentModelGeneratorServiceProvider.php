@@ -3,13 +3,18 @@
 namespace SAC\EloquentModelGenerator\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use SAC\EloquentModelGenerator\Console\Commands\GenerateModelCommand;
 use SAC\EloquentModelGenerator\Console\Commands\AnalyzeCommand;
 use SAC\EloquentModelGenerator\Console\Commands\FixCommand;
+use SAC\EloquentModelGenerator\Console\Commands\GenerateModelCommand;
+use SAC\EloquentModelGenerator\Services\AnalysisToolManager;
+use SAC\EloquentModelGenerator\Services\FixStrategies\DocBlockFixStrategy;
+use SAC\EloquentModelGenerator\Services\FixStrategies\PhpmdFixStrategy;
+use SAC\EloquentModelGenerator\Services\FixStrategies\PsalmFixStrategy;
+use SAC\EloquentModelGenerator\Services\FixStrategies\RectorFixStrategy;
+use SAC\EloquentModelGenerator\Services\FixStrategies\TypeHintFixStrategy;
+use SAC\EloquentModelGenerator\Services\FixStrategyManager;
 use SAC\EloquentModelGenerator\Services\ModelGeneratorService;
 use SAC\EloquentModelGenerator\Services\ModelGeneratorTemplateEngine;
-use SAC\EloquentModelGenerator\Services\AnalysisToolManager;
-use SAC\EloquentModelGenerator\Services\FixStrategyManager;
 use SAC\EloquentModelGenerator\Support\Fixes\TypeHintFixer;
 
 class EloquentModelGeneratorServiceProvider extends ServiceProvider {
@@ -21,6 +26,55 @@ class EloquentModelGeneratorServiceProvider extends ServiceProvider {
         $this->app->singleton(ModelGeneratorService::class);
         $this->app->singleton(AnalysisToolManager::class);
         $this->app->singleton(FixStrategyManager::class);
+
+        // Configure AnalysisToolManager
+        $this->app->afterResolving(AnalysisToolManager::class, function (AnalysisToolManager $manager) {
+            // PHPStan/Larastan
+            $manager->registerTool('phpstan', [
+                'vendor/bin/phpstan',
+                'analyze',
+                '--level=%level%',
+                '--no-progress',
+                '--error-format=table',
+                '%target%'
+            ]);
+
+            // PHP Mess Detector
+            $manager->registerTool('phpmd', [
+                'vendor/bin/phpmd',
+                '%target%',
+                'text',
+                'cleancode,codesize,controversial,design,naming,unusedcode'
+            ]);
+
+            // Psalm
+            $manager->registerTool('psalm', [
+                'vendor/bin/psalm',
+                '--show-info=true',
+                '%target%'
+            ]);
+
+            // PHPMetrics
+            $manager->registerTool('metrics', [
+                'vendor/bin/phpmetrics',
+                '--report-html=build/reports/metrics',
+                '%target%'
+            ]);
+
+            // Class Leak
+            $manager->registerTool('class-leak', [
+                'vendor/bin/class-leak',
+                'check',
+                '%target%'
+            ]);
+
+            // Type Coverage
+            $manager->registerTool('type-coverage', [
+                'vendor/bin/type-coverage',
+                'check',
+                '%target%'
+            ]);
+        });
 
         $this->app->when(GenerateModelCommand::class)
             ->needs(ModelGeneratorService::class)
@@ -40,8 +94,11 @@ class EloquentModelGeneratorServiceProvider extends ServiceProvider {
 
         // Register fix strategies
         $this->app->afterResolving(FixStrategyManager::class, function (FixStrategyManager $manager) {
-            $manager->register(new TypeHintFixer());
-            // Register other fix strategies here
+            $manager->registerStrategy('rector', new RectorFixStrategy());
+            $manager->registerStrategy('type_hint', new TypeHintFixStrategy());
+            $manager->registerStrategy('doc_block', new DocBlockFixStrategy());
+            $manager->registerStrategy('phpmd', new PhpmdFixStrategy());
+            $manager->registerStrategy('psalm', new PsalmFixStrategy());
         });
     }
 

@@ -1,0 +1,81 @@
+#!/usr/bin/env php
+<?php
+
+use Symfony\Component\Console\Input\ArgvInput;
+use Symfony\Component\Console\Output\ConsoleOutput;
+use Orchestra\Testbench\Foundation\Application;
+use Illuminate\Foundation\Bootstrap\LoadConfiguration;
+use Illuminate\Contracts\Console\Kernel;
+use Illuminate\Console\Application as Artisan;
+use Illuminate\Events\Dispatcher;
+use Illuminate\Container\Container;
+
+define('LARAVEL_START', microtime(true));
+
+// Ensure errors are displayed when testing
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
+$workingPath = __DIR__;
+$basePath = dirname(__DIR__, 3);
+
+// Check if we're in a Laravel application
+if (file_exists($workingPath . '/vendor/autoload.php')) {
+    require $workingPath . '/vendor/autoload.php';
+} else {
+    // Fallback to parent vendor directory
+    require $basePath . '/vendor/autoload.php';
+}
+
+// Create the application
+putenv('TESTBENCH_WORKING_PATH=' . $workingPath);
+putenv('APP_ENV=testing');
+putenv('APP_KEY=base64:Hupx3yAySikrM2/edkZQNQHslgDWYfiBfCuSThJ5SK8=');
+
+$app = (new Application($basePath))->createApplication();
+
+// Load package configuration
+(new LoadConfiguration)->bootstrap($app);
+
+// Set up package configuration
+$app['config']->set([
+    'app.env' => 'testing',
+    'cache.default' => 'array',
+    'session.driver' => 'array',
+    'queue.default' => 'sync',
+]);
+
+// Register package service provider
+$app->register(\SAC\EloquentModelGenerator\Providers\EloquentModelGeneratorServiceProvider::class);
+
+// Create and configure Artisan console application
+$artisan = new Artisan($app, $app->make('events'), '1.0.0');
+$app->instance(Artisan::class, $artisan);
+$app->instance('artisan', $artisan);
+
+// Create the kernel
+$app->singleton(Kernel::class, \Orchestra\Testbench\Console\Kernel::class);
+
+try {
+    $kernel = $app->make(Kernel::class);
+    $kernel->bootstrap();
+} catch (Throwable $e) {
+    fwrite(STDERR, "Error creating kernel: {$e->getMessage()}\n");
+    exit(1);
+}
+
+// Run the command
+try {
+    $status = $kernel->handle(
+        $input = new ArgvInput,
+        new ConsoleOutput
+    );
+} catch (Throwable $e) {
+    fwrite(STDERR, "Error running command: {$e->getMessage()}\n{$e->getTraceAsString()}\n");
+    exit(1);
+}
+
+// Terminate the kernel
+$kernel->terminate($input, $status);
+
+exit($status);

@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>%title%</title>
     <style>
         :root {
             --primary-color: #4a5568;
-            --success-color: #2fb344;
-            --error-color: #d63939;
+            --success-color: #48bb78;
+            --error-color: #f56565;
             --bg-color: #f7fafc;
-            --border-color: #e2e8f0;
+            --card-bg: #ffffff;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             margin: 0;
-            padding: 20px;
+            padding: 2rem;
             background: var(--bg-color);
             color: var(--primary-color);
         }
@@ -23,113 +25,62 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
         h1, h2, h3, h4 {
-            color: var(--primary-color);
+            color: #2d3748;
             margin-top: 0;
         }
 
-        h1 {
-            font-size: 2em;
-            margin-bottom: 1em;
-            padding-bottom: 0.5em;
-            border-bottom: 2px solid var(--border-color);
-        }
-
-        .summary {
-            background: var(--bg-color);
-            padding: 20px;
-            border-radius: 6px;
-            margin-bottom: 30px;
-        }
-
-        .tool-result {
-            margin: 20px 0;
-            padding: 20px;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-        }
-
-        .tool-result h3 {
-            margin-top: 0;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--border-color);
+        .summary, .tool-result {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
         .success {
             color: var(--success-color);
+            font-weight: 600;
         }
 
         .error {
             color: var(--error-color);
+            font-weight: 600;
         }
 
         .affected-files {
-            margin-top: 15px;
-            font-family: monospace;
-        }
-
-        .affected-files h4 {
-            margin-bottom: 10px;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: var(--bg-color);
+            border-radius: 4px;
         }
 
         .affected-files ul {
-            list-style: none;
-            padding: 0;
             margin: 0;
+            padding-left: 1.5rem;
         }
 
         .affected-files li {
-            padding: 5px 0;
-            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 0.5rem;
         }
 
-        .affected-files li:last-child {
-            border-bottom: none;
-        }
-
-        .report-links {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 2px solid var(--border-color);
-        }
-
-        .report-link {
-            display: inline-block;
-            margin: 10px 20px 10px 0;
-        }
-
-        .report-link a {
-            color: var(--primary-color);
-            text-decoration: none;
-            padding: 8px 16px;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            transition: all 0.2s ease;
-        }
-
-        .report-link a:hover {
-            background: var(--bg-color);
-            border-color: var(--primary-color);
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 15px;
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary-color: #e2e8f0;
+                --success-color: #68d391;
+                --error-color: #fc8181;
+                --bg-color: #1a202c;
+                --card-bg: #2d3748;
             }
 
-            .tool-result {
-                padding: 15px;
+            body {
+                color: var(--primary-color);
             }
 
-            .report-link {
-                display: block;
-                margin: 10px 0;
+            h1, h2, h3, h4 {
+                color: #f7fafc;
             }
         }
     </style>
@@ -138,26 +89,7 @@
     <div class="container">
         <h1>%title%</h1>
         %summary%
-        <div class="results">
-            %results%
-        </div>
-        <div class="report-links">
-            <div class="report-link">
-                <a href="report.json">View JSON Report</a>
-            </div>
-            <div class="report-link">
-                <a href="report.txt">View Text Report</a>
-            </div>
-            <div class="report-link">
-                <a href="tools/metrics/index.html">View Metrics Report</a>
-            </div>
-            <div class="report-link">
-                <a href="tools/phpmd.html">View PHPMD Report</a>
-            </div>
-            <div class="report-link">
-                <a href="tools/psalm.xml">View Psalm Report</a>
-            </div>
-        </div>
+        %results%
     </div>
 </body>
 </html>

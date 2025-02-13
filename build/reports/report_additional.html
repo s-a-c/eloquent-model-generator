@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Static Analysis Report - Additional Tools</title>
+        <style>
+            :root {
+                --primary-color: #4a5568;
+                --success-color: #48bb78;
+                --error-color: #f56565;
+                --bg-color: #f7fafc;
+                --card-bg: #ffffff;
+            }
+
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 2rem;
+                background: var(--bg-color);
+                color: var(--primary-color);
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            h1, h2, h3, h4 {
+                color: #2d3748;
+                margin-top: 0;
+            }
+
+            .summary, .tool-result {
+                background: var(--card-bg);
+                border-radius: 8px;
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            }
+
+            .success {
+                color: var(--success-color);
+                font-weight: 600;
+            }
+
+            .error {
+                color: var(--error-color);
+                font-weight: 600;
+            }
+
+            .affected-files {
+                margin-top: 1rem;
+                padding: 1rem;
+                background: var(--bg-color);
+                border-radius: 4px;
+            }
+
+            .affected-files ul {
+                margin: 0;
+                padding-left: 1.5rem;
+            }
+
+            .affected-files li {
+                margin-bottom: 0.5rem;
+            }
+
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --primary-color: #e2e8f0;
+                    --success-color: #68d391;
+                    --error-color: #fc8181;
+                    --bg-color: #1a202c;
+                    --card-bg: #2d3748;
+                }
+
+                body {
+                    color: var(--primary-color);
+                }
+
+                h1, h2, h3, h4 {
+                    color: #f7fafc;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Static Analysis Report - Additional Tools</h1>
+
+                <div class='summary'>
+                    <h2>Analysis Summary - Additional Tools</h2>
+                    <p>Target Directory: /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src</p>
+
+                    <p>Status: Issues Found</p>
+                </div>
+
+
+                    <div class='tool-result'>
+                        <h3>phpstan</h3>
+                        <p class='error'>
+                            Status: Issues Found
+                        </p>
+                        <div class='affected-files'>
+                            <h4>Affected Files:</h4>
+                            <ul>
+                                <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/*,
+                                    /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Traits/*
+                                    was not matched in reported errors.
+                                    Ignored error pattern #Call to an undefined method .+Model
+                                </li>
+                                <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/*,
+                                    /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Traits/*
+                                    was not matched in reported errors.
+                                    Ignored error pattern #Method .+writeln\(\) invoked with 1 parameter, 2 required# in path
+                                    /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/*
+                                    was not matched in reported errors.
+                                    Ignored error pattern #Call to static method factory\(\) on an unknown class# in path
+                                    /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Factories/*
+                                    was not matched in reported errors.
+                                    Ignored error pattern #Access to an undefined property# in path
+                                    /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/*
+                                    was not matched in reported errors.
+                                    Ignored error pattern #Call to an undefined method# in path
+                                    /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php
+                                    was not matched in reported errors.
+                                    Ignored error pattern #Safe\\.*
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class='tool-result'>
+                        <h3>phpmd</h3>
+                        <p class='error'>
+                            Status: Issues Found
+                        </p>
+                <div class='affected-files'>
+                    <h4>Affected Files:</h4>
+                    <ul>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/AnalysisConfig.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/GeneratorConfig.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/AnalyzeCommand.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/GenerateModelCommand.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/ListTablesCommand.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Model/ModelName.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Model/Relations.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ModelGenerator.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModelAttribute.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/ModelGeneratorServiceProvider.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Benchmarking/PerformanceBenchmark.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/DefaultModelGenerator.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/DocBlockFixStrategy.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/TypeHintFixStrategy.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategyManager.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Builders/ModelBuilder.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Definitions/ModelDefinition.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Factories/ModelGeneratorFactory.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/AbstractFixStrategy.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/TypeHintFixer.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Traits/HasModelValidation.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Traits/HasValidation.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Templates/CachedModelTemplate.php</li>
+                        <li>/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/Column.php</li>
+                    </ul>
+                </div>
+            </div>
+                    <div class='tool-result'>
+                        <h3>psalm</h3>
+                        <p class='error'>
+                            Status: Issues Found
+                        </p>
+                </div>
+                    <div class='tool-result'>
+                        <h3>metrics</h3>
+                        <p class='success'>
+                            Status: Success
+                        </p>
+                </div>
+                    <div class='tool-result'>
+                        <h3>class-leak</h3>
+                        <p class='error'>
+                            Status: Issues Found
+                        </p>
+                </div>
+                    <div class='tool-result'>
+                        <h3>type-coverage</h3>
+                        <p class='error'>
+                            Status: Issues Found
+                        </p>
+                </div>
+        </div>
+    </body>
+</html>

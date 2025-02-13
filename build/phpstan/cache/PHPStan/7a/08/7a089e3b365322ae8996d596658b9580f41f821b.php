@@ -177,7 +177,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/EloquentModelGeneratorServiceProvider.php' => 
     array (
-      0 => '5ee1c509751aa6af4cebdac64403be476a3b8e53',
+      0 => 'c5dadf9b4cc1f68946ef1eec42a8acbd8cefd512',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\providers\\eloquentmodelgeneratorserviceprovider',
@@ -280,7 +280,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php' => 
     array (
-      0 => '96b0eb1af19f7cedda3ca70e7c7677673e5d8444',
+      0 => '2b270c9d970e8823918b41b346dc3aab4ace7a2e',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\models\\generatedmodel',
@@ -323,6 +323,8 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         33 => 'sac\\eloquentmodelgenerator\\models\\getvalidationmessages',
         34 => 'sac\\eloquentmodelgenerator\\models\\setcontent',
         35 => 'sac\\eloquentmodelgenerator\\models\\getcontent',
+        36 => 'sac\\eloquentmodelgenerator\\models\\validatearrays',
+        37 => 'sac\\eloquentmodelgenerator\\models\\validatesinglerule',
       ),
       3 => 
       array (
@@ -330,7 +332,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/BaseModel.php' => 
     array (
-      0 => '9271c45e7f707a70584652f1e2e150c310dd301b',
+      0 => '98a9d4897be4939babc7001e8c1e2679fe3eceff',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\models\\basemodel',
@@ -725,16 +727,17 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Model/Relations.php' => 
     array (
-      0 => 'efbedf814d529d012eee6d99df3937e9260f2a30',
+      0 => '29b60486511312a837d747c2f5bc90039bdbabbe',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\model\\relations',
       ),
       2 => 
       array (
-        0 => 'sac\\eloquentmodelgenerator\\model\\addrelation',
+        0 => 'sac\\eloquentmodelgenerator\\model\\__construct',
         1 => 'sac\\eloquentmodelgenerator\\model\\getrelations',
-        2 => 'sac\\eloquentmodelgenerator\\model\\getrelationmethods',
+        2 => 'sac\\eloquentmodelgenerator\\model\\addrelation',
+        3 => 'sac\\eloquentmodelgenerator\\model\\getrelationmethods',
       ),
       3 => 
       array (
@@ -881,7 +884,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ConfigurationService.php' => 
     array (
-      0 => '05bc55ee5c7a338a82a9e63db1c78a8df3ceada3',
+      0 => 'fbdd080340f5094f50103761386178786fb095a9',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\configurationservice',
@@ -925,7 +928,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php' => 
     array (
-      0 => '0a5d69d5d79aed157e59193598642c0e9993875f',
+      0 => 'd07aa23de3b9e30588860424b6e1ec019a444583',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\modelgenerator',
@@ -993,22 +996,22 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php' => 
     array (
-      0 => 'd27f43d64a911e3dc3c53efc19c2ff8ac914e87d',
+      0 => 'de589d25e006bc9c4956ade4bdae474a2a6c64f6',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\schema\\mysqlschemaanalyzer',
       ),
       2 => 
       array (
-        0 => 'sac\\eloquentmodelgenerator\\services\\schema\\__construct',
-        1 => 'sac\\eloquentmodelgenerator\\services\\schema\\analyze',
-        2 => 'sac\\eloquentmodelgenerator\\services\\schema\\gettables',
-        3 => 'sac\\eloquentmodelgenerator\\services\\schema\\hastable',
-        4 => 'sac\\eloquentmodelgenerator\\services\\schema\\getcolumns',
-        5 => 'sac\\eloquentmodelgenerator\\services\\schema\\iscolumnunique',
-        6 => 'sac\\eloquentmodelgenerator\\services\\schema\\gettypemap',
-        7 => 'sac\\eloquentmodelgenerator\\services\\schema\\getcasttype',
-        8 => 'sac\\eloquentmodelgenerator\\services\\schema\\mapcolumntype',
+        0 => 'sac\\eloquentmodelgenerator\\services\\schema\\analyze',
+        1 => 'sac\\eloquentmodelgenerator\\services\\schema\\analyzecolumns',
+        2 => 'sac\\eloquentmodelgenerator\\services\\schema\\analyzerelationships',
+        3 => 'sac\\eloquentmodelgenerator\\services\\schema\\getcolumnlength',
+        4 => 'sac\\eloquentmodelgenerator\\services\\schema\\iscolumnunsigned',
+        5 => 'sac\\eloquentmodelgenerator\\services\\schema\\iscolumnautoincrement',
+        6 => 'sac\\eloquentmodelgenerator\\services\\schema\\iscolumnprimary',
+        7 => 'sac\\eloquentmodelgenerator\\services\\schema\\iscolumnunique',
+        8 => 'sac\\eloquentmodelgenerator\\services\\schema\\getcolumncomment',
       ),
       3 => 
       array (
@@ -1042,7 +1045,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php' => 
     array (
-      0 => 'ceb306bdfe0af5bc69bfc887b5bb136a9234b02d',
+      0 => '335a6e340baf5406df2e2f8d8a71369fd03ecf9d',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\schema\\postgresqlschemaanalyzer',
@@ -1052,9 +1055,11 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         0 => 'sac\\eloquentmodelgenerator\\services\\schema\\analyze',
         1 => 'sac\\eloquentmodelgenerator\\services\\schema\\analyzecolumns',
         2 => 'sac\\eloquentmodelgenerator\\services\\schema\\analyzerelationships',
-        3 => 'sac\\eloquentmodelgenerator\\services\\schema\\gettypemap',
-        4 => 'sac\\eloquentmodelgenerator\\services\\schema\\determinerelationshiptype',
-        5 => 'sac\\eloquentmodelgenerator\\services\\schema\\getcasttype',
+        3 => 'sac\\eloquentmodelgenerator\\services\\schema\\getcolumnlength',
+        4 => 'sac\\eloquentmodelgenerator\\services\\schema\\iscolumnautoincrement',
+        5 => 'sac\\eloquentmodelgenerator\\services\\schema\\iscolumnprimary',
+        6 => 'sac\\eloquentmodelgenerator\\services\\schema\\iscolumnunique',
+        7 => 'sac\\eloquentmodelgenerator\\services\\schema\\getcolumncomment',
       ),
       3 => 
       array (
@@ -1062,21 +1067,22 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php' => 
     array (
-      0 => '603fcb5af352b3b65be7c23ab94c332d685a3f14',
+      0 => '1f1e80ab1391e5f23205069dec21e0a4b7c4f369',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\schema\\sqliteschemaanalyzer',
       ),
       2 => 
       array (
-        0 => 'sac\\eloquentmodelgenerator\\services\\schema\\__construct',
-        1 => 'sac\\eloquentmodelgenerator\\services\\schema\\gettables',
-        2 => 'sac\\eloquentmodelgenerator\\services\\schema\\analyze',
-        3 => 'sac\\eloquentmodelgenerator\\services\\schema\\hastable',
-        4 => 'sac\\eloquentmodelgenerator\\services\\schema\\mapcolumntype',
-        5 => 'sac\\eloquentmodelgenerator\\services\\schema\\gettypemap',
-        6 => 'sac\\eloquentmodelgenerator\\services\\schema\\analyzecolumns',
-        7 => 'sac\\eloquentmodelgenerator\\services\\schema\\analyzerelationships',
+        0 => 'sac\\eloquentmodelgenerator\\services\\schema\\analyze',
+        1 => 'sac\\eloquentmodelgenerator\\services\\schema\\analyzecolumns',
+        2 => 'sac\\eloquentmodelgenerator\\services\\schema\\analyzerelationships',
+        3 => 'sac\\eloquentmodelgenerator\\services\\schema\\getcolumnlength',
+        4 => 'sac\\eloquentmodelgenerator\\services\\schema\\iscolumnunsigned',
+        5 => 'sac\\eloquentmodelgenerator\\services\\schema\\iscolumnautoincrement',
+        6 => 'sac\\eloquentmodelgenerator\\services\\schema\\iscolumnprimary',
+        7 => 'sac\\eloquentmodelgenerator\\services\\schema\\iscolumnunique',
+        8 => 'sac\\eloquentmodelgenerator\\services\\schema\\getcolumncomment',
       ),
       3 => 
       array (
@@ -1084,7 +1090,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php' => 
     array (
-      0 => '9beb76f5ddb5dbbe2ca9ed0f0eca357137f773fc',
+      0 => '11f602f9c0fbf4361367640b1818cb11af1632cf',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\schema\\baseschemaanalyzer',
@@ -1093,16 +1099,14 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\schema\\__construct',
         1 => 'sac\\eloquentmodelgenerator\\services\\schema\\getschemabuilder',
-        2 => 'sac\\eloquentmodelgenerator\\services\\schema\\getschemamanager',
-        3 => 'sac\\eloquentmodelgenerator\\services\\schema\\gettableprefix',
-        4 => 'sac\\eloquentmodelgenerator\\services\\schema\\tableexists',
-        5 => 'sac\\eloquentmodelgenerator\\services\\schema\\gettables',
-        6 => 'sac\\eloquentmodelgenerator\\services\\schema\\gettypemap',
+        2 => 'sac\\eloquentmodelgenerator\\services\\schema\\gettableprefix',
+        3 => 'sac\\eloquentmodelgenerator\\services\\schema\\gettables',
+        4 => 'sac\\eloquentmodelgenerator\\services\\schema\\hastable',
+        5 => 'sac\\eloquentmodelgenerator\\services\\schema\\getforeignkeydefinition',
+        6 => 'sac\\eloquentmodelgenerator\\services\\schema\\getrelationshipdefinition',
         7 => 'sac\\eloquentmodelgenerator\\services\\schema\\mapcolumntype',
-        8 => 'sac\\eloquentmodelgenerator\\services\\schema\\getforeignkeydefinition',
-        9 => 'sac\\eloquentmodelgenerator\\services\\schema\\determinerelationshiptype',
-        10 => 'sac\\eloquentmodelgenerator\\services\\schema\\getrelationshipdefinition',
-        11 => 'sac\\eloquentmodelgenerator\\services\\schema\\getcasttype',
+        8 => 'sac\\eloquentmodelgenerator\\services\\schema\\getcasttype',
+        9 => 'sac\\eloquentmodelgenerator\\services\\schema\\tableexists',
       ),
       3 => 
       array (
@@ -1350,7 +1354,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/ListTablesCommand.php' => 
     array (
-      0 => 'b41886890d7b766ad5d6895979f9dd41a5ba8393',
+      0 => '8c430222bf9bea743345f479aa252931053520d0',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\console\\commands\\listtablescommand',
@@ -1359,6 +1363,9 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
         0 => 'sac\\eloquentmodelgenerator\\console\\commands\\__construct',
         1 => 'sac\\eloquentmodelgenerator\\console\\commands\\handle',
+        2 => 'sac\\eloquentmodelgenerator\\console\\commands\\outputjson',
+        3 => 'sac\\eloquentmodelgenerator\\console\\commands\\outputlist',
+        4 => 'sac\\eloquentmodelgenerator\\console\\commands\\outputtable',
       ),
       3 => 
       array (
@@ -1366,7 +1373,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/GenerateModelCommand.php' => 
     array (
-      0 => '0c3d1249832d10bf4477df6a38b9a469e339666b',
+      0 => 'ab72ebb5290f6795ee9d82e4cdb208844b6c04d0',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\console\\commands\\generatemodelcommand',
@@ -1375,7 +1382,10 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
         0 => 'sac\\eloquentmodelgenerator\\console\\commands\\__construct',
         1 => 'sac\\eloquentmodelgenerator\\console\\commands\\handle',
-        2 => 'sac\\eloquentmodelgenerator\\console\\commands\\generatemodel',
+        2 => 'sac\\eloquentmodelgenerator\\console\\commands\\getconfig',
+        3 => 'sac\\eloquentmodelgenerator\\console\\commands\\generateallmodels',
+        4 => 'sac\\eloquentmodelgenerator\\console\\commands\\generatesinglemodel',
+        5 => 'sac\\eloquentmodelgenerator\\console\\commands\\generatemodel',
       ),
       3 => 
       array (
@@ -1399,6 +1409,306 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         6 => 'sac\\eloquentmodelgenerator\\valueobjects\\withname',
         7 => 'sac\\eloquentmodelgenerator\\valueobjects\\withcolumns',
         8 => 'sac\\eloquentmodelgenerator\\valueobjects\\tostring',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/AnalysisConfig.php' => 
+    array (
+      0 => '698f07a0ab7d07e5383f1b33538a1ae877862074',
+      1 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\config\\analysisconfig',
+      ),
+      2 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\config\\__construct',
+        1 => 'sac\\eloquentmodelgenerator\\config\\fromfile',
+        2 => 'sac\\eloquentmodelgenerator\\config\\tofile',
+        3 => 'sac\\eloquentmodelgenerator\\config\\withtargetdir',
+        4 => 'sac\\eloquentmodelgenerator\\config\\withlevels',
+        5 => 'sac\\eloquentmodelgenerator\\config\\withtools',
+        6 => 'sac\\eloquentmodelgenerator\\config\\withoptions',
+        7 => 'sac\\eloquentmodelgenerator\\config\\withcachekey',
+        8 => 'sac\\eloquentmodelgenerator\\config\\validate',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Contracts/FixStrategy.php' => 
+    array (
+      0 => '7d3bcf515709e5f731342a6b685dbffb9bf63e78',
+      1 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\contracts\\fixstrategy',
+      ),
+      2 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\contracts\\canfix',
+        1 => 'sac\\eloquentmodelgenerator\\contracts\\fix',
+        2 => 'sac\\eloquentmodelgenerator\\contracts\\getdescription',
+        3 => 'sac\\eloquentmodelgenerator\\contracts\\getpriority',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/TypeHintFixer.php' => 
+    array (
+      0 => '08b4f3e48867da6369246f43936784d10b00918e',
+      1 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\support\\fixes\\typehintfixer',
+      ),
+      2 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\support\\fixes\\fix',
+        1 => 'sac\\eloquentmodelgenerator\\support\\fixes\\parsecode',
+        2 => 'sac\\eloquentmodelgenerator\\support\\fixes\\findmethod',
+        3 => 'sac\\eloquentmodelgenerator\\support\\fixes\\inferreturntype',
+        4 => 'sac\\eloquentmodelgenerator\\support\\fixes\\inferexpressiontype',
+        5 => 'sac\\eloquentmodelgenerator\\support\\fixes\\getnodefinder',
+        6 => 'sac\\eloquentmodelgenerator\\support\\fixes\\getprinter',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/AbstractFixStrategy.php' => 
+    array (
+      0 => 'd052bc80b40d4e690abe559e26e75be41878029e',
+      1 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\support\\fixes\\abstractfixstrategy',
+      ),
+      2 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\support\\fixes\\canfix',
+        1 => 'sac\\eloquentmodelgenerator\\support\\fixes\\getpriority',
+        2 => 'sac\\eloquentmodelgenerator\\support\\fixes\\getdescription',
+        3 => 'sac\\eloquentmodelgenerator\\support\\fixes\\readfile',
+        4 => 'sac\\eloquentmodelgenerator\\support\\fixes\\writefile',
+        5 => 'sac\\eloquentmodelgenerator\\support\\fixes\\backupfile',
+        6 => 'sac\\eloquentmodelgenerator\\support\\fixes\\restorefile',
+        7 => 'sac\\eloquentmodelgenerator\\support\\fixes\\parseerror',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php' => 
+    array (
+      0 => '2da93c41751969d2e85ef3902c68d78630ee5a5c',
+      1 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\services\\analysistoolmanager',
+      ),
+      2 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\services\\registertool',
+        1 => 'sac\\eloquentmodelgenerator\\services\\getavailabletools',
+        2 => 'sac\\eloquentmodelgenerator\\services\\runtool',
+        3 => 'sac\\eloquentmodelgenerator\\services\\runtoolsinparallel',
+        4 => 'sac\\eloquentmodelgenerator\\services\\getresults',
+        5 => 'sac\\eloquentmodelgenerator\\services\\hasissues',
+        6 => 'sac\\eloquentmodelgenerator\\services\\getaffectedfiles',
+        7 => 'sac\\eloquentmodelgenerator\\services\\ensureconfig',
+        8 => 'sac\\eloquentmodelgenerator\\services\\buildcommand',
+        9 => 'sac\\eloquentmodelgenerator\\services\\extractaffectedfiles',
+        10 => 'sac\\eloquentmodelgenerator\\services\\getconfigpath',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategyManager.php' => 
+    array (
+      0 => '0d59308f6de922e18b1696eb217d6e8558a12afe',
+      1 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\services\\fixstrategymanager',
+      ),
+      2 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\services\\__construct',
+        1 => 'sac\\eloquentmodelgenerator\\services\\registerstrategy',
+        2 => 'sac\\eloquentmodelgenerator\\services\\getstrategiesforlevel',
+        3 => 'sac\\eloquentmodelgenerator\\services\\registerdefaultstrategies',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/AnalyzeCommand.php' => 
+    array (
+      0 => 'b024e92a1c3b59f68aed240fa9e6eeb89d7489ba',
+      1 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\console\\commands\\analyzecommand',
+      ),
+      2 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\console\\commands\\__construct',
+        1 => 'sac\\eloquentmodelgenerator\\console\\commands\\handle',
+        2 => 'sac\\eloquentmodelgenerator\\console\\commands\\setupenvironment',
+        3 => 'sac\\eloquentmodelgenerator\\console\\commands\\gettargetdirectory',
+        4 => 'sac\\eloquentmodelgenerator\\console\\commands\\getanalysislevels',
+        5 => 'sac\\eloquentmodelgenerator\\console\\commands\\runanalysis',
+        6 => 'sac\\eloquentmodelgenerator\\console\\commands\\getselectedtools',
+        7 => 'sac\\eloquentmodelgenerator\\console\\commands\\storeconfiguration',
+        8 => 'sac\\eloquentmodelgenerator\\console\\commands\\generatereports',
+        9 => 'sac\\eloquentmodelgenerator\\console\\commands\\generatejsonreport',
+        10 => 'sac\\eloquentmodelgenerator\\console\\commands\\generatetextreport',
+        11 => 'sac\\eloquentmodelgenerator\\console\\commands\\generatehtmlreport',
+        12 => 'sac\\eloquentmodelgenerator\\console\\commands\\gethtmltemplate',
+        13 => 'sac\\eloquentmodelgenerator\\console\\commands\\gethtmlsummary',
+        14 => 'sac\\eloquentmodelgenerator\\console\\commands\\gethtmlresults',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php' => 
+    array (
+      0 => '42ba7c1159aab3bfdfd95d08890330952a874351',
+      1 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\console\\commands\\fixcommand',
+      ),
+      2 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\console\\commands\\__construct',
+        1 => 'sac\\eloquentmodelgenerator\\console\\commands\\handle',
+        2 => 'sac\\eloquentmodelgenerator\\console\\commands\\loadanalysisconfig',
+        3 => 'sac\\eloquentmodelgenerator\\console\\commands\\getfixlevels',
+        4 => 'sac\\eloquentmodelgenerator\\console\\commands\\fixissuesforlevel',
+        5 => 'sac\\eloquentmodelgenerator\\console\\commands\\fixfile',
+        6 => 'sac\\eloquentmodelgenerator\\console\\commands\\createbackup',
+        7 => 'sac\\eloquentmodelgenerator\\console\\commands\\restorebackup',
+        8 => 'sac\\eloquentmodelgenerator\\console\\commands\\fixcodingstandards',
+        9 => 'sac\\eloquentmodelgenerator\\console\\commands\\fixtypecoverage',
+        10 => 'sac\\eloquentmodelgenerator\\console\\commands\\ensurerectortypecoverageconfig',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Kernel.php' => 
+    array (
+      0 => '790b15dd3ec5c7ea9f5d023fcb57500278bcc5ed',
+      1 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\console\\kernel',
+      ),
+      2 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\console\\commands',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/FixStrategyInterface.php' => 
+    array (
+      0 => '4111eda0a6c025e8c51ec275cd66aec8987549c2',
+      1 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\fixstrategyinterface',
+      ),
+      2 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\getname',
+        1 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\supportslevel',
+        2 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\fix',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/DocBlockFixStrategy.php' => 
+    array (
+      0 => '975b95d2ec5ff0ea2f0f69c00030408034d736e0',
+      1 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\docblockfixstrategy',
+      ),
+      2 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\getname',
+        1 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\supportslevel',
+        2 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\fix',
+        3 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\updatedocblocks',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/RectorFixStrategy.php' => 
+    array (
+      0 => '9ef180acd4c15a7d1ba33cd1ce76c2d97842d82e',
+      1 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\rectorfixstrategy',
+      ),
+      2 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\getname',
+        1 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\supportslevel',
+        2 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\fix',
+        3 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\getlevelfromdescription',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/TypeHintFixStrategy.php' => 
+    array (
+      0 => '5996a37705e44dc02cd71aa012980f6dcf068995',
+      1 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\typehintfixstrategy',
+      ),
+      2 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\getname',
+        1 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\supportslevel',
+        2 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\fix',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/PhpmdFixStrategy.php' => 
+    array (
+      0 => '120107c55d11de569dca6a238b550268c019d25c',
+      1 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\phpmdfixstrategy',
+      ),
+      2 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\getname',
+        1 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\fix',
+        2 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\supportslevel',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/PsalmFixStrategy.php' => 
+    array (
+      0 => '4a14a2d07584c48bdadf87ae6a32f4efaa806b4f',
+      1 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\psalmfixstrategy',
+      ),
+      2 => 
+      array (
+        0 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\getname',
+        1 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\fix',
+        2 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\supportslevel',
       ),
       3 => 
       array (
