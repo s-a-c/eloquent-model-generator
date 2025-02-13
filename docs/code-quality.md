@@ -6,214 +6,263 @@ This document outlines the code quality tools and practices used in the Eloquent
 
 Run all quality checks:
 ```bash
-composer quality        # Run all quality checks
-composer quality:ci     # Run CI-specific quality checks
+composer check-all    # Run all checks and tests
+composer quality      # Run code quality checks only
+composer analyse      # Run static analysis only
+composer style        # Run style checks only
 ```
 
 Fix common issues:
 ```bash
-composer fix           # Fix all auto-fixable issues
+composer cs-fix       # Fix code style issues
+composer phpcs-fix    # Fix PHPCS issues
 ```
 
-## Available Tools
+## Code Quality Tools
 
-### Static Analysis (PHPStan/Larastan)
+### 1. Static Analysis (PHPStan/Larastan)
 
-We use PHPStan with Larastan for static analysis at level 8 (most strict).
+We use PHPStan with Larastan at level 8 (most strict) with additional strict rules.
 
 ```bash
-composer check:types   # Run type checking
+composer phpstan      # Run PHPStan analysis
+composer psalm        # Run Psalm analysis
 ```
 
 Key features:
-- Full Laravel integration via Larastan
-- Strict type checking
+- Full Laravel integration with Larastan
+- Strict type checking with generics support
 - Model property and attribute validation
-- Dynamic property checking
 - Custom rules for model generation
+- Path-specific error handling
+- Comprehensive null safety checks
 
 Configuration: `phpstan.neon`
 
-### Code Style (PHP-CS-Fixer)
+### 2. Code Style (PHP-CS-Fixer & PHPCS)
 
-We follow PSR-12 standards with additional Laravel-specific rules.
+We follow PSR-12 standards with additional rules from Slevomat and Doctrine coding standards.
 
 ```bash
-composer check:style   # Check code style
-composer fix:style     # Fix code style issues
+composer style        # Run all style checks
+composer cs-check     # Check with PHP-CS-Fixer
+composer cs-fix       # Fix with PHP-CS-Fixer
+composer phpcs        # Check with PHPCS
+composer phpcs-fix    # Fix with PHPCS
 ```
 
-Key features:
+Key Features:
 - PSR-12 compliance
-- Ordered imports and class elements
-- Consistent spacing and formatting
-- Type declaration standards
-- Laravel conventions
+- Modern PHP 8.1 features
+- Strict type declarations
+- Advanced formatting rules
+- Comprehensive PHPDoc standards
+- Slevomat coding standards integration
+- Doctrine coding standards integration
 
-Configuration: `.php-cs-fixer.php`
+### 3. Code Quality Analysis (PHPMD)
 
-### Mutation Testing (Infection)
-
-We use Infection for mutation testing to ensure test quality.
-
-```bash
-composer test:mutation # Run mutation tests
-```
-
-Key features:
-- 85% minimum MSI (Mutation Score Indicator)
-- 90% minimum covered MSI
-- Custom mutator configuration
-- Parallel test execution
-- Comprehensive reporting
-
-Configuration: `infection.json`
-
-### Code Duplication (PHPCPD)
-
-We check for code duplication using PHP Copy/Paste Detector.
+We use PHP Mess Detector with custom rules tailored for model generation:
 
 ```bash
-composer check:duplicates # Check for duplicate code
+composer phpmd        # Run PHP Mess Detector
 ```
 
-Configuration:
-- Minimum 5 lines
-- Minimum 70 tokens
-- Excludes tests and vendor
+#### Clean Code Rules
+- Allows Laravel Facades (DB, Schema, Str)
+- Permits boolean flags for model generation options
+- Allows else expressions for complex logic
+- Enforces strict type declarations
+- Requires proper null handling
 
-### Code Complexity (PHPLOC)
+#### Code Size Rules
+- Method limit: 25 methods per class
+- Class complexity limit: 100
+- Method length limit: 150 lines
+- Parameter list limit: 8 parameters
+- Nesting level limit: 4 (max 6)
 
-We monitor code complexity and size metrics.
+#### Naming Rules
+- Short variable exceptions: id, db, up, to
+- Maximum variable length: 40 characters
+- Allows Laravel convention method names
+- Enforces PSR-12 naming conventions
+
+#### Design Rules
+- Coupling limit: 25 objects
+- Allows necessary inheritance for model generation
+- Permits Laravel architectural patterns
+- Enforces interface segregation
+- Requires proper dependency injection
+
+### 4. Type Safety
+
+Comprehensive type safety measures:
+- Strict type declarations required
+- Generic type support
+- Proper null handling
+- Return type declarations
+- Parameter type hints
+- Property type declarations
+- PHPDoc type validation
+
+### 5. Code Metrics
+
+Monitor code quality metrics:
 
 ```bash
-composer analyze:complexity # Check code complexity
+composer metrics      # Generate code metrics report
 ```
 
-Metrics include:
-- Lines of code
+Tracks:
 - Cyclomatic complexity
+- Method length
+- Class length
 - Dependencies
-- Structure
+- Type coverage
 - Test coverage
+- Documentation coverage
 
-### Architecture Testing
+### 6. Testing Framework
 
-We validate architectural decisions and constraints.
-
-```bash
-composer test:arch     # Run architecture tests
-```
-
-## Continuous Integration
-
-For CI environments, use:
+Comprehensive testing setup with Pest:
 
 ```bash
-composer quality:ci    # Run all CI checks
+composer test:all     # Run all test suites
+composer test:types   # Run type coverage tests
+composer test:parallel # Run tests in parallel
 ```
 
-This includes:
-- Type checking
-- Code style validation
+Features:
+- Parallel test execution
+- Type coverage analysis
+- Performance profiling
+- Memory leak detection
+- Load testing support
+- Stress testing capabilities
+
+## Quality Thresholds
+
+1. **Static Analysis**
+   - PHPStan Level: 8 (maximum)
+   - Psalm Level: 1 (maximum)
+   - No critical errors allowed
+   - Custom baseline for model generation specifics
+   - Strict null checking enabled
+   - Generic type validation required
+
+2. **Code Coverage**
+   - Minimum: 80%
+   - Target: 90%
+   - Critical paths: 100%
+   - Type coverage: 90%
+
+3. **Mutation Score**
+   - Minimum MSI: 85%
+   - Covered MSI: 90%
+   - Mutation timeout: 10s
+
+4. **Complexity Limits**
+   - Methods per class: 25
+   - Class complexity: 100
+   - Method length: 150 lines
+   - Parameters: 8 per method
+   - Coupling: 25 objects
+   - Nesting level: 4 (max 6)
+
+## CI Integration
+
+Comprehensive CI workflow:
+
+```bash
+composer check-all    # Run all CI checks
+```
+
+Includes:
+- Static analysis (PHPStan & Psalm)
+- Code style checks (PHP-CS-Fixer & PHPCS)
 - Mutation testing
-- Test coverage requirements
+- Type coverage analysis
+- Performance benchmarks
+- Architecture validation
 
-## Full Analysis
-
-Run comprehensive analysis:
-
-```bash
-composer analyze:all   # Run all analysis tools
-```
-
-## Build Process
-
-Complete build process:
-
-```bash
-composer build        # Run full build
-composer build:clean  # Clean and rebuild
-```
-
-The build process includes:
-1. Code quality checks
-2. Test suite execution
-3. Static analysis
-4. Complexity analysis
-5. Architecture validation
-
-## Configuration Files
-
-- `phpstan.neon` - Static analysis configuration
-- `.php-cs-fixer.php` - Code style rules
-- `infection.json` - Mutation testing settings
-- `composer.json` - Script definitions
-
-## Best Practices
+## Development Workflow
 
 1. **Before Committing**:
    ```bash
-   composer check      # Run all checks
-   composer fix        # Fix any issues
+   composer check-all  # Run all checks
+   composer style     # Fix style issues
    ```
 
 2. **Before Pull Request**:
    ```bash
-   composer quality    # Full quality check
+   composer test:all  # Run all tests
+   composer analyse   # Run static analysis
+   composer metrics   # Generate metrics report
    ```
 
 3. **Local Development**:
    ```bash
    composer test:watch # Watch for changes
+   composer test:coverage # Check coverage
    ```
 
-## Customizing Rules
+## Configuration Files
 
-### PHPStan/Larastan
-Modify `phpstan.neon` to:
-- Adjust error levels
-- Add custom rules
-- Configure Laravel-specific checks
-- Modify ignored errors
+### PHPStan/Larastan (`phpstan.neon`)
+- Level 8 analysis
+- Strict type checking
+- Path-specific rules
+- Custom error patterns
+- Laravel integration
 
-### PHP-CS-Fixer
-Modify `.php-cs-fixer.php` to:
-- Add custom rules
-- Adjust formatting preferences
-- Configure file patterns
-- Modify excluded paths
+### PHPCS (`phpcs.xml`)
+- PSR-12 standard
+- Slevomat rules
+- Doctrine rules
+- Custom sniffs
+- Path exclusions
 
-### Infection
-Modify `infection.json` to:
-- Configure mutators
-- Adjust thresholds
-- Modify test timeout
-- Configure parallel execution
+### PHP-CS-Fixer (`.php-cs-fixer.php`)
+- PSR-12 standard
+- Modern PHP features
+- Type declaration rules
+- Documentation rules
+- Formatting rules
 
-## Reporting
+### PHPMD (`phpmd.xml`)
+- Clean code rules
+- Size thresholds
+- Naming conventions
+- Design rules
+- Custom rulesets
+
+## Reports
 
 All tools generate reports in the `build/` directory:
-- PHPStan: `build/phpstan/`
-- Infection: `build/infection/`
-- Coverage: `build/coverage/`
+- Static Analysis: `build/phpstan/`
+- Code Coverage: `build/coverage/`
+- Type Coverage: `build/type-coverage/`
+- Metrics: `build/metrics/`
+- Mutation: `build/infection/`
+- Performance: `build/performance/`
 
-## Troubleshooting
+## Common Issues
 
-1. **Memory Issues**:
-   ```bash
-   # Increase memory limit
-   php -d memory_limit=-1 vendor/bin/phpstan analyze
-   ```
+1. **False Positives in Model Generation**
+   - Dynamic properties are allowed in specific paths
+   - Model method calls are permitted
+   - Class name generation is excluded from checks
+   - Template engine dynamic calls are allowed
 
-2. **Timeout Issues**:
-   ```bash
-   # Increase timeout in infection.json
-   "timeout": 60
-   ```
+2. **Complexity Exceptions**
+   - Higher limits for model generation logic
+   - Documented exceptions in complex areas
+   - Required complexity is allowed with comments
+   - Performance-critical sections are exempt
 
-3. **Cache Issues**:
-   ```bash
-   # Clear caches
-   rm -rf build/*
-   ```
+3. **Laravel-Specific Patterns**
+   - Facades are permitted in specific paths
+   - Dynamic methods are allowed for models
+   - Magic methods are documented
+   - Schema builder methods are exempted

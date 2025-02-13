@@ -7,30 +7,24 @@ use Illuminate\Validation\ValidationException;
 
 trait HasValidation {
     /**
-     * The validation rules that apply to the model.
-     *
-     * @var array<string, string|array>
+     * @var array<string, array<string>>
      */
-    protected array $rules = [];
+    protected $errors = [];
 
     /**
-     * The validation error messages.
-     *
+     * @var array<string, array<string>|string>
+     */
+    protected $rules = [];
+
+    /**
      * @var array<string, string>
      */
-    protected array $messages = [];
-
-    /**
-     * The validator instance.
-     *
-     * @var \Illuminate\Validation\Validator|null
-     */
-    protected $validator = null;
+    protected $messages = [];
 
     /**
      * Get the validation rules.
      *
-     * @return array<string, string|array>
+     * @return array<string, array<string>|string>
      */
     public function getRules(): array {
         return $this->rules;
@@ -39,16 +33,16 @@ trait HasValidation {
     /**
      * Set the validation rules.
      *
-     * @param array<string, string|array> $rules
-     * @return self
+     * @param array<string, array<string>|string> $rules
+     * @return $this
      */
-    public function setRules(array $rules): self {
+    public function setRules(array $rules): static {
         $this->rules = $rules;
         return $this;
     }
 
     /**
-     * Get the validation error messages.
+     * Get the validation messages.
      *
      * @return array<string, string>
      */
@@ -57,12 +51,12 @@ trait HasValidation {
     }
 
     /**
-     * Set the validation error messages.
+     * Set the validation messages.
      *
      * @param array<string, string> $messages
-     * @return self
+     * @return $this
      */
-    public function setMessages(array $messages): self {
+    public function setMessages(array $messages): static {
         $this->messages = $messages;
         return $this;
     }
@@ -74,42 +68,38 @@ trait HasValidation {
      * @throws ValidationException
      */
     public function validate(): bool {
-        $this->validator = Validator::make(
+        $validator = Validator::make(
             $this->getAttributes(),
             $this->getRules(),
             $this->getMessages()
         );
 
-        if ($this->validator->fails()) {
-            throw new ValidationException($this->validator);
+        if ($validator->fails()) {
+            /** @var array<string, array<string>> */
+            $errors = $validator->errors()->toArray();
+            $this->errors = $errors;
+            throw new ValidationException($validator);
         }
 
         return true;
     }
 
     /**
-     * Determine if the model is valid.
+     * Get the validation errors.
      *
-     * @return bool
+     * @return array<string, array<string>>
      */
-    public function isValid(): bool {
-        try {
-            return $this->validate();
-        } catch (ValidationException $e) {
-            return false;
-        }
+    public function getErrors(): array {
+        return $this->errors;
     }
 
     /**
-     * Get the validation errors.
+     * Clear the validation errors.
      *
-     * @return array<string, array>
+     * @return $this
      */
-    public function getErrors(): array {
-        if (!$this->validator) {
-            $this->isValid();
-        }
-
-        return $this->validator ? $this->validator->errors()->toArray() : [];
+    public function clearErrors(): static {
+        $this->errors = [];
+        return $this;
     }
 }

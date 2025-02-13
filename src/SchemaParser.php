@@ -2,130 +2,117 @@
 
 namespace SAC\EloquentModelGenerator;
 
-use Illuminate\Support\Collection;
-use Illuminate\Support\Str;
-
+/**
+ * @phpstan-type ColumnDefinition array{
+ *     type: string,
+ *     nullable: bool,
+ *     default?: mixed,
+ *     length?: int|null,
+ *     unsigned?: bool,
+ *     autoIncrement?: bool,
+ *     primary?: bool,
+ *     unique?: bool,
+ *     comment?: string|null
+ * }
+ *
+ * @phpstan-type IndexDefinition array{
+ *     type: string,
+ *     columns: array<string>,
+ *     unique?: bool
+ * }
+ */
 class SchemaParser {
     /**
      * Parse column definitions.
      *
-     * @param array $columns
-     * @return Collection
+     * @param array<string, ColumnDefinition> $columns
+     * @return array<string, array{type: string, cast?: string}>
      */
-    public function parseColumns(array $columns): Collection {
-        return collect($columns)->map(function ($column, $name) {
-            $type = $this->normalizeColumnType($column['type']);
-
-            return [
-                'name' => $name,
-                'type' => $type,
-                'length' => $column['length'] ?? null,
-                'nullable' => $column['nullable'] ?? false,
-                'default' => $column['default'] ?? null,
-                'unsigned' => $column['unsigned'] ?? false,
-                'autoIncrement' => $column['autoIncrement'] ?? false,
-                'primary' => $column['primary'] ?? false,
-                'cast' => $this->determineCastType($type, $column),
+    public function parseColumns(array $columns): array {
+        $parsed = [];
+        foreach ($columns as $name => $column) {
+            $parsed[$name] = [
+                'type' => $this->normalizeColumnType($column['type']),
+                'cast' => $this->determineCastType($column['type'], $column)
             ];
-        });
+        }
+        return $parsed;
     }
 
     /**
      * Parse index definitions.
      *
-     * @param array $indexes
-     * @return Collection
+     * @param array<string, IndexDefinition> $indexes
+     * @return array<string, array{type: string, columns: array<string>}>
      */
-    public function parseIndexes(array $indexes): Collection {
-        return collect($indexes)->map(function ($index, $name) {
-            return [
-                'name' => $name,
-                'columns' => (array) $index['columns'],
+    public function parseIndexes(array $indexes): array {
+        $parsed = [];
+        foreach ($indexes as $name => $index) {
+            $parsed[$name] = [
                 'type' => $this->normalizeIndexType($index['type']),
-                'unique' => $index['unique'] ?? false,
+                'columns' => $index['columns'],
+                'unique' => $index['unique'] ?? false
             ];
-        });
+        }
+        return $parsed;
     }
 
     /**
-     * Normalize the column type.
+     * Normalize a column type.
      *
      * @param string $type
      * @return string
      */
     private function normalizeColumnType(string $type): string {
-        $type = strtolower($type);
-
-        // Map common type aliases
-        $typeMap = [
-            'int' => 'integer',
-            'bool' => 'boolean',
-            'char' => 'string',
-            'varchar' => 'string',
-            'text' => 'string',
-            'mediumtext' => 'string',
-            'longtext' => 'string',
-            'float' => 'decimal',
-            'double' => 'decimal',
-            'datetime' => 'timestamp',
-            'numeric' => 'decimal',
-        ];
-
-        return $typeMap[$type] ?? $type;
+        return match (strtolower($type)) {
+            'int', 'integer', 'tinyint', 'smallint', 'mediumint', 'bigint' => 'integer',
+            'decimal', 'numeric', 'float', 'double' => 'decimal',
+            'datetime', 'timestamp' => 'datetime',
+            'bool', 'boolean', 'tinyint(1)' => 'boolean',
+            default => $type,
+        };
     }
 
     /**
-     * Normalize the index type.
+     * Normalize an index type.
      *
      * @param string $type
      * @return string
      */
     private function normalizeIndexType(string $type): string {
-        $type = strtolower($type);
-
-        // Map index types
-        $typeMap = [
+        return match (strtolower($type)) {
             'primary' => 'primary',
             'unique' => 'unique',
-            'index' => 'index',
+            'index', 'key' => 'index',
             'fulltext' => 'fulltext',
             'spatial' => 'spatial',
-        ];
-
-        return $typeMap[$type] ?? 'index';
+            default => 'index',
+        };
     }
 
     /**
      * Determine the cast type for a column.
      *
      * @param string $type
-     * @param array $column
+     * @param ColumnDefinition $column
      * @return string|null
      */
     private function determineCastType(string $type, array $column): ?string {
-        $castMap = [
-            'integer' => 'integer',
-            'bigint' => 'integer',
-            'boolean' => 'boolean',
-            'decimal' => 'decimal',
-            'float' => 'float',
-            'double' => 'double',
-            'string' => 'string',
-            'datetime' => 'datetime',
-            'timestamp' => 'timestamp',
-            'date' => 'date',
-            'time' => 'time',
-            'json' => 'json',
-            'array' => 'array',
-            'object' => 'object',
-            'collection' => 'collection',
-        ];
+        $type = strtolower($type);
 
-        // Handle special cases
-        if ($type === 'decimal' && isset($column['length'])) {
-            return "decimal:{$column['length']}";
+        if (isset($column['length']) && $type === 'varchar' && $column['length'] === 36) {
+            return 'uuid';
         }
 
-        return $castMap[$type] ?? null;
+        return match ($type) {
+            'int', 'integer', 'tinyint', 'smallint', 'mediumint', 'bigint' => 'integer',
+            'decimal', 'numeric', 'float', 'double' => 'decimal',
+            'datetime', 'timestamp' => 'datetime',
+            'date' => 'date',
+            'time' => 'time',
+            'bool', 'boolean', 'tinyint(1)' => 'boolean',
+            'json', 'jsonb' => 'array',
+            default => null,
+        };
     }
 }

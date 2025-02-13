@@ -4,7 +4,7 @@ namespace SAC\EloquentModelGenerator;
 
 use SAC\EloquentModelGenerator\Contracts\ModelGenerator as ModelGeneratorContract;
 use SAC\EloquentModelGenerator\Models\GeneratedModel;
-use SAC\EloquentModelGenerator\ValueObjects\ModelDefinition;
+use SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition;
 use SAC\EloquentModelGenerator\Services\ModelGeneratorService;
 use SAC\EloquentModelGenerator\Exceptions\ModelGeneratorException;
 use SAC\EloquentModelGenerator\Services\ValidationRuleGenerator;
@@ -34,7 +34,7 @@ class ModelGenerator implements ModelGeneratorContract {
     public function generate(ModelDefinition $definition, array $schema): GeneratedModel {
         $baseContent = $this->service->generate($definition, $schema);
 
-        if ($definition->hasValidation()) {
+        if ($definition->withValidation()) {
             // Add table name to schema for validation rules
             $schema['table_name'] = $definition->getTableName();
 

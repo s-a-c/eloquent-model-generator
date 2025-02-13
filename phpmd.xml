@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<ruleset name="PHPMD rule set for Eloquent Model Generator"
+         xmlns="http://pmd.sf.net/ruleset/1.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 http://pmd.sf.net/ruleset_xml_schema.xsd"
+         xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd"
+         >
+    <description>
+        Custom rule set for Eloquent Model Generator that focuses on maintainability while allowing for the complexity
+        inherent in model generation and schema analysis.
+    </description>
+
+    <!-- Import Clean Code rules with customizations for model generation -->
+    <rule ref="rulesets/cleancode.xml">
+        <exclude name="StaticAccess" />
+        <exclude name="BooleanArgumentFlag" />
+        <exclude name="ElseExpression" />
+    </rule>
+
+    <!-- Customize Clean Code rules -->
+    <rule ref="rulesets/cleancode.xml/StaticAccess">
+        <properties>
+            <property name="exceptions"
+                      value="\Illuminate\Support\Facades\DB,\Illuminate\Support\Facades\Schema,\Illuminate\Support\Str"
+                      />
+        </properties>
+    </rule>
+
+    <!-- Import Code Size rules with adjustments for model generation complexity -->
+    <rule ref="rulesets/codesize.xml">
+        <exclude name="TooManyPublicMethods" />
+        <exclude name="ExcessiveClassComplexity" />
+        <exclude name="TooManyMethods" />
+        <exclude name="ExcessiveMethodLength" />
+        <exclude name="ExcessiveParameterList" />
+    </rule>
+
+    <!-- Customize Code Size rules -->
+    <rule ref="rulesets/codesize.xml/TooManyPublicMethods">
+        <properties>
+            <property name="maxmethods"
+                      value="25"
+                      />
+        </properties>
+    </rule>
+    <rule ref="rulesets/codesize.xml/ExcessiveClassComplexity">
+        <properties>
+            <property name="maximum"
+                      value="100"
+                      />
+        </properties>
+    </rule>
+    <rule ref="rulesets/codesize.xml/ExcessiveMethodLength">
+        <properties>
+            <property name="minimum"
+                      value="150"
+                      />
+        </properties>
+    </rule>
+    <rule ref="rulesets/codesize.xml/ExcessiveParameterList">
+        <properties>
+            <property name="minimum"
+                      value="8"
+                      />
+        </properties>
+    </rule>
+
+    <!-- Import Naming rules with Laravel-specific adjustments -->
+    <rule ref="rulesets/naming.xml">
+        <exclude name="ShortVariable" />
+        <exclude name="LongVariable" />
+        <exclude name="ShortMethodName" />
+    </rule>
+
+    <!-- Customize Naming rules -->
+    <rule ref="rulesets/naming.xml/ShortVariable">
+        <properties>
+            <property name="minimum"
+                      value="2"
+                      />
+            <property name="exceptions"
+                      value="id,db,up,to"
+                      />
+        </properties>
+    </rule>
+    <rule ref="rulesets/naming.xml/LongVariable">
+        <properties>
+            <property name="maximum"
+                      value="40"
+                      />
+        </properties>
+    </rule>
+
+    <!-- Import Design rules with adjustments for Laravel patterns -->
+    <rule ref="rulesets/design.xml">
+        <exclude name="CouplingBetweenObjects" />
+        <exclude name="NumberOfChildren" />
+        <exclude name="DepthOfInheritance" />
+    </rule>
+
+    <!-- Customize Design rules -->
+    <rule ref="rulesets/design.xml/CouplingBetweenObjects">
+        <properties>
+            <property name="maximum"
+                      value="25"
+                      />
+        </properties>
+    </rule>
+
+    <!-- Import Controversial rules with Laravel-specific exclusions -->
+    <rule ref="rulesets/controversial.xml">
+        <exclude name="CamelCasePropertyName" />
+        <exclude name="CamelCaseParameterName" />
+        <exclude name="CamelCaseVariableName" />
+        <exclude name="Superglobals" />
+    </rule>
+
+    <!-- Import Unused Code rules with exclusions -->
+    <rule ref="rulesets/unusedcode.xml">
+        <exclude name="UnusedFormalParameter" />
+    </rule>
+
+    <!-- Exclude specific files/directories -->
+    <exclude-pattern>*/database/*</exclude-pattern>
+    <exclude-pattern>*/tests/*</exclude-pattern>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/*.blade.php</exclude-pattern>
+    <exclude-pattern>*/config/*</exclude-pattern>
+</ruleset>

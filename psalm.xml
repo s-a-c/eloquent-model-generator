@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<psalm errorLevel="4"
+       resolveFromConfigFile="true"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="https://getpsalm.org/schema/config"
+       xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+       findUnusedBaselineEntry="true"
+       findUnusedCode="false"
+       allowStringToStandInForClass="true"
+       >
+    <projectFiles>
+        <directory name="src" />
+        <directory name="tests" />
+        <ignoreFiles>
+            <directory name="vendor" />
+            <directory name="tests/tmp" />
+            <directory name="build" />
+        </ignoreFiles>
+    </projectFiles>
+
+    <plugins>
+        <pluginClass class="Psalm\LaravelPlugin\Plugin" />
+    </plugins>
+
+    <issueHandlers>
+        <!-- Allow dynamic properties for model generation -->
+        <PropertyNotSetInConstructor errorLevel="suppress" />
+        <UndefinedPropertyFetch errorLevel="suppress" />
+        <UndefinedMethod>
+            <errorLevel type="suppress">
+                <referencedMethod name="/.*Model::.*$/" />
+            </errorLevel>
+        </UndefinedMethod>
+
+        <!-- Suppress mixed type issues as we deal with dynamic data -->
+        <MixedAssignment errorLevel="suppress" />
+        <MixedMethodCall errorLevel="suppress" />
+        <MixedPropertyFetch errorLevel="suppress" />
+
+        <!-- Allow dynamic class instantiation for model generation -->
+        <InvalidStringClass errorLevel="suppress" />
+
+        <!-- Suppress closure issues as we use a lot of callbacks -->
+        <MissingClosureReturnType errorLevel="suppress" />
+        <MissingClosureParamType errorLevel="suppress" />
+
+        <!-- AI-specific suppressions -->
+        <InvalidReturnType>
+            <errorLevel type="suppress">
+                <directory name="src/Services/AI" />
+            </errorLevel>
+        </InvalidReturnType>
+        <InvalidArgument>
+            <errorLevel type="suppress">
+                <directory name="src/Services/AI" />
+            </errorLevel>
+        </InvalidArgument>
+        <PossiblyInvalidArgument>
+            <errorLevel type="suppress">
+                <directory name="src/Services/AI" />
+            </errorLevel>
+        </PossiblyInvalidArgument>
+        <MixedInferredReturnType>
+            <errorLevel type="suppress">
+                <directory name="src/Services/AI" />
+            </errorLevel>
+        </MixedInferredReturnType>
+    </issueHandlers>
+
+    <stubs>
+        <file name="vendor/vimeo/psalm/stubs/extensions/gd.phpstub" />
+    </stubs>
+</psalm>

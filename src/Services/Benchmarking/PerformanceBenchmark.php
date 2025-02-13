@@ -7,8 +7,17 @@ use SAC\EloquentModelGenerator\ValueObjects\BenchmarkResult;
 use Illuminate\Support\Facades\DB;
 
 class PerformanceBenchmark extends Benchmark {
+    /**
+     * @var array<string, array{start_time: float, start_memory: int, end_time?: float, end_memory?: int, duration?: float, memory_usage?: int}>
+     */
     private array $benchmarks = [];
 
+    /**
+     * Start a benchmark.
+     *
+     * @param string $name
+     * @return void
+     */
     public function startBenchmark(string $name): void {
         $this->benchmarks[$name] = [
             'start_time' => microtime(true),
@@ -16,23 +25,42 @@ class PerformanceBenchmark extends Benchmark {
         ];
     }
 
+    /**
+     * End a benchmark.
+     *
+     * @param string $name
+     * @return array{duration: float, memory_usage: int}
+     * @throws \RuntimeException If benchmark was not started
+     */
     public function endBenchmark(string $name): array {
         if (!isset($this->benchmarks[$name])) {
-            throw new \InvalidArgumentException("No benchmark started with name: {$name}");
+            throw new \RuntimeException("Benchmark '{$name}' was not started");
         }
 
-        $start = $this->benchmarks[$name];
+        $benchmark = $this->benchmarks[$name];
         $endTime = microtime(true);
         $endMemory = memory_get_usage(true);
 
-        $metrics = [
-            'duration' => ($endTime - $start['start_time']) * 1000,
-            'memory_peak' => $endMemory - $start['start_memory'],
-            'queries' => count(DB::getQueryLog() ?? [])
+        $duration = $endTime - $benchmark['start_time'];
+        $memoryUsage = $endMemory - $benchmark['start_memory'];
+
+        $this->benchmarks[$name]['end_time'] = $endTime;
+        $this->benchmarks[$name]['end_memory'] = $endMemory;
+        $this->benchmarks[$name]['duration'] = $duration;
+        $this->benchmarks[$name]['memory_usage'] = $memoryUsage;
+
+        return [
+            'duration' => $duration,
+            'memory_usage' => $memoryUsage
         ];
+    }
 
-        unset($this->benchmarks[$name]);
-
-        return $metrics;
+    /**
+     * Get all benchmarks.
+     *
+     * @return array<string, array{start_time: float, start_memory: int, end_time?: float, end_memory?: int, duration?: float, memory_usage?: int}>
+     */
+    public function getBenchmarks(): array {
+        return $this->benchmarks;
     }
 }

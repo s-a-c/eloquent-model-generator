@@ -4,22 +4,52 @@ This guide covers the installation and initial setup of the Eloquent Model Gener
 
 ## Requirements
 
+### Core Requirements
 - PHP 8.1 or higher
-- Laravel 9.0 or higher
+- Laravel 10.0 or higher
 - Composer 2.0 or higher
+
+### Optional Extensions
+- ext-parallel (for parallel processing support)
+- ext-xdebug (for code coverage analysis)
+- ext-pcntl (for process control)
+- ext-posix (for parallel processing)
 
 ## Installation
 
 ### 1. Install via Composer
 
 ```bash
-composer require s-a-c/eloquent-model-generator
+composer require sac/eloquent-model-generator
 ```
 
 ### 2. Publish Configuration
 
 ```bash
-php artisan vendor:publish --provider="StandAlonecomplex\\EloquentModelGenerator\\EloquentModelGeneratorServiceProvider"
+php artisan vendor:publish --provider="SAC\\EloquentModelGenerator\\Providers\\EloquentModelGeneratorServiceProvider"
+```
+
+## Code Quality Tools
+
+The package includes several code quality tools that can be installed as dev dependencies:
+
+```bash
+composer require --dev phpstan/phpstan larastan/larastan
+composer require --dev friendsofphp/php-cs-fixer squizlabs/php_codesniffer
+composer require --dev slevomat/coding-standard doctrine/coding-standard
+composer require --dev phpmd/phpmd infection/infection
+composer require --dev vimeo/psalm phpmetrics/phpmetrics
+```
+
+## Testing Framework
+
+The package uses Pest PHP testing framework with various plugins:
+
+```bash
+composer require --dev pestphp/pest
+composer require --dev pestphp/pest-plugin-laravel
+composer require --dev pestphp/pest-plugin-parallel
+composer require --dev pestphp/pest-plugin-type-coverage
 ```
 
 ## Schema Support
@@ -45,6 +75,9 @@ The package uses Laravel's native schema builder for database analysis, providin
 - Polymorphic relationship detection
 - Custom column type handling
 - Relationship depth control
+- Attribute casting inference
+- Validation rule generation
+- Factory generation support
 
 ## Configuration
 
@@ -62,6 +95,15 @@ return [
         'analyze_constraints' => true,
         'detect_polymorphic' => true,
         'relationship_depth' => 5,
+        'generate_factories' => true,
+        'generate_validations' => true,
+        'infer_attribute_casting' => true,
+    ],
+    'quality' => [
+        'strict_types' => true,
+        'type_hints' => true,
+        'psr12_compliance' => true,
+        'docblock_annotations' => true,
     ],
 ];
 ```
@@ -73,6 +115,9 @@ MODEL_GENERATOR_USE_NATIVE_SCHEMA=true
 MODEL_GENERATOR_ANALYZE_CONSTRAINTS=true
 MODEL_GENERATOR_DETECT_POLYMORPHIC=true
 MODEL_GENERATOR_RELATIONSHIP_DEPTH=5
+MODEL_GENERATOR_STRICT_TYPES=true
+MODEL_GENERATOR_TYPE_HINTS=true
+MODEL_GENERATOR_PSR12_COMPLIANCE=true
 ```
 
 ## Quick Start
@@ -104,14 +149,24 @@ Create custom model templates in `resources/views/vendor/model-generator/`:
 ```php
 // resources/views/vendor/model-generator/model.blade.php
 
+declare(strict_types=1);
+
 namespace {{ $namespace }};
 
 use {{ $parentClass }};
+use SAC\EloquentModelGenerator\Support\Traits\HasValidation;
+use SAC\EloquentModelGenerator\Support\Traits\HasRelationships;
 
 class {{ $className }} extends {{ $parentClass }}
 {
-    protected $table = '{{ $table }}';
+    use HasValidation;
+    use HasRelationships;
 
+    protected string $table = '{{ $table }}';
+
+    /**
+     * @var array<int, string>
+     */
     protected $fillable = [
         @foreach($fillable as $column)
             '{{ $column }}',
@@ -156,22 +211,26 @@ return [
 
 ## Testing the Installation
 
-### 1. Run Basic Tests
+### 1. Run All Tests
 
 ```bash
-composer test
+composer test:all
 ```
 
-### 2. Test Database Connections
+### 2. Run Specific Test Suites
 
 ```bash
-composer test:db
+composer test:unit        # Run unit tests
+composer test:feature     # Run feature tests
+composer test:integration # Run integration tests
 ```
 
-### 3. Test Model Generation
+### 3. Run Quality Checks
 
 ```bash
-php artisan model:generate --test
+composer check-all       # Run all checks
+composer analyse        # Run static analysis
+composer style         # Run style checks
 ```
 
 ## Troubleshooting
@@ -221,3 +280,4 @@ php artisan model:generate --test
 - Check [Basic Usage](./basic-usage.md) for common use cases
 - See [Advanced Usage](./advanced-usage.md) for complex scenarios
 - Read [Testing Guide](./testing.md) for testing your setup
+- Study [Code Quality](./code-quality.md) for quality standards

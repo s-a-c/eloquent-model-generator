@@ -3,7 +3,7 @@
 namespace SAC\EloquentModelGenerator\Contracts;
 
 use SAC\EloquentModelGenerator\Models\GeneratedModel;
-use SAC\EloquentModelGenerator\ValueObjects\ModelDefinition;
+use SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition;
 use SAC\EloquentModelGenerator\Exceptions\ModelGeneratorException;
 
 interface ModelGenerator {

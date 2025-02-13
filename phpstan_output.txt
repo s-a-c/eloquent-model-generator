@@ -1,0 +1,984 @@
+ ------ ----------------------------------------------------------------------------------- 
+  Line   Console/Commands/GenerateModelCommand.php                                          
+ ------ ----------------------------------------------------------------------------------- 
+  :65    Cannot cast array|bool|string to string.                                           
+  :68    Cannot cast array|bool|string to string.                                           
+  :81    Parameter #2 $config of method                                                     
+         SAC\EloquentModelGenerator\Console\Commands\GenerateModelCommand::generateModel()  
+         expects array{class_name?: string, namespace?: string, base_class?: string,        
+         with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool},      
+         array{class_name?: string, namespace?: mixed, base_class?: string,                 
+         with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool,       
+         output_path?: mixed} given.                                                        
+         💡 Offset 'namespace' (string) does not accept type mixed.                         
+  :85    Parameter #2 $config of method                                                     
+         SAC\EloquentModelGenerator\Console\Commands\GenerateModelCommand::generateModel()  
+         expects array{class_name?: string, namespace?: string, base_class?: string,        
+         with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool},      
+         array{class_name?: string, namespace?: mixed, base_class?: string,                 
+         with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool,       
+         output_path?: mixed} given.                                                        
+         💡 Offset 'namespace' (string) does not accept type mixed.                         
+ ------ ----------------------------------------------------------------------------------- 
+
+ ------ -------------------------------------------------------------------------------------- 
+  Line   Model/Relations.php                                                                   
+ ------ -------------------------------------------------------------------------------------- 
+  :8     Property SAC\EloquentModelGenerator\Model\Relations::$relations type has no value     
+         type specified in iterable type array.                                                
+         💡 See:                                                                               
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type  
+  :63    Cannot access offset 'model' on mixed.                                                
+  :63    Parameter #1 $class of function class_basename expects object|string, mixed given.    
+  :64    Cannot access offset 'type' on mixed.                                                 
+  :64    Match expression does not handle remaining value: mixed                               
+  :65    Cannot access offset 'name' on mixed.                                                 
+  :65    Part $relation['name'] (mixed) of encapsed string cannot be cast to string.           
+  :66    Cannot access offset 'name' on mixed.                                                 
+  :66    Part $relation['name'] (mixed) of encapsed string cannot be cast to string.           
+  :67    Cannot access offset 'name' on mixed.                                                 
+  :67    Part $relation['name'] (mixed) of encapsed string cannot be cast to string.           
+ ------ -------------------------------------------------------------------------------------- 
+
+ ------ -------------------------------------------------------------------------------------- 
+  Line   ModelGenerator.php                                                                    
+ ------ -------------------------------------------------------------------------------------- 
+  :35    Parameter #2 $schema of method                                                        
+         SAC\EloquentModelGenerator\Services\ModelGeneratorService::generate() expects         
+         array{columns: array<string, array{type: string, nullable: bool, default?: mixed,     
+         length?: int|null, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?:    
+         bool, ...}>, indexes?: array<string, array{type: string, columns: array<string>}>,    
+         foreignKeys?: array<string, array{table: string, columns: array<string, string>}>},   
+         array<string, mixed> given.                                                           
+  :117   Parameter #3 $subject of function preg_replace expects array|string, string|null      
+         given.                                                                                
+  :120   Method SAC\EloquentModelGenerator\ModelGenerator::injectValidationTraits() should     
+         return string but returns string|null.                                                
+  :130   Method SAC\EloquentModelGenerator\ModelGenerator::injectValidationRules() has         
+         parameter $rules with no value type specified in iterable type array.                 
+         💡 See:                                                                               
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type  
+  :149   Method SAC\EloquentModelGenerator\ModelGenerator::injectValidationRules() should      
+         return string but returns string|null.                                                
+  :174   Method SAC\EloquentModelGenerator\ModelGenerator::injectValidationMessages() should   
+         return string but returns string|null.                                                
+ ------ -------------------------------------------------------------------------------------- 
+
+ ------ ---------------------------------------------------------------------------------- 
+  Line   Models/BaseModel.php                                                              
+ ------ ---------------------------------------------------------------------------------- 
+  :21    PHPDoc type string|null of property                                               
+         SAC\EloquentModelGenerator\Models\BaseModel::$table is not covariant with PHPDoc  
+         type string of overridden property Illuminate\Database\Eloquent\Model::$table.    
+         💡 You can fix 3rd party PHPDoc types with stub files:                            
+         💡 https://phpstan.org/user-guide/stub-files                                      
+                                                                                           
+  :163   Parameter #1 $string of function strtolower expects string, string|null given.    
+ ------ ---------------------------------------------------------------------------------- 
+
+ ------ -------------------------------------------------------------------------------------- 
+  Line   Models/GeneratedModel.php                                                             
+ ------ -------------------------------------------------------------------------------------- 
+  :153   Property SAC\EloquentModelGenerator\Models\GeneratedModel::$validationRules type has  
+         no value type specified in iterable type array.                                       
+         💡 See:                                                                               
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type  
+  :174   Property SAC\EloquentModelGenerator\Models\GeneratedModel::$relationships type has    
+         no value type specified in iterable type array.                                       
+         💡 See:                                                                               
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type  
+  :210   Method SAC\EloquentModelGenerator\Models\GeneratedModel::validateArrays() is unused.  
+  :327   Parameter #2 $rule of method                                                          
+         SAC\EloquentModelGenerator\Models\GeneratedModel::validateSingleRule() expects        
+         array|string, mixed given.                                                            
+  :339   Method SAC\EloquentModelGenerator\Models\GeneratedModel::validateSingleRule() has     
+         parameter $rule with no value type specified in iterable type array.                  
+         💡 See:                                                                               
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type  
+  :457   Part $definition['foreignKey'] (mixed) of encapsed string cannot be cast to string.   
+  :462   Part $definition['localKey'] (mixed) of encapsed string cannot be cast to string.     
+  :633   Method SAC\EloquentModelGenerator\Models\GeneratedModel::getValidationRules() return  
+         type has no value type specified in iterable type array.                              
+         💡 See:                                                                               
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type  
+  :712   Method SAC\EloquentModelGenerator\Models\GeneratedModel::setValidationRules() has     
+         parameter $rules with no value type specified in iterable type array.                 
+         💡 See:                                                                               
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type  
+ ------ -------------------------------------------------------------------------------------- 
+
+ ------ -------------------------------------------------------------------------------------- 
+  Line   Providers/EloquentModelGeneratorServiceProvider.php                                   
+ ------ -------------------------------------------------------------------------------------- 
+  :28    Cannot call method make() on mixed.                                                   
+  :28    Parameter #1 $templateEngine of class                                                 
+         SAC\EloquentModelGenerator\Services\ModelGeneratorService constructor expects         
+         SAC\EloquentModelGenerator\Services\ModelGeneratorTemplateEngine, mixed given.        
+  :35    Cannot call method make() on mixed.                                                   
+  :35    Parameter #1 $service of class SAC\EloquentModelGenerator\ModelGenerator constructor  
+         expects SAC\EloquentModelGenerator\Services\ModelGeneratorService, mixed given.       
+ ------ -------------------------------------------------------------------------------------- 
+
+ ------ ------------------------------------------------------------------------------------- 
+  Line   Providers/ModelGeneratorServiceProvider.php                                          
+ ------ ------------------------------------------------------------------------------------- 
+  :19    Class SAC\EloquentModelGenerator\Models\CachedModelTemplate not found.               
+         💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                  
+  :19    Class SAC\EloquentModelGenerator\Models\ModelTemplate not found.                     
+         💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                  
+  :24    Cannot access offset 'db' on mixed.                                                  
+  :24    Cannot call method connection() on mixed.                                            
+  :25    Cannot call method getDriverName() on mixed.                                         
+  :28    Parameter #1 $connection of class                                                    
+         SAC\EloquentModelGenerator\Services\Schema\MySQLSchemaAnalyzer constructor expects   
+         Illuminate\Database\ConnectionInterface, mixed given.                                
+  :29    Parameter #1 $connection of class                                                    
+         SAC\EloquentModelGenerator\Services\Schema\PostgreSQLSchemaAnalyzer constructor      
+         expects Illuminate\Database\ConnectionInterface, mixed given.                        
+  :30    Parameter #1 $connection of class                                                    
+         SAC\EloquentModelGenerator\Services\Schema\SQLiteSchemaAnalyzer constructor expects  
+         Illuminate\Database\ConnectionInterface, mixed given.                                
+  :31    Part $driver (mixed) of encapsed string cannot be cast to string.                    
+ ------ ------------------------------------------------------------------------------------- 
+
+ ------ -------------------------------------------------------------------------------------- 
+  Line   SchemaParser.php                                                                      
+ ------ -------------------------------------------------------------------------------------- 
+  :15    Method SAC\EloquentModelGenerator\SchemaParser::parseColumns() has parameter          
+         $columns with no value type specified in iterable type array.                         
+         💡 See:                                                                               
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type  
+  :17    Cannot access offset 'type' on mixed.                                                 
+  :17    Parameter #1 $type of method                                                          
+         SAC\EloquentModelGenerator\SchemaParser::normalizeColumnType() expects string, mixed  
+         given.                                                                                
+  :22    Cannot access offset 'length' on mixed.                                               
+  :23    Cannot access offset 'nullable' on mixed.                                             
+  :24    Cannot access offset 'default' on mixed.                                              
+  :25    Cannot access offset 'unsigned' on mixed.                                             
+  :26    Cannot access offset 'autoIncrement' on mixed.                                        
+  :27    Cannot access offset 'primary' on mixed.                                              
+  :28    Parameter #2 $column of method                                                        
+         SAC\EloquentModelGenerator\SchemaParser::determineCastType() expects array, mixed     
+         given.                                                                                
+  :39    Method SAC\EloquentModelGenerator\SchemaParser::parseIndexes() has parameter          
+         $indexes with no value type specified in iterable type array.                         
+         💡 See:                                                                               
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type  
+  :43    Cannot access offset 'columns' on mixed.                                              
+  :44    Cannot access offset 'type' on mixed.                                                 
+  :44    Parameter #1 $type of method                                                          
+         SAC\EloquentModelGenerator\SchemaParser::normalizeIndexType() expects string, mixed   
+         given.                                                                                
+  :45    Cannot access offset 'unique' on mixed.                                               
+  :105   Method SAC\EloquentModelGenerator\SchemaParser::determineCastType() has parameter     
+         $column with no value type specified in iterable type array.                          
+         💡 See:                                                                               
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type  
+  :126   Part $column['length'] (mixed) of encapsed string cannot be cast to string.           
+ ------ -------------------------------------------------------------------------------------- 
+
+ ------ --------------------------------------------------------------------------------------- 
+  Line   Services/Benchmarking/PerformanceBenchmark.php                                         
+ ------ --------------------------------------------------------------------------------------- 
+  :10    Property                                                                               
+         SAC\EloquentModelGenerator\Services\Benchmarking\PerformanceBenchmark::$benchmarks     
+         type has no value type specified in iterable type array.                               
+         💡 See:                                                                                
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type   
+  :19    Method                                                                                 
+         SAC\EloquentModelGenerator\Services\Benchmarking\PerformanceBenchmark::endBenchmark()  
+         return type has no value type specified in iterable type array.                        
+         💡 See:                                                                                
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type   
+  :29    Cannot access offset 'start_time' on mixed.                                            
+  :30    Cannot access offset 'start_memory' on mixed.                                          
+ ------ --------------------------------------------------------------------------------------- 
+
+ ------ -------------------------------------------------------------------------------------- 
+  Line   Services/ConfigurationService.php                                                     
+ ------ -------------------------------------------------------------------------------------- 
+  :54    Method SAC\EloquentModelGenerator\Services\ConfigurationService::all() should return  
+         array<string, mixed> but returns mixed.                                               
+ ------ -------------------------------------------------------------------------------------- 
+
+ ------ ----------------------------------------------------------------------------------- 
+  Line   Services/DefaultModelGenerator.php                                                 
+ ------ ----------------------------------------------------------------------------------- 
+  :29    Parameter #1 $className of method                                                  
+         SAC\EloquentModelGenerator\Services\DefaultModelGenerator::generateModelContent()  
+         expects string, mixed given.                                                       
+  :29    Parameter #2 $namespace of method                                                  
+         SAC\EloquentModelGenerator\Services\DefaultModelGenerator::generateModelContent()  
+         expects string, mixed given.                                                       
+  :29    Parameter #4 $baseClass of method                                                  
+         SAC\EloquentModelGenerator\Services\DefaultModelGenerator::generateModelContent()  
+         expects string, mixed given.                                                       
+  :32    Parameter $className of class SAC\EloquentModelGenerator\Models\GeneratedModel     
+         constructor expects string, mixed given.                                           
+  :33    Parameter $namespace of class SAC\EloquentModelGenerator\Models\GeneratedModel     
+         constructor expects string, mixed given.                                           
+  :35    Parameter $baseClass of class SAC\EloquentModelGenerator\Models\GeneratedModel     
+         constructor expects string, mixed given.                                           
+  :160   Part $value (mixed) of encapsed string cannot be cast to string.                   
+  :162   Part $value (mixed) of encapsed string cannot be cast to string.                   
+ ------ ----------------------------------------------------------------------------------- 
+
+ ------ --------------------------------------------------------------------------------------------- 
+  Line   Services/ModelGenerator.php                                                                  
+ ------ --------------------------------------------------------------------------------------------- 
+  :9     Non-abstract class SAC\EloquentModelGenerator\Services\ModelGenerator contains               
+         abstract method getTableSchema() from interface                                              
+         SAC\EloquentModelGenerator\Contracts\ModelGeneratorService.                                  
+  :31    Method SAC\EloquentModelGenerator\Services\ModelGenerator::generateModel() has               
+         parameter $options with no value type specified in iterable type array.                      
+         💡 See:                                                                                      
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type         
+  :31    Return type SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition of method         
+         SAC\EloquentModelGenerator\Services\ModelGenerator::generateModel() is not covariant         
+         with return type SAC\EloquentModelGenerator\ValueObjects\ModelDefinition of method           
+         SAC\EloquentModelGenerator\Contracts\ModelGeneratorService::generateModel().                 
+  :34    Parameter #2 $columns of method                                                              
+         SAC\EloquentModelGenerator\Support\Factories\ModelGeneratorFactory::createModelDefinition()  
+         expects array, mixed given.                                                                  
+  :35    Parameter #3 $relations of method                                                            
+         SAC\EloquentModelGenerator\Support\Factories\ModelGeneratorFactory::createModelDefinition()  
+         expects array, mixed given.                                                                  
+  :46    Method SAC\EloquentModelGenerator\Services\ModelGenerator::generateBatch() has               
+         invalid return type SAC\EloquentModelGenerator\Services\GeneratedModel.                      
+  :46    Method SAC\EloquentModelGenerator\Services\ModelGenerator::generateBatch() has               
+         parameter $config with no value type specified in iterable type array.                       
+         💡 See:                                                                                      
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type         
+  :46    Method SAC\EloquentModelGenerator\Services\ModelGenerator::generateBatch() has               
+         parameter $tables with no value type specified in iterable type array.                       
+         💡 See:                                                                                      
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type         
+ ------ --------------------------------------------------------------------------------------------- 
+
+ ------ ----------------------------------------------------------------------------------------- 
+  Line   Services/ModelGeneratorService.php                                                       
+ ------ ----------------------------------------------------------------------------------------- 
+  :142   Method SAC\EloquentModelGenerator\Services\ModelGeneratorService::getTables() should     
+         return array<string> but returns array.                                                  
+  :158   Method SAC\EloquentModelGenerator\Services\ModelGeneratorService::getTableSchema()       
+         return type has no value type specified in iterable type array.                          
+         💡 See:                                                                                  
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type     
+  :177   Parameter #2 $schema of method                                                           
+         SAC\EloquentModelGenerator\Services\ModelGeneratorTemplateEngine::render() expects       
+         array{columns: array<string, array{type: non-empty-string, length?: int<1,               
+         max>|null, nullable?: bool, default?: mixed, unsigned?: bool, autoIncrement?: bool,      
+         primary?: bool, unique?: bool, ...}>, relations?: array<string, array{type:              
+         non-empty-string, model: class-string, foreignKey?: non-empty-string, localKey?:         
+         non-empty-string, table?: non-empty-string, morphType?: non-empty-string,                
+         morphClass?: class-string, pivotTable?: non-empty-string, ...}>, indexes?:               
+         array<string, array{type: 'fulltext'|'index'|'primary'|'spatial'|'unique', columns:      
+         array<string>, name?: string, algorithm?: string, options?: array<string, mixed>}>,      
+         foreignKeys?: array<string, array{table: string, columns: array<string, string>,         
+         onDelete?: string, onUpdate?: string}>, timestamps?: bool, softDeletes?: bool,           
+         primaryKey?: string, incrementing?: bool, ...}, array{columns: array<string,             
+         array{type: string, nullable: bool, default?: mixed, length?: int|null, unsigned?:       
+         bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...}>, indexes?:              
+         array<string, array{type: string, columns: array<string>}>, foreignKeys?:                
+         array<string, array{table: string, columns: array<string, string>}>} given.              
+         💡 Offset 'columns' (array<string, array{type: non-empty-string, length?: int<1,         
+            max>|null, nullable?: bool, default?: mixed, unsigned?: bool, autoIncrement?: bool,   
+            primary?: bool, unique?: bool, ...}>) does not accept type array<string, array{type:  
+            string, nullable: bool, default?: mixed, length?: int|null, unsigned?: bool,          
+            autoIncrement?: bool, primary?: bool, unique?: bool, ...}>: Offset 'type'             
+            (non-empty-string) does not accept type string.                                       
+         💡 Offset 'columns' (array<string, array{type: non-empty-string, length?: int<1,         
+            max>|null, nullable?: bool, default?: mixed, unsigned?: bool, autoIncrement?: bool,   
+            primary?: bool, unique?: bool, ...}>) does not accept type array<string, array{type:  
+            string, nullable: bool, default?: mixed, length?: int|null, unsigned?: bool,          
+            autoIncrement?: bool, primary?: bool, unique?: bool, ...}>: Offset 'length' (int<1,   
+            max>|null) does not accept type int|null.                                             
+         💡 Offset 'columns' (array<string, array{type: non-empty-string, length?: int<1,         
+            max>|null, nullable?: bool, default?: mixed, unsigned?: bool, autoIncrement?: bool,   
+            primary?: bool, unique?: bool, ...}>) does not accept type array<string, array{type:  
+            string, nullable: bool, default?: mixed, length?: int|null, unsigned?: bool,          
+            autoIncrement?: bool, primary?: bool, unique?: bool, ...}>: Offset 'comment'          
+            (non-empty-string|null) does not accept type string|null.                             
+         💡 Offset 'indexes' (array<string, array{type:                                           
+            'fulltext'|'index'|'primary'|'spatial'|'unique', columns: array<int|string, string>,  
+            name?: string, algorithm?: string, options?: array<string, mixed>}>) does not accept  
+            type array<string, array{type: string, columns: array<int|string, string>}>: Offset   
+            'type' ('fulltext'|'index'|'primary'|'spatial'|'unique') does not accept type         
+            string.                                                                               
+                                                                                                  
+  :229   Parameter #2 $column of method                                                           
+         SAC\EloquentModelGenerator\Services\ModelGeneratorService::analyzeColumn() expects       
+         string, mixed given.                                                                     
+  :269   Call to method getNotnull() on an unknown class Doctrine\DBAL\Schema\Column.             
+         💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                      
+  :270   Call to method getDefault() on an unknown class Doctrine\DBAL\Schema\Column.             
+         💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                      
+  :271   Call to method getLength() on an unknown class Doctrine\DBAL\Schema\Column.              
+         💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                      
+  :272   Call to method getUnsigned() on an unknown class Doctrine\DBAL\Schema\Column.            
+         💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                      
+  :273   Call to method getAutoincrement() on an unknown class Doctrine\DBAL\Schema\Column.       
+         💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                      
+  :274   Call to method getComment() on an unknown class Doctrine\DBAL\Schema\Column.             
+         💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                      
+ ------ ----------------------------------------------------------------------------------------- 
+
+ ------ ---------------------------------------------------------------------------------------- 
+  Line   Services/ModelGeneratorTemplateEngine.php                                               
+ ------ ---------------------------------------------------------------------------------------- 
+  :220   Constant                                                                                
+         SAC\EloquentModelGenerator\Services\ModelGeneratorTemplateEngine::FOREIGN_KEY_ACTIONS   
+         is unused.                                                                              
+         💡 See: https://phpstan.org/developing-extensions/always-used-class-constants           
+  :294   Parameter #1 $name of method                                                            
+         SAC\EloquentModelGenerator\Services\ModelGeneratorTemplateEngine::validateRelation()    
+         expects non-empty-string, (int|string) given.                                           
+  :450   Parameter #2 $fillable of method                                                        
+         SAC\EloquentModelGenerator\Services\ModelGeneratorTemplateEngine::addModelProperties()  
+         expects array<non-empty-string>, mixed given.                                           
+  :451   Parameter #3 $guarded of method                                                         
+         SAC\EloquentModelGenerator\Services\ModelGeneratorTemplateEngine::addModelProperties()  
+         expects array<non-empty-string>, mixed given.                                           
+  :452   Parameter #4 $casts of method                                                           
+         SAC\EloquentModelGenerator\Services\ModelGeneratorTemplateEngine::addModelProperties()  
+         expects array<non-empty-string, non-empty-string>, mixed given.                         
+  :453   Parameter #5 $dates of method                                                           
+         SAC\EloquentModelGenerator\Services\ModelGeneratorTemplateEngine::addModelProperties()  
+         expects array<non-empty-string>, mixed given.                                           
+  :454   Parameter #6 $hidden of method                                                          
+         SAC\EloquentModelGenerator\Services\ModelGeneratorTemplateEngine::addModelProperties()  
+         expects array<non-empty-string>, mixed given.                                           
+  :460   Parameter #2 ...$arrays of function array_merge expects array, mixed given.             
+  :844   Parameter #2 $array of function implode expects array<string>, mixed given.             
+  :844   Parameter #2 $array of function implode expects array|null, mixed given.                
+ ------ ---------------------------------------------------------------------------------------- 
+
+ ------ --------------------------------------------------------------------------------------------- 
+  Line   Services/ParallelModelGenerator.php                                                          
+ ------ --------------------------------------------------------------------------------------------- 
+  :32    Method SAC\EloquentModelGenerator\Services\ParallelModelGenerator::generateModels()          
+         has parameter $options with no value type specified in iterable type array.                  
+         💡 See:                                                                                      
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type         
+  :32    Method SAC\EloquentModelGenerator\Services\ParallelModelGenerator::generateModels()          
+         has parameter $tables with no value type specified in iterable type array.                   
+         💡 See:                                                                                      
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type         
+  :41    Parameter #1 $table of method                                                                
+         SAC\EloquentModelGenerator\Support\Factories\ModelGeneratorFactory::createModelDefinition()  
+         expects string, mixed given.                                                                 
+  :42    Cannot access offset mixed on mixed.                                                         
+  :42    Parameter #2 $columns of method                                                              
+         SAC\EloquentModelGenerator\Support\Factories\ModelGeneratorFactory::createModelDefinition()  
+         expects array, mixed given.                                                                  
+  :43    Cannot access offset mixed on mixed.                                                         
+  :43    Parameter #3 $relations of method                                                            
+         SAC\EloquentModelGenerator\Support\Factories\ModelGeneratorFactory::createModelDefinition()  
+         expects array, mixed given.                                                                  
+  :50    Cannot call method value() on parallel\Future|null.                                          
+  :53    Method SAC\EloquentModelGenerator\Services\ParallelModelGenerator::generateModels()          
+         should return array<SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition>          
+         but returns array<int<0, max>, mixed>.                                                       
+ ------ --------------------------------------------------------------------------------------------- 
+
+ ------ ------------------------------------------------------------------------------------- 
+  Line   Services/ParallelModelGeneratorService.php                                           
+ ------ ------------------------------------------------------------------------------------- 
+  :49    Parameter #2 $config of class SAC\EloquentModelGenerator\Jobs\GenerateModelJob       
+         constructor expects array{class_name?: string, namespace?: string, base_class?:      
+         string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?:       
+         bool}, array<string, mixed> given.                                                   
+  :56    Access to an undefined property Illuminate\Bus\Batch::$jobs.                         
+         💡 Learn more:                                                                       
+            https://phpstan.org/blog/solving-phpstan-access-to-undefined-property             
+  :56    Method                                                                               
+         SAC\EloquentModelGenerator\Services\ParallelModelGeneratorService::generateModels()  
+         should return array<SAC\EloquentModelGenerator\Models\GeneratedModel> but returns    
+         array.                                                                               
+  :56    Parameter #1 $items of static method                                                 
+         Illuminate\Support\Collection<(int|string),mixed>::make() expects                    
+         Illuminate\Contracts\Support\Arrayable<(int|string), mixed>|iterable<(int|string),   
+         mixed>|null, mixed given.                                                            
+  :56    Unable to resolve the template type TMakeKey in call to method static method         
+         Illuminate\Support\Collection<(int|string),mixed>::make()                            
+         💡 See:                                                                              
+            https://phpstan.org/blog/solving-phpstan-error-unable-to-resolve-template-type    
+  :56    Unable to resolve the template type TMakeValue in call to method static method       
+         Illuminate\Support\Collection<(int|string),mixed>::make()                            
+         💡 See:                                                                              
+            https://phpstan.org/blog/solving-phpstan-error-unable-to-resolve-template-type    
+  :57    Cannot access property $result on mixed.                                             
+  :81    Parameter $namespace of class                                                        
+         SAC\EloquentModelGenerator\ValueObjects\ModelDefinition constructor expects string,  
+         mixed given.                                                                         
+  :83    Parameter $baseClass of class                                                        
+         SAC\EloquentModelGenerator\ValueObjects\ModelDefinition constructor expects string,  
+         mixed given.                                                                         
+  :84    Parameter $withSoftDeletes of class                                                  
+         SAC\EloquentModelGenerator\ValueObjects\ModelDefinition constructor expects bool,    
+         mixed given.                                                                         
+  :85    Parameter $withValidation of class                                                   
+         SAC\EloquentModelGenerator\ValueObjects\ModelDefinition constructor expects bool,    
+         mixed given.                                                                         
+  :86    Parameter $withRelationships of class                                                
+         SAC\EloquentModelGenerator\ValueObjects\ModelDefinition constructor expects bool,    
+         mixed given.                                                                         
+ ------ ------------------------------------------------------------------------------------- 
+
+ ------ -------------------------------------------------------------------------------------------- 
+  Line   Services/Schema/BaseSchemaAnalyzer.php                                                      
+ ------ -------------------------------------------------------------------------------------------- 
+  :25    Property                                                                                    
+         SAC\EloquentModelGenerator\Services\Schema\BaseSchemaAnalyzer::$schemaManager has           
+         unknown class Doctrine\DBAL\Schema\AbstractSchemaManager as its type.                       
+         💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                         
+  :25    Property                                                                                    
+         SAC\EloquentModelGenerator\Services\Schema\BaseSchemaAnalyzer::$schemaManager has           
+         unknown class Doctrine\DBAL\Schema\AbstractSchemaManager as its type.                       
+         💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                         
+  :41    Call to an undefined method                                                                 
+         Illuminate\Database\ConnectionInterface::getSchemaBuilder().                                
+  :41    Property                                                                                    
+         SAC\EloquentModelGenerator\Services\Schema\BaseSchemaAnalyzer::$schemaBuilder               
+         (Illuminate\Database\Schema\Builder|null) does not accept mixed.                            
+  :44    Method                                                                                      
+         SAC\EloquentModelGenerator\Services\Schema\BaseSchemaAnalyzer::getSchemaBuilder()           
+         should return Illuminate\Database\Schema\Builder but returns mixed.                         
+  :52    Method                                                                                      
+         SAC\EloquentModelGenerator\Services\Schema\BaseSchemaAnalyzer::getSchemaManager()           
+         has invalid return type Doctrine\DBAL\Schema\AbstractSchemaManager.                         
+  :52    Method                                                                                      
+         SAC\EloquentModelGenerator\Services\Schema\BaseSchemaAnalyzer::getSchemaManager()           
+         has invalid return type Doctrine\DBAL\Schema\AbstractSchemaManager.                         
+  :54    Call to an undefined method                                                                 
+         Illuminate\Database\ConnectionInterface::getDoctrineSchemaManager().                        
+  :54    Property                                                                                    
+         SAC\EloquentModelGenerator\Services\Schema\BaseSchemaAnalyzer::$schemaManager               
+         (Doctrine\DBAL\Schema\AbstractSchemaManager|null) does not accept mixed.                    
+  :57    Method                                                                                      
+         SAC\EloquentModelGenerator\Services\Schema\BaseSchemaAnalyzer::getSchemaManager()           
+         should return Doctrine\DBAL\Schema\AbstractSchemaManager but returns mixed.                 
+  :66    Call to an undefined method                                                                 
+         Illuminate\Database\ConnectionInterface::getTablePrefix().                                  
+  :66    Method                                                                                      
+         SAC\EloquentModelGenerator\Services\Schema\BaseSchemaAnalyzer::getTablePrefix()             
+         should return string but returns mixed.                                                     
+  :81    Call to method listTableNames() on an unknown class                                         
+         Doctrine\DBAL\Schema\AbstractSchemaManager.                                                 
+         💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                         
+  :81    Method SAC\EloquentModelGenerator\Services\Schema\BaseSchemaAnalyzer::getTables()           
+         should return array<string> but returns mixed.                                              
+  :118   Method                                                                                      
+         SAC\EloquentModelGenerator\Services\Schema\BaseSchemaAnalyzer::getForeignKeyDefinition()    
+         should return array{table: string, column: string} but returns array{table: mixed,          
+         column: mixed}.                                                                             
+         💡 Offset 'table' (string) does not accept type mixed.                                      
+         💡 Offset 'column' (string) does not accept type mixed.                                     
+                                                                                                     
+  :142   Method                                                                                      
+         SAC\EloquentModelGenerator\Services\Schema\BaseSchemaAnalyzer::getRelationshipDefinition()  
+         should return array{type: string, foreignTable: string, foreignKey: string,                 
+         localKey: string} but returns array{type: string, foreignTable: mixed, foreignKey:          
+         mixed, localKey: mixed}.                                                                    
+         💡 Offset 'foreignTable' (string) does not accept type mixed.                               
+         💡 Offset 'foreignKey' (string) does not accept type mixed.                                 
+         💡 Offset 'localKey' (string) does not accept type mixed.                                   
+                                                                                                     
+ ------ -------------------------------------------------------------------------------------------- 
+
+ ------ -------------------------------------------------------------------------------------- 
+  Line   Services/Schema/MySQLSchemaAnalyzer.php                                               
+ ------ -------------------------------------------------------------------------------------- 
+  :39    Call to an undefined method                                                           
+         Illuminate\Database\ConnectionInterface::getDoctrineSchemaManager().                  
+  :39    Cannot call method listTableNames() on mixed.                                         
+  :39    Method SAC\EloquentModelGenerator\Services\Schema\MySQLSchemaAnalyzer::getTables()    
+         should return array<string> but returns mixed.                                        
+  :49    Call to an undefined method                                                           
+         Illuminate\Database\ConnectionInterface::getDoctrineSchemaManager().                  
+  :49    Cannot call method tablesExist() on mixed.                                            
+  :49    Method SAC\EloquentModelGenerator\Services\Schema\MySQLSchemaAnalyzer::hasTable()     
+         should return bool but returns mixed.                                                 
+  :60    Call to an undefined method                                                           
+         Illuminate\Database\ConnectionInterface::getDoctrineSchemaManager().                  
+  :61    Cannot call method listTableDetails() on mixed.                                       
+  :63    Argument of an invalid type mixed supplied for foreach, only iterables are            
+         supported.                                                                            
+  :63    Cannot call method getColumns() on mixed.                                             
+  :65    Cannot call method getName() on mixed.                                                
+  :65    Parameter $name of class SAC\EloquentModelGenerator\ValueObjects\Column constructor   
+         expects string, mixed given.                                                          
+  :66    Cannot call method getName() on mixed.                                                
+  :66    Cannot call method getType() on mixed.                                                
+  :66    Parameter $type of class SAC\EloquentModelGenerator\ValueObjects\Column constructor   
+         expects string, mixed given.                                                          
+  :67    Cannot call method getColumns() on mixed.                                             
+  :67    Cannot call method getName() on mixed.                                                
+  :67    Cannot call method getPrimaryKey() on mixed.                                          
+  :67    Cannot call method hasPrimaryKey() on mixed.                                          
+  :67    Parameter #2 $haystack of function in_array expects array, mixed given.               
+  :68    Cannot call method getAutoincrement() on mixed.                                       
+  :68    Parameter $isAutoIncrement of class SAC\EloquentModelGenerator\ValueObjects\Column    
+         constructor expects bool, mixed given.                                                
+  :69    Cannot call method getNotnull() on mixed.                                             
+  :70    Cannot call method getName() on mixed.                                                
+  :70    Parameter #1 $table of method                                                         
+         SAC\EloquentModelGenerator\Services\Schema\MySQLSchemaAnalyzer::isColumnUnique()      
+         expects Doctrine\DBAL\Schema\Table, mixed given.                                      
+  :70    Parameter #2 $columnName of method                                                    
+         SAC\EloquentModelGenerator\Services\Schema\MySQLSchemaAnalyzer::isColumnUnique()      
+         expects string, mixed given.                                                          
+  :71    Cannot call method getDefault() on mixed.                                             
+  :71    Parameter $default of class SAC\EloquentModelGenerator\ValueObjects\Column            
+         constructor expects string|null, mixed given.                                         
+  :72    Cannot call method getLength() on mixed.                                              
+  :72    Parameter $length of class SAC\EloquentModelGenerator\ValueObjects\Column             
+         constructor expects int|null, mixed given.                                            
+  :73    Cannot access offset 'enum_values' on mixed.                                          
+  :73    Cannot call method getName() on mixed.                                                
+  :73    Cannot call method getPlatformOptions() on mixed.                                     
+  :73    Cannot call method getType() on mixed.                                                
+  :73    Parameter $enumValues of class SAC\EloquentModelGenerator\ValueObjects\Column         
+         constructor expects array<string>|null, mixed given.                                  
+  :87    Parameter $table of method                                                            
+         SAC\EloquentModelGenerator\Services\Schema\MySQLSchemaAnalyzer::isColumnUnique() has  
+         invalid type Doctrine\DBAL\Schema\Table.                                              
+  :87    Parameter $table of method                                                            
+         SAC\EloquentModelGenerator\Services\Schema\MySQLSchemaAnalyzer::isColumnUnique() has  
+         invalid type Doctrine\DBAL\Schema\Table.                                              
+  :88    Argument of an invalid type mixed supplied for foreach, only iterables are            
+         supported.                                                                            
+  :88    Call to method getIndexes() on an unknown class Doctrine\DBAL\Schema\Table.           
+         💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                   
+  :89    Cannot access offset 0 on mixed.                                                      
+  :89    Cannot call method getColumns() on mixed.                                             
+  :89    Cannot call method getColumns() on mixed.                                             
+  :89    Cannot call method isUnique() on mixed.                                               
+  :89    Parameter #1 $value of function count expects array|Countable, mixed given.           
+  :99    Method SAC\EloquentModelGenerator\Services\Schema\MySQLSchemaAnalyzer::getTypeMap()   
+         return type has no value type specified in iterable type array.                       
+         💡 See:                                                                               
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type  
+  :143   Method SAC\EloquentModelGenerator\Services\Schema\MySQLSchemaAnalyzer::getCastType()  
+         should return string but returns mixed.                                               
+  :147   SAC\EloquentModelGenerator\Services\Schema\MySQLSchemaAnalyzer::getCastType() calls   
+         parent::getCastType() but                                                             
+         SAC\EloquentModelGenerator\Services\Schema\MySQLSchemaAnalyzer does not extend any    
+         class.                                                                                
+ ------ -------------------------------------------------------------------------------------- 
+
+ ------ --------------------------------------------------------------------------------------- 
+  Line   Services/Schema/PostgreSQLSchemaAnalyzer.php                                           
+ ------ --------------------------------------------------------------------------------------- 
+  :44    Call to method listTableDetails() on an unknown class                                  
+         Doctrine\DBAL\Schema\AbstractSchemaManager.                                            
+         💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                    
+  :46    Argument of an invalid type mixed supplied for foreach, only iterables are             
+         supported.                                                                             
+  :46    Cannot call method getColumns() on mixed.                                              
+  :47    Cannot call method getName() on mixed.                                                 
+  :48    Cannot call method getName() on mixed.                                                 
+  :48    Cannot call method getType() on mixed.                                                 
+  :48    Parameter #1 $databaseType of method                                                   
+         SAC\EloquentModelGenerator\Services\Schema\BaseSchemaAnalyzer::mapColumnType()         
+         expects string, mixed given.                                                           
+  :49    Cannot call method getNotnull() on mixed.                                              
+  :50    Cannot call method getDefault() on mixed.                                              
+  :54    Cannot call method getColumns() on mixed.                                              
+  :54    Cannot call method getName() on mixed.                                                 
+  :54    Cannot call method getPrimaryKey() on mixed.                                           
+  :54    Cannot call method getPrimaryKey() on mixed.                                           
+  :54    Parameter #2 $haystack of function in_array expects array, mixed given.                
+  :55    Cannot call method getName() on mixed.                                                 
+  :59    Argument of an invalid type mixed supplied for foreach, only iterables are             
+         supported.                                                                             
+  :59    Cannot call method getIndexes() on mixed.                                              
+  :60    Cannot call method getColumns() on mixed.                                              
+  :60    Cannot call method getName() on mixed.                                                 
+  :60    Cannot call method isUnique() on mixed.                                                
+  :60    Parameter #2 $haystack of function in_array expects array, mixed given.                
+  :61    Cannot call method getName() on mixed.                                                 
+  :66    Cannot call method getName() on mixed.                                                 
+  :66    Cannot call method getType() on mixed.                                                 
+  :66    Parameter #1 $haystack of function str_ends_with expects string, mixed given.          
+  :67    Cannot call method getName() on mixed.                                                 
+  :71    Method                                                                                 
+         SAC\EloquentModelGenerator\Services\Schema\PostgreSQLSchemaAnalyzer::analyzeColumns()  
+         should return array<string, array{type: string, nullable: bool, primary?: bool,        
+         unique?: bool, index?: bool, foreign?: array{table: string, column: string},           
+         default?: mixed}> but returns array<array{default: mixed, nullable: bool, primary?:    
+         true, type: string, unique?: true}>.                                                   
+  :83    Call to method listTableForeignKeys() on an unknown class                              
+         Doctrine\DBAL\Schema\AbstractSchemaManager.                                            
+         💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                    
+  :85    Argument of an invalid type mixed supplied for foreach, only iterables are             
+         supported.                                                                             
+  :87    Cannot call method getForeignTableName() on mixed.                                     
+  :88    Cannot access offset 0 on mixed.                                                       
+  :88    Cannot call method getForeignColumns() on mixed.                                       
+  :89    Cannot access offset 0 on mixed.                                                       
+  :89    Cannot call method getLocalColumns() on mixed.                                         
+  :154   Call to method listTableForeignKeys() on an unknown class                              
+         Doctrine\DBAL\Schema\AbstractSchemaManager.                                            
+         💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                    
+  :157   Parameter #1 $value of function count expects array|Countable, mixed given.            
+ ------ --------------------------------------------------------------------------------------- 
+
+ ------ ----------------------------------------------------------------------------------------- 
+  Line   Services/Schema/SQLiteSchemaAnalyzer.php                                                 
+ ------ ----------------------------------------------------------------------------------------- 
+  :26    Call to an undefined method                                                              
+         Illuminate\Database\ConnectionInterface::getDoctrineSchemaManager().                     
+  :26    Cannot call method listTableNames() on mixed.                                            
+  :26    Method SAC\EloquentModelGenerator\Services\Schema\SQLiteSchemaAnalyzer::getTables()      
+         should return array<string> but returns mixed.                                           
+  :46    Call to method listTableDetails() on an unknown class                                    
+         Doctrine\DBAL\Schema\AbstractSchemaManager.                                              
+         💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                      
+  :47    Call to method listTableForeignKeys() on an unknown class                                
+         Doctrine\DBAL\Schema\AbstractSchemaManager.                                              
+         💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                      
+  :49    Parameter #1 $table of method                                                            
+         SAC\EloquentModelGenerator\Services\Schema\SQLiteSchemaAnalyzer::analyzeColumns()        
+         expects Doctrine\DBAL\Schema\Table, mixed given.                                         
+  :50    Parameter #2 $foreignKeys of method                                                      
+         SAC\EloquentModelGenerator\Services\Schema\SQLiteSchemaAnalyzer::analyzeRelationships()  
+         expects array<Doctrine\DBAL\Schema\ForeignKeyConstraint>, mixed given.                   
+  :73    Call to an undefined method                                                              
+         Illuminate\Database\ConnectionInterface::getDoctrineSchemaManager().                     
+  :73    Cannot call method tablesExist() on mixed.                                               
+  :73    Method SAC\EloquentModelGenerator\Services\Schema\SQLiteSchemaAnalyzer::hasTable()       
+         should return bool but returns mixed.                                                    
+  :133   Parameter $table of method                                                               
+         SAC\EloquentModelGenerator\Services\Schema\SQLiteSchemaAnalyzer::analyzeColumns()        
+         has invalid type Doctrine\DBAL\Schema\Table.                                             
+  :133   Parameter $table of method                                                               
+         SAC\EloquentModelGenerator\Services\Schema\SQLiteSchemaAnalyzer::analyzeColumns()        
+         has invalid type Doctrine\DBAL\Schema\Table.                                             
+  :135   Call to method getPrimaryKey() on an unknown class Doctrine\DBAL\Schema\Table.           
+         💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                      
+  :136   Call to method getIndexes() on an unknown class Doctrine\DBAL\Schema\Table.              
+         💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                      
+  :138   Argument of an invalid type mixed supplied for foreach, only iterables are               
+         supported.                                                                               
+  :138   Call to method getColumns() on an unknown class Doctrine\DBAL\Schema\Table.              
+         💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                      
+  :139   Cannot call method getName() on mixed.                                                   
+  :141   Cannot call method getName() on mixed.                                                   
+  :141   Cannot call method getType() on mixed.                                                   
+  :141   Parameter #1 $type of method                                                             
+         SAC\EloquentModelGenerator\Services\Schema\SQLiteSchemaAnalyzer::mapColumnType()         
+         expects string, mixed given.                                                             
+  :142   Cannot call method getNotnull() on mixed.                                                
+  :143   Cannot call method getDefault() on mixed.                                                
+  :144   Cannot call method getColumns() on mixed.                                                
+  :144   Parameter #2 $haystack of function in_array expects array, mixed given.                  
+  :146   Cannot call method getAutoincrement() on mixed.                                          
+  :150   Argument of an invalid type mixed supplied for foreach, only iterables are               
+         supported.                                                                               
+  :151   Cannot access offset 0 on mixed.                                                         
+  :151   Cannot call method getColumns() on mixed.                                                
+  :151   Cannot call method getColumns() on mixed.                                                
+  :151   Cannot call method isUnique() on mixed.                                                  
+  :151   Parameter #1 $value of function count expects array|Countable, mixed given.              
+  :158   Method                                                                                   
+         SAC\EloquentModelGenerator\Services\Schema\SQLiteSchemaAnalyzer::analyzeColumns()        
+         should return array<string, array<string, mixed>> but returns array<array<string,        
+         mixed>>.                                                                                 
+  :166   Parameter $foreignKeys of method                                                         
+         SAC\EloquentModelGenerator\Services\Schema\SQLiteSchemaAnalyzer::analyzeRelationships()  
+         has invalid type Doctrine\DBAL\Schema\ForeignKeyConstraint.                              
+  :172   Call to method getForeignTableName() on an unknown class                                 
+         Doctrine\DBAL\Schema\ForeignKeyConstraint.                                               
+         💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                      
+  :173   Call to method getForeignColumns() on an unknown class                                   
+         Doctrine\DBAL\Schema\ForeignKeyConstraint.                                               
+         💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                      
+  :174   Call to method getLocalColumns() on an unknown class                                     
+         Doctrine\DBAL\Schema\ForeignKeyConstraint.                                               
+         💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                      
+ ------ ----------------------------------------------------------------------------------------- 
+
+ ------ ---------------------------------------------------------------------------------------- 
+  Line   Services/ValidationRuleGenerator.php                                                    
+ ------ ---------------------------------------------------------------------------------------- 
+  :15    Method SAC\EloquentModelGenerator\Services\ValidationRuleGenerator::generateRules()     
+         has parameter $schema with no value type specified in iterable type array.              
+         💡 See:                                                                                 
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type    
+  :15    Method SAC\EloquentModelGenerator\Services\ValidationRuleGenerator::generateRules()     
+         return type has no value type specified in iterable type array.                         
+         💡 See:                                                                                 
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type    
+  :19    Argument of an invalid type mixed supplied for foreach, only iterables are              
+         supported.                                                                              
+  :24    Parameter #1 $column of method                                                          
+         SAC\EloquentModelGenerator\Services\ValidationRuleGenerator::generateColumnRules()      
+         expects string, mixed given.                                                            
+  :24    Parameter #2 $definition of method                                                      
+         SAC\EloquentModelGenerator\Services\ValidationRuleGenerator::generateColumnRules()      
+         expects array, mixed given.                                                             
+  :24    Parameter #3 $tableName of method                                                       
+         SAC\EloquentModelGenerator\Services\ValidationRuleGenerator::generateColumnRules()      
+         expects string, mixed given.                                                            
+  :30    Method SAC\EloquentModelGenerator\Services\ValidationRuleGenerator::generateRules()     
+         should return array<string, array|string> but returns array<array|string>.              
+  :41    Method                                                                                  
+         SAC\EloquentModelGenerator\Services\ValidationRuleGenerator::generateColumnRules()      
+         has parameter $definition with no value type specified in iterable type array.          
+         💡 See:                                                                                 
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type    
+  :41    Method                                                                                  
+         SAC\EloquentModelGenerator\Services\ValidationRuleGenerator::generateColumnRules()      
+         return type has no value type specified in iterable type array.                         
+         💡 See:                                                                                 
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type    
+  :56    Part $definition['length'] (mixed) of encapsed string cannot be cast to string.         
+  :68    Parameter #2 $string of function explode expects string, mixed given.                   
+  :81    Method SAC\EloquentModelGenerator\Services\ValidationRuleGenerator::getTypeRules()      
+         has parameter $definition with no value type specified in iterable type array.          
+         💡 See:                                                                                 
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type    
+  :81    Method SAC\EloquentModelGenerator\Services\ValidationRuleGenerator::getTypeRules()      
+         return type has no value type specified in iterable type array.                         
+         💡 See:                                                                                 
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type    
+  :102   Part $definition['scale'] (mixed) of encapsed string cannot be cast to string.          
+  :122   Parameter #2 $array of function implode expects array<string>, mixed given.             
+  :122   Parameter #2 $array of function implode expects array|null, mixed given.                
+  :149   Method                                                                                  
+         SAC\EloquentModelGenerator\Services\ValidationRuleGenerator::generateMessages() has     
+         parameter $schema with no value type specified in iterable type array.                  
+         💡 See:                                                                                 
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type    
+  :152   Argument of an invalid type mixed supplied for foreach, only iterables are              
+         supported.                                                                              
+  :158   Cannot access offset 'messages' on mixed.                                               
+  :159   Argument of an invalid type mixed supplied for foreach, only iterables are              
+         supported.                                                                              
+  :160   Cannot access offset non-falsy-string on mixed.                                         
+  :160   Part $column (mixed) of encapsed string cannot be cast to string.                       
+  :160   Part $rule (mixed) of encapsed string cannot be cast to string.                         
+  :166   Parameter #1 $value of static method Illuminate\Support\Str::title() expects string,    
+         (array<int, string>|string) given.                                                      
+  :166   Parameter #3 $subject of function str_replace expects array|string, mixed given.        
+  :168   Cannot access offset 'nullable' on mixed.                                               
+  :169   Cannot access offset non-falsy-string on mixed.                                         
+  :169   Part $column (mixed) of encapsed string cannot be cast to string.                       
+  :172   Cannot access offset 'unique' on mixed.                                                 
+  :173   Cannot access offset non-falsy-string on mixed.                                         
+  :173   Part $column (mixed) of encapsed string cannot be cast to string.                       
+  :177   Parameter #2 $column of method                                                          
+         SAC\EloquentModelGenerator\Services\ValidationRuleGenerator::addTypeSpecificMessages()  
+         expects string, mixed given.                                                            
+  :177   Parameter #4 $definition of method                                                      
+         SAC\EloquentModelGenerator\Services\ValidationRuleGenerator::addTypeSpecificMessages()  
+         expects array, mixed given.                                                             
+  :180   Method                                                                                  
+         SAC\EloquentModelGenerator\Services\ValidationRuleGenerator::generateMessages()         
+         should return array<string, string> but returns mixed.                                  
+  :191   Method                                                                                  
+         SAC\EloquentModelGenerator\Services\ValidationRuleGenerator::addTypeSpecificMessages()  
+         has parameter $definition with no value type specified in iterable type array.          
+         💡 See:                                                                                 
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type    
+  :191   Method                                                                                  
+         SAC\EloquentModelGenerator\Services\ValidationRuleGenerator::addTypeSpecificMessages()  
+         has parameter $messages with no value type specified in iterable type array.            
+         💡 See:                                                                                 
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type    
+  :205   Part $definition['scale'] (mixed) of encapsed string cannot be cast to string.          
+  :231   Parameter #2 $array of function implode expects array<string>, mixed given.             
+  :231   Parameter #2 $array of function implode expects array|null, mixed given.                
+ ------ ---------------------------------------------------------------------------------------- 
+
+ ------ -------------------------------------------------------------------------------------- 
+  Line   Support/Builders/ModelBuilder.php                                                     
+ ------ -------------------------------------------------------------------------------------- 
+  :10    Property SAC\EloquentModelGenerator\Support\Builders\ModelBuilder::$configService is  
+         never read, only written.                                                             
+         💡 See: https://phpstan.org/developing-extensions/always-read-written-properties      
+  :14    Method SAC\EloquentModelGenerator\Support\Builders\ModelBuilder::build() has          
+         parameter $schema with no value type specified in iterable type array.                
+         💡 See:                                                                               
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type  
+ ------ -------------------------------------------------------------------------------------- 
+
+ ------ --------------------------------------------------------------------------------------------- 
+  Line   Support/Factories/ModelGeneratorFactory.php                                                  
+ ------ --------------------------------------------------------------------------------------------- 
+  :19    Method                                                                                       
+         SAC\EloquentModelGenerator\Support\Factories\ModelGeneratorFactory::createModelDefinition()  
+         has parameter $columns with no value type specified in iterable type array.                  
+         💡 See:                                                                                      
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type         
+  :19    Method                                                                                       
+         SAC\EloquentModelGenerator\Support\Factories\ModelGeneratorFactory::createModelDefinition()  
+         has parameter $relations with no value type specified in iterable type array.                
+         💡 See:                                                                                      
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type         
+  :20    Class SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition constructor             
+         invoked with 0 parameters, 4-8 required.                                                     
+  :22    Access to private property                                                                   
+         SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition::$columns.                    
+  :22    Property SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition::$columns            
+         (Illuminate\Support\Collection<int, SAC\EloquentModelGenerator\ValueObjects\Column>)         
+         does not accept Illuminate\Support\Collection<(int|string), object{name:                     
+         (int|string), type: mixed, nullable: mixed, unsigned: mixed, length: mixed, total:           
+         mixed, places: mixed, allowed: mixed, autoIncrement: mixed}&stdClass>.                       
+  :25    Cannot access offset 'type' on mixed.                                                        
+  :26    Cannot access offset 'nullable' on mixed.                                                    
+  :27    Cannot access offset 'unsigned' on mixed.                                                    
+  :28    Cannot access offset 'length' on mixed.                                                      
+  :29    Cannot access offset 'total' on mixed.                                                       
+  :30    Cannot access offset 'places' on mixed.                                                      
+  :31    Cannot access offset 'allowed' on mixed.                                                     
+  :32    Cannot access offset 'autoIncrement' on mixed.                                               
+  :36    Access to private property                                                                   
+         SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition::$relations.                  
+  :36    Property SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition::$relations          
+         (Illuminate\Support\Collection<int,                                                          
+         SAC\EloquentModelGenerator\Support\Definitions\RelationDefinition>) does not accept          
+         Illuminate\Support\Collection<(int|string),                                                  
+         SAC\EloquentModelGenerator\Support\Definitions\RelationDefinition>.                          
+  :38    Parameter #1 $name of class                                                                  
+         SAC\EloquentModelGenerator\Support\Definitions\RelationDefinition constructor                
+         expects string, (int|string) given.                                                          
+  :39    Cannot access offset 'type' on mixed.                                                        
+  :39    Parameter #2 $type of class                                                                  
+         SAC\EloquentModelGenerator\Support\Definitions\RelationDefinition constructor                
+         expects string, mixed given.                                                                 
+  :40    Cannot access offset 'model' on mixed.                                                       
+  :40    Parameter #3 $model of class                                                                 
+         SAC\EloquentModelGenerator\Support\Definitions\RelationDefinition constructor                
+         expects string|null, mixed given.                                                            
+  :41    Cannot access offset 'foreignKey' on mixed.                                                  
+  :41    Parameter #4 $foreignKey of class                                                            
+         SAC\EloquentModelGenerator\Support\Definitions\RelationDefinition constructor                
+         expects string|null, mixed given.                                                            
+  :42    Cannot access offset 'localKey' on mixed.                                                    
+  :42    Parameter #5 $localKey of class                                                              
+         SAC\EloquentModelGenerator\Support\Definitions\RelationDefinition constructor                
+         expects string|null, mixed given.                                                            
+  :43    Cannot access offset 'morphType' on mixed.                                                   
+  :43    Parameter #6 $morphType of class                                                             
+         SAC\EloquentModelGenerator\Support\Definitions\RelationDefinition constructor                
+         expects string|null, mixed given.                                                            
+  :58    Method                                                                                       
+         SAC\EloquentModelGenerator\Support\Factories\ModelGeneratorFactory::createSchema()           
+         has parameter $columns with no value type specified in iterable type array.                  
+         💡 See:                                                                                      
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type         
+  :58    Method                                                                                       
+         SAC\EloquentModelGenerator\Support\Factories\ModelGeneratorFactory::createSchema()           
+         has parameter $indexes with no value type specified in iterable type array.                  
+         💡 See:                                                                                      
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type         
+  :59    Class SAC\EloquentModelGenerator\Support\Definitions\SchemaDefinition constructor            
+         invoked with 0 parameters, 3 required.                                                       
+  :60    Access to private property                                                                   
+         SAC\EloquentModelGenerator\Support\Definitions\SchemaDefinition::$table.                     
+  :61    Access to private property                                                                   
+         SAC\EloquentModelGenerator\Support\Definitions\SchemaDefinition::$columns.                   
+  :61    Property SAC\EloquentModelGenerator\Support\Definitions\SchemaDefinition::$columns           
+         (Illuminate\Support\Collection<int, SAC\EloquentModelGenerator\ValueObjects\Column>)         
+         does not accept Illuminate\Support\Collection<(int|string), object{name:                     
+         (int|string), type: mixed, nullable: mixed, unsigned: mixed, length: mixed, total:           
+         mixed, places: mixed, allowed: mixed, autoIncrement: mixed}&stdClass>.                       
+  :64    Cannot access offset 'type' on mixed.                                                        
+  :65    Cannot access offset 'nullable' on mixed.                                                    
+  :66    Cannot access offset 'unsigned' on mixed.                                                    
+  :67    Cannot access offset 'length' on mixed.                                                      
+  :68    Cannot access offset 'total' on mixed.                                                       
+  :69    Cannot access offset 'places' on mixed.                                                      
+  :70    Cannot access offset 'allowed' on mixed.                                                     
+  :71    Cannot access offset 'autoIncrement' on mixed.                                               
+  :75    Access to private property                                                                   
+         SAC\EloquentModelGenerator\Support\Definitions\SchemaDefinition::$indexes.                   
+  :75    Property SAC\EloquentModelGenerator\Support\Definitions\SchemaDefinition::$indexes           
+         (Illuminate\Support\Collection<int, SAC\EloquentModelGenerator\ValueObjects\Index>)          
+         does not accept Illuminate\Support\Collection<(int|string), object{name:                     
+         (int|string), type: mixed, columns: mixed}&stdClass>.                                        
+  :78    Cannot access offset 'type' on mixed.                                                        
+  :79    Cannot access offset 'columns' on mixed.                                                     
+ ------ --------------------------------------------------------------------------------------------- 
+
+ ------ -------------------------------------------------------------------------------------- 
+  Line   Support/Traits/HasRelationships.php (in context of class                              
+         SAC\EloquentModelGenerator\Models\BaseModel)                                          
+ ------ -------------------------------------------------------------------------------------- 
+  :15    Method SAC\EloquentModelGenerator\Models\BaseModel::getRelationships() return type    
+         has no value type specified in iterable type array.                                   
+         💡 See:                                                                               
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type  
+ ------ -------------------------------------------------------------------------------------- 
+
+ ------ -------------------------------------------------------------------------------------- 
+  Line   Support/Traits/HasValidation.php (in context of class                                 
+         SAC\EloquentModelGenerator\Models\BaseModel)                                          
+ ------ -------------------------------------------------------------------------------------- 
+  :35    Method SAC\EloquentModelGenerator\Models\BaseModel::getRules() return type has no     
+         value type specified in iterable type array.                                          
+         💡 See:                                                                               
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type  
+  :45    Method SAC\EloquentModelGenerator\Models\BaseModel::setRules() has parameter $rules   
+         with no value type specified in iterable type array.                                  
+         💡 See:                                                                               
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type  
+  :46    Property SAC\EloquentModelGenerator\Models\BaseModel::$rules (array<string,           
+         array<string>|string>) does not accept array<string, array|string>.                   
+  :108   Method SAC\EloquentModelGenerator\Models\BaseModel::getErrors() return type has no    
+         value type specified in iterable type array.                                          
+         💡 See:                                                                               
+            https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type  
+  :113   Method SAC\EloquentModelGenerator\Models\BaseModel::getErrors() should return         
+         array<string, array> but returns array.                                               
+ ------ -------------------------------------------------------------------------------------- 
+
+ ------ ---------------------------------------------------------------------------------- 
+  Line   Templates/CachedModelTemplate.php                                                 
+ ------ ---------------------------------------------------------------------------------- 
+  :25    Method SAC\EloquentModelGenerator\Templates\CachedModelTemplate::render() should  
+         return string but returns mixed.                                                  
+  :57    Method SAC\EloquentModelGenerator\Templates\CachedModelTemplate::getCacheTtl()    
+         should return int but returns mixed.                                              
+ ------ ---------------------------------------------------------------------------------- 
+
+ ------ -------------------------------------------------------------------------------------- 
+  Line   ValueObjects/Index.php                                                                
+ ------ -------------------------------------------------------------------------------------- 
+  :36    Cannot redeclare property SAC\EloquentModelGenerator\ValueObjects\Index::$name.       
+  :37    Cannot redeclare property SAC\EloquentModelGenerator\ValueObjects\Index::$type.       
+  :38    Cannot redeclare property SAC\EloquentModelGenerator\ValueObjects\Index::$columns.    
+  :40    Readonly property SAC\EloquentModelGenerator\ValueObjects\Index::$name is already     
+         assigned.                                                                             
+  :41    Readonly property SAC\EloquentModelGenerator\ValueObjects\Index::$type is already     
+         assigned.                                                                             
+  :42    Readonly property SAC\EloquentModelGenerator\ValueObjects\Index::$columns is already  
+         assigned.                                                                             
+ ------ -------------------------------------------------------------------------------------- 
+
+ -- ------------------------------------------------------------------------------------------ 
+     Error                                                                                     
+ -- ------------------------------------------------------------------------------------------ 
+     Ignored error pattern #Access to an undefined property .+Model::\$.+# was not matched in  
+     reported errors.                                                                          
+     Ignored error pattern #Call to an undefined method .+Model::.+# was not matched in        
+     reported errors.                                                                          
+     Ignored error pattern #Dynamic class name# was not matched in reported errors.            
+     Ignored error pattern #Closure returns no value, but should return# was not matched in    
+     reported errors.                                                                          
+     Ignored error pattern #PHPDoc tag @var# was not matched in reported errors.               
+     Ignored error pattern #Call to an undefined method                                        
+     Illuminate\\Database\\Schema\\Builder::# was not matched in reported errors.              
+     Ignored error pattern #Method .+writeln\(\) invoked with 1 parameter, 2 required# was     
+     not matched in reported errors.                                                           
+     Ignored error pattern #Expected type                                                      
+     'SAC\\EloquentModelGenerator\\ValueObjects\\ModelDefinition'. Found                       
+     'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition'# was not matched in  
+     reported errors.                                                                          
+ -- ------------------------------------------------------------------------------------------ 
+
+ [ERROR] Found 366 errors                                                                      
+

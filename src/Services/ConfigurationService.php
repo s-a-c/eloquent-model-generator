@@ -16,12 +16,13 @@ class ConfigurationService {
     /**
      * Get a configuration value.
      *
+     * @template T
      * @param string $key
-     * @param mixed $default
-     * @return mixed
+     * @param T $default
+     * @return T
      */
     public function get(string $key, mixed $default = null): mixed {
-        return $this->config->get('eloquent-model-generator.' . $key, $default);
+        return $this->config->get("eloquent-model-generator.{$key}", $default);
     }
 
     /**
@@ -32,7 +33,7 @@ class ConfigurationService {
      * @return void
      */
     public function set(string $key, mixed $value): void {
-        $this->config->set('eloquent-model-generator.' . $key, $value);
+        $this->config->set("eloquent-model-generator.{$key}", $value);
     }
 
     /**
@@ -51,6 +52,7 @@ class ConfigurationService {
      * @return array<string, mixed>
      */
     public function all(): array {
+        /** @var array<string, mixed> */
         return $this->config->get('eloquent-model-generator', []);
     }
 }

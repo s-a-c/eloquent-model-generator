@@ -1,9 +1,32 @@
 {
-    "name": "s-a-c/eloquent-model-generator",
-    "description": "A high-performance Laravel package that automatically generates Eloquent models from your database schema",
+    "name": "sac/eloquent-model-generator",
+    "description": "An advanced Eloquent model generator for Laravel with comprehensive static analysis and code quality tools",
     "type": "library",
     "license": "MIT",
-    "version": "1.0.0",
+    "require": {
+        "php": "^8.1",
+        "illuminate/console": "^10.0",
+        "illuminate/database": "^10.0",
+        "illuminate/support": "^10.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^8.0",
+        "pestphp/pest": "^2.0",
+        "pestphp/pest-plugin-laravel": "^2.0",
+        "pestphp/pest-plugin-parallel": "^2.0",
+        "pestphp/pest-plugin-type-coverage": "^2.0",
+        "phpstan/phpstan": "^1.10",
+        "larastan/larastan": "^2.0",
+        "friendsofphp/php-cs-fixer": "^3.17",
+        "squizlabs/php_codesniffer": "^3.7",
+        "slevomat/coding-standard": "^8.13",
+        "phpmd/phpmd": "^2.13",
+        "infection/infection": "^0.27",
+        "vimeo/psalm": "^5.13",
+        "phpmetrics/phpmetrics": "^2.8",
+        "nunomaduro/collision": "^7.0",
+        "doctrine/coding-standard": "^12.0"
+    },
     "autoload": {
         "psr-4": {
             "SAC\\EloquentModelGenerator\\": "src/"
@@ -11,218 +34,76 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "SAC\\EloquentModelGenerator\\Tests\\": "tests/",
-            "App\\": "tests/tmp/app/App/"
-        },
-        "exclude-from-classmap": [
-            "/tests/tmp/"
+            "SAC\\EloquentModelGenerator\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "pest",
+        "test:coverage": "pest --coverage",
+        "test:types": "pest --type-coverage",
+        "test:parallel": "pest --parallel",
+        "analyse": [
+            "@phpstan",
+            "@psalm",
+            "@phpmd"
+        ],
+        "phpstan": "phpstan analyse",
+        "psalm": "psalm --show-info=true",
+        "phpmd": "phpmd src ansi phpmd.xml",
+        "style": [
+            "@cs-check",
+            "@phpcs"
+        ],
+        "cs-check": "php-cs-fixer fix --dry-run --diff",
+        "cs-fix": "php-cs-fixer fix",
+        "phpcs": "phpcs",
+        "phpcs-fix": "phpcbf",
+        "metrics": "phpmetrics --report-html=build/metrics src",
+        "infection": "infection --threads=4",
+        "check-all": [
+            "@test:parallel",
+            "@test:types",
+            "@analyse",
+            "@style",
+            "@metrics"
+        ],
+        "post-autoload-dump": [
+            "@php ./vendor/bin/testbench package:discover --ansi"
         ]
     },
-    "authors": [
-        {
-            "name": "StandAloneComplex",
-            "email": "embbrace.s0ul+s-a-c@gmail.com"
-        }
-    ],
-    "require": {
-        "php": "^8.1",
-        "illuminate/support": "^9.0|^10.0",
-        "illuminate/database": "^9.0|^10.0"
-    },
-    "suggest": {
-        "ext-parallel": "Required for parallel processing support"
-    },
-    "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.40",
-        "infection/infection": "^0.27",
-        "mockery/mockery": "^1.5",
-        "nunomaduro/larastan": "^2.0",
-        "orchestra/testbench": "^7.0|^8.0",
-        "pestphp/pest": "^2.0",
-        "pestphp/pest-plugin-laravel": "^2.0",
-        "phploc/phploc": "^7.0",
-        "phpat/phpat": "^0.10.0",
-        "sebastian/phpcpd": "^6.0",
-        "symfony/yaml": "^6.0|^7.0"
+    "scripts-descriptions": {
+        "test": "Run Pest tests",
+        "test:coverage": "Run tests with code coverage",
+        "test:types": "Run tests with type coverage analysis",
+        "test:parallel": "Run tests in parallel",
+        "analyse": "Run all static analysis tools",
+        "phpstan": "Run PHPStan static analysis",
+        "psalm": "Run Psalm static analysis",
+        "phpmd": "Run PHP Mess Detector",
+        "style": "Run all code style checks",
+        "cs-check": "Check code style with PHP-CS-Fixer",
+        "cs-fix": "Fix code style with PHP-CS-Fixer",
+        "phpcs": "Check code style with PHP_CodeSniffer",
+        "phpcs-fix": "Fix code style with PHP_CodeSniffer",
+        "metrics": "Generate code metrics report",
+        "infection": "Run mutation testing",
+        "check-all": "Run all checks and tests"
     },
     "extra": {
         "laravel": {
             "providers": [
-                "SAC\\EloquentModelGenerator\\EloquentModelGeneratorServiceProvider"
+                "SAC\\EloquentModelGenerator\\Providers\\EloquentModelGeneratorServiceProvider"
             ]
         }
     },
-    "scripts": {
-        "test": "vendor/bin/pest",
-        "test-coverage": "vendor/bin/pest --coverage",
-        "test-architecture": "vendor/bin/pest --arch",
-        "test-group": "vendor/bin/pest --group",
-        "test-profile": "vendor/bin/pest --profile",
-        "test-watch": "vendor/bin/pest --watch",
-
-        "test:all": [
-            "@test:lint",
-            "@test:unit",
-            "@test:feature",
-            "@test:integration",
-            "@test:performance"
-        ],
-        "test:all-mysql": "@test:all --env=mysql",
-        "test:all-pgsql": "@test:all --env=pgsql",
-        "test:all-sqlite": "@test:all --env=sqlite",
-        "test:all-sqlsrv": "@test:all --env=sqlsrv",
-
-        "test:fast": "vendor/bin/pest --group=unit,feature",
-        "test:fast-mysql": "@test:fast --env=mysql",
-        "test:fast-pgsql": "@test:fast --env=pgsql",
-        "test:fast-sqlite": "@test:fast --env=sqlite",
-        "test:fast-sqlsrv": "@test:fast --env=sqlsrv",
-
-        "test:ci": "vendor/bin/pest --coverage --min=80",
-        "test:ci-mysql": "@test:ci --env=mysql",
-        "test:ci-pgsql": "@test:ci --env=pgsql",
-        "test:ci-sqlite": "@test:ci --env=sqlite",
-        "test:ci-sqlsrv": "@test:ci --env=sqlsrv",
-
-        "test:coverage-html": "vendor/bin/pest --coverage-html coverage",
-        "test:coverage-html-mysql": "@test:coverage-html --env=mysql",
-        "test:coverage-html-pgsql": "@test:coverage-html --env=pgsql",
-        "test:coverage-html-sqlite": "@test:coverage-html --env=sqlite",
-        "test:coverage-html-sqlsrv": "@test:coverage-html --env=sqlsrv",
-
-        "test:lint": [
-            "@format:test",
-            "@test-architecture"
-        ],
-
-        "test:unit": "vendor/bin/pest --group=unit",
-        "test:unit-mysql": "@test:unit --env=mysql",
-        "test:unit-pgsql": "@test:unit --env=pgsql",
-        "test:unit-sqlite": "@test:unit --env=sqlite",
-        "test:unit-sqlsrv": "@test:unit --env=sqlsrv",
-
-        "test:feature": "vendor/bin/pest --group=feature",
-        "test:feature-mysql": "@test:feature --env=mysql",
-        "test:feature-pgsql": "@test:feature --env=pgsql",
-        "test:feature-sqlite": "@test:feature --env=sqlite",
-        "test:feature-sqlsrv": "@test:feature --env=sqlsrv",
-
-        "test:integration": "vendor/bin/pest --group=integration",
-        "test:integration-mysql": "@test:integration --env=mysql",
-        "test:integration-pgsql": "@test:integration --env=pgsql",
-        "test:integration-sqlite": "@test:integration --env=sqlite",
-        "test:integration-sqlsrv": "@test:integration --env=sqlsrv",
-
-        "test:performance": "vendor/bin/pest --group=performance",
-        "test:performance-mysql": "@test:performance --env=mysql",
-        "test:performance-pgsql": "@test:performance --env=pgsql",
-        "test:performance-sqlite": "@test:performance --env=sqlite",
-        "test:performance-sqlsrv": "@test:performance --env=sqlsrv",
-
-        "test:db": [
-            "@test:mysql",
-            "@test:pgsql",
-            "@test:sqlite",
-            "@test:sqlsrv"
-        ],
-        "test:mysql": "vendor/bin/pest --group=mysql --env=mysql",
-        "test:pgsql": "vendor/bin/pest --group=pgsql --env=pgsql",
-        "test:sqlite": "vendor/bin/pest --group=sqlite --env=sqlite",
-        "test:sqlsrv": "vendor/bin/pest --group=sqlsrv --env=sqlsrv",
-
-        "test:memory-intensive": "vendor/bin/pest --group=memory-intensive",
-        "test:memory-intensive-mysql": "@test:memory-intensive --env=mysql",
-        "test:memory-intensive-pgsql": "@test:memory-intensive --env=pgsql",
-        "test:memory-intensive-sqlite": "@test:memory-intensive --env=sqlite",
-        "test:memory-intensive-sqlsrv": "@test:memory-intensive --env=sqlsrv",
-
-        "test:relationships": "vendor/bin/pest --group=relationships",
-        "test:relationships-mysql": "@test:relationships --env=mysql",
-        "test:relationships-pgsql": "@test:relationships --env=pgsql",
-        "test:relationships-sqlite": "@test:relationships --env=sqlite",
-        "test:relationships-sqlsrv": "@test:relationships --env=sqlsrv",
-
-        "test:concurrency": "vendor/bin/pest --group=concurrency",
-        "test:concurrency-mysql": "@test:concurrency --env=mysql",
-        "test:concurrency-pgsql": "@test:concurrency --env=pgsql",
-        "test:concurrency-sqlite": "@test:concurrency --env=sqlite",
-        "test:concurrency-sqlsrv": "@test:concurrency --env=sqlsrv",
-
-        "test:edge-cases": "vendor/bin/pest --group=edge-cases",
-        "test:edge-cases-mysql": "@test:edge-cases --env=mysql",
-        "test:edge-cases-pgsql": "@test:edge-cases --env=pgsql",
-        "test:edge-cases-sqlite": "@test:edge-cases --env=sqlite",
-        "test:edge-cases-sqlsrv": "@test:edge-cases --env=sqlsrv",
-
-        "test:arch": "vendor/bin/pest --group=architecture",
-        "test:contracts": "vendor/bin/pest --group=contracts",
-        "test:services": "vendor/bin/pest --group=services",
-        "test:factories": "vendor/bin/pest --group=factories",
-        "test:definitions": "vendor/bin/pest --group=definitions",
-
-        "format": "php-cs-fixer fix",
-        "format:dry-run": "php-cs-fixer fix --dry-run --diff",
-        "format:test": "php-cs-fixer fix --dry-run --diff --stop-on-violation",
-
-        "check": [
-            "@check:types",
-            "@check:style",
-            "@check:duplicates"
-        ],
-        "check:types": "@analyze:stan",
-        "check:style": "@format:test",
-        "check:duplicates": "@analyze:duplicates",
-
-        "fix": [
-            "@fix:style"
-        ],
-        "fix:style": "@format",
-
-        "quality": [
-            "@check",
-            "@test:mutation",
-            "@analyze:complexity",
-            "@test:architecture"
-        ],
-        "quality:ci": [
-            "@check",
-            "@test:ci",
-            "@test:mutation"
-        ],
-
-        "analyze:all": [
-            "@analyze:complexity",
-            "@analyze:duplicates",
-            "@analyze:stan",
-            "@test:arch"
-        ],
-        "analyze:complexity": "phploc --count-tests src tests",
-        "analyze:duplicates": "phpcpd --min-lines=5 --min-tokens=70 src",
-        "analyze:stan": "phpstan analyze --memory-limit=2G",
-
-        "test:mutation": [
-            "@test:coverage-html",
-            "infection --threads=4 --coverage=build/coverage --show-mutations --no-progress"
-        ],
-
-        "build": [
-            "@check",
-            "@test:all",
-            "@analyze:all"
-        ],
-        "build:clean": [
-            "rm -rf build/*",
-            "@build"
-        ]
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "config": {
         "sort-packages": true,
-        "preferred-install": "dist",
-        "optimize-autoloader": true,
         "allow-plugins": {
-            "pestphp/pest-plugin": true
+            "pestphp/pest-plugin": true,
+            "infection/extension-installer": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

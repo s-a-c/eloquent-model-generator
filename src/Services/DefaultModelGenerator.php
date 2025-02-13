@@ -3,9 +3,11 @@
 namespace SAC\EloquentModelGenerator\Services;
 
 use SAC\EloquentModelGenerator\Models\GeneratedModel;
+use SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition;
 use SAC\EloquentModelGenerator\ValueObjects\TableSchema;
 use SAC\EloquentModelGenerator\Services\ConfigurationService;
 use Illuminate\Support\Str;
+use Illuminate\Support\Collection;
 
 class DefaultModelGenerator implements ModelGeneratorInterface {
     public function __construct(
@@ -14,7 +16,7 @@ class DefaultModelGenerator implements ModelGeneratorInterface {
     }
 
     /**
-     * Generate a model from the given schema.
+     * Generate a model.
      *
      * @param string $table
      * @param TableSchema $schema
@@ -22,19 +24,145 @@ class DefaultModelGenerator implements ModelGeneratorInterface {
      * @return GeneratedModel
      */
     public function generate(string $table, TableSchema $schema, array $config = []): GeneratedModel {
-        $className = $config['class_name'] ?? $this->generateClassName($table);
-        $namespace = $config['namespace'] ?? $this->configService->get('namespace', 'App\\Models');
-        $baseClass = $config['base_class'] ?? $this->configService->get('base_model_class', 'Illuminate\\Database\\Eloquent\\Model');
+        /** @var array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool} $modelConfig */
+        $modelConfig = array_intersect_key($config, array_flip([
+            'class_name',
+            'namespace',
+            'base_class',
+            'with_soft_deletes',
+            'with_validation',
+            'with_relationships'
+        ]));
 
-        $content = $this->generateModelContent($className, $namespace, $table, $baseClass, $schema);
+        $definition = new ModelDefinition(
+            className: $modelConfig['class_name'] ?? $this->generateClassName($table),
+            namespace: $modelConfig['namespace'] ?? 'App\\Models',
+            columns: new Collection(),
+            relations: new Collection(),
+            baseClass: $modelConfig['base_class'] ?? 'Illuminate\\Database\\Eloquent\\Model',
+            withSoftDeletes: $modelConfig['with_soft_deletes'] ?? false,
+            withValidation: $modelConfig['with_validation'] ?? false,
+            withRelationships: $modelConfig['with_relationships'] ?? true,
+            table: $table
+        );
+
+        $content = $this->generateModelContent(
+            $definition->getClassName(),
+            $definition->getNamespace(),
+            $definition->getTableName(),
+            $definition->getBaseClass(),
+            $schema->toArray()
+        );
 
         return new GeneratedModel(
-            className: $className,
-            namespace: $namespace,
-            tableName: $table,
-            baseClass: $baseClass,
+            className: $definition->getClassName(),
+            namespace: $definition->getNamespace(),
+            tableName: $definition->getTableName(),
+            baseClass: $definition->getBaseClass(),
             content: $content
         );
+    }
+
+    /**
+     * Generate the model content.
+     *
+     * @param string $className
+     * @param string $namespace
+     * @param string $tableName
+     * @param string $baseClass
+     * @param array{columns: array<string, array{type: string, nullable: bool, default?: mixed, length?: int|null, unsigned?: bool, autoIncrement?: bool, comment?: string|null}>, indexes?: array<string, array{type: string, columns: array<string>}>, foreignKeys?: array<string, array{table: string, columns: array<string, string>}>} $schema
+     * @return string
+     */
+    protected function generateModelContent(
+        string $className,
+        string $namespace,
+        string $tableName,
+        string $baseClass,
+        array $schema
+    ): string {
+        $template = $this->getTemplate();
+        $template = str_replace('{{namespace}}', $namespace, $template);
+        $template = str_replace('{{className}}', $className, $template);
+        $template = str_replace('{{baseClass}}', $baseClass, $template);
+        $template = str_replace('{{tableName}}', $tableName, $template);
+
+        $fillable = $this->generateFillable($schema['columns']);
+        $template = str_replace('{{fillable}}', $fillable, $template);
+
+        $casts = $this->generateCasts($schema['columns']);
+        $template = str_replace('{{casts}}', $casts, $template);
+
+        return $template;
+    }
+
+    /**
+     * Get the model template.
+     *
+     * @return string
+     */
+    protected function getTemplate(): string {
+        return <<<'PHP'
+<?php
+
+namespace {{namespace}};
+
+use {{baseClass}} as BaseModel;
+
+class {{className}} extends BaseModel
+{
+    protected $table = '{{tableName}}';
+
+    protected $fillable = [{{fillable}}];
+
+    protected $casts = [{{casts}}];
+}
+PHP;
+    }
+
+    /**
+     * Generate the fillable property.
+     *
+     * @param array<string, array{type: string, nullable: bool, default?: mixed, length?: int|null, unsigned?: bool, autoIncrement?: bool, comment?: string|null}> $columns
+     * @return string
+     */
+    protected function generateFillable(array $columns): string {
+        $fillable = array_keys($columns);
+        return "'" . implode("', '", $fillable) . "'";
+    }
+
+    /**
+     * Generate the casts property.
+     *
+     * @param array<string, array{type: string, nullable: bool, default?: mixed, length?: int|null, unsigned?: bool, autoIncrement?: bool, comment?: string|null}> $columns
+     * @return string
+     */
+    protected function generateCasts(array $columns): string {
+        $casts = [];
+        foreach ($columns as $name => $column) {
+            $type = $this->getCastType($column['type']);
+            if ($type !== null) {
+                $casts[] = "'{$name}' => '{$type}'";
+            }
+        }
+        return implode(', ', $casts);
+    }
+
+    /**
+     * Get the cast type for a column.
+     *
+     * @param string $type
+     * @return string|null
+     */
+    protected function getCastType(string $type): ?string {
+        return match ($type) {
+            'integer', 'bigint', 'smallint' => 'integer',
+            'decimal', 'float' => 'float',
+            'boolean' => 'boolean',
+            'date' => 'date',
+            'datetime', 'timestamp' => 'datetime',
+            'json', 'jsonb' => 'array',
+            default => null,
+        };
     }
 
     /**
@@ -45,125 +173,5 @@ class DefaultModelGenerator implements ModelGeneratorInterface {
      */
     private function generateClassName(string $table): string {
         return Str::studly(Str::singular($table));
-    }
-
-    /**
-     * Generate the model content.
-     *
-     * @param string $className
-     * @param string $namespace
-     * @param string $table
-     * @param string $baseClass
-     * @param TableSchema $schema
-     * @return string
-     */
-    private function generateModelContent(
-        string $className,
-        string $namespace,
-        string $table,
-        string $baseClass,
-        TableSchema $schema
-    ): string {
-        $fillable = [];
-        $casts = [];
-        $dates = [];
-        $hidden = [];
-
-        foreach ($schema->getColumns() as $column) {
-            if (!$column->isPrimary()) {
-                $fillable[] = $column->getName();
-            }
-
-            if ($column->getType() === 'datetime' || $column->getType() === 'timestamp') {
-                $dates[] = $column->getName();
-                $casts[$column->getName()] = 'datetime';
-            } elseif ($column->getType() === 'date') {
-                $dates[] = $column->getName();
-                $casts[$column->getName()] = 'date';
-            } elseif ($column->getType() === 'json') {
-                $casts[$column->getName()] = 'array';
-            } elseif ($column->getType() === 'boolean') {
-                $casts[$column->getName()] = 'boolean';
-            } elseif ($column->getType() === 'integer') {
-                $casts[$column->getName()] = 'integer';
-            } elseif ($column->getType() === 'float' || $column->getType() === 'decimal') {
-                $casts[$column->getName()] = 'float';
-            }
-        }
-
-        return <<<PHP
-<?php
-
-namespace {$namespace};
-
-use {$baseClass};
-
-class {$className} extends {$baseClass} {
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected \$table = '{$table}';
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<string>
-     */
-    protected \$fillable = {$this->renderArray($fillable)};
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<string>
-     */
-    protected \$hidden = {$this->renderArray($hidden)};
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected \$casts = {$this->renderArray($casts)};
-
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array<string>
-     */
-    protected \$dates = {$this->renderArray($dates)};
-}
-PHP;
-    }
-
-    /**
-     * Render an array as a PHP array string.
-     *
-     * @param array<mixed> $array
-     * @return string
-     */
-    private function renderArray(array $array): string {
-        if (empty($array)) {
-            return '[]';
-        }
-
-        $output = "[\n";
-        foreach ($array as $key => $value) {
-            if (is_array($value)) {
-                $value = $this->renderArray($value);
-            } elseif (is_string($value)) {
-                $value = "'$value'";
-            }
-
-            if (is_string($key)) {
-                $output .= "        '$key' => $value,\n";
-            } else {
-                $output .= "        $value,\n";
-            }
-        }
-        $output .= "    ]";
-
-        return $output;
     }
 }

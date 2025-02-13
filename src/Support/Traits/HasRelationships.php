@@ -6,11 +6,17 @@ use ReflectionClass;
 use ReflectionMethod;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
+/**
+ * @phpstan-type RelationshipDefinition array{
+ *     type: class-string|null,
+ *     model: class-string|null
+ * }
+ */
 trait HasRelationships {
     /**
      * Get all relationships defined in the model.
      *
-     * @return array<string, array>
+     * @return array<string, RelationshipDefinition>
      */
     public function getRelationships(): array {
         $relationships = [];
@@ -18,10 +24,13 @@ trait HasRelationships {
 
         foreach ($methods as $method) {
             if ($this->isRelationshipMethod($method)) {
-                $relationships[$method->getName()] = [
-                    'type' => $this->getRelationshipType($method->getName()),
-                    'model' => $this->getRelatedModel($method->getName())
+                $name = $method->getName();
+                /** @var RelationshipDefinition */
+                $relationship = [
+                    'type' => $this->getRelationshipType($name),
+                    'model' => $this->getRelatedModel($name)
                 ];
+                $relationships[$name] = $relationship;
             }
         }
 
@@ -31,7 +40,7 @@ trait HasRelationships {
     /**
      * Get all relationship methods defined in the model.
      *
-     * @return array<string>
+     * @return array<int, string>
      */
     public function getRelationshipMethods(): array {
         return array_keys($this->getRelationships());
@@ -41,7 +50,7 @@ trait HasRelationships {
      * Get the type of a relationship.
      *
      * @param string $method
-     * @return string|null
+     * @return class-string|null
      */
     public function getRelationshipType(string $method): ?string {
         if (!method_exists($this, $method)) {
@@ -53,14 +62,15 @@ trait HasRelationships {
             return null;
         }
 
-        return class_basename(get_class($relation));
+        /** @var class-string */
+        return get_class($relation);
     }
 
     /**
      * Get the related model class for a relationship.
      *
      * @param string $method
-     * @return string|null
+     * @return class-string|null
      */
     public function getRelatedModel(string $method): ?string {
         if (!method_exists($this, $method)) {
@@ -72,6 +82,7 @@ trait HasRelationships {
             return null;
         }
 
+        /** @var class-string */
         return get_class($relation->getRelated());
     }
 
@@ -96,7 +107,7 @@ trait HasRelationships {
         try {
             $relation = $this->{$method->getName()}();
             return $relation instanceof Relation;
-        } catch (\Throwable $e) {
+        } catch (\Throwable) {
             return false;
         }
     }

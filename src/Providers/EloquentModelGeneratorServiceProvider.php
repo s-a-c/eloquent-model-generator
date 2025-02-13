@@ -3,49 +3,51 @@
 namespace SAC\EloquentModelGenerator\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use SAC\EloquentModelGenerator\ModelGenerator;
+use SAC\EloquentModelGenerator\Console\Commands\GenerateModelCommand;
 use SAC\EloquentModelGenerator\Services\ModelGeneratorService;
 use SAC\EloquentModelGenerator\Services\ModelGeneratorTemplateEngine;
-use SAC\EloquentModelGenerator\Contracts\ModelGenerator as ModelGeneratorContract;
-use SAC\EloquentModelGenerator\Contracts\ModelGeneratorService as ModelGeneratorServiceContract;
 
 class EloquentModelGeneratorServiceProvider extends ServiceProvider {
     /**
      * Register any application services.
      */
     public function register(): void {
-        $this->mergeConfigFrom(
-            __DIR__ . '/../../config/eloquent-model-generator.php',
-            'eloquent-model-generator'
-        );
-
-        // Register the template engine
         $this->app->singleton(ModelGeneratorTemplateEngine::class);
+        $this->app->singleton(ModelGeneratorService::class);
 
-        // Register the model generator service
-        $this->app->singleton(ModelGeneratorServiceContract::class, function ($app) {
-            return new ModelGeneratorService(
-                $app->make(ModelGeneratorTemplateEngine::class)
-            );
-        });
+        $this->app->when(GenerateModelCommand::class)
+            ->needs(ModelGeneratorService::class)
+            ->give(function ($app) {
+                /** @var ModelGeneratorTemplateEngine */
+                $templateEngine = $app->make(ModelGeneratorTemplateEngine::class);
+                return new ModelGeneratorService($templateEngine);
+            });
 
-        // Register the model generator
-        $this->app->singleton(ModelGeneratorContract::class, function ($app) {
-            return new ModelGenerator(
-                $app->make(ModelGeneratorServiceContract::class)
-            );
-        });
-
-        // Register the facade accessor
-        $this->app->alias(ModelGeneratorContract::class, 'eloquent-model-generator');
+        $this->app->when(GenerateModelCommand::class)
+            ->needs(ModelGeneratorTemplateEngine::class)
+            ->give(function ($app) {
+                /** @var ModelGeneratorTemplateEngine */
+                $templateEngine = $app->make(ModelGeneratorTemplateEngine::class);
+                return $templateEngine;
+            });
     }
 
     /**
      * Bootstrap any application services.
      */
     public function boot(): void {
-        $this->publishes([
-            __DIR__ . '/../../config/eloquent-model-generator.php' => config_path('eloquent-model-generator.php'),
-        ], 'config');
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                GenerateModelCommand::class,
+            ]);
+
+            $this->publishes([
+                __DIR__ . '/../../config/eloquent-model-generator.php' => config_path('eloquent-model-generator.php'),
+            ], 'config');
+
+            $this->publishes([
+                __DIR__ . '/../../resources/stubs' => resource_path('stubs/vendor/eloquent-model-generator'),
+            ], 'stubs');
+        }
     }
 }

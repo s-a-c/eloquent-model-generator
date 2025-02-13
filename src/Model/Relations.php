@@ -4,69 +4,73 @@ namespace SAC\EloquentModelGenerator\Model;
 
 use Illuminate\Support\Str;
 
+/**
+ * @phpstan-type RelationType 'hasOne'|'hasMany'|'belongsTo'|'belongsToMany'|'morphTo'|'morphOne'|'morphMany'|'morphToMany'
+ * @phpstan-type RelationDefinition array{
+ *     type: RelationType,
+ *     model: class-string,
+ *     name: string,
+ *     foreignKey?: string,
+ *     localKey?: string,
+ *     table?: string,
+ *     morphType?: string,
+ *     morphClass?: class-string
+ * }
+ */
 class Relations {
+    /**
+     * @var array<string, RelationDefinition>
+     */
     private array $relations = [];
 
     /**
-     * Add a belongs to relation.
+     * Add a relation definition.
      *
      * @param string $name
-     * @param string $model
+     * @param RelationDefinition $definition
      * @return void
      */
-    public function addBelongsTo(string $name, string $model): void {
-        $this->relations[] = [
-            'type' => 'belongsTo',
-            'name' => $name,
-            'model' => $model
-        ];
+    public function addRelation(string $name, array $definition): void {
+        $this->relations[$name] = $definition;
     }
 
     /**
-     * Add a has many relation.
+     * Get all relations.
      *
-     * @param string $name
-     * @param string $model
-     * @return void
+     * @return array<string, RelationDefinition>
      */
-    public function addHasMany(string $name, string $model): void {
-        $this->relations[] = [
-            'type' => 'hasMany',
-            'name' => $name,
-            'model' => $model
-        ];
+    public function getRelations(): array {
+        return $this->relations;
     }
 
     /**
-     * Add a many to many relation.
+     * Get the relation method definition.
      *
-     * @param string $name
-     * @param string $model
-     * @return void
-     */
-    public function addManyToMany(string $name, string $model): void {
-        $this->relations[] = [
-            'type' => 'belongsToMany',
-            'name' => $name,
-            'model' => $model
-        ];
-    }
-
-    /**
-     * Convert relations to string.
-     *
+     * @param array<string, RelationDefinition> $relations
      * @return string
      */
-    public function toString(): string {
+    public function getRelationMethods(array $relations): string {
         $methods = [];
-        foreach ($this->relations as $relation) {
+        foreach ($relations as $relation) {
             $modelClass = class_basename($relation['model']);
-            $methods[] = match ($relation['type']) {
-                'belongsTo' => "public function {$relation['name']}() { return \$this->belongsTo({$modelClass}::class); }",
-                'hasMany' => "public function {$relation['name']}() { return \$this->hasMany({$modelClass}::class); }",
-                'belongsToMany' => "public function {$relation['name']}() { return \$this->belongsToMany({$modelClass}::class); }"
+            $type = $relation['type'];
+            $name = $relation['name'];
+
+            $method = match ($type) {
+                'hasOne' => "public function {$name}() {\n    return \$this->hasOne({$modelClass}::class);\n}",
+                'hasMany' => "public function {$name}() {\n    return \$this->hasMany({$modelClass}::class);\n}",
+                'belongsTo' => "public function {$name}() {\n    return \$this->belongsTo({$modelClass}::class);\n}",
+                'belongsToMany' => "public function {$name}() {\n    return \$this->belongsToMany({$modelClass}::class);\n}",
+                'morphTo' => "public function {$name}() {\n    return \$this->morphTo();\n}",
+                'morphOne' => "public function {$name}() {\n    return \$this->morphOne({$modelClass}::class);\n}",
+                'morphMany' => "public function {$name}() {\n    return \$this->morphMany({$modelClass}::class);\n}",
+                'morphToMany' => "public function {$name}() {\n    return \$this->morphToMany({$modelClass}::class);\n}",
+                default => throw new \InvalidArgumentException("Invalid relation type: {$type}")
             };
+
+            $methods[] = $method;
         }
-        return implode("\n", $methods);
+
+        return implode("\n\n", $methods);
     }
 }

@@ -2,9 +2,26 @@
 
 namespace SAC\EloquentModelGenerator\ValueObjects;
 
+/**
+ * Class Column
+ *
+ * Represents a database column with its properties and attributes.
+ *
+ * @package SAC\EloquentModelGenerator\ValueObjects
+ */
 class Column {
     /**
      * Create a new column instance.
+     *
+     * @param string $name The name of the column
+     * @param string $type The SQL type of the column
+     * @param bool $isPrimary Whether this is a primary key column
+     * @param bool $isAutoIncrement Whether this column auto-increments
+     * @param bool $isNullable Whether this column can be null
+     * @param bool $isUnique Whether this column has a unique constraint
+     * @param string|null $default The default value for this column
+     * @param int|null $length The length/size of the column
+     * @param array<string>|null $enumValues The possible values for enum columns
      */
     public function __construct(
         private readonly string $name,
@@ -82,5 +99,50 @@ class Column {
      */
     public function getEnumValues(): ?array {
         return $this->enumValues;
+    }
+
+    /**
+     * Get a string representation of the column.
+     *
+     * @return string A formatted string containing the column name, type, and attributes
+     */
+    public function toString(): string {
+        /** @var array<int, string> $attributes */
+        $attributes = [];
+
+        if ($this->isPrimary) {
+            $attributes[] = 'primary';
+        }
+
+        if ($this->isAutoIncrement) {
+            $attributes[] = 'auto-increment';
+        }
+
+        if ($this->isNullable) {
+            $attributes[] = 'nullable';
+        }
+
+        if ($this->isUnique) {
+            $attributes[] = 'unique';
+        }
+
+        if ($this->default !== null) {
+            $attributes[] = sprintf('default: %s', $this->default);
+        }
+
+        if ($this->length !== null) {
+            $attributes[] = sprintf('length: %d', $this->length);
+        }
+
+        if ($this->enumValues !== null) {
+            $attributes[] = sprintf('enum: [%s]', implode(', ', $this->enumValues));
+        }
+
+        return sprintf(
+            '%s %s%s',
+            $this->name,
+            $this->type,
+            $attributes ? ' (' . implode(', ', $attributes) . ')' : ''
+        );
     }
 }

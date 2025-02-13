@@ -5,44 +5,84 @@ namespace SAC\EloquentModelGenerator\Support\Factories;
 use SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition;
 use SAC\EloquentModelGenerator\Support\Definitions\SchemaDefinition;
 use SAC\EloquentModelGenerator\Support\Definitions\RelationDefinition;
+use SAC\EloquentModelGenerator\ValueObjects\Column;
+use SAC\EloquentModelGenerator\ValueObjects\Index;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 
+/**
+ * @phpstan-type ColumnDefinition array{
+ *     type: string,
+ *     nullable?: bool,
+ *     unsigned?: bool,
+ *     length?: int|null,
+ *     total?: int|null,
+ *     places?: int|null,
+ *     allowed?: array<string>|null,
+ *     autoIncrement?: bool,
+ *     primary?: bool,
+ *     unique?: bool,
+ *     default?: string|null
+ * }
+ *
+ * @phpstan-type RelationshipDefinition array{
+ *     type: string,
+ *     model?: string|null,
+ *     foreignKey?: string|null,
+ *     localKey?: string|null,
+ *     morphType?: string|null
+ * }
+ */
 class ModelGeneratorFactory {
     /**
      * Create a model definition from table schema
      *
      * @param string $table
-     * @param array $columns
-     * @param array $relations
+     * @param array<string, ColumnDefinition> $columns
+     * @param array<string, RelationshipDefinition> $relations
      * @return ModelDefinition
      */
     public function createModelDefinition(string $table, array $columns, array $relations = []): ModelDefinition {
-        $definition = new ModelDefinition();
-        $definition->table = $table;
-        $definition->columns = collect($columns)->map(function ($column, $name) {
-            return (object) [
-                'name' => $name,
-                'type' => $column['type'],
-                'nullable' => $column['nullable'] ?? false,
-                'unsigned' => $column['unsigned'] ?? false,
-                'length' => $column['length'] ?? null,
-                'total' => $column['total'] ?? null,
-                'places' => $column['places'] ?? null,
-                'allowed' => $column['allowed'] ?? null,
-                'autoIncrement' => $column['autoIncrement'] ?? false,
-            ];
-        });
-
-        $definition->relations = collect($relations)->map(function ($relation, $name) {
-            return new RelationDefinition(
-                $name,
-                $relation['type'],
-                $relation['model'] ?? null,
-                $relation['foreignKey'] ?? null,
-                $relation['localKey'] ?? null,
-                $relation['morphType'] ?? null
+        /** @var Collection<int, Column> $columnCollection */
+        $columnCollection = collect($columns)->map(function (array $column, string $name): Column {
+            return new Column(
+                name: $name,
+                type: $column['type'],
+                isPrimary: $column['primary'] ?? false,
+                isAutoIncrement: $column['autoIncrement'] ?? false,
+                isNullable: $column['nullable'] ?? false,
+                isUnique: $column['unique'] ?? false,
+                default: $column['default'] ?? null,
+                length: $column['length'] ?? null,
+                enumValues: $column['allowed'] ?? null
             );
         });
+
+        /** @var Collection<int, RelationDefinition> $relationCollection */
+        $relationCollection = collect($relations)->map(function (array $relation, string $name): RelationDefinition {
+            return new RelationDefinition(
+                name: $name,
+                type: $relation['type'],
+                model: $relation['model'] ?? null,
+                foreignKey: $relation['foreignKey'] ?? null,
+                localKey: $relation['localKey'] ?? null,
+                morphType: $relation['morphType'] ?? null
+            );
+        });
+
+        /** @var non-empty-string */
+        $className = Str::studly($table);
+        /** @var non-empty-string */
+        $namespace = 'App\\Models';
+
+        $definition = new ModelDefinition(
+            $className,
+            $namespace,
+            $columnCollection,
+            $relationCollection
+        );
+
+        $definition->table = $table;
 
         return $definition;
     }
@@ -51,35 +91,37 @@ class ModelGeneratorFactory {
      * Create a schema definition from table schema
      *
      * @param string $table
-     * @param array $columns
-     * @param array $indexes
+     * @param array<string, ColumnDefinition> $columns
+     * @param array<string, array{type: string, columns: array<string>}> $indexes
      * @return SchemaDefinition
      */
     public function createSchema(string $table, array $columns, array $indexes = []): SchemaDefinition {
-        $definition = new SchemaDefinition();
-        $definition->table = $table;
-        $definition->columns = collect($columns)->map(function ($column, $name) {
-            return (object) [
-                'name' => $name,
-                'type' => $column['type'],
-                'nullable' => $column['nullable'] ?? false,
-                'unsigned' => $column['unsigned'] ?? false,
-                'length' => $column['length'] ?? null,
-                'total' => $column['total'] ?? null,
-                'places' => $column['places'] ?? null,
-                'allowed' => $column['allowed'] ?? null,
-                'autoIncrement' => $column['autoIncrement'] ?? false,
-            ];
+        /** @var Collection<int, Column> $columnCollection */
+        $columnCollection = collect($columns)->map(function (array $column, string $name): Column {
+            return new Column(
+                name: $name,
+                type: $column['type'],
+                isPrimary: $column['primary'] ?? false,
+                isAutoIncrement: $column['autoIncrement'] ?? false,
+                isNullable: $column['nullable'] ?? false,
+                isUnique: $column['unique'] ?? false,
+                default: $column['default'] ?? null,
+                length: $column['length'] ?? null,
+                enumValues: $column['allowed'] ?? null
+            );
         });
 
-        $definition->indexes = collect($indexes)->map(function ($index, $name) {
-            return (object) [
-                'name' => $name,
-                'type' => $index['type'],
-                'columns' => $index['columns'],
-            ];
+        /** @var Collection<int, Index> $indexCollection */
+        $indexCollection = collect($indexes)->map(function (array $index, string $name): Index {
+            /** @var array<int, string> $indexColumns */
+            $indexColumns = array_values($index['columns']);
+            return new Index($name, $index['type'], $indexColumns);
         });
 
-        return $definition;
+        return new SchemaDefinition(
+            table: $table,
+            columns: $columnCollection,
+            indexes: $indexCollection
+        );
     }
 }

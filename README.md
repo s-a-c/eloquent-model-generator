@@ -1,5 +1,13 @@
 # Eloquent Model Generator
 
+An advanced Eloquent model generator for Laravel with comprehensive static analysis and code quality tools.
+
+## Version Support
+
+- Current stable version: 0.0.1
+- Supported PHP versions: ^8.1
+- Supported Laravel versions: ^10.0
+
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/s-a-c/eloquent-model-generator.svg?style=flat-square)](https://packagist.org/packages/s-a-c/eloquent-model-generator)
 [![Total Downloads](https://img.shields.io/packagist/dt/s-a-c/eloquent-model-generator.svg?style=flat-square)](https://packagist.org/packages/s-a-c/eloquent-model-generator)
 [![Tests](https://github.com/s-a-c/eloquent-model-generator/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/s-a-c/eloquent-model-generator/actions/workflows/run-tests.yml)
@@ -34,8 +42,10 @@ A high-performance Laravel package that automatically generates Eloquent models 
 
 ## Installation
 
+You can install the package via composer:
+
 ```bash
-composer require s-a-c/eloquent-model-generator
+composer require sac/eloquent-model-generator
 ```
 
 Publish the configuration:
@@ -43,6 +53,16 @@ Publish the configuration:
 ```bash
 php artisan vendor:publish --provider="StandAlonecomplex\\EloquentModelGenerator\\EloquentModelGeneratorServiceProvider"
 ```
+
+## Versioning
+
+This package follows [Semantic Versioning 2.0.0](https://semver.org/). The version numbers follow the format of `MAJOR.MINOR.PATCH`:
+
+- MAJOR version for incompatible API changes
+- MINOR version for added functionality in a backward compatible manner
+- PATCH version for backward compatible bug fixes
+
+Release tags can be found on the [releases page](https://github.com/s-a-c/eloquent-model-generator/releases).
 
 ## Quick Start
 
@@ -234,18 +254,27 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 ## Code Quality
 
-We maintain high code quality standards through automated tools and processes. Key features:
+We maintain high code quality standards through automated tools and processes tailored for model generation:
 
-- Static Analysis with PHPStan/Larastan (Level 8)
-- PSR-12 Coding Standards
-- Comprehensive Test Suite with Pest
-- Mutation Testing
-- Architecture Testing
-- Performance Monitoring
+### Static Analysis
+- Larastan (Level 8) with custom rules for model generation
+- Allows dynamic properties and method calls for models
+- Strict typing with Laravel-specific checks
 
-For more information:
-- [Code Quality Guide](docs/code-quality.md)
-- [Contributing Guide](docs/contributing.md)
+### Code Style & Quality
+- PSR-12 with Laravel conventions
+- PHPMD with custom rulesets:
+  - Higher complexity limits for model generation (100)
+  - Increased method limits (25 per class)
+  - Laravel Facade exceptions
+  - Model-specific naming rules
+
+### Testing
+- Pest PHP Testing Framework
+- 80% minimum coverage
+- 85% mutation score (MSI)
+- Architecture validation
+- Performance monitoring
 
 Quick start:
 ```bash
@@ -258,3 +287,7 @@ composer fix
 # Run all tests
 composer test:all
 ```
+
+For detailed information:
+- [Code Quality Guide](docs/code-quality.md)
+- [Contributing Guide](docs/contributing.md)

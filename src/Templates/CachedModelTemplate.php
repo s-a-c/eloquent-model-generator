@@ -17,24 +17,41 @@ class CachedModelTemplate implements ModelTemplate {
     }
 
     /**
-     * @inheritDoc
+     * Render a model template.
+     *
+     * @param GeneratedModel $model
+     * @return string
      */
     public function render(GeneratedModel $model): string {
         $cacheKey = $this->getCacheKey($model);
 
-        return Cache::remember($cacheKey, $this->getCacheTtl(), function () use ($model) {
-            return View::file($this->getTemplatePath(), [
-                'model' => $model,
-                'config' => $this->config->all(),
-            ])->render();
-        });
+        /** @var string */
+        return Cache::remember(
+            $cacheKey,
+            $this->getCacheTtl(),
+            function () use ($model): string {
+                /** @var string */
+                $rendered = View::file(
+                    $this->getTemplatePath(),
+                    [
+                        'model' => $model,
+                        'config' => $this->config->all(),
+                    ]
+                )->render();
+
+                return $rendered;
+            }
+        );
     }
 
     /**
-     * @inheritDoc
+     * Get the template path.
+     *
+     * @return non-empty-string
      */
     public function getTemplatePath(): string {
         $path = $this->config->get('templates_path');
+        /** @var non-empty-string */
         return $path ? $path . '/model.blade.php' : __DIR__ . '/../../resources/templates/model.blade.php';
     }
 
@@ -42,18 +59,20 @@ class CachedModelTemplate implements ModelTemplate {
      * Get the cache key for a model.
      *
      * @param GeneratedModel $model
-     * @return string
+     * @return non-empty-string
      */
     private function getCacheKey(GeneratedModel $model): string {
+        /** @var non-empty-string */
         return 'model_template:' . md5(serialize($model->toArray()));
     }
 
     /**
      * Get the cache TTL.
      *
-     * @return int
+     * @return positive-int
      */
     private function getCacheTtl(): int {
+        /** @var positive-int */
         return $this->config->get('cache.ttl', 3600);
     }
 }
