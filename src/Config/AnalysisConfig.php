@@ -7,106 +7,84 @@ namespace SAC\EloquentModelGenerator\Config;
 use Illuminate\Support\Facades\File;
 
 class AnalysisConfig {
+    private string $normalizedTargetDir;
+
     public function __construct(
         public readonly string $targetDir,
-        public readonly array $levels,
-        public readonly array $tools,
-        public readonly array $options = [],
-        public readonly ?string $cacheKey = null
+        public readonly array $levels = ['8'],
+        public readonly array $tools = [],
+        public readonly bool $parallel = false,
+        public readonly bool $dryRun = false,
     ) {
-    }
-
-    public static function fromFile(string $path): self {
-        if (!File::exists($path)) {
-            throw new \RuntimeException("Configuration file not found: {$path}");
+        // Normalize target directory path
+        $this->normalizedTargetDir = str_replace('\\', '/', realpath($targetDir));
+        if ($this->normalizedTargetDir === false) {
+            throw new \InvalidArgumentException("Invalid target directory: {$targetDir}");
         }
-
-        $config = json_decode(File::get($path), true);
-
-        if (json_last_error() !== JSON_ERROR_NONE) {
-            throw new \RuntimeException('Invalid JSON in configuration file');
-        }
-
-        return new self(
-            targetDir: $config['targetDir'] ?? '',
-            levels: $config['levels'] ?? [],
-            tools: $config['tools'] ?? [],
-            options: $config['options'] ?? [],
-            cacheKey: $config['cacheKey'] ?? null
-        );
     }
 
     public function toFile(string $path): void {
-        File::put($path, json_encode([
+        file_put_contents($path, json_encode([
             'targetDir' => $this->targetDir,
             'levels' => $this->levels,
             'tools' => $this->tools,
-            'options' => $this->options,
-            'cacheKey' => $this->cacheKey,
+            'parallel' => $this->parallel,
+            'dryRun' => $this->dryRun,
         ], JSON_PRETTY_PRINT));
     }
 
-    public function withTargetDir(string $targetDir): self {
+    public static function fromFile(string $path): self {
+        $data = json_decode(file_get_contents($path), true);
         return new self(
-            targetDir: $targetDir,
-            levels: $this->levels,
-            tools: $this->tools,
-            options: $this->options,
-            cacheKey: $this->cacheKey
-        );
-    }
-
-    public function withLevels(array $levels): self {
-        return new self(
-            targetDir: $this->targetDir,
-            levels: $levels,
-            tools: $this->tools,
-            options: $this->options,
-            cacheKey: $this->cacheKey
-        );
-    }
-
-    public function withTools(array $tools): self {
-        return new self(
-            targetDir: $this->targetDir,
-            levels: $this->levels,
-            tools: $tools,
-            options: $this->options,
-            cacheKey: $this->cacheKey
-        );
-    }
-
-    public function withOptions(array $options): self {
-        return new self(
-            targetDir: $this->targetDir,
-            levels: $this->levels,
-            tools: $this->tools,
-            options: array_merge($this->options, $options),
-            cacheKey: $this->cacheKey
-        );
-    }
-
-    public function withCacheKey(?string $cacheKey): self {
-        return new self(
-            targetDir: $this->targetDir,
-            levels: $this->levels,
-            tools: $this->tools,
-            options: $this->options,
-            cacheKey: $cacheKey
+            targetDir: $data['targetDir'],
+            levels: $data['levels'],
+            tools: $data['tools'],
+            parallel: $data['parallel'],
+            dryRun: $data['dryRun'],
         );
     }
 
     public function validate(): void {
-        if (empty($this->targetDir)) {
+        if (empty($this->normalizedTargetDir)) {
             throw new \InvalidArgumentException('Target directory is required');
         }
 
-        if (!File::isDirectory($this->targetDir)) {
-            throw new \InvalidArgumentException("Target directory does not exist: {$this->targetDir}");
+        if (!File::isDirectory($this->normalizedTargetDir)) {
+            throw new \InvalidArgumentException("Target directory does not exist: {$this->normalizedTargetDir}");
         }
 
-        if (empty($this->levels) && empty($this->tools)) {
-            throw new \InvalidArgumentException('At least one level or tool must be specified');
+        if (empty($this->levels)) {
+            throw new \InvalidArgumentException('At least one level must be specified');
         }
+    }
+
+    public function getTargetDir(): string {
+        return $this->normalizedTargetDir;
+    }
+
+    public function getLevels(): array {
+        return $this->levels;
+    }
+
+    public function getTools(): array {
+        return $this->tools;
+    }
+
+    public function isParallel(): bool {
+        return $this->parallel;
+    }
+
+    public function isDryRun(): bool {
+        return $this->dryRun;
+    }
+
+    public function toArray(): array {
+        return [
+            'targetDir' => $this->normalizedTargetDir,
+            'levels' => $this->levels,
+            'tools' => $this->tools,
+            'parallel' => $this->parallel,
+            'dryRun' => $this->dryRun,
+        ];
     }
 }

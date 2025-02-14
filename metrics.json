@@ -1,0 +1,16 @@
+{
+    "output": {
+        "html": "build/metrics/html",
+        "json": "build/metrics/metrics.json"
+    },
+    "paths": ["src"],
+    "exclude": [
+        "tests",
+        "vendor",
+        "build"
+    ],
+    "plugins": [
+        "git",
+        "junit"
+    ]
+}

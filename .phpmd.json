@@ -1,0 +1,15 @@
+{
+    "output": {
+        "format": "json"
+    },
+    "cache": {
+        "enabled": true,
+        "directory": "build/phpmd"
+    },
+    "paths": ["src"],
+    "exclude": [
+        "tests",
+        "vendor",
+        "build"
+    ]
+}

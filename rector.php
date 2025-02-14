@@ -14,32 +14,38 @@ use Rector\TypeDeclaration\Rector\ClassMethod\AddVoidReturnTypeWhereNoReturnRect
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromReturnNewRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictTypedCallRector;
 use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromStrictConstructorRector;
+use Rector\ValueObject\PhpVersion;
 
 return static function (RectorConfig $rectorConfig): void {
+    // Set PHP version features
+    $rectorConfig->phpVersion(PhpVersion::PHP_83);
+
+    // Paths to analyze
     $rectorConfig->paths([
         __DIR__ . '/src',
     ]);
 
-    // Level 4 appropriate sets
+    $rectorConfig->output('json');
+    $rectorConfig->cacheDirectory('build/rector');
+
+    // Skip paths
+    $rectorConfig->skip([
+        __DIR__ . '/tests',
+        __DIR__ . '/vendor',
+    ]);
+
+    // Level sets appropriate for PHP 8.3
     $rectorConfig->sets([
-        LevelSetList::UP_TO_PHP_81,  // Upgrade to PHP 8.1 features
+        LevelSetList::UP_TO_PHP_83,  // Upgrade to PHP 8.3 features
         SetList::DEAD_CODE,          // Remove dead code
         SetList::CODE_QUALITY,       // Improve code quality
         SetList::CODING_STYLE,       // Apply coding style rules
         SetList::TYPE_DECLARATION,   // Add type declarations where possible
         SetList::EARLY_RETURN,       // Convert nested conditions to early returns
+        SetList::PHP_83,             // PHP 8.3 specific rules
     ]);
 
-    // Skip paths that are excluded in PHPStan
-    $rectorConfig->skip([
-        __DIR__ . '/tests/tmp/*',
-        __DIR__ . '/tests/*',
-        __DIR__ . '/build/*',
-        __DIR__ . '/vendor/*',
-        '*.blade.php',
-    ]);
-
-    // Rules appropriate for level 4
+    // Rules appropriate for PHP 8.3
     $rectorConfig->rules([
         // Type declaration rules
         AddVoidReturnTypeWhereNoReturnRector::class,
@@ -60,7 +66,6 @@ return static function (RectorConfig $rectorConfig): void {
     // Configure Swiss Knife
     $rectorConfig->importShortClasses();
     $rectorConfig->parallel();
-    $rectorConfig->phpVersion(81); // PHP 8.1
 
     // Skip certain paths for Swiss Knife analysis
     $rectorConfig->skip([
@@ -73,7 +78,7 @@ return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->importNames();
     $rectorConfig->importShortClasses();
 
-    // PHPStan level 4 appropriate settings
+    // PHPStan level configuration
     $rectorConfig->phpstanConfig(__DIR__ . '/phpstan.neon');
     $rectorConfig->parallel();
 };

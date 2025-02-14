@@ -10,9 +10,7 @@ interface ModelGenerator {
     /**
      * Generate a model from the given schema.
      *
-     * @param ModelDefinition $definition
      * @param array<string, mixed> $schema
-     * @return GeneratedModel
      * @throws ModelGeneratorException
      */
     public function generate(ModelDefinition $definition, array $schema): GeneratedModel;
@@ -29,10 +27,6 @@ interface ModelGenerator {
 
     /**
      * Check if a model already exists.
-     *
-     * @param string $className
-     * @param string $namespace
-     * @return bool
      */
     public function modelExists(string $className, string $namespace): bool;
 }

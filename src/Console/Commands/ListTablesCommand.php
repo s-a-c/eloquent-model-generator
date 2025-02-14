@@ -14,24 +14,16 @@ class ListTablesCommand extends Command {
      *
      * @var string
      */
-    protected $signature = 'model:list
-                          {--connection= : The database connection to use}
-                          {--format=table : Output format (table, json, or list)}
-                          {--v|verbose : Show additional table information}';
+    protected $signature = 'model:list-tables';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'List all tables available for model generation';
+    protected $description = 'List all available database tables';
 
-    /**
-     * Create a new command instance.
-     */
-    public function __construct(
-        private readonly ModelGeneratorService $modelGeneratorService
-    ) {
+    public function __construct(private readonly ModelGeneratorService $modelGenerator) {
         parent::__construct();
     }
 
@@ -40,33 +32,12 @@ class ListTablesCommand extends Command {
      */
     public function handle(): int {
         try {
-            // Set database connection if specified
-            $connection = $this->option('connection');
-            if ($connection) {
-                config(['database.default' => $connection]);
-            }
-
-            // Get tables
-            $tables = $this->modelGeneratorService->getTables();
-            if (empty($tables)) {
-                $this->info('No tables found in the database.');
-                return Command::SUCCESS;
-            }
-
-            // Format and display results
-            return match ($this->option('format')) {
-                'json' => $this->outputJson($tables),
-                'list' => $this->outputList($tables),
-                default => $this->outputTable($tables),
-            };
-        } catch (\Exception $e) {
-            $this->error('Error listing tables: ' . $e->getMessage());
-
-            if ($this->getOutput()->getVerbosity() >= OutputInterface::VERBOSITY_VERBOSE) {
-                $this->error($e->getTraceAsString());
-            }
-
-            return Command::FAILURE;
+            $tables = $this->modelGenerator->getTables();
+            $this->table(['Table Name'], array_map(fn($table) => [$table], $tables));
+            return self::SUCCESS;
+        } catch (\Throwable $e) {
+            $this->error($e->getMessage());
+            return self::FAILURE;
         }
     }
 
@@ -107,7 +78,7 @@ class ListTablesCommand extends Command {
         $rows = array_map(function ($table) {
             $row = [$table];
             if ($this->option('verbose')) {
-                $schema = $this->modelGeneratorService->getTableSchema($table);
+                $schema = $this->modelGenerator->getTableSchema($table);
                 $row[] = count($schema['columns'] ?? []);
                 $row[] = !empty($schema['relations']) ? 'Yes' : 'No';
             }

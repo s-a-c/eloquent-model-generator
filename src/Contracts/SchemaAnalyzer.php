@@ -8,7 +8,6 @@ interface SchemaAnalyzer {
     /**
      * Analyze the database table schema.
      *
-     * @param string $table
      * @return array{
      *     columns: array<string, array{
      *         type: string,
@@ -40,9 +39,6 @@ interface SchemaAnalyzer {
 
     /**
      * Check if a table exists.
-     *
-     * @param string $table
-     * @return bool
      */
     public function tableExists(string $table): bool;
 }

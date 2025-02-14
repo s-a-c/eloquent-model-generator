@@ -10,7 +10,7 @@ use SAC\EloquentModelGenerator\ValueObjects\ModelDefinition;
 class GenerateModelTest extends TestCase {
     use WithPostgreSQLTesting;
 
-    public function test_generates_model_from_postgresql_table_with_all_column_types(): void {
+    public function testGeneratesModelFromPostgresqlTableWithAllColumnTypes(): void {
         $schema = [
             'columns' => [
                 'id' => ['type' => 'integer', 'autoIncrement' => true],
@@ -46,7 +46,7 @@ class GenerateModelTest extends TestCase {
             ->toContain('\'email\'');
     }
 
-    public function test_handles_postgresql_specific_types(): void {
+    public function testHandlesPostgresqlSpecificTypes(): void {
         $schema = [
             'columns' => [
                 'id' => ['type' => 'integer', 'autoIncrement' => true],
@@ -83,7 +83,7 @@ class GenerateModelTest extends TestCase {
             ->toContain('\'updated_at\' => \'datetime\'');
     }
 
-    public function test_handles_schema_namespaces(): void {
+    public function testHandlesSchemaNamespaces(): void {
         $schema = [
             'columns' => [
                 'id' => ['type' => 'integer', 'autoIncrement' => true],
@@ -113,7 +113,7 @@ class GenerateModelTest extends TestCase {
             ->toContain('protected $table = \'public.test_table\'');
     }
 
-    public function test_handles_nullable_columns(): void {
+    public function testHandlesNullableColumns(): void {
         $schema = [
             'columns' => [
                 'id' => ['type' => 'integer', 'autoIncrement' => true],
@@ -152,7 +152,7 @@ class GenerateModelTest extends TestCase {
             ->toContain('\'metadata\'');
     }
 
-    public function test_handles_composite_indexes(): void {
+    public function testHandlesCompositeIndexes(): void {
         $schema = [
             'columns' => [
                 'id' => ['type' => 'integer', 'autoIncrement' => true],
@@ -184,7 +184,7 @@ class GenerateModelTest extends TestCase {
             ->toContain('\'category_created_idx\' => [\'category\', \'created_at\']');
     }
 
-    public function test_handles_default_values(): void {
+    public function testHandlesDefaultValues(): void {
         $schema = [
             'columns' => [
                 'id' => ['type' => 'integer', 'autoIncrement' => true],

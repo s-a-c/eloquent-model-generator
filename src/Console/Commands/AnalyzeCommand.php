@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\File;
 use SAC\EloquentModelGenerator\Config\AnalysisConfig;
 use SAC\EloquentModelGenerator\Services\AnalysisToolManager;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Yaml\Yaml;
+use Carbon\Carbon;
 
 class AnalyzeCommand extends Command {
     /**
@@ -23,34 +25,32 @@ class AnalyzeCommand extends Command {
      * @var string
      */
     protected $signature = 'analyze
-                          {--l|levels= : Comma-separated list of PHPStan levels to run}
-                          {--d|directory= : Directory to analyze}
-                          {--p|parallel : Run tools in parallel}
-                          {--f|format=html : Output format (html, json, or text)}
-                          {--ci : Run in CI mode with stricter checks}
-                          {--cache : Enable caching of analysis results}
-                          {--debug : Show detailed debug information}';
+        {--levels= : Specify analysis levels}
+        {--tools=* : Specific tools to run}
+        {--parallel : Run tools in parallel}
+        {--directory= : Directory to analyze}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Run static analysis tools on the codebase';
+    protected $description = 'Run code analysis tools';
 
+    private readonly AnalysisToolManager $toolManager;
     private string $projectRoot;
     private string $reportsDir;
-    private AnalysisToolManager $toolManager;
     private ?AnalysisConfig $config = null;
+    private ?string $phpstanConfigPath = null;
 
     /**
      * Create a new command instance.
      */
     public function __construct(AnalysisToolManager $toolManager) {
+        $this->toolManager = $toolManager;
         parent::__construct();
         $this->projectRoot = dirname(__DIR__, 3);  // src/Console/Commands -> src
         $this->reportsDir = $this->projectRoot . '/build/reports';
-        $this->toolManager = $toolManager;
     }
 
     /**
@@ -58,63 +58,96 @@ class AnalyzeCommand extends Command {
      */
     public function handle(): int {
         try {
-            $this->setupEnvironment();
+            // Get command options
+            $levels = $this->option('levels');
+            $tools = $this->option('tools');
+            $parallel = $this->option('parallel');
 
-            // Get target directory
+            // Get target directory - let's debug this
             $targetDir = $this->getTargetDirectory();
-            if (!is_dir($targetDir)) {
-                $this->error("Directory does not exist: {$targetDir}");
-                return Command::FAILURE;
+            $this->info("Target directory: " . $targetDir); // Debug line
+
+            // Set target directory in tool manager
+            $this->toolManager->setTargetDir($targetDir);
+
+            // Only create PHPStan config if we're running PHPStan
+            if (empty($tools) || in_array('phpstan', $tools)) {
+                $this->createPhpstanConfig($targetDir, $levels);
+                $this->info("PHPStan config created at: " . $this->phpstanConfigPath);
             }
 
-            // Get analysis levels
-            $levels = $this->getAnalysisLevels();
-            if (empty($levels)) {
-                $this->error('No analysis levels selected.');
-                return Command::FAILURE;
+            if (empty($tools)) {
+                $tools = null; // Use all available tools
             }
 
-            // Create configuration
-            $this->config = new AnalysisConfig(
-                targetDir: $targetDir,
-                levels: $levels,
-                tools: $this->toolManager->getAvailableTools(),
-                options: [
-                    'parallel' => $this->option('parallel'),
-                    'format' => $this->option('format'),
-                    'ci' => $this->option('ci'),
-                    'cache' => $this->option('cache'),
-                    'debug' => $this->option('debug'),
-                ]
-            );
-
-            // Store configuration
-            $this->storeConfiguration();
-
-            // Run analysis
-            $foundIssues = $this->runAnalysis($levels);
-
-            // Generate reports
-            $this->generateReports();
-
-            if ($foundIssues) {
-                $this->warn('Analysis completed with issues.');
-                $this->info("Review the reports at: {$this->reportsDir}");
-                $this->info("To fix issues automatically, run: vendor/bin/testbench fix");
-                return Command::FAILURE;
+            if ($parallel) {
+                $this->toolManager->runToolsInParallel(
+                    $tools ?? $this->toolManager->getAvailableTools(),
+                    $targetDir,
+                    ['level' => $levels]
+                );
+            } else {
+                $this->toolManager->analyze($levels, $tools, $this->output);
             }
 
-            $this->info('Analysis completed successfully!');
-            return Command::SUCCESS;
-        } catch (\Exception $e) {
-            $this->error('Error during analysis: ' . $e->getMessage());
-
-            if ($this->getOutput()->getVerbosity() >= OutputInterface::VERBOSITY_VERBOSE) {
-                $this->error($e->getTraceAsString());
-            }
-
-            return Command::FAILURE;
+            return self::SUCCESS;
+        } catch (\Throwable $e) {
+            $this->error($e->getMessage());
+            $this->error($e->getTraceAsString()); // Add stack trace for debugging
+            return self::FAILURE;
         }
+    }
+
+    /**
+     * Create temporary PHPStan config file.
+     */
+    private function createPhpstanConfig(string $targetDir, ?string $level): void {
+        $config = [
+            'includes' => [
+                'vendor/larastan/larastan/extension.neon',
+            ],
+            'parameters' => [
+                'level' => $level ?? 8,
+                'tmpDir' => $this->projectRoot . '/build/phpstan',
+                'rootDir' => $this->projectRoot,
+                'customRulesetUsed' => true,
+                'bootstrapFiles' => [],
+                'autoload_files' => [],
+                'autoload_directories' => [],
+                'scanFiles' => [],
+                'scanDirectories' => [],
+                'checkModelProperties' => true,
+                'checkPhpDocMissingReturn' => true,
+                'checkUnionTypes' => true,
+                'reportUnmatchedIgnoredErrors' => false,
+                'treatPhpDocTypesAsCertain' => false,
+                'parallel' => [
+                    'maximumNumberOfProcesses' => 1,
+                ],
+                'excludePaths' => [
+                    'tests/tmp/*',
+                    'tests/*',
+                    'build/*',
+                    'vendor/*',
+                    '*.blade.php',
+                ],
+            ],
+        ];
+
+        $configPath = $this->projectRoot . '/build/phpstan.' . uniqid() . '.neon';
+        File::ensureDirectoryExists(dirname($configPath));
+        File::put($configPath, Yaml::dump($config, 4));
+
+        // Store config path for use in buildCommand
+        $this->phpstanConfigPath = $configPath;
+        $this->toolManager->setPhpstanConfigPath($configPath);
+
+        // Register cleanup on shutdown
+        register_shutdown_function(function () use ($configPath) {
+            if (File::exists($configPath)) {
+                File::delete($configPath);
+            }
+        });
     }
 
     /**
@@ -134,6 +167,11 @@ class AnalyzeCommand extends Command {
         $defaultDir = $this->projectRoot . '/src';
         $targetDir = $this->option('directory');
 
+        // Debug directory selection
+        $this->info("Default directory: " . $defaultDir); // Debug line
+        $this->info("Directory option: " . ($targetDir ?? 'not set')); // Debug line
+
+        // If no directory specified and interactive mode is enabled
         if (!$targetDir && !$this->option('no-interaction')) {
             $targetDir = text(
                 label: 'Which directory would you like to analyze?',
@@ -141,9 +179,28 @@ class AnalyzeCommand extends Command {
                 default: $defaultDir,
                 required: true
             );
+            $this->info("User selected directory: " . $targetDir); // Debug line
         }
 
-        return realpath($targetDir ?: $defaultDir) ?: ($targetDir ?: $defaultDir);
+        // Use default if no directory specified
+        $targetDir = $targetDir ?: $defaultDir;
+        $this->info("Final target directory before normalization: " . $targetDir); // Debug line
+
+        // Convert to absolute path if relative
+        if (!str_starts_with($targetDir, '/')) {
+            $targetDir = $this->projectRoot . '/' . $targetDir;
+            $this->info("Converted to absolute path: " . $targetDir); // Debug line
+        }
+
+        // Ensure directory exists and normalize path
+        if (!File::exists($targetDir)) {
+            throw new \RuntimeException("Target directory does not exist: {$targetDir}");
+        }
+
+        $normalizedPath = str_replace('\\', '/', realpath($targetDir));
+        $this->info("Final normalized path: " . $normalizedPath); // Debug line
+
+        return $normalizedPath;
     }
 
     /**
@@ -193,17 +250,7 @@ class AnalyzeCommand extends Command {
         // Run additional tools if requested
         if (!$this->option('no-interaction') && confirm('Would you like to run additional tools?', true)) {
             $selectedTools = $this->getSelectedTools();
-
-            if ($this->option('parallel')) {
-                $this->info('Running tools in parallel...');
-                $results = spin(
-                    fn() => $this->toolManager->runToolsInParallel($selectedTools, $this->config->targetDir),
-                    'Running analysis tools...'
-                );
-                foreach ($results as $result) {
-                    $foundIssues = $foundIssues || !$result['success'];
-                }
-            } else {
+            if (!empty($selectedTools)) {
                 $progress = progress(label: 'Running additional tools', steps: count($selectedTools));
                 foreach ($selectedTools as $tool) {
                     $progress->label("Running {$tool}...");
@@ -212,10 +259,10 @@ class AnalyzeCommand extends Command {
                     $progress->advance();
                 }
                 $progress->finish();
-            }
 
-            // Generate report for additional tools
-            $this->generateReports(null);
+                // Generate report for additional tools
+                $this->generateReports();
+            }
         }
 
         return $foundIssues;
@@ -228,11 +275,27 @@ class AnalyzeCommand extends Command {
      */
     private function getSelectedTools(): array {
         $tools = array_diff($this->toolManager->getAvailableTools(), ['phpstan']);
-        return multiselect(
+
+        // Add Rector to the available tools
+        $tools = array_merge($tools, ['rector']);
+
+        $selected = multiselect(
             label: 'Select additional tools to run:',
-            options: array_combine($tools, $tools),
+            options: array_combine($tools, array_map(function ($tool) {
+                return match ($tool) {
+                    'rector' => 'Rector (Code Analysis & Automated Refactoring)',
+                    'phpmd' => 'PHPMD (Mess Detector)',
+                    'psalm' => 'Psalm',
+                    'metrics' => 'PHP Metrics',
+                    'class-leak' => 'Class Leak Detector',
+                    'type-coverage' => 'Type Coverage Analyzer',
+                    default => $tool
+                };
+            }, $tools)),
             default: $tools
         );
+
+        return $selected;
     }
 
     /**
@@ -265,6 +328,11 @@ class AnalyzeCommand extends Command {
      */
     private function generateJsonReport(?int $level = null): void {
         $results = $this->toolManager->getResults();
+
+        // Special handling for Rector results
+        if (isset($results['rector']) && $level === null) {
+            $results['rector']['suggestions'] = [];
+        }
 
         // If level is specified, only include results for that level
         if ($level !== null) {
@@ -403,6 +471,15 @@ class AnalyzeCommand extends Command {
                     </p>
             ";
 
+            // Special handling for Rector results
+            if ($tool === 'rector' && !empty($result['suggestions'])) {
+                $output .= "<div class='rector-suggestions'><h4>Suggested Improvements:</h4><ul>";
+                foreach ($result['suggestions'] as $suggestion) {
+                    $output .= "<li>{$suggestion}</li>";
+                }
+                $output .= "</ul></div>";
+            }
+
             if (!empty($result['files'])) {
                 $output .= "<div class='affected-files'><h4>Affected Files:</h4><ul>";
                 foreach ($result['files'] as $file) {
@@ -415,5 +492,28 @@ class AnalyzeCommand extends Command {
         }
 
         return $output;
+    }
+
+    public function analyze(?string $levels = null, ?array $tools = null, ?OutputInterface $output = null): void {
+        $timestamp = Carbon::now()->format('Y-m-d_H-i-s');
+        $summary = [];
+
+        $this->runTools($tools, $levels, 'Analyzing', $output, function (string $tool, string $output) use ($timestamp, &$summary) {
+            $issues = $this->parseToolOutput($tool, $output);
+            $summary[$tool] = [
+                'timestamp' => $timestamp,
+                'issues' => $issues,
+                'total' => count($issues),
+            ];
+
+            $this->saveOutput($tool, $output, $timestamp, 'analysis');
+        });
+
+        // Save analysis summary
+        $this->saveSummary($summary, $timestamp, 'analysis');
+
+        if ($output) {
+            $this->displaySummary($summary, $output);
+        }
     }
 }

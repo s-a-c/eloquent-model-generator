@@ -1,64 +1,48 @@
 # Version History
 
-## [0.3.0] - 2024-02-13
+## 2.0.0-dev (Current)
 
-### Added
-- Initial integration of static analysis tools
-  - Basic PHPStan setup with level configuration
-  - Initial Psalm integration
-  - PHP CS Fixer with PSR-12 standard
-  - PHP_CodeSniffer with Doctrine standard
-  - Basic tooling for PHP Mess Detector, PHPMetrics
-  - Initial Rector configuration
-  - Type Coverage and Class Leak detection setup
-- New `analyze` command foundation
-  - Basic CLI interface with Laravel Prompts
-  - Initial support for PHPStan levels
-  - Basic parallel processing capabilities
-  - HTML, JSON, and text output formats
-- New `fix` command foundation
-  - Basic automated fixing capabilities
-  - Initial type hint improvements
-  - Code style fixing integration
-- Basic configuration system for analysis tools
-- Initial documentation structure
+**Breaking Changes:**
+- Requires PHP 8.3+
+- Requires Laravel 10.x
+- New configuration format
+- Updated interfaces
 
-### Changed
-- Updated minimum PHP version to 8.2
-- Updated Laravel requirement to 11.x
-- Improved code organization
-- Enhanced configuration structure
+**Added:**
+- Static analysis integration
+- Type safety checks
+- Code quality tools
+- Metrics generation
+- Security validation
 
-### Removed
-- Support for PHP < 8.2
-- Support for Laravel < 11.0
-- Legacy configuration formats
+**Changed:**
+- Enhanced error handling
+- Improved documentation
+- Stricter validation
+- Better test coverage
 
-### In Progress
-- PHPStan level progression (currently at level 1)
-- Type coverage improvements
-- Documentation completion
-- Test coverage expansion
-- Additional fix strategies
-- CI/CD integration
+**Fixed:**
+- Exception handling
+- Configuration validation
+- Documentation structure
 
-## [0.2.0] - 2024-02-01
+## 1.0.0 (Legacy)
 
-### Added
-- Basic model generation functionality
-- Initial database schema analysis
-- Simple relationship detection
-- Basic configuration options
-- Core CLI commands
+**Features:**
+- Basic model generation
+- Simple type inference
+- Schema analysis
+- Laravel integration
 
-## [0.1.0] - 2024-01-15
+**Requirements:**
+- PHP 8.2+
+- Laravel 9.x
 
-### Added
-- Initial package structure
-- Basic command framework
-- Development environment setup
-- Initial documentation
+## Support Status
 
-[0.3.0]: https://github.com/s-a-c/eloquent-model-generator/compare/v0.2.0...v0.3.0
-[0.2.0]: https://github.com/s-a-c/eloquent-model-generator/compare/v0.1.0...v0.2.0
-[0.1.0]: https://github.com/s-a-c/eloquent-model-generator/releases/tag/v0.1.0
+| Version | PHP  | Laravel | Status | Security Until |
+| ------- | ---- | ------- | ------ | -------------- |
+| 2.x     | 8.3+ | 10.x    | Dev    | -              |
+| 1.x     | 8.2+ | 9.x     | EOL    | Q2 2024        |
+
+For detailed information, see [Documentation](docs/version_history.md).

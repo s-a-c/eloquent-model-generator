@@ -19,7 +19,7 @@ class ModelFactoryPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function it_handles_mass_model_definition_creation(): void {
+    public function testuhandles_mass_model_definition_creation(): void {
         $this->assertPerformanceConstraints(
             maxDurationMs: 1000,
             maxMemoryBytes: 50 * 1024 * 1024,
@@ -38,7 +38,7 @@ class ModelFactoryPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function it_handles_complex_relationship_definitions(): void {
+    public function testuhandles_complex_relationship_definitions(): void {
         // Create a complex relationship graph
         $relationships = [];
         for ($i = 1; $i <= 100; $i++) {
@@ -65,7 +65,7 @@ class ModelFactoryPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function it_handles_nested_schema_definitions(): void {
+    public function testuhandles_nested_schema_definitions(): void {
         // Create deeply nested schema
         $schema = ['columns' => [], 'indexes' => [], 'relations' => []];
 
@@ -102,7 +102,7 @@ class ModelFactoryPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function it_handles_rapid_schema_modifications(): void {
+    public function testuhandles_rapid_schema_modifications(): void {
         $baseSchema = $this->factory->basicSchema('test_table');
 
         $this->assertMemoryStability(
@@ -128,7 +128,7 @@ class ModelFactoryPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function it_handles_concurrent_factory_operations(): void {
+    public function testuhandles_concurrent_factory_operations(): void {
         $operations = [];
         for ($i = 0; $i < 100; $i++) {
             $operations[] = function () use ($i) {
@@ -155,7 +155,7 @@ class ModelFactoryPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function it_handles_schema_inheritance_chain(): void {
+    public function testuhandles_schema_inheritance_chain(): void {
         $schemas = [];
         $currentSchema = $this->factory->basicSchema('base_table');
 
@@ -188,7 +188,7 @@ class ModelFactoryPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function it_handles_extreme_polymorphic_relationships(): void {
+    public function testuhandles_extreme_polymorphic_relationships(): void {
         $relationships = [];
         // Create a complex polymorphic relationship network
         for ($i = 1; $i <= 50; $i++) {
@@ -225,7 +225,7 @@ class ModelFactoryPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function it_handles_nested_json_schema_definitions(): void {
+    public function testuhandles_nested_json_schema_definitions(): void {
         $schema = ['columns' => [], 'indexes' => []];
 
         // Create deeply nested JSON columns
@@ -266,7 +266,7 @@ class ModelFactoryPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function it_handles_dynamic_attribute_casting(): void {
+    public function testuhandles_dynamic_attribute_casting(): void {
         $schema = ['columns' => []];
         $castTypes = [
             'array',

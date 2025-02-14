@@ -2,6 +2,7 @@
 
 namespace SAC\EloquentModelGenerator\Services;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Str;
@@ -14,27 +15,10 @@ use SAC\EloquentModelGenerator\Contracts\ModelGenerator;
 
 class ParallelModelGeneratorService implements ModelGeneratorServiceInterface {
     /**
-     * @var SchemaAnalyzer
-     */
-    private readonly SchemaAnalyzer $schemaAnalyzer;
-
-    /**
-     * @var ModelGenerator
-     */
-    private readonly ModelGenerator $modelGenerator;
-
-    /**
      * Create a new parallel model generator service instance.
-     *
-     * @param SchemaAnalyzer $schemaAnalyzer
-     * @param ModelGenerator $modelGenerator
      */
-    public function __construct(
-        SchemaAnalyzer $schemaAnalyzer,
-        ModelGenerator $modelGenerator
-    ) {
-        $this->schemaAnalyzer = $schemaAnalyzer;
-        $this->modelGenerator = $modelGenerator;
+    public function __construct(private readonly SchemaAnalyzer $schemaAnalyzer, private readonly ModelGenerator $modelGenerator)
+    {
     }
 
     /**
@@ -46,7 +30,7 @@ class ParallelModelGeneratorService implements ModelGeneratorServiceInterface {
      */
     public function generateModels(array $tables, array $config = []): array {
         $jobs = Collection::make($tables)
-            ->map(fn(string $table) => new GenerateModelJob($table, $config))
+            ->map(fn(string $table): GenerateModelJob => new GenerateModelJob($table, $config))
             ->toArray();
 
         $batch = Bus::batch($jobs)
@@ -71,16 +55,14 @@ class ParallelModelGeneratorService implements ModelGeneratorServiceInterface {
     /**
      * Generate a single model.
      *
-     * @param string $table
      * @param array<string, mixed> $config
-     * @return GeneratedModel
      */
     public function generateModel(string $table, array $config = []): GeneratedModel {
         $definition = new ModelDefinition(
             className: $this->getClassName($table),
             namespace: $config['namespace'] ?? 'App\\Models',
             tableName: $table,
-            baseClass: $config['base_class'] ?? 'Illuminate\\Database\\Eloquent\\Model',
+            baseClass: $config['base_class'] ?? Model::class,
             withSoftDeletes: $config['with_soft_deletes'] ?? false,
             withValidation: $config['with_validation'] ?? false,
             withRelationships: $config['with_relationships'] ?? true
@@ -93,9 +75,6 @@ class ParallelModelGeneratorService implements ModelGeneratorServiceInterface {
 
     /**
      * Get the class name for a table.
-     *
-     * @param string $table
-     * @return string
      */
     protected function getClassName(string $table): string {
         return Str::studly(Str::singular($table));

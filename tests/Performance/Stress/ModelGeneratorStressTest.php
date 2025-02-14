@@ -69,7 +69,7 @@ class ModelGeneratorStressTest extends TestCase {
     }
 
     /** @test */
-    public function it_handles_concurrent_database_load(): void {
+    public function testuhandles_concurrent_database_load(): void {
         $maxConnections = 5;
         $totalOperations = 20;
         $activeConnections = 0;
@@ -118,7 +118,7 @@ class ModelGeneratorStressTest extends TestCase {
     }
 
     /** @test */
-    public function it_handles_large_scale_model_generation(): void {
+    public function testuhandles_large_scale_model_generation(): void {
         $this->assertPerformanceConstraints(
             maxDurationMs: count($this->stressTables) * 200,
             maxMemoryBytes: 512 * 1024 * 1024,
@@ -133,7 +133,7 @@ class ModelGeneratorStressTest extends TestCase {
     }
 
     /** @test */
-    public function it_maintains_performance_under_continuous_load(): void {
+    public function testumaintains_performance_under_continuous_load(): void {
         $duration = 30; // 30 seconds of continuous load
         $startTime = microtime(true);
         $operations = 0;

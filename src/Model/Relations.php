@@ -2,6 +2,7 @@
 
 namespace SAC\EloquentModelGenerator\Model;
 
+use InvalidArgumentException;
 use Illuminate\Support\Str;
 
 /**
@@ -19,19 +20,6 @@ use Illuminate\Support\Str;
  */
 class Relations {
     /**
-     * @var array<string, array{
-     *     type: string,
-     *     model: string,
-     *     name: string,
-     *     foreignKey?: string,
-     *     localKey?: string,
-     *     table?: string,
-     *     pivotColumns?: array<string>
-     * }>
-     */
-    private array $relations = [];
-
-    /**
      * @param array<string, array{
      *     type: string,
      *     model: string,
@@ -42,8 +30,8 @@ class Relations {
      *     pivotColumns?: array<string>
      * }> $relations
      */
-    public function __construct(array $relations = []) {
-        $this->relations = $relations;
+    public function __construct(private array $relations = [])
+    {
     }
 
     /**
@@ -74,44 +62,36 @@ class Relations {
      */
     public function addRelation(array $relation): void {
         if (!isset($relation['model'], $relation['type'], $relation['name'])) {
-            throw new \InvalidArgumentException('Relation must have model, type and name fields');
+            throw new InvalidArgumentException('Relation must have model, type and name fields');
         }
 
         $modelClass = class_basename($relation['model']);
         $type = strtolower($relation['type']);
 
-        switch ($type) {
-            case 'hasone':
-                $this->relations[$relation['name']] = [
-                    'type' => 'hasOne',
-                    'model' => $modelClass,
-                    'name' => $relation['name']
-                ];
-                break;
-            case 'hasmany':
-                $this->relations[$relation['name']] = [
-                    'type' => 'hasMany',
-                    'model' => $modelClass,
-                    'name' => $relation['name']
-                ];
-                break;
-            case 'belongsto':
-                $this->relations[$relation['name']] = [
-                    'type' => 'belongsTo',
-                    'model' => $modelClass,
-                    'name' => $relation['name']
-                ];
-                break;
-            default:
-                throw new \InvalidArgumentException("Unsupported relation type: {$type}");
-        }
+        $this->relations[$relation['name']] = match ($type) {
+            'hasone' => [
+                'type' => 'hasOne',
+                'model' => $modelClass,
+                'name' => $relation['name']
+            ],
+            'hasmany' => [
+                'type' => 'hasMany',
+                'model' => $modelClass,
+                'name' => $relation['name']
+            ],
+            'belongsto' => [
+                'type' => 'belongsTo',
+                'model' => $modelClass,
+                'name' => $relation['name']
+            ],
+            default => throw new InvalidArgumentException('Unsupported relation type: ' . $type),
+        };
     }
 
     /**
      * Get the relation method definition.
      *
      * @param array<string, RelationDefinition> $relations
-     * @return string
      */
     public function getRelationMethods(array $relations): string {
         $methods = [];
@@ -129,7 +109,7 @@ class Relations {
                 'morphOne' => "public function {$name}() {\n    return \$this->morphOne({$modelClass}::class);\n}",
                 'morphMany' => "public function {$name}() {\n    return \$this->morphMany({$modelClass}::class);\n}",
                 'morphToMany' => "public function {$name}() {\n    return \$this->morphToMany({$modelClass}::class);\n}",
-                default => throw new \InvalidArgumentException("Invalid relation type: {$type}")
+                default => throw new InvalidArgumentException('Invalid relation type: ' . $type)
             };
 
             $methods[] = $method;

@@ -1,7 +1,7 @@
 {
-    "targetDir": "\/Users\/s-a-c\/Herd\/laravel-package-dev\/packages\/StandAlonecomplex\/EloquentModelGenerator\/src",
+    "targetDir": "\/Users\/s-a-c\/Herd\/laravel-package-dev\/packages\/StandAlonecomplex\/EloquentModelGenerator\/tests",
     "levels": [
-        2
+        8
     ],
     "tools": [
         "phpstan",
@@ -9,7 +9,8 @@
         "psalm",
         "metrics",
         "class-leak",
-        "type-coverage"
+        "type-coverage",
+        "rector"
     ],
     "options": {
         "parallel": false,

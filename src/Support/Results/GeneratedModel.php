@@ -5,12 +5,6 @@ namespace SAC\EloquentModelGenerator\Support\Results;
 class GeneratedModel {
     /**
      * Create a new generated model result instance.
-     *
-     * @param string $className
-     * @param string $namespace
-     * @param string $tableName
-     * @param string $baseClass
-     * @param string $content
      */
     public function __construct(
         private readonly string $className,
@@ -23,8 +17,6 @@ class GeneratedModel {
 
     /**
      * Get the class name.
-     *
-     * @return string
      */
     public function getClassName(): string {
         return $this->className;
@@ -32,8 +24,6 @@ class GeneratedModel {
 
     /**
      * Get the namespace.
-     *
-     * @return string
      */
     public function getNamespace(): string {
         return $this->namespace;
@@ -41,8 +31,6 @@ class GeneratedModel {
 
     /**
      * Get the table name.
-     *
-     * @return string
      */
     public function getTableName(): string {
         return $this->tableName;
@@ -50,8 +38,6 @@ class GeneratedModel {
 
     /**
      * Get the base class.
-     *
-     * @return string
      */
     public function getBaseClass(): string {
         return $this->baseClass;
@@ -59,8 +45,6 @@ class GeneratedModel {
 
     /**
      * Get the model content.
-     *
-     * @return string
      */
     public function getContent(): string {
         return $this->content;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SAC\EloquentModelGenerator\Services\Schema;
 
 use Illuminate\Support\Collection;
@@ -10,7 +12,6 @@ class PostgreSQLSchemaAnalyzer extends BaseSchemaAnalyzer {
     /**
      * Analyze table schema.
      *
-     * @param string $table
      * @return array{
      *     columns: array<string, array{
      *         type: string,
@@ -34,10 +35,10 @@ class PostgreSQLSchemaAnalyzer extends BaseSchemaAnalyzer {
      */
     public function analyze(string $table): array {
         if (!$this->hasTable($table)) {
-            throw new ModelGeneratorException("Table '{$table}' does not exist");
+            throw new ModelGeneratorException(sprintf("Table '%s' does not exist", $table));
         }
 
-        $schema = $this->getSchemaBuilder();
+        $this->getSchemaBuilder();
         $columns = $this->analyzeColumns($table);
         $relationships = $this->analyzeRelationships($table);
 
@@ -50,7 +51,6 @@ class PostgreSQLSchemaAnalyzer extends BaseSchemaAnalyzer {
     /**
      * Analyze table columns.
      *
-     * @param string $table
      * @return array<string, array{
      *     type: string,
      *     nullable: bool,
@@ -88,7 +88,6 @@ class PostgreSQLSchemaAnalyzer extends BaseSchemaAnalyzer {
     /**
      * Analyze table relationships.
      *
-     * @param string $table
      * @return array<array{type: string, foreignTable: string, foreignKey: string, localKey: string}>
      */
     protected function analyzeRelationships(string $table): array {
@@ -142,6 +141,7 @@ class PostgreSQLSchemaAnalyzer extends BaseSchemaAnalyzer {
                 return true;
             }
         }
+
         return false;
     }
 

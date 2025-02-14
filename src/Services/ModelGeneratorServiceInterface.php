@@ -8,9 +8,7 @@ interface ModelGeneratorServiceInterface {
     /**
      * Generate a model for the given table.
      *
-     * @param string $table
      * @param array<string, mixed> $config
-     * @return GeneratedModel
      */
     public function generateModel(string $table, array $config = []): GeneratedModel;
 

@@ -20,34 +20,23 @@ class GenerateModelCommand extends Command {
      *
      * @var string
      */
-    protected $signature = 'model:generate
-                          {table? : The table to generate a model for}
-                          {--a|all : Generate models for all tables}
-                          {--exclude=* : Tables to exclude from generation}
-                          {--N|namespace= : The namespace for the generated model}
-                          {--O|output= : The output path for the generated model}
-                          {--force : Overwrite existing models}
-                          {--connection= : Database connection to use}
-                          {--no-relations : Skip relationship generation}
-                          {--no-timestamps : Skip timestamps}
-                          {--with-soft-deletes : Include soft deletes}
-                          {--with-validation : Include validation rules}';
+    protected $signature = 'model:generate {table} {--namespace=} {--base-class=} {--soft-deletes} {--validation} {--relationships}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Generate Eloquent model from database table';
+    protected $description = 'Generate an Eloquent model from a database table';
+
+    private readonly ModelGeneratorService $modelGenerator;
 
     /**
      * Create a new command instance.
      */
-    public function __construct(
-        private readonly ModelGeneratorService $modelGeneratorService,
-        private readonly ModelGeneratorTemplateEngine $templateEngine
-    ) {
+    public function __construct(ModelGeneratorService $modelGenerator) {
         parent::__construct();
+        $this->modelGenerator = $modelGenerator;
     }
 
     /**
@@ -55,41 +44,21 @@ class GenerateModelCommand extends Command {
      */
     public function handle(): int {
         try {
-            // Set database connection if specified
-            if ($connection = $this->option('connection')) {
-                config(['database.default' => $connection]);
-            }
-
-            // Get table(s) to process
             $table = $this->argument('table');
-            $all = $this->option('all');
-            if (!$table && !$all) {
-                $this->error('Table name is required unless --all option is used');
-                return Command::FAILURE;
-            }
+            $options = [
+                'namespace' => $this->option('namespace'),
+                'base_class' => $this->option('base-class'),
+                'with_soft_deletes' => $this->option('soft-deletes'),
+                'with_validation' => $this->option('validation'),
+                'with_relationships' => $this->option('relationships'),
+            ];
 
-            // Get configuration
-            $config = $this->getConfig();
-
-            // Process tables
-            if ($all) {
-                return $this->generateAllModels($config);
-            }
-
-            if (!is_string($table)) {
-                $this->error('Invalid table name provided');
-                return Command::FAILURE;
-            }
-
-            return $this->generateSingleModel($table, $config);
-        } catch (\Exception $e) {
-            $this->error('Error generating model: ' . $e->getMessage());
-
-            if ($this->getOutput()->getVerbosity() >= OutputInterface::VERBOSITY_VERBOSE) {
-                $this->error($e->getTraceAsString());
-            }
-
-            return Command::FAILURE;
+            $model = $this->modelGenerator->generateModel($table, $options);
+            $this->info("Model {$model->getClassName()} generated successfully!");
+            return self::SUCCESS;
+        } catch (\Throwable $e) {
+            $this->error($e->getMessage());
+            return self::FAILURE;
         }
     }
 
@@ -122,7 +91,7 @@ class GenerateModelCommand extends Command {
      * @param array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool, output_path?: string} $config
      */
     private function generateAllModels(array $config): int {
-        $tables = $this->modelGeneratorService->getTables();
+        $tables = $this->modelGenerator->getTables();
         if (empty($tables)) {
             $this->info('No tables found to generate models from.');
             return Command::SUCCESS;
@@ -185,7 +154,7 @@ class GenerateModelCommand extends Command {
         // Generate the model definition
         $modelConfig = array_diff_key($config, ['output_path' => true]);
         /** @var array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool} $modelConfig */
-        $definition = $this->modelGeneratorService->generateModel($table, $modelConfig);
+        $definition = $this->modelGenerator->generateModel($table, $modelConfig);
 
         // Get the output path
         $outputPath = $config['output_path'] ?? base_path(self::DEFAULT_OUTPUT_PATH);
@@ -207,7 +176,7 @@ class GenerateModelCommand extends Command {
         }
 
         // Generate the model content
-        $schema = $this->modelGeneratorService->getTableSchema($table);
+        $schema = $this->modelGenerator->getTableSchema($table);
         /** @var array{columns: array<string, array{type: non-empty-string, length?: int<1, max>|null, nullable?: bool, default?: mixed, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool}>, relations?: array<string, array{type: non-empty-string, model: class-string, foreignKey?: non-empty-string, localKey?: non-empty-string, table?: non-empty-string, morphType?: non-empty-string, morphClass?: class-string, pivotTable?: non-empty-string}>, indexes?: array<string, array{type: 'primary'|'unique'|'index'|'fulltext'|'spatial', columns: array<string>, name?: string, algorithm?: string, options?: array<string, mixed>}>, foreignKeys?: array<string, array{table: string, columns: array<string, string>, onDelete?: string, onUpdate?: string}>, timestamps?: bool, softDeletes?: bool, primaryKey?: string, incrementing?: bool} $schema */
         $content = $this->templateEngine->render($definition, $schema);
 

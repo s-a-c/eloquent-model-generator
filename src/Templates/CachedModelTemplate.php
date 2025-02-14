@@ -18,9 +18,6 @@ class CachedModelTemplate implements ModelTemplate {
 
     /**
      * Render a model template.
-     *
-     * @param GeneratedModel $model
-     * @return string
      */
     public function render(GeneratedModel $model): string {
         $cacheKey = $this->getCacheKey($model);
@@ -51,18 +48,15 @@ class CachedModelTemplate implements ModelTemplate {
      */
     public function getTemplatePath(): string {
         $path = $this->config->get('templates_path');
-        /** @var non-empty-string */
         return $path ? $path . '/model.blade.php' : __DIR__ . '/../../resources/templates/model.blade.php';
     }
 
     /**
      * Get the cache key for a model.
      *
-     * @param GeneratedModel $model
      * @return non-empty-string
      */
     private function getCacheKey(GeneratedModel $model): string {
-        /** @var non-empty-string */
         return 'model_template:' . md5(serialize($model->toArray()));
     }
 

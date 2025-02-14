@@ -20,7 +20,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ModelGenerator.php' => 
     array (
-      0 => 'b41e9a460dd49e7a8bfee76c4502aff28294fd67',
+      0 => '39fc041dbecb341886461a69e417e9cd146ff19b',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\modelgenerator',
@@ -94,7 +94,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/EloquentModelGeneratorServiceProvider.php' => 
     array (
-      0 => '65646b0a70069e6dc8d7e2337cade178863e237c',
+      0 => 'ce0a2538b41eb026c41aa91cb30781e7568d0ce6',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\eloquentmodelgeneratorserviceprovider',
@@ -110,7 +110,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Contracts/ModelGeneratorService.php' => 
     array (
-      0 => '932d2632fb122f43708bc92e6f9b65ffa3d45aa8',
+      0 => '8fe8b34e66fd927cee35dcd82c33e419e17f9381',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\contracts\\modelgeneratorservice',
@@ -128,7 +128,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Contracts/ModelGenerator.php' => 
     array (
-      0 => '1ec88e68843fda7b7e715de50105b75e58c501c4',
+      0 => 'c0050d08264c8b4f43443bebd59ec981b584f217',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\contracts\\modelgenerator',
@@ -145,7 +145,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Contracts/SchemaAnalyzer.php' => 
     array (
-      0 => 'e84ff4d821f1d39a517ca4e5f971ac0bcf00aa1e',
+      0 => '13283755d4596b0d3702d74308932af487a94abe',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\contracts\\schemaanalyzer',
@@ -177,7 +177,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/EloquentModelGeneratorServiceProvider.php' => 
     array (
-      0 => 'c5dadf9b4cc1f68946ef1eec42a8acbd8cefd512',
+      0 => '20f774122731862202d1a191ec437eb133c75eeb',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\providers\\eloquentmodelgeneratorserviceprovider',
@@ -193,7 +193,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/ModelGeneratorServiceProvider.php' => 
     array (
-      0 => 'ce24758a515819648cf91b6f0e980b9ce23386ce',
+      0 => '7316d628bc9c67eff50b3cd1c6b0c0b5b994e85e',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\providers\\modelgeneratorserviceprovider',
@@ -362,7 +362,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Exceptions/ModelGeneratorException.php' => 
     array (
-      0 => '7cecbcc580d8368bb66542fb06b42f1989296ce7',
+      0 => '78c8b8ff4b02d7cc1a4d0894eaad17aa33f2d701',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\exceptions\\modelgeneratorexception',
@@ -403,7 +403,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Exceptions/InvalidConfigurationException.php' => 
     array (
-      0 => '3c0e340f33c1c566041ea24daa8fb3bb7b602188',
+      0 => 'd4c31af124f0997e689c24af8c3df877ed47dacd',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\exceptions\\invalidconfigurationexception',
@@ -417,7 +417,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Exceptions/ModelGeneratorSchemaAnalyzerException.php' => 
     array (
-      0 => '909d25ac385351751295ed7556a8257fbf9325ed',
+      0 => '95f8e8c0e48f7ae05c20a41f662ea8c9a77e7f25',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\exceptions\\modelgeneratorschemaanalyzerexception',
@@ -432,7 +432,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/SchemaParser.php' => 
     array (
-      0 => 'c65fcf066fa4e8993dc5485b5e6754cf13b65732',
+      0 => '1f705e1df646626651ebcebee6eba2616465caba',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\schemaparser',
@@ -451,15 +451,14 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Builders/ModelBuilder.php' => 
     array (
-      0 => '2d07212c8b0ebf0b593c7c3f3bee82ed3c3392fd',
+      0 => '5af476167904551ebb2ee81d363cc725659a72c6',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\support\\builders\\modelbuilder',
       ),
       2 => 
       array (
-        0 => 'sac\\eloquentmodelgenerator\\support\\builders\\__construct',
-        1 => 'sac\\eloquentmodelgenerator\\support\\builders\\build',
+        0 => 'sac\\eloquentmodelgenerator\\support\\builders\\build',
       ),
       3 => 
       array (
@@ -467,7 +466,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Traits/HasRelationships.php' => 
     array (
-      0 => 'bb95b384257353f9c9d928976734895fda38b4cd',
+      0 => '30f115789dd2144df6ecd7c84d40548187283964',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\support\\traits\\hasrelationships',
@@ -499,7 +498,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Traits/HasValidation.php' => 
     array (
-      0 => '1ccc7d9864bf343d082c6d0afa640f1e5168d628',
+      0 => '8f88d63e135fd7f2ce677bfd9e24ed8b5601248e',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\support\\traits\\hasvalidation',
@@ -520,7 +519,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Traits/HasModelValidation.php' => 
     array (
-      0 => '75c2ca6258b63884aae3442a404f062ef0feb5d0',
+      0 => 'bf21eb83b73893037b47aa5a0039f7a82d7019bf',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\support\\traits\\hasmodelvalidation',
@@ -559,7 +558,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Results/GeneratedModel.php' => 
     array (
-      0 => '306cde037dff530605c689956097d6a2ab9d7bd6',
+      0 => '066332dc9532f3225ce3e2ffa2d48b113cd76aa6',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\support\\results\\generatedmodel',
@@ -579,7 +578,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Factories/ModelGeneratorFactory.php' => 
     array (
-      0 => '5090a5be5f14ee6257ff6b01fde6be05e9e6149b',
+      0 => '8c300e4c2d1c12fba235213b125ea937dffb6012',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\support\\factories\\modelgeneratorfactory',
@@ -621,7 +620,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Definitions/SchemaDefinition.php' => 
     array (
-      0 => 'bd57d306d2d6b6cd4b069a0013d2e0378f80cde4',
+      0 => '141fffcb6a46c298eb45a23e838be65134785362',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\support\\definitions\\schemadefinition',
@@ -645,7 +644,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Definitions/ModelDefinition.php' => 
     array (
-      0 => '7b26a3f9f966c0fd623b49d089d21ba9212825fa',
+      0 => '17454f70700aac5840b4f53cae9c41c1223c1ee9',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\support\\definitions\\modeldefinition',
@@ -670,7 +669,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Definitions/RelationDefinition.php' => 
     array (
-      0 => '4891a29b5a661322d9c236743b15a553711007ca',
+      0 => '53ffba2176e08e9d05b1e9203ea61fe87f03e478',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\support\\definitions\\relationdefinition',
@@ -727,7 +726,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Model/Relations.php' => 
     array (
-      0 => '29b60486511312a837d747c2f5bc90039bdbabbe',
+      0 => 'd936e4161486293ed7aa4e42b2567bb4449a6880',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\model\\relations',
@@ -745,7 +744,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Model/Attributes.php' => 
     array (
-      0 => '59a20d3901e14bb4da57b40acc873c6bedd3c285',
+      0 => '3569fb97809255892a18daabd9d44c581f76f267',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\model\\attributes',
@@ -763,7 +762,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Model/ModelName.php' => 
     array (
-      0 => '7969d55d322ec7cb5f1be09957b92242a05279ad',
+      0 => '6a3628e8aeed9f5b68111739d49ad2b4f76b3926',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\model\\modelname',
@@ -781,7 +780,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Templates/ModelTemplate.php' => 
     array (
-      0 => 'cdd3a5d4c1666eb016f796e6f5f6cf3d1143f064',
+      0 => 'a1b154574238270f9864eabef3f5a847bd57972e',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\templates\\modeltemplate',
@@ -797,7 +796,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Templates/CachedModelTemplate.php' => 
     array (
-      0 => 'b4b4f9090e6648dfd4f565e34933c2e1f3c37be7',
+      0 => 'bbc74db8514b8f751f146bd6ee87e77f94f86a11',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\templates\\cachedmodeltemplate',
@@ -816,7 +815,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Jobs/GenerateModelJob.php' => 
     array (
-      0 => '914f2ccdd749ca717fff89437fef5de4b162316f',
+      0 => '4dd87adc0fa57edfb6cf42e8fb51420a96a9f4c1',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\jobs\\generatemodeljob',
@@ -833,7 +832,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Jobs/ProcessModelChunkJob.php' => 
     array (
-      0 => '322b6a28b3434cbe6e918b2547d56d26f3677bcd',
+      0 => '1b361607e1467a707f463518534c1e1b984472ee',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\jobs\\processmodelchunkjob',
@@ -849,7 +848,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Events/ModelGenerated.php' => 
     array (
-      0 => '8d9770e1e3550562023510490ff3c6a2f63349df',
+      0 => '941bdccaadc395a94ffb713ba76e1b0eacf886e2',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\events\\modelgenerated',
@@ -865,7 +864,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Collections/ModelCollection.php' => 
     array (
-      0 => '5daf8f61faa467dce934ad6268cbce8504c2552e',
+      0 => '60edfb2e3e6820b1c79a496ecadeb0d41b3b2acf',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\collections\\modelcollection',
@@ -884,7 +883,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ConfigurationService.php' => 
     array (
-      0 => 'fbdd080340f5094f50103761386178786fb095a9',
+      0 => '0bdd90f47b681ce4ed7839db8962aed6b45f4a42',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\configurationservice',
@@ -903,7 +902,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php' => 
     array (
-      0 => 'f0d6adb9e8ceafd1942ebd97feca8897a7c89a9a',
+      0 => '2c2642818f7380ebf38b696307bad98b13366812',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\modelgeneratorservice',
@@ -928,7 +927,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php' => 
     array (
-      0 => 'd07aa23de3b9e30588860424b6e1ec019a444583',
+      0 => '1cb42d21677af26b4bfee470521a7ceb6f9868b5',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\modelgenerator',
@@ -960,7 +959,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php' => 
     array (
-      0 => '5bb8b4670979e820cf2db10089997570a6eacf26',
+      0 => 'd9991f2bb1c4782698b62c46a3e91fc754204b4e',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\validationrulegenerator',
@@ -979,7 +978,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SchemaAnalyzerInterface.php' => 
     array (
-      0 => '824ce1b28f27b2f0a495e75c685cfc371b95220d',
+      0 => '672adb05b9d04bd74185c2320bfec62a218bb790',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\schema\\schemaanalyzerinterface',
@@ -996,7 +995,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/MySQLSchemaAnalyzer.php' => 
     array (
-      0 => 'de589d25e006bc9c4956ade4bdae474a2a6c64f6',
+      0 => 'd08dabd98d1787798e72f0d97ad5d60c4d54ece6',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\schema\\mysqlschemaanalyzer',
@@ -1045,7 +1044,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/PostgreSQLSchemaAnalyzer.php' => 
     array (
-      0 => '335a6e340baf5406df2e2f8d8a71369fd03ecf9d',
+      0 => 'bb0dfe5e7eda7ced92330e552d43a6b761c86b26',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\schema\\postgresqlschemaanalyzer',
@@ -1067,7 +1066,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/SQLiteSchemaAnalyzer.php' => 
     array (
-      0 => '1f1e80ab1391e5f23205069dec21e0a4b7c4f369',
+      0 => '083d9d1958a135a9c9994c675a96d27c3e403acc',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\schema\\sqliteschemaanalyzer',
@@ -1090,7 +1089,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php' => 
     array (
-      0 => '11f602f9c0fbf4361367640b1818cb11af1632cf',
+      0 => '1acd7dbc8e57ae5be0d064058f1323310f0b2bba',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\schema\\baseschemaanalyzer',
@@ -1127,7 +1126,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php' => 
     array (
-      0 => 'caa4c520ae6086cc0010e6f173690ad7742063c9',
+      0 => '118265c0ccb72ca0d6115fbf9fef5ae1eb34c0eb',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\parallelmodelgeneratorservice',
@@ -1159,7 +1158,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorInterface.php' => 
     array (
-      0 => '26d32ae93399d745ee7fa49ea5673ad12a004259',
+      0 => 'b3bc0fd43e759ec5a2d6d4a614854f5b487f081a',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\modelgeneratorinterface',
@@ -1189,7 +1188,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorServiceInterface.php' => 
     array (
-      0 => '20abf40b6fcc4539646cef3f3953bc8be519a707',
+      0 => 'eb825a0457f4ee3c7f230752bc3bc909109bf302',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\modelgeneratorserviceinterface',
@@ -1206,7 +1205,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGenerator.php' => 
     array (
-      0 => 'a9170e420aae64e8ac514b7236f0d061e8d1f0e1',
+      0 => '9dd20fd1f663a1bb9435aa32d510f346496f4ca3',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\parallelmodelgenerator',
@@ -1222,7 +1221,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Benchmarking/PerformanceBenchmark.php' => 
     array (
-      0 => '55fa8ad6b888871eef95b3aa353794c880433a39',
+      0 => '16309fcda65b5c5a6f006cf529a728e53ef1d121',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\benchmarking\\performancebenchmark',
@@ -1239,7 +1238,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php' => 
     array (
-      0 => '4e4f05cb8da865aac8c74dba3db72818873a7628',
+      0 => '1ddb8925b17276b4026aae532988bbe0cf144b6d',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\modelgeneratortemplateengine',
@@ -1271,21 +1270,20 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/DefaultModelGenerator.php' => 
     array (
-      0 => 'ee8addaead433c9fb5e561c32a90fcbb652cc10d',
+      0 => 'cef4c568967435e732d5056678a4f52824ede2be',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\defaultmodelgenerator',
       ),
       2 => 
       array (
-        0 => 'sac\\eloquentmodelgenerator\\services\\__construct',
-        1 => 'sac\\eloquentmodelgenerator\\services\\generate',
-        2 => 'sac\\eloquentmodelgenerator\\services\\generatemodelcontent',
-        3 => 'sac\\eloquentmodelgenerator\\services\\gettemplate',
-        4 => 'sac\\eloquentmodelgenerator\\services\\generatefillable',
-        5 => 'sac\\eloquentmodelgenerator\\services\\generatecasts',
-        6 => 'sac\\eloquentmodelgenerator\\services\\getcasttype',
-        7 => 'sac\\eloquentmodelgenerator\\services\\generateclassname',
+        0 => 'sac\\eloquentmodelgenerator\\services\\generate',
+        1 => 'sac\\eloquentmodelgenerator\\services\\generatemodelcontent',
+        2 => 'sac\\eloquentmodelgenerator\\services\\gettemplate',
+        3 => 'sac\\eloquentmodelgenerator\\services\\generatefillable',
+        4 => 'sac\\eloquentmodelgenerator\\services\\generatecasts',
+        5 => 'sac\\eloquentmodelgenerator\\services\\getcasttype',
+        6 => 'sac\\eloquentmodelgenerator\\services\\generateclassname',
       ),
       3 => 
       array (
@@ -1354,7 +1352,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/ListTablesCommand.php' => 
     array (
-      0 => '8c430222bf9bea743345f479aa252931053520d0',
+      0 => '28e91e7d07a22680963ee0dfffe3479515762019',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\console\\commands\\listtablescommand',
@@ -1373,7 +1371,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/GenerateModelCommand.php' => 
     array (
-      0 => 'ab72ebb5290f6795ee9d82e4cdb208844b6c04d0',
+      0 => '5df31fa7a4cf6750b327f60b206746a452dbd449',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\console\\commands\\generatemodelcommand',
@@ -1416,7 +1414,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/AnalysisConfig.php' => 
     array (
-      0 => '698f07a0ab7d07e5383f1b33538a1ae877862074',
+      0 => '306040f3b433dd995dddccb79ff934f22ada16c4',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\config\\analysisconfig',
@@ -1428,10 +1426,8 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         2 => 'sac\\eloquentmodelgenerator\\config\\tofile',
         3 => 'sac\\eloquentmodelgenerator\\config\\withtargetdir',
         4 => 'sac\\eloquentmodelgenerator\\config\\withlevels',
-        5 => 'sac\\eloquentmodelgenerator\\config\\withtools',
-        6 => 'sac\\eloquentmodelgenerator\\config\\withoptions',
-        7 => 'sac\\eloquentmodelgenerator\\config\\withcachekey',
-        8 => 'sac\\eloquentmodelgenerator\\config\\validate',
+        5 => 'sac\\eloquentmodelgenerator\\config\\withconfigpath',
+        6 => 'sac\\eloquentmodelgenerator\\config\\validate',
       ),
       3 => 
       array (
@@ -1439,7 +1435,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Contracts/FixStrategy.php' => 
     array (
-      0 => '7d3bcf515709e5f731342a6b685dbffb9bf63e78',
+      0 => 'ebef45a11765772a13705f42de757fdf18b24281',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\contracts\\fixstrategy',
@@ -1457,7 +1453,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/TypeHintFixer.php' => 
     array (
-      0 => '08b4f3e48867da6369246f43936784d10b00918e',
+      0 => '8ed91085c8e58a3d2da66b7618eb7a244454e5db',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\support\\fixes\\typehintfixer',
@@ -1478,7 +1474,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/AbstractFixStrategy.php' => 
     array (
-      0 => 'd052bc80b40d4e690abe559e26e75be41878029e',
+      0 => 'fa477413c3565d35bda9194161672ccee282cc4a',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\support\\fixes\\abstractfixstrategy',
@@ -1500,7 +1496,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php' => 
     array (
-      0 => '2da93c41751969d2e85ef3902c68d78630ee5a5c',
+      0 => 'a115e518537e9d7bbb2d26dbd9bf8ae300112f07',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\analysistoolmanager',
@@ -1518,6 +1514,19 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         8 => 'sac\\eloquentmodelgenerator\\services\\buildcommand',
         9 => 'sac\\eloquentmodelgenerator\\services\\extractaffectedfiles',
         10 => 'sac\\eloquentmodelgenerator\\services\\getconfigpath',
+        11 => 'sac\\eloquentmodelgenerator\\services\\analyze',
+        12 => 'sac\\eloquentmodelgenerator\\services\\fix',
+        13 => 'sac\\eloquentmodelgenerator\\services\\runtools',
+        14 => 'sac\\eloquentmodelgenerator\\services\\saveoutput',
+        15 => 'sac\\eloquentmodelgenerator\\services\\getlatestoutput',
+        16 => 'sac\\eloquentmodelgenerator\\services\\parsetooloutput',
+        17 => 'sac\\eloquentmodelgenerator\\services\\savesummary',
+        18 => 'sac\\eloquentmodelgenerator\\services\\displaysummary',
+        19 => 'sac\\eloquentmodelgenerator\\services\\parsephpstanoutput',
+        20 => 'sac\\eloquentmodelgenerator\\services\\parsepsalmoutput',
+        21 => 'sac\\eloquentmodelgenerator\\services\\parsephpmdoutput',
+        22 => 'sac\\eloquentmodelgenerator\\services\\parserectoroutput',
+        23 => 'sac\\eloquentmodelgenerator\\services\\setphpstanconfig',
       ),
       3 => 
       array (
@@ -1525,7 +1534,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategyManager.php' => 
     array (
-      0 => '0d59308f6de922e18b1696eb217d6e8558a12afe',
+      0 => 'e31aa7a9102a09b1ce626c92c8b3cac9eab1bdac',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\fixstrategymanager',
@@ -1535,7 +1544,6 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         0 => 'sac\\eloquentmodelgenerator\\services\\__construct',
         1 => 'sac\\eloquentmodelgenerator\\services\\registerstrategy',
         2 => 'sac\\eloquentmodelgenerator\\services\\getstrategiesforlevel',
-        3 => 'sac\\eloquentmodelgenerator\\services\\registerdefaultstrategies',
       ),
       3 => 
       array (
@@ -1543,7 +1551,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/AnalyzeCommand.php' => 
     array (
-      0 => 'b024e92a1c3b59f68aed240fa9e6eeb89d7489ba',
+      0 => '9ac07c0dcf9ceb4280bd8c58f53237367e3b5dec',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\console\\commands\\analyzecommand',
@@ -1552,19 +1560,21 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
         0 => 'sac\\eloquentmodelgenerator\\console\\commands\\__construct',
         1 => 'sac\\eloquentmodelgenerator\\console\\commands\\handle',
-        2 => 'sac\\eloquentmodelgenerator\\console\\commands\\setupenvironment',
-        3 => 'sac\\eloquentmodelgenerator\\console\\commands\\gettargetdirectory',
-        4 => 'sac\\eloquentmodelgenerator\\console\\commands\\getanalysislevels',
-        5 => 'sac\\eloquentmodelgenerator\\console\\commands\\runanalysis',
-        6 => 'sac\\eloquentmodelgenerator\\console\\commands\\getselectedtools',
-        7 => 'sac\\eloquentmodelgenerator\\console\\commands\\storeconfiguration',
-        8 => 'sac\\eloquentmodelgenerator\\console\\commands\\generatereports',
-        9 => 'sac\\eloquentmodelgenerator\\console\\commands\\generatejsonreport',
-        10 => 'sac\\eloquentmodelgenerator\\console\\commands\\generatetextreport',
-        11 => 'sac\\eloquentmodelgenerator\\console\\commands\\generatehtmlreport',
-        12 => 'sac\\eloquentmodelgenerator\\console\\commands\\gethtmltemplate',
-        13 => 'sac\\eloquentmodelgenerator\\console\\commands\\gethtmlsummary',
-        14 => 'sac\\eloquentmodelgenerator\\console\\commands\\gethtmlresults',
+        2 => 'sac\\eloquentmodelgenerator\\console\\commands\\setupphpstanconfig',
+        3 => 'sac\\eloquentmodelgenerator\\console\\commands\\setupenvironment',
+        4 => 'sac\\eloquentmodelgenerator\\console\\commands\\gettargetdirectory',
+        5 => 'sac\\eloquentmodelgenerator\\console\\commands\\getanalysislevels',
+        6 => 'sac\\eloquentmodelgenerator\\console\\commands\\runanalysis',
+        7 => 'sac\\eloquentmodelgenerator\\console\\commands\\getselectedtools',
+        8 => 'sac\\eloquentmodelgenerator\\console\\commands\\storeconfiguration',
+        9 => 'sac\\eloquentmodelgenerator\\console\\commands\\generatereports',
+        10 => 'sac\\eloquentmodelgenerator\\console\\commands\\generatejsonreport',
+        11 => 'sac\\eloquentmodelgenerator\\console\\commands\\generatetextreport',
+        12 => 'sac\\eloquentmodelgenerator\\console\\commands\\generatehtmlreport',
+        13 => 'sac\\eloquentmodelgenerator\\console\\commands\\gethtmltemplate',
+        14 => 'sac\\eloquentmodelgenerator\\console\\commands\\gethtmlsummary',
+        15 => 'sac\\eloquentmodelgenerator\\console\\commands\\gethtmlresults',
+        16 => 'sac\\eloquentmodelgenerator\\console\\commands\\generatephpstanconfig',
       ),
       3 => 
       array (
@@ -1572,7 +1582,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php' => 
     array (
-      0 => '42ba7c1159aab3bfdfd95d08890330952a874351',
+      0 => '536a9b7923c11a7be61ebb9d87e6f174c86c2013',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\console\\commands\\fixcommand',
@@ -1581,15 +1591,6 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
         0 => 'sac\\eloquentmodelgenerator\\console\\commands\\__construct',
         1 => 'sac\\eloquentmodelgenerator\\console\\commands\\handle',
-        2 => 'sac\\eloquentmodelgenerator\\console\\commands\\loadanalysisconfig',
-        3 => 'sac\\eloquentmodelgenerator\\console\\commands\\getfixlevels',
-        4 => 'sac\\eloquentmodelgenerator\\console\\commands\\fixissuesforlevel',
-        5 => 'sac\\eloquentmodelgenerator\\console\\commands\\fixfile',
-        6 => 'sac\\eloquentmodelgenerator\\console\\commands\\createbackup',
-        7 => 'sac\\eloquentmodelgenerator\\console\\commands\\restorebackup',
-        8 => 'sac\\eloquentmodelgenerator\\console\\commands\\fixcodingstandards',
-        9 => 'sac\\eloquentmodelgenerator\\console\\commands\\fixtypecoverage',
-        10 => 'sac\\eloquentmodelgenerator\\console\\commands\\ensurerectortypecoverageconfig',
       ),
       3 => 
       array (
@@ -1597,7 +1598,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Kernel.php' => 
     array (
-      0 => '790b15dd3ec5c7ea9f5d023fcb57500278bcc5ed',
+      0 => 'a5db40f5bccc1c80b670ddae4149a0a15ab73109',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\console\\kernel',
@@ -1612,7 +1613,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/FixStrategyInterface.php' => 
     array (
-      0 => '4111eda0a6c025e8c51ec275cd66aec8987549c2',
+      0 => '282a6a23924381cec677773a44cb70fb4e150bbb',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\fixstrategyinterface',
@@ -1629,7 +1630,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/DocBlockFixStrategy.php' => 
     array (
-      0 => '975b95d2ec5ff0ea2f0f69c00030408034d736e0',
+      0 => 'a6e658e752865fc633cff408176d00d41a3556fb',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\docblockfixstrategy',
@@ -1647,7 +1648,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/RectorFixStrategy.php' => 
     array (
-      0 => '9ef180acd4c15a7d1ba33cd1ce76c2d97842d82e',
+      0 => 'e7e869a4b00a0fcf4d781cc599e5457f41cee8e7',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\rectorfixstrategy',
@@ -1665,7 +1666,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/TypeHintFixStrategy.php' => 
     array (
-      0 => '5996a37705e44dc02cd71aa012980f6dcf068995',
+      0 => '97950f4fb191eed611310dc9db7c4db99d1a2545',
       1 => 
       array (
         0 => 'sac\\eloquentmodelgenerator\\services\\fixstrategies\\typehintfixstrategy',

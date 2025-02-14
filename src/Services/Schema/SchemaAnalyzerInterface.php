@@ -7,9 +7,6 @@ use SAC\EloquentModelGenerator\ValueObjects\TableSchema;
 interface SchemaAnalyzerInterface {
     /**
      * Analyze the schema of a table.
-     *
-     * @param string $table
-     * @return TableSchema
      */
     public function analyze(string $table): TableSchema;
 
@@ -22,9 +19,6 @@ interface SchemaAnalyzerInterface {
 
     /**
      * Check if a table exists.
-     *
-     * @param string $table
-     * @return bool
      */
     public function hasTable(string $table): bool;
 }

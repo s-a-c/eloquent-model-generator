@@ -15,7 +15,7 @@ class ModelFactoryTest extends TestCase {
     }
 
     /** @test */
-    public function it_creates_model_definition(): void {
+    public function testucreates_model_definition(): void {
         $definition = $this->factory->definition('test_users');
 
         $this->assertInstanceOf(ModelDefinition::class, $definition);
@@ -25,7 +25,7 @@ class ModelFactoryTest extends TestCase {
     }
 
     /** @test */
-    public function it_creates_model_definition_with_custom_attributes(): void {
+    public function testucreates_model_definition_with_custom_attributes(): void {
         $definition = $this->factory->definition('users', [
             'className' => 'CustomUser',
             'namespace' => 'App\\Domain\\Models',
@@ -40,7 +40,7 @@ class ModelFactoryTest extends TestCase {
     }
 
     /** @test */
-    public function it_creates_basic_schema(): void {
+    public function testucreates_basic_schema(): void {
         $schema = $this->factory->basicSchema('users');
 
         $this->assertArrayHasKey('columns', $schema);
@@ -51,7 +51,7 @@ class ModelFactoryTest extends TestCase {
     }
 
     /** @test */
-    public function it_creates_soft_deletes_schema(): void {
+    public function testucreates_soft_deletes_schema(): void {
         $schema = $this->factory->softDeletesSchema('users');
 
         $this->assertArrayHasKey('deleted_at', $schema['columns']);
@@ -60,7 +60,7 @@ class ModelFactoryTest extends TestCase {
     }
 
     /** @test */
-    public function it_creates_relationship_schema(): void {
+    public function testucreates_relationship_schema(): void {
         $relations = [
             'posts' => [
                 'type' => 'hasMany',
@@ -77,7 +77,7 @@ class ModelFactoryTest extends TestCase {
     }
 
     /** @test */
-    public function it_normalizes_column_definitions(): void {
+    public function testunormalizes_column_definitions(): void {
         $schema = $this->factory->schema([
             'name' => 'string',
             'email' => ['type' => 'string', 'nullable' => true],
@@ -91,7 +91,7 @@ class ModelFactoryTest extends TestCase {
     }
 
     /** @test */
-    public function it_normalizes_index_definitions(): void {
+    public function testunormalizes_index_definitions(): void {
         $schema = $this->factory->schema([], [
             'email_unique' => ['type' => 'unique', 'columns' => ['email']],
             'name_index' => 'name',
@@ -104,7 +104,7 @@ class ModelFactoryTest extends TestCase {
     }
 
     /** @test */
-    public function it_normalizes_relation_definitions(): void {
+    public function testunormalizes_relation_definitions(): void {
         $schema = $this->factory->schema([], [], [
             'posts' => 'hasMany',
             'profile' => ['type' => 'hasOne', 'model' => 'App\\Models\\Profile']

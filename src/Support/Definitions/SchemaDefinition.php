@@ -15,29 +15,13 @@ use SAC\EloquentModelGenerator\ValueObjects\Index;
  */
 class SchemaDefinition {
     /**
-     * @var Collection<int, Column>
-     */
-    private Collection $columns;
-
-    /**
-     * @var Collection<int, Index>
-     */
-    private Collection $indexes;
-
-    /**
      * Create a new schema definition instance.
      *
-     * @param string $table
      * @param Collection<int, Column> $columns
      * @param Collection<int, Index> $indexes
      */
-    public function __construct(
-        private string $table,
-        Collection $columns,
-        Collection $indexes
-    ) {
-        $this->columns = $columns;
-        $this->indexes = $indexes;
+    public function __construct(private readonly string $table, private readonly Collection $columns, private readonly Collection $indexes)
+    {
     }
 
     /**
@@ -71,7 +55,7 @@ class SchemaDefinition {
      * @return Collection<int, Column>
      */
     public function getNullableColumns(): Collection {
-        return $this->columns->filter(fn(Column $column) => $column->isNullable());
+        return $this->columns->filter(fn(Column $column): bool => $column->isNullable());
     }
 
     /**
@@ -80,7 +64,7 @@ class SchemaDefinition {
      * @return Collection<int, Column>
      */
     public function getRequiredColumns(): Collection {
-        return $this->columns->filter(fn(Column $column) => !$column->isNullable());
+        return $this->columns->filter(fn(Column $column): bool => !$column->isNullable());
     }
 
     /**
@@ -89,7 +73,7 @@ class SchemaDefinition {
      * @return Collection<int, Column>
      */
     public function getColumnsByType(string $type): Collection {
-        return $this->columns->filter(fn(Column $column) => $column->getType() === $type);
+        return $this->columns->filter(fn(Column $column): bool => $column->getType() === $type);
     }
 
     /**
@@ -98,14 +82,14 @@ class SchemaDefinition {
      * @return Collection<int, Index>
      */
     public function getIndexesForColumn(string $columnName): Collection {
-        return $this->indexes->filter(fn(Index $index) => $index->hasColumn($columnName));
+        return $this->indexes->filter(fn(Index $index): bool => $index->hasColumn($columnName));
     }
 
     /**
      * Check if the schema has a primary key.
      */
     public function hasPrimaryKey(): bool {
-        return $this->indexes->contains(fn(Index $index) => $index->getType() === 'primary');
+        return $this->indexes->contains(fn(Index $index): bool => $index->getType() === 'primary');
     }
 
     /**

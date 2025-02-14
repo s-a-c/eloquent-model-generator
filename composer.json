@@ -2,33 +2,40 @@
     "name": "sac/eloquent-model-generator",
     "description": "An advanced Eloquent model generator for Laravel with comprehensive static analysis and code quality tools",
     "type": "library",
+    "keywords": ["laravel", "eloquent", "model", "generator", "migration"],
     "license": "MIT",
+    "authors": [
+        {
+            "name": "StandAloneComplex",
+            "email": "embrace.s0ul@gmail.com"
+        }
+    ],
     "require": {
-        "php": "^8.2",
+        "php": "^8.3",
         "illuminate/console": "^11.0",
         "illuminate/database": "^11.0",
         "illuminate/support": "^11.0",
-        "laravel/framework": "^11.42",
-        "laravel/installer": "^5.11",
-        "nikic/php-parser": "^5.0"
+        "laravel/framework": "^11.0",
+        "laravel/installer": "^5.0",
+        "nikic/php-parser": "^5.0",
+        "laravel/prompts": "^0.1.13",
+        "larastan/larastan": "^3.0",
+        "phpmd/phpmd": "^2.15",
+        "vimeo/psalm": "^5.0",
+        "phpmetrics/phpmetrics": "^2.8",
+        "rector/rector": "^0.19",
+        "driftingly/rector-laravel": "^2.0",
+        "tomasvotruba/class-leak": "^2.0",
+        "tomasvotruba/type-coverage": "^2.0",
+        "phpstan/phpstan": "^2.0"
     },
     "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "nunomaduro/collision": "^8.0",
         "orchestra/testbench": "^9.0",
         "pestphp/pest": "^3.0",
-        "phpstan/phpstan": "^2.0",
-        "larastan/larastan": "^3.0",
-        "friendsofphp/php-cs-fixer": "^3.17",
-        "squizlabs/php_codesniffer": "^3.7",
-        "slevomat/coding-standard": "^8.13",
-        "phpmd/phpmd": "^2.13",
-        "vimeo/psalm": "^6.0",
-        "phpmetrics/phpmetrics": "^3.0",
-        "nunomaduro/collision": "^8.0",
-        "doctrine/coding-standard": "^12.0",
-        "rector/rector": "^2.0",
-        "tomasvotruba/type-coverage": "^2.0",
-        "tomasvotruba/class-leak": "^2.0",
-        "rector/swiss-knife": "^2.0"
+        "phpunit/phpunit": "^10.0",
+        "pestphp/pest-plugin-mutation": true
     },
     "autoload": {
         "psr-4": {
@@ -37,11 +44,12 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "SAC\\EloquentModelGenerator\\Tests\\": "tests/"
+            "SAC\\EloquentModelGenerator\\Tests\\": "tests/",
+            "App\\": "tests/tmp/app/App/"
         }
     },
     "scripts": {
-        "test": "pest",
+        "test": "vendor/bin/phpunit",
         "test:coverage": "pest --coverage --min=80",
         "test:types": "pest --type-coverage --min=90",
         "test:parallel": "pest --parallel",
@@ -52,13 +60,10 @@
         "psalm": "psalm --show-info=true --threads=4",
         "phpmd": "phpmd src ansi phpmd.xml",
         "style": [
-            "@cs-check",
-            "@phpcs"
+            "@cs-check"
         ],
         "cs-check": "php-cs-fixer fix --dry-run --diff",
         "cs-fix": "php-cs-fixer fix",
-        "phpcs": "phpcs",
-        "phpcs-fix": "phpcbf",
         "metrics": "phpmetrics --report-html=build/metrics src",
         "rector-dry": "rector process --dry-run",
         "rector": "rector process",
@@ -75,7 +80,8 @@
         ],
         "post-autoload-dump": [
             "@php ./vendor/bin/testbench package:discover --ansi"
-        ]
+        ],
+        "rector-laravel": "vendor/bin/rector --config=rector-laravel.php"
     },
     "scripts-descriptions": {
         "test": "Run Pest tests",
@@ -91,8 +97,6 @@
         "style": "Run all code style checks",
         "cs-check": "Check code style with PHP-CS-Fixer",
         "cs-fix": "Fix code style with PHP-CS-Fixer",
-        "phpcs": "Check code style with PHP_CodeSniffer",
-        "phpcs-fix": "Fix code style with PHP_CodeSniffer",
         "metrics": "Generate code metrics report",
         "rector-dry": "Run Rector in dry-run mode",
         "rector": "Run Rector to apply changes",
@@ -105,13 +109,43 @@
             "providers": [
                 "SAC\\EloquentModelGenerator\\Providers\\EloquentModelGeneratorServiceProvider"
             ]
+        },
+        "phpstan": {
+            "includes": [
+                "vendor/larastan/larastan/extension.neon"
+            ],
+            "parameters": {
+                "level": 8,
+                "tmpDir": "/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/build/phpstan",
+                "rootDir": "/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator",
+                "customRulesetUsed": true,
+                "bootstrapFiles": [],
+                "autoload_files": [],
+                "autoload_directories": [],
+                "scanFiles": [],
+                "scanDirectories": [],
+                "checkModelProperties": true,
+                "checkPhpDocMissingReturn": true,
+                "checkUnionTypes": true,
+                "reportUnmatchedIgnoredErrors": false,
+                "treatPhpDocTypesAsCertain": false,
+                "parallel": {
+                    "maximumNumberOfProcesses": 1
+                },
+                "excludePaths": [
+                    "/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/tests/tmp/*",
+                    "/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/tests/*",
+                    "/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/build/*",
+                    "/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/*",
+                    "*.blade.php"
+                ]
+            }
         }
     },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
             "pestphp/pest-plugin": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true,
             "tomasvotruba/type-coverage": true,
             "tomasvotruba/class-leak": true,
             "pestphp/pest-plugin-mutation": true

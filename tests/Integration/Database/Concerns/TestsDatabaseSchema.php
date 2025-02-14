@@ -8,7 +8,7 @@ use StandAloneComplex\EloquentModelGenerator\Models\BaseModel;
 
 trait TestsDatabaseSchema {
     /** @test */
-    public function it_generates_basic_model(): void {
+    public function testGeneratesBasicModel(): void {
         $this->createTestTable('users', [
             'id' => 'increments',
             'name' => 'string',
@@ -29,7 +29,7 @@ trait TestsDatabaseSchema {
     }
 
     /** @test */
-    public function it_handles_relationships(): void {
+    public function testHandlesRelationships(): void {
         $this->createTestTable('categories', [
             'id' => 'increments',
             'name' => 'string',
@@ -56,7 +56,7 @@ trait TestsDatabaseSchema {
     }
 
     /** @test */
-    public function it_handles_nullable_fields(): void {
+    public function testHandlesNullableFields(): void {
         $this->createTestTable('articles', [
             'id' => 'increments',
             'title' => 'string',
@@ -72,7 +72,7 @@ trait TestsDatabaseSchema {
     }
 
     /** @test */
-    public function it_handles_soft_deletes(): void {
+    public function testHandlesSoftDeletes(): void {
         $this->createTestTable('products', [
             'id' => 'increments',
             'name' => 'string',
@@ -89,7 +89,7 @@ trait TestsDatabaseSchema {
     }
 
     /** @test */
-    public function it_handles_custom_column_types(): void {
+    public function testHandlesCustomColumnTypes(): void {
         $this->createTestTable('documents', [
             'id' => 'increments',
             'title' => 'string',

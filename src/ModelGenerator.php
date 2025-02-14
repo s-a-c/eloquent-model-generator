@@ -11,24 +11,17 @@ use SAC\EloquentModelGenerator\Services\ValidationRuleGenerator;
 use Illuminate\Support\Collection;
 
 class ModelGenerator implements ModelGeneratorContract {
-    protected ValidationRuleGenerator $validationGenerator;
-
     /**
      * Create a new model generator instance.
      */
-    public function __construct(
-        private readonly ModelGeneratorService $service,
-        ?ValidationRuleGenerator $validationGenerator = null
-    ) {
-        $this->validationGenerator = $validationGenerator ?? new ValidationRuleGenerator();
+    public function __construct(private readonly ModelGeneratorService $service, protected ValidationRuleGenerator $validationGenerator = new ValidationRuleGenerator())
+    {
     }
 
     /**
      * Generate a model from the given schema.
      *
-     * @param ModelDefinition $definition
      * @param array<string, mixed> $schema
-     * @return GeneratedModel
      * @throws ModelGeneratorException
      */
     public function generate(ModelDefinition $definition, array $schema): GeneratedModel {
@@ -67,7 +60,7 @@ class ModelGenerator implements ModelGeneratorContract {
      */
     public function generateBatch(array $definitions, array $schemas): array {
         return array_map(
-            fn($definition, $schema) => $this->generate($definition, $schema),
+            fn($definition, $schema): GeneratedModel => $this->generate($definition, $schema),
             $definitions,
             $schemas
         );
@@ -75,10 +68,6 @@ class ModelGenerator implements ModelGeneratorContract {
 
     /**
      * Check if a model already exists.
-     *
-     * @param string $className
-     * @param string $namespace
-     * @return bool
      */
     public function modelExists(string $className, string $namespace): bool {
         $class = $namespace . '\\' . $className;
@@ -87,9 +76,6 @@ class ModelGenerator implements ModelGeneratorContract {
 
     /**
      * Inject validation traits into the model content.
-     *
-     * @param string $content
-     * @return string
      */
     protected function injectValidationTraits(string $content): string {
         $useStatements = "use SAC\EloquentModelGenerator\Support\Traits\HasModelValidation;\n";
@@ -114,7 +100,7 @@ class ModelGenerator implements ModelGeneratorContract {
         $content = preg_replace(
             '/(class\s+[^{]+{)/',
             "$1\n" . $traitUse,
-            $content
+            (string) $content
         );
 
         return $content;
@@ -123,9 +109,7 @@ class ModelGenerator implements ModelGeneratorContract {
     /**
      * Inject validation rules into the model content.
      *
-     * @param string $content
      * @param array<string, string|array> $rules
-     * @return string
      */
     protected function injectValidationRules(string $content, array $rules): string {
         $rulesContent = "\n    /**\n";
@@ -137,7 +121,7 @@ class ModelGenerator implements ModelGeneratorContract {
 
         foreach ($rules as $attribute => $rule) {
             if (is_array($rule)) {
-                $rulesContent .= "        '{$attribute}' => ['" . implode("', '", $rule) . "'],\n";
+                $rulesContent .= sprintf("        '%s' => ['", $attribute) . implode("', '", $rule) . "'],\n";
             } else {
                 $rulesContent .= "        '{$attribute}' => '{$rule}',\n";
             }
@@ -152,9 +136,7 @@ class ModelGenerator implements ModelGeneratorContract {
     /**
      * Inject validation messages into the model content.
      *
-     * @param string $content
      * @param array<string, string> $messages
-     * @return string
      */
     protected function injectValidationMessages(string $content, array $messages): string {
         $messagesContent = "\n    /**\n";

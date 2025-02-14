@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PhpMetrics report [2025-02-13 23:04:19]</title>
+    <title>PhpMetrics report [2025-02-14 02:37:14]</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico?v=v3.0.0-rc8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/milligram.min.css?v=v3.0.0-rc8">
@@ -50,7 +50,7 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2025-02-13 23:04:19        , with PHPMetrics v3.0.0-rc8 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2025-02-14 02:37:14        , with PHPMetrics v3.0.0-rc8 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
@@ -90,7 +90,7 @@
                             <path d="M0 0h24v24H0z" fill="none"/>
                             <path d="M20 8h-2.81c-.45-.78-1.07-1.45-1.82-1.96L17 4.41 15.59 3l-2.17 2.17C12.96 5.06 12.49 5 12 5c-.49 0-.96.06-1.41.17L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20V8zm-6 8h-4v-2h4v2zm0-4h-4v-2h4v2z"/>
                         </svg>
-                        Violations (30)
+                        Violations (6)
                     </a>
                 </li>
                                 <li>
@@ -221,70 +221,21 @@
 
     var relations = [
     {
-        "name": "SAC\\EloquentModelGenerator",
+        "name": "SAC\\EloquentModelGenerator\\Tests\\Traits",
         "size": 3000,
-        "relations": [
-            "SAC\\EloquentModelGenerator\\Services",
-            "SAC\\EloquentModelGenerator\\Models",
-            "SAC\\EloquentModelGenerator\\Support\\Definitions",
-            "SAC\\EloquentModelGenerator\\Contracts"
-        ]
+        "relations": []
     },
     {
-        "name": "SAC\\EloquentModelGenerator\\Services",
+        "name": "SAC\\EloquentModelGenerator\\Tests\\Support\\Traits",
         "size": 3000,
         "relations": [
-            "Illuminate\\Contracts\\Config",
-            "SAC\\EloquentModelGenerator\\Exceptions",
-            "SAC\\EloquentModelGenerator\\Support\\Definitions",
-            "Illuminate\\Support",
-            "SAC\\EloquentModelGenerator\\ValueObjects",
-            "SAC\\EloquentModelGenerator\\Models",
-            "SAC\\EloquentModelGenerator\\Support\\Factories",
-            "Symfony\\Component\\Process",
-            "Illuminate\\Support\\Facades",
-            "SAC\\EloquentModelGenerator\\Contracts",
-            "SAC\\EloquentModelGenerator\\Jobs",
-            "parallel",
-            "SAC\\EloquentModelGenerator\\Services\\FixStrategies"
-        ]
-    },
-    {
-        "name": "SAC\\EloquentModelGenerator\\Models",
-        "size": 3000,
-        "relations": [
-            "global"
-        ]
-    },
-    {
-        "name": "SAC\\EloquentModelGenerator\\Support\\Definitions",
-        "size": 3000,
-        "relations": [
-            "Illuminate\\Support"
-        ]
-    },
-    {
-        "name": "SAC\\EloquentModelGenerator\\Contracts",
-        "size": 3000,
-        "relations": [
-            "SAC\\EloquentModelGenerator\\Support\\Definitions",
-            "SAC\\EloquentModelGenerator\\Models"
-        ]
-    },
-    {
-        "name": "SAC\\EloquentModelGenerator\\Config",
-        "size": 3000,
-        "relations": [
-            "SAC\\EloquentModelGenerator\\Exceptions",
             "global",
-            "Illuminate\\Support\\Facades"
-        ]
-    },
-    {
-        "name": "SAC\\EloquentModelGenerator\\Exceptions",
-        "size": 3000,
-        "relations": [
-            "global"
+            "Illuminate\\Support\\Facades",
+            "Illuminate\\Support",
+            "Illuminate\\Database\\Eloquent",
+            "Illuminate\\Database\\Eloquent\\Casts",
+            "Illuminate\\Database\\Eloquent\\Relations",
+            "Symfony\\Component\\Stopwatch"
         ]
     },
     {
@@ -298,112 +249,19 @@
         "relations": []
     },
     {
-        "name": "SAC\\EloquentModelGenerator\\Providers",
-        "size": 3000,
-        "relations": [
-            "SAC\\EloquentModelGenerator\\Services",
-            "SAC\\EloquentModelGenerator\\Console\\Commands",
-            "SAC\\EloquentModelGenerator\\Services\\FixStrategies",
-            "SAC\\EloquentModelGenerator\\Models",
-            "SAC\\EloquentModelGenerator\\Contracts",
-            "SAC\\EloquentModelGenerator\\Services\\Schema"
-        ]
-    },
-    {
-        "name": "SAC\\EloquentModelGenerator\\Console\\Commands",
-        "size": 3000,
-        "relations": [
-            "SAC\\EloquentModelGenerator\\Services",
-            "Illuminate\\Console",
-            "Symfony\\Component\\Console\\Output",
-            "Illuminate\\Support\\Facades",
-            "SAC\\EloquentModelGenerator\\Config",
-            "Symfony\\Component\\Process"
-        ]
-    },
-    {
-        "name": "SAC\\EloquentModelGenerator\\Services\\FixStrategies",
-        "size": 3000,
-        "relations": [
-            "Symfony\\Component\\Process",
-            "Illuminate\\Support\\Facades",
-            "phpDocumentor\\Reflection",
-            "phpDocumentor\\Reflection\\Types",
-            "PhpParser",
-            "PhpParser\\NodeVisitor",
-            "PhpParser\\PrettyPrinter"
-        ]
-    },
-    {
-        "name": "SAC\\EloquentModelGenerator\\Services\\Schema",
-        "size": 3000,
-        "relations": [
-            "SAC\\EloquentModelGenerator\\ValueObjects",
-            "SAC\\EloquentModelGenerator\\Exceptions",
-            "Illuminate\\Database",
-            "Illuminate\\Database\\Schema"
-        ]
-    },
-    {
-        "name": "SAC\\EloquentModelGenerator\\Support\\Fixes",
-        "size": 3000,
-        "relations": [
-            "PhpParser\\Node",
-            "PhpParser",
-            "PhpParser\\Node\\Stmt",
-            "PhpParser\\Node\\Scalar",
-            "PhpParser\\Node\\Expr",
-            "PhpParser\\PrettyPrinter",
-            "Illuminate\\Support\\Facades"
-        ]
-    },
-    {
-        "name": "PhpParser\\Node",
+        "name": "Illuminate\\Support",
         "size": 3000,
         "relations": []
     },
     {
-        "name": "PhpParser",
+        "name": "Illuminate\\Database\\Eloquent",
         "size": 3000,
         "relations": []
     },
     {
-        "name": "PhpParser\\Node\\Stmt",
+        "name": "Illuminate\\Database\\Eloquent\\Casts",
         "size": 3000,
         "relations": []
-    },
-    {
-        "name": "PhpParser\\Node\\Scalar",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "PhpParser\\Node\\Expr",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "PhpParser\\PrettyPrinter",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "SAC\\EloquentModelGenerator\\Support\\Builders",
-        "size": 3000,
-        "relations": [
-            "SAC\\EloquentModelGenerator\\Services",
-            "SAC\\EloquentModelGenerator\\Models"
-        ]
-    },
-    {
-        "name": "SAC\\EloquentModelGenerator\\Support\\Traits",
-        "size": 3000,
-        "relations": [
-            "global",
-            "Illuminate\\Database\\Eloquent\\Relations",
-            "Illuminate\\Support\\Facades",
-            "Illuminate\\Validation"
-        ]
     },
     {
         "name": "Illuminate\\Database\\Eloquent\\Relations",
@@ -411,20 +269,14 @@
         "relations": []
     },
     {
-        "name": "Illuminate\\Validation",
+        "name": "Symfony\\Component\\Stopwatch",
         "size": 3000,
         "relations": []
     },
     {
-        "name": "SAC\\EloquentModelGenerator\\Support\\Results",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "SAC\\EloquentModelGenerator\\Support\\Factories",
+        "name": "SAC\\EloquentModelGenerator\\Tests\\Support\\Factories",
         "size": 3000,
         "relations": [
-            "SAC\\EloquentModelGenerator\\Support\\Definitions",
             "SAC\\EloquentModelGenerator\\ValueObjects",
             "Illuminate\\Support"
         ]
@@ -435,111 +287,22 @@
         "relations": []
     },
     {
-        "name": "Illuminate\\Support",
+        "name": "App\\Models",
         "size": 3000,
         "relations": []
     },
     {
-        "name": "SAC\\EloquentModelGenerator\\Http\\Requests",
+        "name": "App\\Custom",
         "size": 3000,
         "relations": []
     },
     {
-        "name": "SAC\\EloquentModelGenerator\\Model",
-        "size": 3000,
-        "relations": [
-            "global",
-            "Illuminate\\Support"
-        ]
-    },
-    {
-        "name": "SAC\\EloquentModelGenerator\\Templates",
-        "size": 3000,
-        "relations": [
-            "SAC\\EloquentModelGenerator\\Models",
-            "SAC\\EloquentModelGenerator\\Services",
-            "Illuminate\\Support\\Facades"
-        ]
-    },
-    {
-        "name": "SAC\\EloquentModelGenerator\\Jobs",
-        "size": 3000,
-        "relations": [
-            "SAC\\EloquentModelGenerator\\Services",
-            "SAC\\EloquentModelGenerator\\Support\\Definitions"
-        ]
-    },
-    {
-        "name": "SAC\\EloquentModelGenerator\\Events",
-        "size": 3000,
-        "relations": [
-            "SAC\\EloquentModelGenerator\\Models"
-        ]
-    },
-    {
-        "name": "SAC\\EloquentModelGenerator\\Collections",
-        "size": 3000,
-        "relations": [
-            "SAC\\EloquentModelGenerator\\Models"
-        ]
-    },
-    {
-        "name": "Illuminate\\Contracts\\Config",
+        "name": "App\\Domain\\Core\\Models",
         "size": 3000,
         "relations": []
     },
     {
-        "name": "Symfony\\Component\\Process",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "parallel",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "phpDocumentor\\Reflection",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "phpDocumentor\\Reflection\\Types",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "PhpParser\\NodeVisitor",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "Illuminate\\Database",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "Illuminate\\Database\\Schema",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "SAC\\EloquentModelGenerator\\Services\\Benchmarking",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "Illuminate\\Console",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "Symfony\\Component\\Console\\Output",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "SAC\\EloquentModelGenerator\\Console",
+        "name": "App\\Domain\\Models",
         "size": 3000,
         "relations": []
     }

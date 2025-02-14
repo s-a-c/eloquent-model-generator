@@ -2,6 +2,8 @@
 
 namespace SAC\EloquentModelGenerator\Support\Definitions;
 
+use RuntimeException;
+use InvalidArgumentException;
 use Illuminate\Support\Collection;
 use SAC\EloquentModelGenerator\ValueObjects\Column;
 
@@ -25,16 +27,6 @@ class ModelDefinition {
     private string $table;
 
     /**
-     * @var Collection<int, Column>
-     */
-    private Collection $columns;
-
-    /**
-     * @var Collection<int, RelationDefinition>
-     */
-    private Collection $relations;
-
-    /**
      * Create a new model definition instance.
      *
      * @param non-empty-string $className
@@ -42,24 +34,19 @@ class ModelDefinition {
      * @param Collection<int, Column> $columns
      * @param Collection<int, RelationDefinition> $relations
      * @param class-string|null $baseClass
-     * @param bool $withSoftDeletes
-     * @param bool $withValidation
-     * @param bool $withRelationships
      * @param non-empty-string|null $table
      */
     public function __construct(
-        private string $className,
-        private string $namespace,
-        Collection $columns,
-        Collection $relations,
-        private ?string $baseClass = null,
-        private bool $withSoftDeletes = false,
-        private bool $withValidation = false,
-        private bool $withRelationships = false,
+        private readonly string $className,
+        private readonly string $namespace,
+        private readonly Collection $columns,
+        private readonly Collection $relations,
+        private readonly ?string $baseClass = null,
+        private readonly bool $withSoftDeletes = false,
+        private readonly bool $withValidation = false,
+        private readonly bool $withRelationships = false,
         ?string $table = null
     ) {
-        $this->columns = $columns;
-        $this->relations = $relations;
         if ($table !== null) {
             $this->setTableName($table);
         }
@@ -135,12 +122,13 @@ class ModelDefinition {
      * Get the table name.
      *
      * @return non-empty-string
-     * @throws \RuntimeException If table name is not set
+     * @throws RuntimeException If table name is not set
      */
     public function getTableName(): string {
         if (!isset($this->table)) {
-            throw new \RuntimeException('Table name has not been set');
+            throw new RuntimeException('Table name has not been set');
         }
+
         return $this->table;
     }
 
@@ -148,13 +136,13 @@ class ModelDefinition {
      * Set the table name.
      *
      * @param non-empty-string $table
-     * @throws \InvalidArgumentException If table name is empty
+     * @throws InvalidArgumentException If table name is empty
      */
     public function setTableName(string $table): void {
-        if (empty($table)) {
-            throw new \InvalidArgumentException('Table name cannot be empty');
+        if ($table === '0') {
+            throw new InvalidArgumentException('Table name cannot be empty');
         }
-        /** @var non-empty-string */
+
         $this->table = $table;
     }
 }

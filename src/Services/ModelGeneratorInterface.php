@@ -9,10 +9,7 @@ interface ModelGeneratorInterface {
     /**
      * Generate a model from the given schema.
      *
-     * @param string $table
-     * @param TableSchema $schema
      * @param array<string, mixed> $config
-     * @return GeneratedModel
      */
     public function generate(string $table, TableSchema $schema, array $config = []): GeneratedModel;
 }

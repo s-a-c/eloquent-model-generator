@@ -25,6 +25,7 @@ class RectorFixStrategy implements FixStrategyInterface {
         if (preg_match("/Level (\d+)/", $description, $matches)) {
             return (int) $matches[1];
         }
+
         return 0;
     }
 }

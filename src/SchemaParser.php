@@ -36,6 +36,7 @@ class SchemaParser {
                 'cast' => $this->determineCastType($column['type'], $column)
             ];
         }
+
         return $parsed;
     }
 
@@ -54,14 +55,12 @@ class SchemaParser {
                 'unique' => $index['unique'] ?? false
             ];
         }
+
         return $parsed;
     }
 
     /**
      * Normalize a column type.
-     *
-     * @param string $type
-     * @return string
      */
     private function normalizeColumnType(string $type): string {
         return match (strtolower($type)) {
@@ -75,9 +74,6 @@ class SchemaParser {
 
     /**
      * Normalize an index type.
-     *
-     * @param string $type
-     * @return string
      */
     private function normalizeIndexType(string $type): string {
         return match (strtolower($type)) {
@@ -93,9 +89,7 @@ class SchemaParser {
     /**
      * Determine the cast type for a column.
      *
-     * @param string $type
      * @param ColumnDefinition $column
-     * @return string|null
      */
     private function determineCastType(string $type, array $column): ?string {
         $type = strtolower($type);

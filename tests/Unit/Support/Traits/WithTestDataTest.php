@@ -21,7 +21,7 @@ class WithTestDataTest extends TestCase {
     }
 
     /** @test */
-    public function it_creates_and_loads_fixtures(): void {
+    public function testucreates_and_loads_fixtures(): void {
         $data = ['test' => 'data'];
         $path = $this->createFixture('test', $data);
 
@@ -30,7 +30,7 @@ class WithTestDataTest extends TestCase {
     }
 
     /** @test */
-    public function it_creates_schema_fixtures(): void {
+    public function testucreates_schema_fixtures(): void {
         $columns = ['id' => ['type' => 'integer']];
         $indexes = ['primary' => ['type' => 'primary', 'columns' => ['id']]];
         $relations = ['posts' => ['type' => 'hasMany']];
@@ -45,7 +45,7 @@ class WithTestDataTest extends TestCase {
     }
 
     /** @test */
-    public function it_creates_model_fixtures(): void {
+    public function testucreates_model_fixtures(): void {
         $path = $this->createModelFixture(
             'User',
             'App\\Models',
@@ -62,20 +62,20 @@ class WithTestDataTest extends TestCase {
     }
 
     /** @test */
-    public function it_throws_exception_for_missing_fixture(): void {
+    public function testuthrows_exception_for_missing_fixture(): void {
         $this->expectException(\RuntimeException::class);
         $this->loadFixture('non_existent');
     }
 
     /** @test */
-    public function it_creates_fixtures_directory(): void {
+    public function testucreates_fixtures_directory(): void {
         File::deleteDirectory($this->fixturesPath);
         $this->createFixturesDirectory();
         $this->assertTrue(File::isDirectory($this->fixturesPath));
     }
 
     /** @test */
-    public function it_cleans_up_fixtures(): void {
+    public function testucleans_up_fixtures(): void {
         $this->createFixture('test', ['data' => 'test']);
         $this->cleanupTestData();
         $this->assertFalse(File::exists($this->fixturesPath));

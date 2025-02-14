@@ -48,7 +48,7 @@ class ModelGeneratorPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function it_measures_single_model_generation_performance(): void {
+    public function testumeasures_single_model_generation_performance(): void {
         $benchmark = new Benchmark();
 
         $result = $benchmark->measure(function () {
@@ -71,7 +71,7 @@ class ModelGeneratorPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function it_measures_batch_model_generation_performance(): void {
+    public function testumeasures_batch_model_generation_performance(): void {
         $benchmark = new Benchmark();
 
         $result = $benchmark->measure(function () {
@@ -96,7 +96,7 @@ class ModelGeneratorPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function it_measures_parallel_model_generation_performance(): void {
+    public function testumeasures_parallel_model_generation_performance(): void {
         $benchmark = new Benchmark();
 
         $result = $benchmark->measure(function () {
@@ -122,7 +122,7 @@ class ModelGeneratorPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function it_measures_cache_performance(): void {
+    public function testumeasures_cache_performance(): void {
         // First run to warm up cache
         $this->service->generateModel($this->tables[0], [
             'namespace' => 'App\\Models',
@@ -151,7 +151,7 @@ class ModelGeneratorPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function it_detects_memory_leaks(): void {
+    public function testudetects_memory_leaks(): void {
         $iterations = 10;
         $memoryReadings = [];
 
@@ -185,7 +185,7 @@ class ModelGeneratorPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function it_verifies_cache_hit_rate(): void {
+    public function testuverifies_cache_hit_rate(): void {
         $iterations = 100;
         $cacheHits = 0;
 
@@ -220,7 +220,7 @@ class ModelGeneratorPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function it_verifies_parallel_efficiency(): void {
+    public function testuverifies_parallel_efficiency(): void {
         // First measure sequential time
         $benchmark = new Benchmark();
         $sequentialResult = $benchmark->measure(function () {
@@ -251,7 +251,7 @@ class ModelGeneratorPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function it_handles_large_tables_efficiently(): void {
+    public function testuhandles_large_tables_efficiently(): void {
         // Create a large table with many columns
         $tableName = 'large_test_table';
         Schema::create($tableName, function (Blueprint $table) {
@@ -307,7 +307,7 @@ class ModelGeneratorPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function it_handles_concurrent_access(): void {
+    public function testuhandles_concurrent_access(): void {
         $concurrentRequests = 10;
         $results = [];
         $errors = 0;
@@ -357,7 +357,7 @@ class ModelGeneratorPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function it_manages_database_connections_efficiently(): void {
+    public function testumanages_database_connections_efficiently(): void {
         $maxConnections = 5;
         $totalOperations = 20;
         $activeConnections = 0;
@@ -411,7 +411,7 @@ class ModelGeneratorPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function it_measures_template_rendering_performance(): void {
+    public function testumeasures_template_rendering_performance(): void {
         // Create a complex model with many attributes and relationships
         $tableName = 'template_test_table';
         Schema::create($tableName, function (Blueprint $table) {
@@ -472,7 +472,7 @@ class ModelGeneratorPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function it_measures_schema_analysis_performance(): void {
+    public function testumeasures_schema_analysis_performance(): void {
         // Create tables with complex relationships
         $tables = [
             'categories' => function (Blueprint $table) {

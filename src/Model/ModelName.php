@@ -11,25 +11,23 @@ class ModelName {
     /**
      * Create a new model name instance.
      *
-     * @param string $name
      * @throws InvalidArgumentException
      */
     public function __construct(string $name) {
         if (!$this->isValidClassName($name)) {
             throw new InvalidArgumentException('Invalid class name format');
         }
+
         $this->name = $name;
     }
 
     /**
      * Create a model name from a table name.
      *
-     * @param string $table
-     * @return self
      * @throws InvalidArgumentException
      */
     public static function fromTable(string $table): self {
-        if (empty($table)) {
+        if ($table === '' || $table === '0') {
             throw new InvalidArgumentException('Table name cannot be empty');
         }
 
@@ -81,8 +79,6 @@ class ModelName {
 
     /**
      * Convert the model name to a string.
-     *
-     * @return string
      */
     public function toString(): string {
         return $this->name;
@@ -90,9 +86,6 @@ class ModelName {
 
     /**
      * Check if a string is a valid class name.
-     *
-     * @param string $name
-     * @return bool
      */
     private function isValidClassName(string $name): bool {
         // Must start with an uppercase letter
@@ -107,10 +100,6 @@ class ModelName {
 
         // Must not be a PHP reserved word
         $reservedWords = ['List', 'String', 'Class', 'Interface', 'Trait', 'Extends', 'Implements', 'Public', 'Protected', 'Private', 'Abstract', 'Final', 'Static'];
-        if (in_array($name, $reservedWords, true)) {
-            return false;
-        }
-
-        return true;
+        return !in_array($name, $reservedWords, true);
     }
 }

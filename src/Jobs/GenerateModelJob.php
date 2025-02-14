@@ -11,17 +11,15 @@ use SAC\EloquentModelGenerator\Services\ModelGeneratorService;
 use SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition;
 
 class GenerateModelJob implements ShouldQueue {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-
-    /**
-     * @var ModelDefinition|null
-     */
+    use Dispatchable;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
     private ?ModelDefinition $result = null;
 
     /**
      * Create a new job instance.
      *
-     * @param string $table
      * @param array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool} $config
      */
     public function __construct(

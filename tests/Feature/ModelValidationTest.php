@@ -4,7 +4,7 @@ namespace SAC\EloquentModelGenerator\Tests\Feature;
 
 use SAC\EloquentModelGenerator\Tests\TestCase;
 use SAC\EloquentModelGenerator\Tests\Support\Traits\AssertModelValidation;
-use SAC\EloquentModelGenerator\ValueObjects\ModelDefinition;
+use SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition;
 use SAC\EloquentModelGenerator\ModelGenerator;
 
 class ModelValidationTest extends TestCase {
@@ -17,7 +17,7 @@ class ModelValidationTest extends TestCase {
         $this->generator = $this->app->make(ModelGenerator::class);
     }
 
-    public function test_generates_model_with_validation_rules(): void {
+    public function testGeneratesModelWithValidationRules(): void {
         $schema = [
             'columns' => [
                 'name' => [
@@ -39,10 +39,15 @@ class ModelValidationTest extends TestCase {
         ];
 
         $definition = new ModelDefinition(
-            className: 'TestModel',
-            namespace: 'App\\Models',
-            tableName: 'test_users',
-            withValidation: true
+            'TestModel',
+            'App\\Models',
+            collect($schema['columns']),
+            collect([]),
+            null,
+            false,
+            true,
+            false,
+            'test_table'
         );
 
         $model = $this->generator->generate($definition, $schema);
@@ -74,7 +79,7 @@ class ModelValidationTest extends TestCase {
         ]);
     }
 
-    public function test_merges_custom_validation_rules(): void {
+    public function testMergesCustomValidationRules(): void {
         $schema = [
             'columns' => [
                 'email' => [
@@ -92,10 +97,15 @@ class ModelValidationTest extends TestCase {
         ];
 
         $definition = new ModelDefinition(
-            className: 'TestModel',
-            namespace: 'App\\Models',
-            tableName: 'test_users',
-            withValidation: true
+            'TestModel',
+            'App\\Models',
+            collect($schema['columns']),
+            collect([]),
+            null,
+            false,
+            true,
+            false,
+            'test_table'
         );
 
         $model = $this->generator->generate($definition, $schema);
@@ -127,7 +137,7 @@ class ModelValidationTest extends TestCase {
         );
     }
 
-    public function test_handles_custom_validation_messages(): void {
+    public function testHandlesCustomValidationMessages(): void {
         $schema = [
             'columns' => [
                 'age' => [
@@ -143,10 +153,15 @@ class ModelValidationTest extends TestCase {
         ];
 
         $definition = new ModelDefinition(
-            className: 'TestModel',
-            namespace: 'App\\Models',
-            tableName: 'test_users',
-            withValidation: true
+            'TestModel',
+            'App\\Models',
+            collect($schema['columns']),
+            collect([]),
+            null,
+            false,
+            true,
+            false,
+            'test_table'
         );
 
         $model = $this->generator->generate($definition, $schema);

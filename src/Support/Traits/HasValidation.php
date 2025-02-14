@@ -64,7 +64,6 @@ trait HasValidation {
     /**
      * Validate the model.
      *
-     * @return bool
      * @throws ValidationException
      */
     public function validate(): bool {

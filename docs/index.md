@@ -1,94 +1,94 @@
-# Eloquent Model Generator Documentation
+# Eloquent Model Generator
 
-## Getting Started
-- [Installation](installation.md)
-- [Configuration](configuration.md)
+Generate and analyze Eloquent models from your database schema with advanced features and static analysis.
 
-## Features
-- [Model Generation](model-generation.md)
-- [Validation](validation.md)
-- [Performance Testing](performance-testing.md)
+## Quick Start
 
-## Advanced Topics
-- [Custom Model Generation](custom-model-generation.md)
-- [Testing](testing.md)
-- [Contributing](contributing.md)
+```bash
+# Install
+composer require sac/eloquent-model-generator
 
-## API Reference
-- [Model Generator](api/model-generator.md)
-- [Model Definition](api/model-definition.md)
-- [Validation Rules](api/validation-rules.md)
+# Generate models
+php artisan model:generate
 
-## Testing
-- [Unit Testing](testing/unit-testing.md)
-- [Feature Testing](testing/feature-testing.md)
-- [Performance Testing](testing/performance-testing.md)
-
-## Guides
-- [Best Practices](guides/best-practices.md)
-- [Common Patterns](guides/common-patterns.md)
-- [Troubleshooting](guides/troubleshooting.md)
-
-## Examples
-- [Basic Models](examples/basic-models.md)
-- [Complex Models](examples/complex-models.md)
-- [Validation Examples](examples/validation-examples.md)
-
-## Support
-- [FAQ](support/faq.md)
-- [Known Issues](support/known-issues.md)
-- [Community Resources](support/community-resources.md)
-
-## Table of Contents
-
-1. [Installation](installation.md)
-2. [Configuration](configuration.md)
-3. [Testing](testing.md)
-   - [Test Data Loading](test-data-loading.md)
-   - [Model Casting Assertions](model-casting-assertions.md)
-   - [Performance Testing](performance-testing.md)
-   - [Edge Cases](edge-cases.md)
+# Analyze models
+php artisan model:analyze
+```
 
 ## Features
+
+### Model Generation
+- Automatic schema analysis
+- Type inference
+- Relation detection
+- Custom attributes
+- Template support
+
+### Code Quality
+- Static analysis
+- Type checking
+- Style enforcement
+- Metrics generation
+- Security validation
+
+## Documentation
 
 ### Core Features
-- Automatic model generation from database schema
-- Relationship detection and generation
-- Custom attribute casting
-- Index and foreign key analysis
-- Namespace configuration
-- Custom stub templates
+1. [Model Generation](features/generation.md)
+   - Schema analysis
+   - Type inference
+   - Relation detection
+   - Custom attributes
 
-### Testing Features
-- JSON/YAML test data loading
-- Model attribute casting assertions
-- Performance monitoring and profiling
-- Edge case testing
-- Parallel test execution
-- Memory leak detection
-- Query analysis
+2. [Model Analysis](features/analysis.md)
+   - Static analysis
+   - Type checking
+   - Code quality
+   - Metrics
 
-### Development Tools
-- Code style checking
-- Static analysis
-- Architecture testing
-- Documentation generation
+### Configuration
+1. [Basic Configuration](config/basic.md)
+   - Database connection
+   - Namespace settings
+   - Output paths
 
-## Quick Links
+2. [Advanced Configuration](config/advanced.md)
+   - Custom templates
+   - Type mappings
+   - Naming conventions
+   - Analysis rules
 
-- [GitHub Repository](https://github.com/s-a-c/eloquent-model-generator)
-- [Issue Tracker](https://github.com/s-a-c/eloquent-model-generator/issues)
-- [Contributing Guidelines](CONTRIBUTING.md)
-- [Code of Conduct](CODE_OF_CONDUCT.md)
+### Development
+1. [Testing](dev/testing.md)
+   - Unit tests
+   - Feature tests
+   - Performance tests
+
+2. [Contributing](dev/contributing.md)
+   - Setup guide
+   - Coding standards
+   - Pull requests
+
+### Tools
+1. [Analysis Tools](tools/analysis-tools.md)
+   - PHPStan/Larastan
+   - Psalm
+   - Rector
+   - PHPMD
+   - Metrics
+
+## Requirements
+
+- PHP 8.3+
+- Laravel 10.x
+- MySQL/PostgreSQL/SQLite
 
 ## Support
 
-If you encounter any issues or have questions, please:
-
-1. Check the [documentation](docs/)
-2. Search [existing issues](https://github.com/s-a-c/eloquent-model-generator/issues)
-3. Create a new issue if needed
+- [Issues](https://github.com/stand-alone-complex/eloquent-model-generator/issues)
+- [Security](security.md)
+- [Code of Conduct](code_of_conduct.md)
 
 ## License
 
-This package is open-sourced software licensed under the [MIT license](LICENSE.md).
+[MIT License](license.md)

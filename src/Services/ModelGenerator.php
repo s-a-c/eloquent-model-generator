@@ -2,6 +2,7 @@
 
 namespace SAC\EloquentModelGenerator\Services;
 
+use RuntimeException;
 use SAC\EloquentModelGenerator\Contracts\ModelGeneratorService;
 use SAC\EloquentModelGenerator\Support\Factories\ModelGeneratorFactory;
 use SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition;
@@ -17,9 +18,7 @@ class ModelGenerator implements ModelGeneratorService {
     /**
      * Generate a model from a table name.
      *
-     * @param string $table
      * @param array<string, mixed> $options
-     * @return ModelDefinition
      * @throws ModelGeneratorException
      */
     public function generateModel(string $table, array $options = []): ModelDefinition {
@@ -30,8 +29,7 @@ class ModelGenerator implements ModelGeneratorService {
         return $this->factory->createModelDefinition(
             $table,
             $columns,
-            $relations,
-            $options
+            $relations
         );
     }
 
@@ -50,12 +48,13 @@ class ModelGenerator implements ModelGeneratorService {
                 $models[] = $this->generateModel($table, $config);
             } catch (ModelGeneratorException $e) {
                 throw new ModelGeneratorException(
-                    "Failed to generate model for table '{$table}': " . $e->getMessage(),
+                    sprintf("Failed to generate model for table '%s': ", $table) . $e->getMessage(),
                     0,
                     $e
                 );
             }
         }
+
         return $models;
     }
 
@@ -71,7 +70,6 @@ class ModelGenerator implements ModelGeneratorService {
     /**
      * Get the schema for a table.
      *
-     * @param string $table
      * @return array{
      *     columns: array<string, array{
      *         type: string,
@@ -92,6 +90,6 @@ class ModelGenerator implements ModelGeneratorService {
      */
     public function getTableSchema(string $table): array {
         // Implementation should be provided by concrete classes
-        throw new \RuntimeException('Method getTableSchema() must be implemented by concrete classes.');
+        throw new RuntimeException('Method getTableSchema() must be implemented by concrete classes.');
     }
 }

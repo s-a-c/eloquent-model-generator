@@ -29,7 +29,7 @@ class ModelGeneratorEdgeCaseTest extends TestCase {
     /**
      * Test handling of a table with no columns (edge case)
      */
-    public function test_handles_empty_table(): void {
+    public function testHandlesEmptyTable(): void {
         Schema::create('edge_case_test', function (Blueprint $table) {
             // Create table with no columns
         });
@@ -43,7 +43,7 @@ class ModelGeneratorEdgeCaseTest extends TestCase {
     /**
      * Test handling of column names with special characters
      */
-    public function test_handles_special_characters_in_column_names(): void {
+    public function testHandlesSpecialCharactersInColumnNames(): void {
         Schema::create('edge_case_test', function (Blueprint $table) {
             $table->id();
             $table->string('special@column');
@@ -62,7 +62,7 @@ class ModelGeneratorEdgeCaseTest extends TestCase {
     /**
      * Test handling of table with maximum MySQL column count (1017 for InnoDB)
      */
-    public function test_handles_maximum_column_count(): void {
+    public function testHandlesMaximumColumnCount(): void {
         Schema::create('edge_case_test', function (Blueprint $table) {
             // Add maximum allowed columns for testing
             for ($i = 0; $i < 1000; $i++) {
@@ -77,7 +77,7 @@ class ModelGeneratorEdgeCaseTest extends TestCase {
     /**
      * Test handling of extremely long table names
      */
-    public function test_handles_long_table_name(): void {
+    public function testHandlesLongTableName(): void {
         $longTableName = str_repeat('a', 64); // MySQL maximum table name length
 
         Schema::create($longTableName, function (Blueprint $table) {
@@ -95,7 +95,7 @@ class ModelGeneratorEdgeCaseTest extends TestCase {
     /**
      * Test handling of all possible MySQL column types
      */
-    public function test_handles_all_column_types(): void {
+    public function testHandlesAllColumnTypes(): void {
         Schema::create('edge_case_test', function (Blueprint $table) {
             // Numeric types
             $table->tinyInteger('tiny_int');
@@ -138,7 +138,7 @@ class ModelGeneratorEdgeCaseTest extends TestCase {
     /**
      * Test handling of circular foreign key relationships
      */
-    public function test_handles_circular_relationships(): void {
+    public function testHandlesCircularRelationships(): void {
         Schema::create('edge_case_test', function (Blueprint $table) {
             $table->id();
             $table->foreignId('related_id')->nullable();
@@ -165,7 +165,7 @@ class ModelGeneratorEdgeCaseTest extends TestCase {
     /**
      * Test handling of reserved PHP keywords as column names
      */
-    public function test_handles_reserved_keywords_as_column_names(): void {
+    public function testHandlesReservedKeywordsAsColumnNames(): void {
         Schema::create('edge_case_test', function (Blueprint $table) {
             $table->id();
             $table->string('class');
@@ -184,7 +184,7 @@ class ModelGeneratorEdgeCaseTest extends TestCase {
     /**
      * Test handling of non-standard character sets and collations
      */
-    public function test_handles_non_standard_character_sets(): void {
+    public function testHandlesNonStandardCharacterSets(): void {
         DB::statement('CREATE TABLE edge_case_test (
             id INT AUTO_INCREMENT PRIMARY KEY,
             utf8mb4_col VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,

@@ -1,0 +1,34 @@
+{
+    "includes": [
+        "src"
+    ],
+    "excludes": [
+        "tests",
+        "vendor",
+        "build"
+    ],
+    "report": {
+        "html": "build/metrics/html",
+        "json": "build/metrics/report.json",
+        "violations": "build/metrics/violations.xml"
+    },
+    "plugins": {
+        "git": {
+            "binary": "git"
+        }
+    },
+    "groups": [
+        {
+            "name": "Models",
+            "match": "src/Models/.*"
+        },
+        {
+            "name": "Services",
+            "match": "src/Services/.*"
+        },
+        {
+            "name": "Commands",
+            "match": "src/Console/Commands/.*"
+        }
+    ]
+}

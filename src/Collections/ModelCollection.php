@@ -24,12 +24,9 @@ class ModelCollection extends Collection {
      * Get a model by its name
      *
      * @param string $name The name of the model to find
-     * @return GeneratedModel|null
      */
     public function getModel(string $name): ?GeneratedModel {
-        return $this->first(function (GeneratedModel $model) use ($name): bool {
-            return $model->getClassName() === $name;
-        });
+        return $this->first(fn(GeneratedModel $model): bool => $model->getClassName() === $name);
     }
 
     /**
@@ -51,9 +48,7 @@ class ModelCollection extends Collection {
      */
     public function removeModel(string $name): static {
         /** @var static<TKey, TValue> */
-        return $this->reject(function (GeneratedModel $model) use ($name): bool {
-            return $model->getClassName() === $name;
-        });
+        return $this->reject(fn(GeneratedModel $model): bool => $model->getClassName() === $name);
     }
 
     /**

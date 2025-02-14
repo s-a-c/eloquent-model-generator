@@ -60,9 +60,7 @@ interface ModelGeneratorService {
     /**
      * Generate a model from a table name.
      *
-     * @param string $table
      * @param ModelOptions $options
-     * @return ModelDefinition
      * @throws ModelGeneratorException If table does not exist or schema analysis fails
      */
     public function generateModel(string $table, array $options = []): ModelDefinition;
@@ -88,7 +86,6 @@ interface ModelGeneratorService {
     /**
      * Get the schema for a table
      *
-     * @param string $table
      * @return SchemaDefinition
      * @throws ModelGeneratorException If schema analysis fails
      */

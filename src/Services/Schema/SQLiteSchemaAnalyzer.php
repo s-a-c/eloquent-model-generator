@@ -10,7 +10,6 @@ class SQLiteSchemaAnalyzer extends BaseSchemaAnalyzer {
     /**
      * Analyze table schema.
      *
-     * @param string $table
      * @return array{
      *     columns: array<string, array{
      *         type: string,
@@ -34,10 +33,10 @@ class SQLiteSchemaAnalyzer extends BaseSchemaAnalyzer {
      */
     public function analyze(string $table): array {
         if (!$this->hasTable($table)) {
-            throw new ModelGeneratorException("Table '{$table}' does not exist");
+            throw new ModelGeneratorException(sprintf("Table '%s' does not exist", $table));
         }
 
-        $schema = $this->getSchemaBuilder();
+        $this->getSchemaBuilder();
         $columns = $this->analyzeColumns($table);
         $relationships = $this->analyzeRelationships($table);
 
@@ -50,7 +49,6 @@ class SQLiteSchemaAnalyzer extends BaseSchemaAnalyzer {
     /**
      * Analyze table columns.
      *
-     * @param string $table
      * @return array<string, array{
      *     type: string,
      *     nullable: bool,
@@ -88,7 +86,6 @@ class SQLiteSchemaAnalyzer extends BaseSchemaAnalyzer {
     /**
      * Analyze table relationships.
      *
-     * @param string $table
      * @return array<array{type: string, foreignTable: string, foreignKey: string, localKey: string}>
      */
     protected function analyzeRelationships(string $table): array {
@@ -149,6 +146,7 @@ class SQLiteSchemaAnalyzer extends BaseSchemaAnalyzer {
                 return true;
             }
         }
+
         return false;
     }
 

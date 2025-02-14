@@ -2,6 +2,7 @@
 
 namespace SAC\EloquentModelGenerator\Services\Benchmarking;
 
+use RuntimeException;
 use SAC\EloquentModelGenerator\Services\Benchmark;
 use SAC\EloquentModelGenerator\ValueObjects\BenchmarkResult;
 use Illuminate\Support\Facades\DB;
@@ -14,9 +15,6 @@ class PerformanceBenchmark extends Benchmark {
 
     /**
      * Start a benchmark.
-     *
-     * @param string $name
-     * @return void
      */
     public function startBenchmark(string $name): void {
         $this->benchmarks[$name] = [
@@ -28,13 +26,12 @@ class PerformanceBenchmark extends Benchmark {
     /**
      * End a benchmark.
      *
-     * @param string $name
      * @return array{duration: float, memory_usage: int}
-     * @throws \RuntimeException If benchmark was not started
+     * @throws RuntimeException If benchmark was not started
      */
     public function endBenchmark(string $name): array {
         if (!isset($this->benchmarks[$name])) {
-            throw new \RuntimeException("Benchmark '{$name}' was not started");
+            throw new RuntimeException(sprintf("Benchmark '%s' was not started", $name));
         }
 
         $benchmark = $this->benchmarks[$name];

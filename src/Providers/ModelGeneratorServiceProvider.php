@@ -2,6 +2,8 @@
 
 namespace SAC\EloquentModelGenerator\Providers;
 
+use Override;
+use RuntimeException;
 use Illuminate\Support\ServiceProvider;
 use SAC\EloquentModelGenerator\Services\ModelGeneratorServiceInterface;
 use SAC\EloquentModelGenerator\Services\ParallelModelGeneratorService;
@@ -15,12 +17,13 @@ use SAC\EloquentModelGenerator\Services\Schema\SQLiteSchemaAnalyzer;
 use SAC\EloquentModelGenerator\Services\DefaultModelGenerator;
 
 class ModelGeneratorServiceProvider extends ServiceProvider {
+    #[Override]
     public function register(): void {
         $this->app->bind(ModelTemplate::class, CachedModelTemplate::class);
         $this->app->bind(ModelGeneratorServiceInterface::class, ParallelModelGeneratorService::class);
         $this->app->bind(ModelGenerator::class, DefaultModelGenerator::class);
 
-        $this->app->bind(SchemaAnalyzer::class, function ($app) {
+        $this->app->bind(SchemaAnalyzer::class, function (array $app): MySQLSchemaAnalyzer|PostgreSQLSchemaAnalyzer|SQLiteSchemaAnalyzer {
             $connection = $app['db']->connection();
             $driver = $connection->getDriverName();
 
@@ -28,7 +31,7 @@ class ModelGeneratorServiceProvider extends ServiceProvider {
                 'mysql' => new MySQLSchemaAnalyzer($connection),
                 'pgsql' => new PostgreSQLSchemaAnalyzer($connection),
                 'sqlite' => new SQLiteSchemaAnalyzer($connection),
-                default => throw new \RuntimeException("Unsupported database driver: {$driver}")
+                default => throw new RuntimeException('Unsupported database driver: ' . $driver)
             };
         });
     }

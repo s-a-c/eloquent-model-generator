@@ -21,7 +21,7 @@ class PerformanceEdgeCaseTest extends TestCase {
     }
 
     /** @test */
-    public function it_handles_extremely_large_tables(): void {
+    public function testuhandles_extremely_large_tables(): void {
         // Create a table with 1000 columns
         Schema::create('large_table', function (Blueprint $table) {
             $table->id();
@@ -41,7 +41,7 @@ class PerformanceEdgeCaseTest extends TestCase {
     }
 
     /** @test */
-    public function it_handles_deep_relationship_chains(): void {
+    public function testuhandles_deep_relationship_chains(): void {
         // Create tables with deep relationships
         $this->createDeepRelationshipChain(10); // 10 levels deep
 
@@ -58,7 +58,7 @@ class PerformanceEdgeCaseTest extends TestCase {
     }
 
     /** @test */
-    public function it_handles_circular_relationships(): void {
+    public function testuhandles_circular_relationships(): void {
         // Create tables with circular relationships
         Schema::create('users', function (Blueprint $table) {
             $table->id();
@@ -78,7 +78,7 @@ class PerformanceEdgeCaseTest extends TestCase {
     }
 
     /** @test */
-    public function it_handles_concurrent_model_generation_under_load(): void {
+    public function testuhandles_concurrent_model_generation_under_load(): void {
         // Create multiple tables
         for ($i = 0; $i < 20; $i++) {
             Schema::create("concurrent_table_{$i}", function (Blueprint $table) {
@@ -109,7 +109,7 @@ class PerformanceEdgeCaseTest extends TestCase {
     }
 
     /** @test */
-    public function it_handles_rapid_successive_generations(): void {
+    public function testuhandles_rapid_successive_generations(): void {
         Schema::create('rapid_test', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -124,7 +124,7 @@ class PerformanceEdgeCaseTest extends TestCase {
     }
 
     /** @test */
-    public function it_handles_invalid_schema_gracefully(): void {
+    public function testuhandles_invalid_schema_gracefully(): void {
         // Create a table with potentially problematic column types
         Schema::create('edge_case_table', function (Blueprint $table) {
             $table->id();
@@ -144,7 +144,7 @@ class PerformanceEdgeCaseTest extends TestCase {
     }
 
     /** @test */
-    public function it_handles_memory_pressure(): void {
+    public function testuhandles_memory_pressure(): void {
         // Create memory pressure
         $memoryHog = [];
         for ($i = 0; $i < 1000000; $i++) {

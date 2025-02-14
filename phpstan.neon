@@ -1,20 +1,41 @@
 includes:
-    - ./vendor/larastan/larastan/extension.neon
+    - vendor/larastan/larastan/extension.neon
 
 parameters:
-    level: 1
+    level: 8
     paths:
         - src
+    tmpDir: build/phpstan
+    rootDir: .
+    customRulesetUsed: true
+    bootstrapFiles: []
+    autoload_files: []
+    autoload_directories: []
+    scanFiles: []
+    scanDirectories: []
+    checkModelProperties: true
+    checkPhpDocMissingReturn: true
+    checkUnionTypes: true
+    reportUnmatchedIgnoredErrors: false
+    treatPhpDocTypesAsCertain: false
+    parallel:
+        maximumNumberOfProcesses: 4
+    excludePaths:
+        - tests/tmp/*
+        - tests/*
+        - build/*
+        - vendor/*
+        - '*.blade.php'
+    output:
+        format: json
 
     # Laravel/Larastan specific settings
-    checkModelProperties: true
     checkOctaneCompatibility: true
     noUnnecessaryCollectionCall: true
     noUnnecessaryCollectionCallOnly: ['all', 'get', 'toArray']
     noUnnecessaryCollectionCallExcept: []
     noModelMake: false  # Disabled because we're a model generator
     checkModelAppends: true
-    checkPhpDocMissingReturn: true
     checkUnusedViews: false
     noEnvCallsOutsideOfConfig: true
 
@@ -23,18 +44,7 @@ parameters:
     disableSchemaScan: true
 
     # Core PHPStan settings
-    treatPhpDocTypesAsCertain: false
     checkMissingCallableSignature: false
-
-    # Paths to exclude from analysis
-    excludePaths:
-        - tests/tmp/*
-        - tests/*
-        - build/*
-        - vendor/*
-        - '*.blade.php'
-
-    tmpDir: build/phpstan
 
     # Error patterns to ignore
     ignoreErrors:
@@ -101,7 +111,6 @@ parameters:
         - Illuminate\Database\Eloquent\Model
 
     # Core checks - Level 1 appropriate
-    checkUnionTypes: false
     checkImplicitMixed: false
     checkBenevolentUnionTypes: false
     checkExplicitMixed: false

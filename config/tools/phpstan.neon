@@ -1,0 +1,78 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+    level: 8
+    paths:
+        - src
+    tmpDir: build/phpstan
+    rootDir: .
+    checkModelProperties: true
+    checkPhpDocMissingReturn: true
+    checkUnionTypes: true
+    reportUnmatchedIgnoredErrors: false
+    treatPhpDocTypesAsCertain: false
+    parallel:
+        maximumNumberOfProcesses: 4
+    excludePaths:
+        - tests/tmp/*
+        - tests/*
+        - build/*
+        - vendor/*
+        - '*.blade.php'
+
+    # Laravel/Larastan specific settings
+    checkOctaneCompatibility: true
+    noUnnecessaryCollectionCall: true
+    noUnnecessaryCollectionCallOnly: ['all', 'get', 'toArray']
+    noUnnecessaryCollectionCallExcept: []
+    noModelMake: false  # Disabled because we're a model generator
+    checkModelAppends: true
+    checkUnusedViews: false
+    noEnvCallsOutsideOfConfig: true
+
+    # Disable migration/schema scanning as this is a package
+    disableMigrationScan: true
+    disableSchemaScan: true
+
+    # Core PHPStan settings
+    checkMissingCallableSignature: false
+
+    # Error patterns to ignore
+    ignoreErrors:
+        # Laravel model property access
+        - message: '#Access to an undefined property .+Model::\$.+#'
+          paths:
+            - src/Models/*
+            - src/Support/Traits/*
+
+        # Laravel model method calls
+        - message: '#Call to an undefined method .+Model::.+#'
+          paths:
+            - src/Models/*
+            - src/Support/Traits/*
+
+        # Schema builder dynamic methods
+        - message: '#Call to an undefined method Illuminate\\Database\\Schema\\Builder::#'
+          paths:
+            - src/Services/Schema/*
+
+        # Console output methods
+        - message: '#Method .+writeln\(\) invoked with 1 parameter, 2 required#'
+          paths:
+            - src/Console/Commands/*
+
+        # Factory method calls
+        - message: '#Call to static method factory\(\) on an unknown class#'
+          paths:
+            - src/Support/Factories/*
+
+        # Allow dynamic properties in value objects
+        - message: '#Access to an undefined property#'
+          paths:
+            - src/ValueObjects/*
+
+        # Allow dynamic method calls in template engine
+        - message: '#Call to an undefined method#'
+          paths:
+            - src/Services/ModelGeneratorTemplateEngine.php

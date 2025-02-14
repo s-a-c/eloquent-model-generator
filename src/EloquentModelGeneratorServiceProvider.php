@@ -2,6 +2,7 @@
 
 namespace SAC\EloquentModelGenerator;
 
+use Override;
 use Illuminate\Support\ServiceProvider;
 use SAC\EloquentModelGenerator\Contracts\ModelGeneratorService;
 use SAC\EloquentModelGenerator\Contracts\ParallelModelGeneratorService;
@@ -12,6 +13,7 @@ class EloquentModelGeneratorServiceProvider extends ServiceProvider {
     /**
      * Register any application services.
      */
+    #[Override]
     public function register(): void {
         $this->app->singleton(ModelGeneratorService::class, ModelGenerator::class);
         $this->app->singleton(ParallelModelGeneratorService::class, ParallelModelGenerator::class);

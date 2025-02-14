@@ -7,6 +7,8 @@
        findUnusedBaselineEntry="true"
        findUnusedCode="false"
        allowStringToStandInForClass="true"
+       output-format="json"
+       cacheDirectory="build/psalm"
        >
     <projectFiles>
         <directory name="src" />
@@ -24,17 +26,25 @@
 
     <issueHandlers>
         <!-- Allow dynamic properties for model generation -->
-        <PropertyNotSetInConstructor errorLevel="suppress" />
-        <UndefinedPropertyFetch errorLevel="suppress" />
-        <UndefinedMethod>
+        <PropertyNotSetInConstructor>
             <errorLevel type="suppress">
-                <referencedMethod name="/.*Model::.*$/" />
+                <directory name="src/Models" />
             </errorLevel>
-        </UndefinedMethod>
+        </PropertyNotSetInConstructor>
+
+        <MixedAssignment>
+            <errorLevel type="suppress">
+                <directory name="src/Services" />
+            </errorLevel>
+        </MixedAssignment>
+
+        <MixedMethodCall>
+            <errorLevel type="suppress">
+                <directory name="src/Services" />
+            </errorLevel>
+        </MixedMethodCall>
 
         <!-- Suppress mixed type issues as we deal with dynamic data -->
-        <MixedAssignment errorLevel="suppress" />
-        <MixedMethodCall errorLevel="suppress" />
         <MixedPropertyFetch errorLevel="suppress" />
 
         <!-- Allow dynamic class instantiation for model generation -->
@@ -50,11 +60,13 @@
                 <directory name="src/Services/AI" />
             </errorLevel>
         </InvalidReturnType>
+
         <InvalidArgument>
             <errorLevel type="suppress">
                 <directory name="src/Services/AI" />
             </errorLevel>
         </InvalidArgument>
+
         <PossiblyInvalidArgument>
             <errorLevel type="suppress">
                 <directory name="src/Services/AI" />

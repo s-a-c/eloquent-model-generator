@@ -2,6 +2,8 @@
 
 namespace SAC\EloquentModelGenerator\Services;
 
+use Throwable;
+use Exception;
 use SAC\EloquentModelGenerator\Models\GeneratedModel;
 use SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition;
 use SAC\EloquentModelGenerator\Contracts\ModelGeneratorService as ModelGeneratorServiceContract;
@@ -68,6 +70,7 @@ use Illuminate\Database\Schema\Builder as SchemaBuilder;
  */
 class ModelGeneratorService implements ModelGeneratorServiceContract {
     private Connection $connection;
+
     private SchemaBuilder $schema;
 
     /**
@@ -81,10 +84,10 @@ class ModelGeneratorService implements ModelGeneratorServiceContract {
         try {
             $this->connection = DB::connection();
             $this->schema = $this->connection->getSchemaBuilder();
-        } catch (\Throwable $e) {
+        } catch (Throwable $throwable) {
             throw new ModelGeneratorException(
-                'Failed to establish database connection: ' . $e->getMessage(),
-                previous: $e
+                'Failed to establish database connection: ' . $throwable->getMessage(),
+                previous: $throwable
             );
         }
     }
@@ -92,14 +95,12 @@ class ModelGeneratorService implements ModelGeneratorServiceContract {
     /**
      * Generate a model for a given table
      *
-     * @param string $table
      * @param ModelOptions $options
-     * @return ModelDefinition
      * @throws ModelGeneratorException If table does not exist or schema analysis fails
      */
     public function generateModel(string $table, array $options = []): ModelDefinition {
         if (!$this->schema->hasTable($table)) {
-            throw new ModelGeneratorException("Table '{$table}' does not exist");
+            throw new ModelGeneratorException(sprintf("Table '%s' does not exist", $table));
         }
 
         try {
@@ -107,14 +108,14 @@ class ModelGeneratorService implements ModelGeneratorServiceContract {
             $schema = $this->analyzeTable($table);
 
             if (!isset($schema['columns']) || empty($schema['columns'])) {
-                throw new ModelGeneratorException("No columns found for table '{$table}'");
+                throw new ModelGeneratorException(sprintf("No columns found for table '%s'", $table));
             }
 
             // Convert schema columns to Column objects
             /** @var Collection<int, Column> */
             $columns = Collection::make($schema['columns'])->map(function (array $definition, string $name): Column {
                 if (!isset($definition['type'])) {
-                    throw new ModelGeneratorException("Column '{$name}' is missing required 'type' property");
+                    throw new ModelGeneratorException(sprintf("Column '%s' is missing required 'type' property", $name));
                 }
 
                 return new Column(
@@ -134,7 +135,7 @@ class ModelGeneratorService implements ModelGeneratorServiceContract {
             /** @var Collection<int, RelationDefinition> */
             $relations = Collection::make($schema['relations'] ?? [])->map(function (array $definition, string $name): RelationDefinition {
                 if (!isset($definition['type'])) {
-                    throw new ModelGeneratorException("Relation '{$name}' is missing required 'type' property");
+                    throw new ModelGeneratorException(sprintf("Relation '%s' is missing required 'type' property", $name));
                 }
 
                 return new RelationDefinition(
@@ -163,10 +164,10 @@ class ModelGeneratorService implements ModelGeneratorServiceContract {
                 withRelationships: $options['with_relationships'] ?? true,
                 table: $table
             );
-        } catch (\Throwable $e) {
+        } catch (Throwable $throwable) {
             throw new ModelGeneratorException(
-                "Failed to generate model for table '{$table}': " . $e->getMessage(),
-                previous: $e
+                sprintf("Failed to generate model for table '%s': ", $table) . $throwable->getMessage(),
+                previous: $throwable
             );
         }
     }
@@ -186,11 +187,12 @@ class ModelGeneratorService implements ModelGeneratorServiceContract {
                 $models[] = $this->generateModel($table, $config);
             } catch (ModelGeneratorException $e) {
                 throw new ModelGeneratorException(
-                    "Failed to generate model for table '{$table}': " . $e->getMessage(),
+                    sprintf("Failed to generate model for table '%s': ", $table) . $e->getMessage(),
                     previous: $e
                 );
             }
         }
+
         return $models;
     }
 
@@ -207,11 +209,12 @@ class ModelGeneratorService implements ModelGeneratorServiceContract {
             if ($tables === null) {
                 throw new ModelGeneratorException('Failed to retrieve table list: getAllTables() returned null');
             }
+
             return $tables;
-        } catch (\Throwable $e) {
+        } catch (Throwable $throwable) {
             throw new ModelGeneratorException(
-                'Failed to retrieve table list: ' . $e->getMessage(),
-                previous: $e
+                'Failed to retrieve table list: ' . $throwable->getMessage(),
+                previous: $throwable
             );
         }
     }
@@ -219,26 +222,26 @@ class ModelGeneratorService implements ModelGeneratorServiceContract {
     /**
      * Get the schema for a table
      *
-     * @param string $table
      * @return SchemaDefinition
      * @throws ModelGeneratorException If schema analysis fails
      */
     public function getTableSchema(string $table): array {
         if (!$this->schema->hasTable($table)) {
-            throw new ModelGeneratorException("Table '{$table}' does not exist");
+            throw new ModelGeneratorException(sprintf("Table '%s' does not exist", $table));
         }
 
         try {
             /** @var SchemaDefinition */
             $schema = $this->analyzeTable($table);
             if (!isset($schema['columns'])) {
-                throw new ModelGeneratorException("Invalid schema for table '{$table}': missing columns");
+                throw new ModelGeneratorException(sprintf("Invalid schema for table '%s': missing columns", $table));
             }
+
             return $schema;
-        } catch (\Throwable $e) {
+        } catch (Throwable $throwable) {
             throw new ModelGeneratorException(
-                "Failed to analyze schema for table '{$table}': " . $e->getMessage(),
-                previous: $e
+                sprintf("Failed to analyze schema for table '%s': ", $table) . $throwable->getMessage(),
+                previous: $throwable
             );
         }
     }
@@ -246,25 +249,23 @@ class ModelGeneratorService implements ModelGeneratorServiceContract {
     /**
      * Generate a model from the given schema.
      *
-     * @param ModelDefinition $definition
      * @param SchemaDefinition $schema
-     * @return GeneratedModel
      * @throws ModelGeneratorException
      */
     public function generate(ModelDefinition $definition, array $schema): GeneratedModel {
         try {
             $this->validateSchema($schema);
 
-            if (!$definition->getClassName()) {
+            if ($definition->getClassName() === '0') {
                 throw new ModelGeneratorException('Model class name is required');
             }
 
-            if (!$definition->getNamespace()) {
+            if ($definition->getNamespace() === '0') {
                 throw new ModelGeneratorException('Model namespace is required');
             }
 
             $content = $this->templateEngine->render($definition, $schema);
-            if (!$content) {
+            if ($content === '' || $content === '0') {
                 throw new ModelGeneratorException('Failed to generate model content');
             }
 
@@ -279,10 +280,10 @@ class ModelGeneratorService implements ModelGeneratorServiceContract {
             $this->saveModel($model);
 
             return $model;
-        } catch (\Throwable $e) {
+        } catch (Throwable $throwable) {
             throw new ModelGeneratorException(
-                "Failed to generate model {$definition->getClassName()}: {$e->getMessage()}",
-                previous: $e
+                sprintf('Failed to generate model %s: %s', $definition->getClassName(), $throwable->getMessage()),
+                previous: $throwable
             );
         }
     }
@@ -300,7 +301,7 @@ class ModelGeneratorService implements ModelGeneratorServiceContract {
 
         foreach ($schema['columns'] as $column => $definition) {
             if (!is_array($definition) || !isset($definition['type']) || !is_string($definition['type']) || empty($definition['type'])) {
-                throw new ModelGeneratorException("Invalid column definition for '{$column}'");
+                throw new ModelGeneratorException(sprintf("Invalid column definition for '%s'", $column));
             }
         }
     }
@@ -308,7 +309,6 @@ class ModelGeneratorService implements ModelGeneratorServiceContract {
     /**
      * Analyze a database table schema.
      *
-     * @param string $table
      * @return SchemaDefinition
      * @throws ModelGeneratorException
      */
@@ -331,7 +331,6 @@ class ModelGeneratorService implements ModelGeneratorServiceContract {
             /** @var array<string, array{table: string, columns: array<string, string>, onDelete?: string, onUpdate?: string}> $foreignKeys */
             $foreignKeys = method_exists($this->schema, 'getForeignKeys') ? $this->schema->getForeignKeys($table) : [];
 
-            /** @var SchemaDefinition */
             return [
                 'columns' => $columnDefinitions,
                 'indexes' => $indexes,
@@ -341,10 +340,10 @@ class ModelGeneratorService implements ModelGeneratorServiceContract {
                 'primaryKey' => 'id',
                 'incrementing' => true
             ];
-        } catch (\Throwable $e) {
+        } catch (Throwable $throwable) {
             throw new ModelGeneratorException(
-                "Failed to analyze table '{$table}': " . $e->getMessage(),
-                previous: $e
+                sprintf("Failed to analyze table '%s': ", $table) . $throwable->getMessage(),
+                previous: $throwable
             );
         }
     }
@@ -352,8 +351,6 @@ class ModelGeneratorService implements ModelGeneratorServiceContract {
     /**
      * Analyze a single column
      *
-     * @param string $table
-     * @param string $column
      * @return ColumnDefinition
      */
     private function analyzeColumn(string $table, string $column): array {
@@ -379,11 +376,10 @@ class ModelGeneratorService implements ModelGeneratorServiceContract {
                 $columnDefinition['autoIncrement'] = (bool)$doctrineColumn->getAutoincrement();
                 $comment = $doctrineColumn->getComment();
                 if ($comment !== null && $comment !== '') {
-                    /** @var non-empty-string */
                     $columnDefinition['comment'] = $comment;
                 }
             }
-        } catch (\Exception) {
+        } catch (Exception) {
             // Fallback to basic column information if Doctrine column info is not available
         }
 
@@ -393,35 +389,27 @@ class ModelGeneratorService implements ModelGeneratorServiceContract {
     /**
      * Save the generated model to disk.
      *
-     * @param GeneratedModel $model
-     * @return void
      * @throws ModelGeneratorException
      */
     private function saveModel(GeneratedModel $model): void {
         $path = $this->getModelPath($model->getNamespace(), $model->getClassName());
         $directory = dirname($path);
 
-        if (!File::exists($directory)) {
-            if (!File::makeDirectory($directory, 0755, true)) {
-                throw new ModelGeneratorException(
-                    "Failed to create directory {$directory}"
-                );
-            }
+        if (!File::exists($directory) && !File::makeDirectory($directory, 0755, true)) {
+            throw new ModelGeneratorException(
+                'Failed to create directory ' . $directory
+            );
         }
 
         if (!File::put($path, $model->getContent())) {
             throw new ModelGeneratorException(
-                "Failed to write model to {$path}"
+                'Failed to write model to ' . $path
             );
         }
     }
 
     /**
      * Get the full path for a model.
-     *
-     * @param string $namespace
-     * @param string $className
-     * @return string
      */
     private function getModelPath(string $namespace, string $className): string {
         $relativePath = str_replace('\\', '/', $namespace);

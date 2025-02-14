@@ -2,6 +2,7 @@
 
 namespace SAC\EloquentModelGenerator\Support\Traits;
 
+use Throwable;
 use ReflectionClass;
 use ReflectionMethod;
 use Illuminate\Database\Eloquent\Relations\Relation;
@@ -49,7 +50,6 @@ trait HasRelationships {
     /**
      * Get the type of a relationship.
      *
-     * @param string $method
      * @return class-string|null
      */
     public function getRelationshipType(string $method): ?string {
@@ -62,14 +62,12 @@ trait HasRelationships {
             return null;
         }
 
-        /** @var class-string */
-        return get_class($relation);
+        return $relation::class;
     }
 
     /**
      * Get the related model class for a relationship.
      *
-     * @param string $method
      * @return class-string|null
      */
     public function getRelatedModel(string $method): ?string {
@@ -82,19 +80,15 @@ trait HasRelationships {
             return null;
         }
 
-        /** @var class-string */
-        return get_class($relation->getRelated());
+        return $relation->getRelated()::class;
     }
 
     /**
      * Determine if a method defines a relationship.
-     *
-     * @param ReflectionMethod $method
-     * @return bool
      */
     protected function isRelationshipMethod(ReflectionMethod $method): bool {
         // Skip methods that are not defined in the model
-        if ($method->class !== get_class($this)) {
+        if ($method->class !== $this::class) {
             return false;
         }
 
@@ -107,7 +101,7 @@ trait HasRelationships {
         try {
             $relation = $this->{$method->getName()}();
             return $relation instanceof Relation;
-        } catch (\Throwable) {
+        } catch (Throwable) {
             return false;
         }
     }

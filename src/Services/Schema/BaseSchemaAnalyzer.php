@@ -1,41 +1,38 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SAC\EloquentModelGenerator\Services\Schema;
 
+use Throwable;
 use Illuminate\Database\ConnectionInterface;
+use Illuminate\Database\Connection;
 use Illuminate\Database\Schema\Builder;
 use SAC\EloquentModelGenerator\Contracts\SchemaAnalyzer;
 use SAC\EloquentModelGenerator\Exceptions\ModelGeneratorException;
 
 abstract class BaseSchemaAnalyzer implements SchemaAnalyzer {
-    /**
-     * @var ConnectionInterface
-     */
-    private readonly ConnectionInterface $connection;
-
-    /**
-     * @var Builder|null
-     */
     private ?Builder $schemaBuilder = null;
 
-    /**
-     * @var string
-     */
     protected string $tablePrefix;
 
-    /**
-     * @param ConnectionInterface $connection
-     */
-    public function __construct(ConnectionInterface $connection) {
-        $this->connection = $connection;
-        $this->tablePrefix = $connection->getTablePrefix();
+    public function __construct(private readonly ConnectionInterface $connection) {
+        if (!$connection instanceof Connection) {
+            throw new ModelGeneratorException('Connection must be an instance of Illuminate\Database\Connection');
+        }
+
+        $this->tablePrefix = $connection->getTablePrefix() ?? '';
     }
 
     /**
      * Get the schema builder instance.
      */
     public function getSchemaBuilder(): Builder {
-        if ($this->schemaBuilder === null) {
+        if (!$this->schemaBuilder instanceof Builder) {
+            if (!$this->connection instanceof Connection) {
+                throw new ModelGeneratorException('Connection must be an instance of Illuminate\Database\Connection');
+            }
+
             $this->schemaBuilder = $this->connection->getSchemaBuilder();
         }
 
@@ -58,10 +55,10 @@ abstract class BaseSchemaAnalyzer implements SchemaAnalyzer {
     public function getTables(): array {
         try {
             return $this->getSchemaBuilder()->getAllTables();
-        } catch (\Throwable $e) {
+        } catch (Throwable $throwable) {
             throw new ModelGeneratorException(
-                "Failed to get tables: {$e->getMessage()}",
-                previous: $e
+                'Failed to get tables: ' . $throwable->getMessage(),
+                previous: $throwable
             );
         }
     }
@@ -129,18 +126,13 @@ abstract class BaseSchemaAnalyzer implements SchemaAnalyzer {
 
     /**
      * Get the cast type for a column type.
-     *
-     * @param string $type
-     * @return string
      */
     protected function getCastType(string $type): string {
         return match ($type) {
-            'json' => 'array',
-            'datetime', 'timestamp' => 'datetime',
-            'decimal' => 'decimal',
-            'float', 'double' => 'float',
-            'boolean' => 'boolean',
-            'integer', 'bigint', 'smallint' => 'integer',
+            'int', 'integer', 'tinyint', 'smallint', 'mediumint', 'bigint' => 'int',
+            'decimal', 'float', 'double', 'real' => 'float',
+            'bool', 'boolean' => 'bool',
+            'date', 'datetime', 'timestamp' => 'datetime',
             default => 'string',
         };
     }

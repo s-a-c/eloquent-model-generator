@@ -1,7 +1,7 @@
 <?php declare(strict_types = 1);
 
 return [
-	'lastFullAnalysisTime' => 1739487820,
+	'lastFullAnalysisTime' => 1739491169,
 	'meta' => array (
   'cacheVersion' => 'v12-linesToIgnore',
   'phpstanVersion' => '2.1.5',
@@ -2739,14 +2739,371 @@ return [
   'stubFiles' => 
   array (
   ),
-  'level' => '2',
+  'level' => '8',
 ),
 	'projectExtensionFiles' => array (
 ),
 	'errorsCallback' => static function (): array { return array (
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/AnalysisConfig.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Config\\AnalysisConfig::__construct() has parameter $levels with no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/AnalysisConfig.php',
+       'line' => 10,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/AnalysisConfig.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 10,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    1 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Config\\AnalysisConfig::__construct() has parameter $options with no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/AnalysisConfig.php',
+       'line' => 10,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/AnalysisConfig.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 10,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    2 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Config\\AnalysisConfig::__construct() has parameter $tools with no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/AnalysisConfig.php',
+       'line' => 10,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/AnalysisConfig.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 10,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    3 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Config\\AnalysisConfig::withLevels() has parameter $levels with no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/AnalysisConfig.php',
+       'line' => 59,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/AnalysisConfig.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 59,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    4 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Config\\AnalysisConfig::withTools() has parameter $tools with no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/AnalysisConfig.php',
+       'line' => 69,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/AnalysisConfig.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 69,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    5 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Config\\AnalysisConfig::withOptions() has parameter $options with no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/AnalysisConfig.php',
+       'line' => 79,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/AnalysisConfig.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 79,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/AnalyzeCommand.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Call to an undefined method SAC\\EloquentModelGenerator\\Services\\AnalysisToolManager::getRectorSuggestions().',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/AnalyzeCommand.php',
+       'line' => 288,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/AnalyzeCommand.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 288,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.notFound',
+       'metadata' => 
+      array (
+      ),
+    )),
+    1 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Console\\Commands\\AnalyzeCommand::getHtmlResults() has parameter $results with no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/AnalyzeCommand.php',
+       'line' => 417,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/AnalyzeCommand.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 417,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Property SAC\\EloquentModelGenerator\\Console\\Commands\\FixCommand::$toolManager is never read, only written.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php',
+       'line' => 34,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/developing-extensions/always-read-written-properties',
+       'nodeLine' => 20,
+       'nodeType' => 'PHPStan\\Node\\ClassPropertiesNode',
+       'identifier' => 'property.onlyWritten',
+       'metadata' => 
+      array (
+      ),
+    )),
+    1 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Negated boolean expression is always true.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php',
+       'line' => 59,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 59,
+       'nodeType' => 'PhpParser\\Node\\Expr\\BooleanNot',
+       'identifier' => 'booleanNot.alwaysTrue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    2 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Console\\Commands\\FixCommand::getFixLevels() return type has no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php',
+       'line' => 181,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 181,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    3 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Console\\Commands\\FixCommand::fixIssuesForLevel() has parameter $results with no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php',
+       'line' => 226,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 226,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    4 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Console\\Commands\\FixCommand::ensureRectorConfigs() is unused.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php',
+       'line' => 381,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 20,
+       'nodeType' => 'PHPStan\\Node\\ClassMethodsNode',
+       'identifier' => 'method.unused',
+       'metadata' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/GenerateModelCommand.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Call to function is_string() with string will always evaluate to true.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/GenerateModelCommand.php',
+       'line' => 214,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/GenerateModelCommand.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 214,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'function.alreadyNarrowedType',
+       'metadata' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ModelGenerator.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\ModelGenerator::injectValidationRules() has parameter $rules with no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ModelGenerator.php',
+       'line' => 130,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ModelGenerator.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 130,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/BaseModel.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'PHPDoc type array<int, string> of property SAC\\EloquentModelGenerator\\Models\\BaseModel::$fillable is not covariant with PHPDoc type list<string> of overridden property Illuminate\\Database\\Eloquent\\Model::$fillable.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/BaseModel.php',
+       'line' => 49,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/BaseModel.php',
+       'traitFilePath' => NULL,
+       'tip' => 'You can fix 3rd party PHPDoc types with stub files:
+   <fg=cyan>https://phpstan.org/user-guide/stub-files</>',
+       'nodeLine' => 49,
+       'nodeType' => 'PHPStan\\Node\\ClassPropertyNode',
+       'identifier' => 'property.phpDocType',
+       'metadata' => 
+      array (
+      ),
+    )),
+    1 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'PHPDoc type array<int, string> of property SAC\\EloquentModelGenerator\\Models\\BaseModel::$hidden is not covariant with PHPDoc type list<string> of overridden property Illuminate\\Database\\Eloquent\\Model::$hidden.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/BaseModel.php',
+       'line' => 56,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/BaseModel.php',
+       'traitFilePath' => NULL,
+       'tip' => 'You can fix 3rd party PHPDoc types with stub files:
+   <fg=cyan>https://phpstan.org/user-guide/stub-files</>',
+       'nodeLine' => 56,
+       'nodeType' => 'PHPStan\\Node\\ClassPropertyNode',
+       'identifier' => 'property.phpDocType',
+       'metadata' => 
+      array (
+      ),
+    )),
+    2 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'PHPDoc type array<int, string> of property SAC\\EloquentModelGenerator\\Models\\BaseModel::$with is not covariant with PHPDoc type list<string> of overridden property Illuminate\\Database\\Eloquent\\Model::$with.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/BaseModel.php',
+       'line' => 84,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/BaseModel.php',
+       'traitFilePath' => NULL,
+       'tip' => 'You can fix 3rd party PHPDoc types with stub files:
+   <fg=cyan>https://phpstan.org/user-guide/stub-files</>',
+       'nodeLine' => 84,
+       'nodeType' => 'PHPStan\\Node\\ClassPropertyNode',
+       'identifier' => 'property.phpDocType',
+       'metadata' => 
+      array (
+      ),
+    )),
+    3 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Property SAC\\EloquentModelGenerator\\Models\\BaseModel::$table (string) in isset() is not nullable.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/BaseModel.php',
+       'line' => 92,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/BaseModel.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 92,
+       'nodeType' => 'PhpParser\\Node\\Expr\\Isset_',
+       'identifier' => 'isset.property',
+       'metadata' => 
+      array (
+      ),
+    )),
+    4 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Property SAC\\EloquentModelGenerator\\Models\\BaseModel::$table (string) in isset() is not nullable.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/BaseModel.php',
+       'line' => 104,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/BaseModel.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 104,
+       'nodeType' => 'PhpParser\\Node\\Expr\\Isset_',
+       'identifier' => 'isset.property',
+       'metadata' => 
+      array (
+      ),
+    )),
+  ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php' => 
   array (
     0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Models\\GeneratedModel::validateSingleRule() has parameter $rule with no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'line' => 339,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 339,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    1 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method SAC\\EloquentModelGenerator\\Models\\GeneratedModel::validateSingleRule() invoked with 1 parameter, 2 required.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
@@ -2762,7 +3119,23 @@ return [
       array (
       ),
     )),
-    1 => 
+    2 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $field of method SAC\\EloquentModelGenerator\\Models\\GeneratedModel::validateSingleRule() expects string, array<string, array<string>|string> given.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'line' => 712,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 712,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    3 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Cannot redeclare method SAC\\EloquentModelGenerator\\Models\\GeneratedModel::validateArrays().',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
@@ -2778,7 +3151,7 @@ return [
       array (
       ),
     )),
-    2 => 
+    4 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Cannot redeclare method SAC\\EloquentModelGenerator\\Models\\GeneratedModel::validateSingleRule().',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
@@ -2794,7 +3167,7 @@ return [
       array (
       ),
     )),
-    3 => 
+    5 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method SAC\\EloquentModelGenerator\\Models\\GeneratedModel::validateArrays() invoked with 1 parameter, 0 required.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
@@ -2810,7 +3183,23 @@ return [
       array (
       ),
     )),
-    4 => 
+    6 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Models\\GeneratedModel::validateSingleRule() should return bool but returns null.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'line' => 784,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 784,
+       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
+       'identifier' => 'return.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    7 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Result of method SAC\\EloquentModelGenerator\\Models\\GeneratedModel::validateArrays() (void) is used.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
@@ -2862,6 +3251,306 @@ return [
       ),
     )),
   ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Property SAC\\EloquentModelGenerator\\Services\\AnalysisToolManager::$tools type has no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'line' => 12,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 12,
+       'nodeType' => 'PHPStan\\Node\\ClassPropertyNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    1 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Property SAC\\EloquentModelGenerator\\Services\\AnalysisToolManager::$configs type has no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'line' => 21,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 21,
+       'nodeType' => 'PHPStan\\Node\\ClassPropertyNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    2 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Property SAC\\EloquentModelGenerator\\Services\\AnalysisToolManager::$results type has no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'line' => 22,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 22,
+       'nodeType' => 'PHPStan\\Node\\ClassPropertyNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    3 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\AnalysisToolManager::registerTool() has parameter $command with no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'line' => 24,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 24,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    4 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\AnalysisToolManager::getAvailableTools() return type has no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'line' => 32,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 32,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    5 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\AnalysisToolManager::runTool() has parameter $options with no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'line' => 36,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 36,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    6 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\AnalysisToolManager::runTool() return type has no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'line' => 36,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 36,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    7 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\AnalysisToolManager::runToolsInParallel() has parameter $options with no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'line' => 59,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 59,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    8 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\AnalysisToolManager::runToolsInParallel() has parameter $tools with no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'line' => 59,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 59,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    9 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\AnalysisToolManager::runToolsInParallel() return type has no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'line' => 59,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 59,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    10 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\AnalysisToolManager::getResults() return type has no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'line' => 87,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 87,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    11 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\AnalysisToolManager::getAffectedFiles() return type has no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'line' => 103,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 103,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    12 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\AnalysisToolManager::buildCommand() has parameter $options with no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'line' => 135,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 135,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    13 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\AnalysisToolManager::buildCommand() return type has no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'line' => 135,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 135,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    14 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\AnalysisToolManager::extractAffectedFiles() return type has no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'line' => 161,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 161,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ConfigurationService.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ConfigurationService::all() should return array<string, mixed> but returns Illuminate\\Contracts\\Config\\Repository.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ConfigurationService.php',
+       'line' => 55,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ConfigurationService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 55,
+       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
+       'identifier' => 'return.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/DefaultModelGenerator.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Property SAC\\EloquentModelGenerator\\Services\\DefaultModelGenerator::$configService is never read, only written.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/DefaultModelGenerator.php',
+       'line' => 14,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/DefaultModelGenerator.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/developing-extensions/always-read-written-properties',
+       'nodeLine' => 12,
+       'nodeType' => 'PHPStan\\Node\\ClassPropertiesNode',
+       'identifier' => 'property.onlyWritten',
+       'metadata' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/DocBlockFixStrategy.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #2 $factory of method SAC\\EloquentModelGenerator\\Services\\FixStrategies\\DocBlockFixStrategy::updateDocBlocks() expects phpDocumentor\\Reflection\\DocBlockFactory, phpDocumentor\\Reflection\\DocBlockFactoryInterface given.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/DocBlockFixStrategy.php',
+       'line' => 25,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/DocBlockFixStrategy.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 25,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+  ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/TypeHintFixStrategy.php' => 
   array (
     0 => 
@@ -2897,6 +3586,25 @@ return [
       ),
     )),
   ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategyManager.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\FixStrategyManager::registerDefaultStrategies() is unused.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategyManager.php',
+       'line' => 49,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategyManager.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 12,
+       'nodeType' => 'PHPStan\\Node\\ClassMethodsNode',
+       'identifier' => 'method.unused',
+       'metadata' => 
+      array (
+      ),
+    )),
+  ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php' => 
   array (
     0 => 
@@ -2920,6 +3628,54 @@ return [
   array (
     0 => 
     \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Offset \'type\' on array{type: string, nullable: bool, default?: mixed, length?: int|null, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...} in isset() always exists and is not nullable.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'line' => 116,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 116,
+       'nodeType' => 'PhpParser\\Node\\Expr\\Isset_',
+       'identifier' => 'isset.offset',
+       'metadata' => 
+      array (
+      ),
+    )),
+    1 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Offset \'nullable\' on array{type: string, nullable: bool, default?: mixed, length?: int|null, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool, ...} on left side of ?? always exists and is not nullable.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'line' => 125,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 125,
+       'nodeType' => 'PhpParser\\Node\\Expr\\BinaryOp\\Coalesce',
+       'identifier' => 'nullCoalesce.offset',
+       'metadata' => 
+      array (
+      ),
+    )),
+    2 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Offset \'type\' on array{type: string, model?: string, foreignKey?: string, localKey?: string, morphType?: string} in isset() always exists and is not nullable.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'line' => 136,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 136,
+       'nodeType' => 'PhpParser\\Node\\Expr\\Isset_',
+       'identifier' => 'isset.offset',
+       'metadata' => 
+      array (
+      ),
+    )),
+    3 => 
+    \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Call to an undefined method Illuminate\\Database\\Schema\\Builder::getAllTables().',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
        'line' => 206,
@@ -2934,7 +3690,55 @@ return [
       array (
       ),
     )),
-    1 => 
+    4 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Call to function is_array() with array will always evaluate to true.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'line' => 297,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 297,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'function.alreadyNarrowedType',
+       'metadata' => 
+      array (
+      ),
+    )),
+    5 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Call to function method_exists() with Illuminate\\Database\\Schema\\Builder and \'getIndexes\' will always evaluate to true.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'line' => 329,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 329,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'function.alreadyNarrowedType',
+       'metadata' => 
+      array (
+      ),
+    )),
+    6 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Call to function method_exists() with Illuminate\\Database\\Schema\\Builder and \'getForeignKeys\' will always evaluate to true.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'line' => 332,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 332,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'function.alreadyNarrowedType',
+       'metadata' => 
+      array (
+      ),
+    )),
+    7 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Call to an undefined method Illuminate\\Database\\Connection::getDoctrineColumn().',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
@@ -2950,7 +3754,7 @@ return [
       array (
       ),
     )),
-    2 => 
+    8 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'PHPDoc tag @var above assignment does not specify variable name.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorService.php',
@@ -2971,6 +3775,38 @@ return [
   array (
     0 => 
     \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Property SAC\\EloquentModelGenerator\\Services\\ModelGeneratorTemplateEngine::$placeholders is never read, only written.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php',
+       'line' => 119,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/developing-extensions/always-read-written-properties',
+       'nodeLine' => 110,
+       'nodeType' => 'PHPStan\\Node\\ClassPropertiesNode',
+       'identifier' => 'property.onlyWritten',
+       'metadata' => 
+      array (
+      ),
+    )),
+    1 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 ...$arrays of function array_merge expects array, string given.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php',
+       'line' => 285,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 285,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    2 => 
+    \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'PHPDoc tag @param has invalid value (array<string, array{type: \'primary\'|\'unique\'|\'index\'|\'fulltext\'|\'spatial\', columns: array<string>, name?: string, algorithm?: string, options?: array<string, mixed>} $indexes): Unexpected token "$indexes", expected \'>\' at offset 264 on line 5',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php',
        'line' => 387,
@@ -2981,6 +3817,57 @@ return [
        'nodeLine' => 390,
        'nodeType' => 'PhpParser\\Node\\Stmt\\ClassMethod',
        'identifier' => 'phpDoc.parseError',
+       'metadata' => 
+      array (
+      ),
+    )),
+    3 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ModelGeneratorTemplateEngine::addModelIndexes() has parameter $indexes with no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php',
+       'line' => 390,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 390,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGenerator.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ParallelModelGenerator::generateModels() has parameter $options with no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGenerator.php',
+       'line' => 32,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGenerator.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 32,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    1 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ParallelModelGenerator::generateModels() has parameter $tables with no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGenerator.php',
+       'line' => 32,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGenerator.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 32,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
        'metadata' => 
       array (
       ),
@@ -3006,6 +3893,38 @@ return [
     )),
     1 => 
     \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Unable to resolve the template type TMakeKey in call to method static method Illuminate\\Support\\Collection<(int|string),mixed>::make()',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php',
+       'line' => 56,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-error-unable-to-resolve-template-type',
+       'nodeLine' => 56,
+       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
+       'identifier' => 'argument.templateType',
+       'metadata' => 
+      array (
+      ),
+    )),
+    2 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Unable to resolve the template type TMakeValue in call to method static method Illuminate\\Support\\Collection<(int|string),mixed>::make()',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php',
+       'line' => 56,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-error-unable-to-resolve-template-type',
+       'nodeLine' => 56,
+       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
+       'identifier' => 'argument.templateType',
+       'metadata' => 
+      array (
+      ),
+    )),
+    3 => 
+    \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Instantiated class SAC\\EloquentModelGenerator\\ValueObjects\\ModelDefinition not found.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php',
        'line' => 79,
@@ -3016,6 +3935,22 @@ return [
        'nodeLine' => 79,
        'nodeType' => 'PhpParser\\Node\\Expr\\New_',
        'identifier' => 'class.notFound',
+       'metadata' => 
+      array (
+      ),
+    )),
+    4 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $definition of method SAC\\EloquentModelGenerator\\Contracts\\ModelGenerator::generate() expects SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition, SAC\\EloquentModelGenerator\\ValueObjects\\ModelDefinition given.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php',
+       'line' => 91,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 91,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
        'metadata' => 
       array (
       ),
@@ -3072,6 +4007,188 @@ return [
       ),
     )),
   ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ValidationRuleGenerator::generateRules() has parameter $schema with no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
+       'line' => 15,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 15,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    1 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ValidationRuleGenerator::generateRules() return type has no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
+       'line' => 15,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 15,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    2 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ValidationRuleGenerator::generateColumnRules() has parameter $definition with no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
+       'line' => 41,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 41,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    3 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ValidationRuleGenerator::generateColumnRules() return type has no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
+       'line' => 41,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 41,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    4 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ValidationRuleGenerator::getTypeRules() has parameter $definition with no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
+       'line' => 81,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 81,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    5 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ValidationRuleGenerator::getTypeRules() return type has no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
+       'line' => 81,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 81,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    6 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ValidationRuleGenerator::generateMessages() has parameter $schema with no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
+       'line' => 149,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 149,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    7 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ValidationRuleGenerator::addTypeSpecificMessages() has parameter $definition with no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
+       'line' => 191,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 191,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    8 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Services\\ValidationRuleGenerator::addTypeSpecificMessages() has parameter $messages with no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
+       'line' => 191,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ValidationRuleGenerator.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 191,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Builders/ModelBuilder.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Property SAC\\EloquentModelGenerator\\Support\\Builders\\ModelBuilder::$configService is never read, only written.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Builders/ModelBuilder.php',
+       'line' => 10,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Builders/ModelBuilder.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/developing-extensions/always-read-written-properties',
+       'nodeLine' => 8,
+       'nodeType' => 'PHPStan\\Node\\ClassPropertiesNode',
+       'identifier' => 'property.onlyWritten',
+       'metadata' => 
+      array (
+      ),
+    )),
+    1 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Support\\Builders\\ModelBuilder::build() has parameter $schema with no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Builders/ModelBuilder.php',
+       'line' => 14,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Builders/ModelBuilder.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 14,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+  ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Definitions/ModelDefinition.php' => 
   array (
     0 => 
@@ -3110,9 +4227,44 @@ return [
       ),
     )),
   ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/AbstractFixStrategy.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Support\\Fixes\\AbstractFixStrategy::parseError() return type has no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/AbstractFixStrategy.php',
+       'line' => 61,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/AbstractFixStrategy.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 61,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+  ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/TypeHintFixer.php' => 
   array (
     0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Support\\Fixes\\TypeHintFixer::parseCode() return type has no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/TypeHintFixer.php',
+       'line' => 58,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/TypeHintFixer.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 58,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    1 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Access to undefined constant PhpParser\\ParserFactory::ONLY_PHP7.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/TypeHintFixer.php',
@@ -3128,7 +4280,7 @@ return [
       array (
       ),
     )),
-    1 => 
+    2 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Call to an undefined method PhpParser\\ParserFactory::create().',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/TypeHintFixer.php',
@@ -3144,7 +4296,23 @@ return [
       array (
       ),
     )),
-    2 => 
+    3 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method SAC\\EloquentModelGenerator\\Support\\Fixes\\TypeHintFixer::findMethod() has parameter $ast with no value type specified in iterable type array.',
+       'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/TypeHintFixer.php',
+       'line' => 67,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/TypeHintFixer.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 67,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    4 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Access to an undefined property PhpParser\\Node::$expr.',
        'file' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/TypeHintFixer.php',
@@ -3204,6 +4372,1926 @@ return [
 	'unmatchedLineIgnores' => array (
 ),
 	'collectedDataCallback' => static function (): array { return array (
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Collections/ModelCollection.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Support\\Collection',
+        1 => '__construct',
+        2 => 20,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Collections/ModelCollection.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/AnalysisConfig.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 'SAC\\EloquentModelGenerator\\Config\\AnalysisConfig',
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/AnalysisConfig.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Support\\Facades\\File',
+        1 => 'put',
+        2 => 40,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/AnalysisConfig.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/GeneratorConfig.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Config\\GeneratorConfig',
+        1 => 'getNamespace',
+        2 => 'SAC\\EloquentModelGenerator\\Config\\GeneratorConfig',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/GeneratorConfig.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Config\\GeneratorConfig',
+        1 => 'getPath',
+        2 => 'SAC\\EloquentModelGenerator\\Config\\GeneratorConfig',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/GeneratorConfig.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    2 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Config\\GeneratorConfig',
+        1 => 'getRelations',
+        2 => 'SAC\\EloquentModelGenerator\\Config\\GeneratorConfig',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/GeneratorConfig.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    3 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Config\\GeneratorConfig',
+        1 => 'withValidation',
+        2 => 'SAC\\EloquentModelGenerator\\Config\\GeneratorConfig',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/GeneratorConfig.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    4 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Config\\GeneratorConfig',
+        1 => 'withRelationships',
+        2 => 'SAC\\EloquentModelGenerator\\Config\\GeneratorConfig',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/GeneratorConfig.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    5 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Config\\GeneratorConfig',
+        1 => 'getBaseClass',
+        2 => 'SAC\\EloquentModelGenerator\\Config\\GeneratorConfig',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/GeneratorConfig.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    6 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Config\\GeneratorConfig',
+        1 => 'getDateFormat',
+        2 => 'SAC\\EloquentModelGenerator\\Config\\GeneratorConfig',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/GeneratorConfig.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    7 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Config\\GeneratorConfig',
+        1 => 'getConnection',
+        2 => 'SAC\\EloquentModelGenerator\\Config\\GeneratorConfig',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/GeneratorConfig.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    8 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Config\\GeneratorConfig',
+        1 => 'toArray',
+        2 => 'SAC\\EloquentModelGenerator\\Config\\GeneratorConfig',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Config/GeneratorConfig.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/AnalyzeCommand.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Console\\Command',
+        1 => '__construct',
+        2 => 51,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/AnalyzeCommand.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Support\\Facades\\File',
+        1 => 'makeDirectory',
+        2 => 126,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/AnalyzeCommand.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector',
+    )),
+    2 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Support\\Facades\\File',
+        1 => 'cleanDirectory',
+        2 => 128,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/AnalyzeCommand.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector',
+    )),
+    3 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Laravel\\Prompts\\spin',
+        1 => 277,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/AnalyzeCommand.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureFuncCallCollector',
+    )),
+    4 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Support\\Facades\\File',
+        1 => 'put',
+        2 => 308,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/AnalyzeCommand.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector',
+    )),
+    5 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Support\\Facades\\File',
+        1 => 'put',
+        2 => 348,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/AnalyzeCommand.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector',
+    )),
+    6 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Support\\Facades\\File',
+        1 => 'put',
+        2 => 381,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/AnalyzeCommand.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector',
+    )),
+    7 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Console\\Commands\\AnalyzeCommand',
+        1 => 'getHtmlTemplate',
+        2 => 'SAC\\EloquentModelGenerator\\Console\\Commands\\AnalyzeCommand',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/AnalyzeCommand.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Console\\Command',
+        1 => '__construct',
+        2 => 42,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'sort',
+        1 => 205,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureFuncCallCollector',
+    )),
+    2 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Support\\Facades\\File',
+        1 => 'makeDirectory',
+        2 => 269,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector',
+    )),
+    3 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Support\\Facades\\File',
+        1 => 'copyDirectory',
+        2 => 270,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector',
+    )),
+    4 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Support\\Facades\\File',
+        1 => 'deleteDirectory',
+        2 => 275,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector',
+    )),
+    5 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Support\\Facades\\File',
+        1 => 'copyDirectory',
+        2 => 276,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector',
+    )),
+    6 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 
+        array (
+          0 => 'Symfony\\Component\\Process\\Process',
+        ),
+        1 => 'run',
+        2 => 304,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureMethodCallCollector',
+    )),
+    7 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 
+        array (
+          0 => 'Symfony\\Component\\Process\\Process',
+        ),
+        1 => 'run',
+        2 => 330,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureMethodCallCollector',
+    )),
+    8 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 
+        array (
+          0 => 'Symfony\\Component\\Process\\Process',
+        ),
+        1 => 'run',
+        2 => 369,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureMethodCallCollector',
+    )),
+    9 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Support\\Facades\\File',
+        1 => 'put',
+        2 => 391,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector',
+    )),
+    10 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Support\\Facades\\File',
+        1 => 'put',
+        2 => 403,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector',
+    )),
+    11 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Console\\Commands\\FixCommand',
+        1 => 'getDefaultRectorConfig',
+        2 => 'SAC\\EloquentModelGenerator\\Console\\Commands\\FixCommand',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    12 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Console\\Commands\\FixCommand',
+        1 => 'getCodeQualityRectorConfig',
+        2 => 'SAC\\EloquentModelGenerator\\Console\\Commands\\FixCommand',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/GenerateModelCommand.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Console\\Command',
+        1 => '__construct',
+        2 => 50,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/GenerateModelCommand.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'config',
+        1 => 60,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/GenerateModelCommand.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureFuncCallCollector',
+    )),
+    2 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Support\\Facades\\File',
+        1 => 'makeDirectory',
+        2 => 206,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/GenerateModelCommand.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector',
+    )),
+    3 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Support\\Facades\\File',
+        1 => 'put',
+        2 => 219,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/GenerateModelCommand.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/ListTablesCommand.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Console\\Command',
+        1 => '__construct',
+        2 => 35,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/ListTablesCommand.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'config',
+        1 => 46,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/ListTablesCommand.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureFuncCallCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Events/ModelGenerated.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 'SAC\\EloquentModelGenerator\\Events\\ModelGenerated',
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Events/ModelGenerated.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Events\\ModelGenerated',
+        1 => 'getModel',
+        2 => 'SAC\\EloquentModelGenerator\\Events\\ModelGenerated',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Events/ModelGenerated.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Http/Requests/GenerateModelRequest.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Http\\Requests\\GenerateModelRequest',
+        1 => 'authorize',
+        2 => 'SAC\\EloquentModelGenerator\\Http\\Requests\\GenerateModelRequest',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Http/Requests/GenerateModelRequest.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Http\\Requests\\GenerateModelRequest',
+        1 => 'rules',
+        2 => 'SAC\\EloquentModelGenerator\\Http\\Requests\\GenerateModelRequest',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Http/Requests/GenerateModelRequest.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Jobs/GenerateModelJob.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Foundation\\Bus\\Dispatchable',
+        1 => 'Illuminate\\Queue\\InteractsWithQueue',
+        2 => 'Illuminate\\Bus\\Queueable',
+        3 => 'Illuminate\\Queue\\SerializesModels',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Jobs/GenerateModelJob.php',
+       'collectorType' => 'PHPStan\\Rules\\Traits\\TraitUseCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 'SAC\\EloquentModelGenerator\\Jobs\\GenerateModelJob',
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Jobs/GenerateModelJob.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector',
+    )),
+    2 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Jobs\\GenerateModelJob',
+        1 => 'getResult',
+        2 => 'SAC\\EloquentModelGenerator\\Jobs\\GenerateModelJob',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Jobs/GenerateModelJob.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Jobs/ProcessModelChunkJob.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Foundation\\Bus\\Dispatchable',
+        1 => 'Illuminate\\Queue\\InteractsWithQueue',
+        2 => 'Illuminate\\Bus\\Queueable',
+        3 => 'Illuminate\\Queue\\SerializesModels',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Jobs/ProcessModelChunkJob.php',
+       'collectorType' => 'PHPStan\\Rules\\Traits\\TraitUseCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 'SAC\\EloquentModelGenerator\\Jobs\\ProcessModelChunkJob',
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Jobs/ProcessModelChunkJob.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Model/Attributes.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 'SAC\\EloquentModelGenerator\\Model\\Attributes',
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Model/Attributes.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Model/ModelName.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Model\\ModelName',
+        1 => 'toString',
+        2 => 'SAC\\EloquentModelGenerator\\Model\\ModelName',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Model/ModelName.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Model/Relations.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 'SAC\\EloquentModelGenerator\\Model\\Relations',
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Model/Relations.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Model\\Relations',
+        1 => 'getRelations',
+        2 => 'SAC\\EloquentModelGenerator\\Model\\Relations',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Model/Relations.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/BaseModel.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Database\\Eloquent\\SoftDeletes',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/BaseModel.php',
+       'collectorType' => 'PHPStan\\Rules\\Traits\\TraitUseCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Support\\Traits\\HasValidation',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/BaseModel.php',
+       'collectorType' => 'PHPStan\\Rules\\Traits\\TraitUseCollector',
+    )),
+    2 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Support\\Traits\\HasRelationships',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/BaseModel.php',
+       'collectorType' => 'PHPStan\\Rules\\Traits\\TraitUseCollector',
+    )),
+    3 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Database\\Eloquent\\Model',
+        1 => '__construct',
+        2 => 95,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/BaseModel.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+        1 => 'getClassName',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+        1 => 'getNamespace',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    2 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+        1 => 'getTableName',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    3 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+        1 => 'getBaseClass',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    4 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+        1 => 'getSchema',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    5 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+        1 => 'getCasts',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    6 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+        1 => 'getFillable',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    7 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+        1 => 'getHidden',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    8 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+        1 => 'getDates',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    9 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+        1 => 'usesSoftDeletes',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    10 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+        1 => 'getFullyQualifiedClassName',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    11 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+        1 => 'render',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    12 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+        1 => 'getValidationMessages',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    13 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+        1 => 'getContent',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModel',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModel.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModelAttribute.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelAttribute',
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModelAttribute.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelAttribute',
+        1 => 'getName',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelAttribute',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModelAttribute.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    2 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelAttribute',
+        1 => 'getType',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelAttribute',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModelAttribute.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    3 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelAttribute',
+        1 => 'getLength',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelAttribute',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModelAttribute.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    4 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelAttribute',
+        1 => 'isNullable',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelAttribute',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModelAttribute.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    5 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelAttribute',
+        1 => 'getDefault',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelAttribute',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModelAttribute.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    6 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelAttribute',
+        1 => 'isUnsigned',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelAttribute',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModelAttribute.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    7 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelAttribute',
+        1 => 'isAutoIncrement',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelAttribute',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModelAttribute.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    8 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelAttribute',
+        1 => 'isPrimaryKey',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelAttribute',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModelAttribute.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    9 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelAttribute',
+        1 => 'isUnique',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelAttribute',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModelAttribute.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModelRelation.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelRelation',
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModelRelation.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelRelation',
+        1 => 'getName',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelRelation',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModelRelation.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    2 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelRelation',
+        1 => 'getType',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelRelation',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModelRelation.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    3 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelRelation',
+        1 => 'getModel',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelRelation',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModelRelation.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    4 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelRelation',
+        1 => 'getForeignKey',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelRelation',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModelRelation.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    5 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelRelation',
+        1 => 'getLocalKey',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelRelation',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModelRelation.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    6 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelRelation',
+        1 => 'getParameters',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelRelation',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModelRelation.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    7 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelRelation',
+        1 => 'toArray',
+        2 => 'SAC\\EloquentModelGenerator\\Models\\GeneratedModelRelation',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Models/GeneratedModelRelation.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 
+        array (
+          0 => 'Symfony\\Component\\Process\\Process',
+        ),
+        1 => 'run',
+        2 => 46,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureMethodCallCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Services\\AnalysisToolManager',
+        1 => 'getResults',
+        2 => 'SAC\\EloquentModelGenerator\\Services\\AnalysisToolManager',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    2 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Support\\Facades\\File',
+        1 => 'put',
+        2 => 132,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector',
+    )),
+    3 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'preg_match_all',
+        1 => 163,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureFuncCallCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Benchmarking/PerformanceBenchmark.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Services\\Benchmarking\\PerformanceBenchmark',
+        1 => 'getBenchmarks',
+        2 => 'SAC\\EloquentModelGenerator\\Services\\Benchmarking\\PerformanceBenchmark',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Benchmarking/PerformanceBenchmark.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ConfigurationService.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 'SAC\\EloquentModelGenerator\\Services\\ConfigurationService',
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ConfigurationService.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Services\\ConfigurationService',
+        1 => 'all',
+        2 => 'SAC\\EloquentModelGenerator\\Services\\ConfigurationService',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ConfigurationService.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/DefaultModelGenerator.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 'SAC\\EloquentModelGenerator\\Services\\DefaultModelGenerator',
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/DefaultModelGenerator.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Services\\DefaultModelGenerator',
+        1 => 'getTemplate',
+        2 => 'SAC\\EloquentModelGenerator\\Services\\DefaultModelGenerator',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/DefaultModelGenerator.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    2 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Services\\DefaultModelGenerator',
+        1 => 'getCastType',
+        2 => 'SAC\\EloquentModelGenerator\\Services\\DefaultModelGenerator',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/DefaultModelGenerator.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/DocBlockFixStrategy.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\DocBlockFixStrategy',
+        1 => 'getName',
+        2 => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\DocBlockFixStrategy',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/DocBlockFixStrategy.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\DocBlockFixStrategy',
+        1 => 'supportsLevel',
+        2 => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\DocBlockFixStrategy',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/DocBlockFixStrategy.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    2 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Support\\Facades\\File',
+        1 => 'put',
+        2 => 27,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/DocBlockFixStrategy.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector',
+    )),
+    3 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\DocBlockFixStrategy',
+        1 => 'updateDocBlocks',
+        2 => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\DocBlockFixStrategy',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/DocBlockFixStrategy.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/PhpmdFixStrategy.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\PhpmdFixStrategy',
+        1 => 'getName',
+        2 => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\PhpmdFixStrategy',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/PhpmdFixStrategy.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 
+        array (
+          0 => 'Symfony\\Component\\Process\\Process',
+        ),
+        1 => 'run',
+        2 => 30,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/PhpmdFixStrategy.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureMethodCallCollector',
+    )),
+    2 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\PhpmdFixStrategy',
+        1 => 'supportsLevel',
+        2 => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\PhpmdFixStrategy',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/PhpmdFixStrategy.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/PsalmFixStrategy.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\PsalmFixStrategy',
+        1 => 'getName',
+        2 => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\PsalmFixStrategy',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/PsalmFixStrategy.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 
+        array (
+          0 => 'Symfony\\Component\\Process\\Process',
+        ),
+        1 => 'run',
+        2 => 29,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/PsalmFixStrategy.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureMethodCallCollector',
+    )),
+    2 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\PsalmFixStrategy',
+        1 => 'supportsLevel',
+        2 => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\PsalmFixStrategy',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/PsalmFixStrategy.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/RectorFixStrategy.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\RectorFixStrategy',
+        1 => 'getName',
+        2 => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\RectorFixStrategy',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/RectorFixStrategy.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\RectorFixStrategy',
+        1 => 'supportsLevel',
+        2 => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\RectorFixStrategy',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/RectorFixStrategy.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    2 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 
+        array (
+          0 => 'Symfony\\Component\\Process\\Process',
+        ),
+        1 => 'run',
+        2 => 20,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/RectorFixStrategy.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureMethodCallCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/TypeHintFixStrategy.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\TypeHintFixStrategy',
+        1 => 'getName',
+        2 => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\TypeHintFixStrategy',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/TypeHintFixStrategy.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\TypeHintFixStrategy',
+        1 => 'supportsLevel',
+        2 => 'SAC\\EloquentModelGenerator\\Services\\FixStrategies\\TypeHintFixStrategy',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/TypeHintFixStrategy.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    2 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Support\\Facades\\File',
+        1 => 'put',
+        2 => 34,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategies/TypeHintFixStrategy.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategyManager.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 'SAC\\EloquentModelGenerator\\Services\\FixStrategyManager',
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/FixStrategyManager.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 'SAC\\EloquentModelGenerator\\Services\\ModelGenerator',
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Services\\ModelGenerator',
+        1 => 'getTables',
+        2 => 'SAC\\EloquentModelGenerator\\Services\\ModelGenerator',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGenerator.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Services\\ModelGeneratorTemplateEngine',
+        1 => 'getCastType',
+        2 => 'SAC\\EloquentModelGenerator\\Services\\ModelGeneratorTemplateEngine',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Services\\ModelGeneratorTemplateEngine',
+        1 => 'generateRelationMethod',
+        2 => 'SAC\\EloquentModelGenerator\\Services\\ModelGeneratorTemplateEngine',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ModelGeneratorTemplateEngine.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 'SAC\\EloquentModelGenerator\\Services\\ParallelModelGeneratorService',
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/ParallelModelGeneratorService.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Services\\Schema\\BaseSchemaAnalyzer',
+        1 => 'getForeignKeyDefinition',
+        2 => 'SAC\\EloquentModelGenerator\\Services\\Schema\\BaseSchemaAnalyzer',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Services\\Schema\\BaseSchemaAnalyzer',
+        1 => 'getRelationshipDefinition',
+        2 => 'SAC\\EloquentModelGenerator\\Services\\Schema\\BaseSchemaAnalyzer',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    2 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Services\\Schema\\BaseSchemaAnalyzer',
+        1 => 'getCastType',
+        2 => 'SAC\\EloquentModelGenerator\\Services\\Schema\\BaseSchemaAnalyzer',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/Schema/BaseSchemaAnalyzer.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Builders/ModelBuilder.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 'SAC\\EloquentModelGenerator\\Support\\Builders\\ModelBuilder',
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Builders/ModelBuilder.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Definitions/ModelDefinition.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+        1 => 'getClassName',
+        2 => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Definitions/ModelDefinition.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+        1 => 'getNamespace',
+        2 => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Definitions/ModelDefinition.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    2 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+        1 => 'getColumns',
+        2 => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Definitions/ModelDefinition.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    3 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+        1 => 'getRelations',
+        2 => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Definitions/ModelDefinition.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    4 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+        1 => 'getBaseClass',
+        2 => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Definitions/ModelDefinition.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    5 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+        1 => 'withSoftDeletes',
+        2 => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Definitions/ModelDefinition.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    6 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+        1 => 'withValidation',
+        2 => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Definitions/ModelDefinition.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    7 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+        1 => 'withRelationships',
+        2 => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\ModelDefinition',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Definitions/ModelDefinition.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Definitions/SchemaDefinition.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\SchemaDefinition',
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Definitions/SchemaDefinition.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\SchemaDefinition',
+        1 => 'getTable',
+        2 => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\SchemaDefinition',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Definitions/SchemaDefinition.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    2 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\SchemaDefinition',
+        1 => 'getColumns',
+        2 => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\SchemaDefinition',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Definitions/SchemaDefinition.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    3 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\SchemaDefinition',
+        1 => 'getIndexes',
+        2 => 'SAC\\EloquentModelGenerator\\Support\\Definitions\\SchemaDefinition',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Definitions/SchemaDefinition.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/AbstractFixStrategy.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Support\\Facades\\File',
+        1 => 'put',
+        2 => 40,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/AbstractFixStrategy.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Support\\Facades\\File',
+        1 => 'copy',
+        2 => 49,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/AbstractFixStrategy.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector',
+    )),
+    2 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'Illuminate\\Support\\Facades\\File',
+        1 => 'move',
+        2 => 58,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Fixes/AbstractFixStrategy.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Results/GeneratedModel.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 'SAC\\EloquentModelGenerator\\Support\\Results\\GeneratedModel',
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Results/GeneratedModel.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Support\\Results\\GeneratedModel',
+        1 => 'getClassName',
+        2 => 'SAC\\EloquentModelGenerator\\Support\\Results\\GeneratedModel',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Results/GeneratedModel.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    2 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Support\\Results\\GeneratedModel',
+        1 => 'getNamespace',
+        2 => 'SAC\\EloquentModelGenerator\\Support\\Results\\GeneratedModel',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Results/GeneratedModel.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    3 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Support\\Results\\GeneratedModel',
+        1 => 'getTableName',
+        2 => 'SAC\\EloquentModelGenerator\\Support\\Results\\GeneratedModel',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Results/GeneratedModel.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    4 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Support\\Results\\GeneratedModel',
+        1 => 'getBaseClass',
+        2 => 'SAC\\EloquentModelGenerator\\Support\\Results\\GeneratedModel',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Results/GeneratedModel.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    5 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Support\\Results\\GeneratedModel',
+        1 => 'getContent',
+        2 => 'SAC\\EloquentModelGenerator\\Support\\Results\\GeneratedModel',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Results/GeneratedModel.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Traits/HasModelValidation.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Support\\Traits\\HasModelValidation',
+        1 => 8,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Traits/HasModelValidation.php',
+       'collectorType' => 'PHPStan\\Rules\\Traits\\TraitDeclarationCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Traits/HasRelationships.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Support\\Traits\\HasRelationships',
+        1 => 15,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Traits/HasRelationships.php',
+       'collectorType' => 'PHPStan\\Rules\\Traits\\TraitDeclarationCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Traits/HasValidation.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\Support\\Traits\\HasValidation',
+        1 => 8,
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Support/Traits/HasValidation.php',
+       'collectorType' => 'PHPStan\\Rules\\Traits\\TraitDeclarationCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Templates/CachedModelTemplate.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 'SAC\\EloquentModelGenerator\\Templates\\CachedModelTemplate',
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Templates/CachedModelTemplate.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/BenchmarkResult.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 'SAC\\EloquentModelGenerator\\ValueObjects\\BenchmarkResult',
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/BenchmarkResult.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\ValueObjects\\BenchmarkResult',
+        1 => 'getDurationMs',
+        2 => 'SAC\\EloquentModelGenerator\\ValueObjects\\BenchmarkResult',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/BenchmarkResult.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    2 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\ValueObjects\\BenchmarkResult',
+        1 => 'getMemoryPeakBytes',
+        2 => 'SAC\\EloquentModelGenerator\\ValueObjects\\BenchmarkResult',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/BenchmarkResult.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    3 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\ValueObjects\\BenchmarkResult',
+        1 => 'getResult',
+        2 => 'SAC\\EloquentModelGenerator\\ValueObjects\\BenchmarkResult',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/BenchmarkResult.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/Column.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/Column.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+        1 => 'getName',
+        2 => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/Column.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    2 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+        1 => 'getType',
+        2 => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/Column.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    3 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+        1 => 'isPrimary',
+        2 => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/Column.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    4 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+        1 => 'isAutoIncrement',
+        2 => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/Column.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    5 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+        1 => 'isNullable',
+        2 => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/Column.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    6 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+        1 => 'isUnique',
+        2 => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/Column.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    7 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+        1 => 'getDefault',
+        2 => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/Column.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    8 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+        1 => 'getLength',
+        2 => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/Column.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    9 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+        1 => 'getEnumValues',
+        2 => 'SAC\\EloquentModelGenerator\\ValueObjects\\Column',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/Column.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/Index.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 'SAC\\EloquentModelGenerator\\ValueObjects\\Index',
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/Index.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\ValueObjects\\Index',
+        1 => 'getName',
+        2 => 'SAC\\EloquentModelGenerator\\ValueObjects\\Index',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/Index.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    2 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\ValueObjects\\Index',
+        1 => 'getType',
+        2 => 'SAC\\EloquentModelGenerator\\ValueObjects\\Index',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/Index.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    3 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\ValueObjects\\Index',
+        1 => 'getColumns',
+        2 => 'SAC\\EloquentModelGenerator\\ValueObjects\\Index',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/Index.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    4 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\ValueObjects\\Index',
+        1 => 'getFirstColumn',
+        2 => 'SAC\\EloquentModelGenerator\\ValueObjects\\Index',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/Index.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+  ),
+  '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/TableSchema.php' => 
+  array (
+    0 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 'SAC\\EloquentModelGenerator\\ValueObjects\\TableSchema',
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/TableSchema.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector',
+    )),
+    1 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\ValueObjects\\TableSchema',
+        1 => 'getTableName',
+        2 => 'SAC\\EloquentModelGenerator\\ValueObjects\\TableSchema',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/TableSchema.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+    2 => 
+    \PHPStan\Collectors\CollectedData::__set_state(array(
+       'data' => 
+      array (
+        0 => 'SAC\\EloquentModelGenerator\\ValueObjects\\TableSchema',
+        1 => 'getColumns',
+        2 => 'SAC\\EloquentModelGenerator\\ValueObjects\\TableSchema',
+      ),
+       'filePath' => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/ValueObjects/TableSchema.php',
+       'collectorType' => 'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector',
+    )),
+  ),
 ); },
 	'dependencies' => array (
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Collections/ModelCollection.php' => 
@@ -3238,7 +6326,7 @@ return [
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/AnalyzeCommand.php' => 
   array (
-    'fileHash' => 'b024e92a1c3b59f68aed240fa9e6eeb89d7489ba',
+    'fileHash' => '7aee1e91e6554475d003115e9fa616aa4f6eac94',
     'dependentFiles' => 
     array (
       0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Kernel.php',
@@ -3247,7 +6335,7 @@ return [
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/FixCommand.php' => 
   array (
-    'fileHash' => '42ba7c1159aab3bfdfd95d08890330952a874351',
+    'fileHash' => '0d3b41c9ef2f893a16e2c115ea77c86dc8c87959',
     'dependentFiles' => 
     array (
       0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Providers/EloquentModelGeneratorServiceProvider.php',
@@ -3533,7 +6621,7 @@ return [
   ),
   '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Services/AnalysisToolManager.php' => 
   array (
-    'fileHash' => '2da93c41751969d2e85ef3902c68d78630ee5a5c',
+    'fileHash' => 'b276c54b9e9ad5ae0ba694f67219af983aba0199',
     'dependentFiles' => 
     array (
       0 => '/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src/Console/Commands/AnalyzeCommand.php',

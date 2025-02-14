@@ -25,7 +25,7 @@ class ModelGeneratorBenchmarkTest extends TestCase {
     }
 
     /** @test */
-    public function it_meets_single_model_performance_requirements(): void {
+    public function testumeets_single_model_performance_requirements(): void {
         $this->assertPerformanceConstraints(
             maxDurationMs: 1000,
             maxMemoryBytes: 50 * 1024 * 1024,
@@ -39,7 +39,7 @@ class ModelGeneratorBenchmarkTest extends TestCase {
     }
 
     /** @test */
-    public function it_meets_batch_performance_requirements(): void {
+    public function testumeets_batch_performance_requirements(): void {
         $this->assertPerformanceConstraints(
             maxDurationMs: count($this->testTables) * 500,
             maxMemoryBytes: 100 * 1024 * 1024,
@@ -53,7 +53,7 @@ class ModelGeneratorBenchmarkTest extends TestCase {
     }
 
     /** @test */
-    public function it_achieves_target_parallel_efficiency(): void {
+    public function testuachieves_target_parallel_efficiency(): void {
         $this->assertParallelEfficiency(
             sequentialOperation: fn() => $this->service->generateBatch($this->testTables, [
                 'namespace' => 'App\\Domain\\Models',
@@ -70,7 +70,7 @@ class ModelGeneratorBenchmarkTest extends TestCase {
     }
 
     /** @test */
-    public function it_maintains_memory_stability(): void {
+    public function testumaintains_memory_stability(): void {
         $this->assertMemoryStability(
             operation: fn() => $this->service->generateModel('users', [
                 'namespace' => 'App\\Domain\\Models',
@@ -82,7 +82,7 @@ class ModelGeneratorBenchmarkTest extends TestCase {
     }
 
     /** @test */
-    public function it_achieves_target_cache_hit_rate(): void {
+    public function testuachieves_target_cache_hit_rate(): void {
         $this->assertCacheEffectiveness(
             operation: fn() => $this->service->generateModel('users', [
                 'namespace' => 'App\\Domain\\Models',

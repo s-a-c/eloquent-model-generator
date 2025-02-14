@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace SAC\EloquentModelGenerator\Services\FixStrategies;
 
+use Throwable;
 use PhpParser\NodeTraverser;
 use PhpParser\ParserFactory;
 use PhpParser\PrettyPrinter\Standard;
@@ -14,9 +15,11 @@ class TypeHintFixStrategy implements FixStrategyInterface {
     public function getName(): string {
         return "Type Hint Fixes";
     }
+
     public function supportsLevel(int $level): bool {
         return $level >= 5;
     }
+
     public function fix(string $file, string $description): bool {
         $parser = (new ParserFactory)->create(ParserFactory::PREFER_PHP7);
         $traverser = new NodeTraverser();
@@ -27,6 +30,7 @@ class TypeHintFixStrategy implements FixStrategyInterface {
             if ($ast === null) {
                 return false;
             }
+
             $ast = $traverser->traverse($ast);
             $printer = new Standard();
             $newCode = $printer->prettyPrintFile($ast);
@@ -34,9 +38,10 @@ class TypeHintFixStrategy implements FixStrategyInterface {
                 File::put($file, $newCode);
                 return true;
             }
-        } catch (\Throwable $e) {
+        } catch (Throwable) {
             return false;
         }
+
         return false;
     }
 }

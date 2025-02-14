@@ -33,7 +33,7 @@ class PerformanceTest extends TestCase {
      * @test
      * @testdox Generates multiple models efficiently
      */
-    public function it_handles_multiple_models_efficiently(): void {
+    public function testuhandles_multiple_models_efficiently(): void {
         $start = microtime(true);
 
         for ($i = 1; $i <= 100; $i++) {
@@ -49,7 +49,7 @@ class PerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function it_maintains_performance_under_load(): void {
+    public function testumaintains_performance_under_load(): void {
         $tables = $this->generateTestTables(100);
 
         $this->benchmark->startBenchmark('batch_generation');
@@ -64,7 +64,7 @@ class PerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function it_handles_large_relationships_efficiently(): void {
+    public function testuhandles_large_relationships_efficiently(): void {
         $this->createTestSchema();
 
         $this->benchmark->startBenchmark('relationship_analysis');
@@ -80,7 +80,7 @@ class PerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function it_caches_effectively(): void {
+    public function testucaches_effectively(): void {
         $this->createTestSchema();
 
         // First run - no cache
@@ -101,7 +101,7 @@ class PerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function it_handles_concurrent_generation_efficiently(): void {
+    public function testuhandles_concurrent_generation_efficiently(): void {
         $tables = $this->generateTestTables(50);
         $startMemory = memory_get_usage(true);
 

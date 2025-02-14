@@ -25,7 +25,7 @@ trait HasModelValidation {
      *
      * @var \Illuminate\Validation\Validator|null
      */
-    protected $validator = null;
+    protected $validator;
 
     /**
      * Get the validation rules.
@@ -40,7 +40,6 @@ trait HasModelValidation {
      * Set the validation rules.
      *
      * @param array<string, string|array> $rules
-     * @return self
      */
     public function setValidationRules(array $rules): self {
         $this->validationRules = $rules;
@@ -49,10 +48,6 @@ trait HasModelValidation {
 
     /**
      * Add a validation rule.
-     *
-     * @param string $attribute
-     * @param string|array $rules
-     * @return self
      */
     public function addValidationRule(string $attribute, string|array $rules): self {
         $this->validationRules[$attribute] = $rules;
@@ -61,9 +56,6 @@ trait HasModelValidation {
 
     /**
      * Remove a validation rule.
-     *
-     * @param string $attribute
-     * @return self
      */
     public function removeValidationRule(string $attribute): self {
         unset($this->validationRules[$attribute]);
@@ -83,7 +75,6 @@ trait HasModelValidation {
      * Set the validation messages.
      *
      * @param array<string, string> $messages
-     * @return self
      */
     public function setValidationMessages(array $messages): self {
         $this->validationMessages = $messages;
@@ -92,10 +83,6 @@ trait HasModelValidation {
 
     /**
      * Add a validation message.
-     *
-     * @param string $rule
-     * @param string $message
-     * @return self
      */
     public function addValidationMessage(string $rule, string $message): self {
         $this->validationMessages[$rule] = $message;
@@ -104,9 +91,6 @@ trait HasModelValidation {
 
     /**
      * Remove a validation message.
-     *
-     * @param string $rule
-     * @return self
      */
     public function removeValidationMessage(string $rule): self {
         unset($this->validationMessages[$rule]);
@@ -116,7 +100,6 @@ trait HasModelValidation {
     /**
      * Validate the model.
      *
-     * @return bool
      * @throws ValidationException
      */
     public function validate(): bool {
@@ -144,21 +127,17 @@ trait HasModelValidation {
 
     /**
      * Determine if the model is valid.
-     *
-     * @return bool
      */
     public function isValid(): bool {
         try {
             return $this->validate();
-        } catch (ValidationException $e) {
+        } catch (ValidationException) {
             return false;
         }
     }
 
     /**
      * Get the validation errors.
-     *
-     * @return array
      */
     public function getValidationErrors(): array {
         if ($this->validator === null) {

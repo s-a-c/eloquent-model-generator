@@ -2,6 +2,7 @@
 
 namespace SAC\EloquentModelGenerator\Services;
 
+use Illuminate\Database\Eloquent\Model;
 use SAC\EloquentModelGenerator\Models\GeneratedModel;
 use SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition;
 use SAC\EloquentModelGenerator\ValueObjects\TableSchema;
@@ -10,18 +11,10 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
 
 class DefaultModelGenerator implements ModelGeneratorInterface {
-    public function __construct(
-        private readonly ConfigurationService $configService
-    ) {
-    }
-
     /**
      * Generate a model.
      *
-     * @param string $table
-     * @param TableSchema $schema
      * @param array<string, mixed> $config
-     * @return GeneratedModel
      */
     public function generate(string $table, TableSchema $schema, array $config = []): GeneratedModel {
         /** @var array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool} $modelConfig */
@@ -39,7 +32,7 @@ class DefaultModelGenerator implements ModelGeneratorInterface {
             namespace: $modelConfig['namespace'] ?? 'App\\Models',
             columns: new Collection(),
             relations: new Collection(),
-            baseClass: $modelConfig['base_class'] ?? 'Illuminate\\Database\\Eloquent\\Model',
+            baseClass: $modelConfig['base_class'] ?? Model::class,
             withSoftDeletes: $modelConfig['with_soft_deletes'] ?? false,
             withValidation: $modelConfig['with_validation'] ?? false,
             withRelationships: $modelConfig['with_relationships'] ?? true,
@@ -66,12 +59,7 @@ class DefaultModelGenerator implements ModelGeneratorInterface {
     /**
      * Generate the model content.
      *
-     * @param string $className
-     * @param string $namespace
-     * @param string $tableName
-     * @param string $baseClass
      * @param array{columns: array<string, array{type: string, nullable: bool, default?: mixed, length?: int|null, unsigned?: bool, autoIncrement?: bool, comment?: string|null}>, indexes?: array<string, array{type: string, columns: array<string>}>, foreignKeys?: array<string, array{table: string, columns: array<string, string>}>} $schema
-     * @return string
      */
     protected function generateModelContent(
         string $className,
@@ -90,15 +78,12 @@ class DefaultModelGenerator implements ModelGeneratorInterface {
         $template = str_replace('{{fillable}}', $fillable, $template);
 
         $casts = $this->generateCasts($schema['columns']);
-        $template = str_replace('{{casts}}', $casts, $template);
 
-        return $template;
+        return str_replace('{{casts}}', $casts, $template);
     }
 
     /**
      * Get the model template.
-     *
-     * @return string
      */
     protected function getTemplate(): string {
         return <<<'PHP'
@@ -123,7 +108,6 @@ PHP;
      * Generate the fillable property.
      *
      * @param array<string, array{type: string, nullable: bool, default?: mixed, length?: int|null, unsigned?: bool, autoIncrement?: bool, comment?: string|null}> $columns
-     * @return string
      */
     protected function generateFillable(array $columns): string {
         $fillable = array_keys($columns);
@@ -134,24 +118,21 @@ PHP;
      * Generate the casts property.
      *
      * @param array<string, array{type: string, nullable: bool, default?: mixed, length?: int|null, unsigned?: bool, autoIncrement?: bool, comment?: string|null}> $columns
-     * @return string
      */
     protected function generateCasts(array $columns): string {
         $casts = [];
         foreach ($columns as $name => $column) {
             $type = $this->getCastType($column['type']);
             if ($type !== null) {
-                $casts[] = "'{$name}' => '{$type}'";
+                $casts[] = sprintf("'%s' => '%s'", $name, $type);
             }
         }
+
         return implode(', ', $casts);
     }
 
     /**
      * Get the cast type for a column.
-     *
-     * @param string $type
-     * @return string|null
      */
     protected function getCastType(string $type): ?string {
         return match ($type) {
@@ -167,9 +148,6 @@ PHP;
 
     /**
      * Generate a class name from a table name.
-     *
-     * @param string $table
-     * @return string
      */
     private function generateClassName(string $table): string {
         return Str::studly(Str::singular($table));

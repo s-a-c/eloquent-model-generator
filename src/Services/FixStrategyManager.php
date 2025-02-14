@@ -42,13 +42,4 @@ class FixStrategyManager {
 
         return $levelStrategies;
     }
-
-    /**
-     * Register default fix strategies.
-     */
-    private function registerDefaultStrategies(): void {
-        $this->registerStrategy('rector', new RectorFixStrategy());
-        $this->registerStrategy('type_hint', new TypeHintFixStrategy());
-        $this->registerStrategy('doc_block', new DocBlockFixStrategy());
-    }
 }

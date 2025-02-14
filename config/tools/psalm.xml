@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<psalm errorLevel="4"
+       resolveFromConfigFile="true"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="https://getpsalm.org/schema/config"
+       xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+       findUnusedBaselineEntry="true"
+       findUnusedCode="false"
+       allowStringToStandInForClass="true"
+       >
+    <projectFiles>
+        <directory name="src" />
+        <ignoreFiles>
+            <directory name="vendor" />
+            <directory name="tests" />
+            <directory name="build" />
+        </ignoreFiles>
+    </projectFiles>
+
+    <plugins>
+        <pluginClass class="Psalm\LaravelPlugin\Plugin" />
+    </plugins>
+
+    <issueHandlers>
+        <PropertyNotSetInConstructor>
+            <errorLevel type="suppress">
+                <directory name="src/Models" />
+            </errorLevel>
+        </PropertyNotSetInConstructor>
+
+        <MixedAssignment>
+            <errorLevel type="suppress">
+                <directory name="src/Services" />
+            </errorLevel>
+        </MixedAssignment>
+
+        <MixedMethodCall>
+            <errorLevel type="suppress">
+                <directory name="src/Services" />
+            </errorLevel>
+        </MixedMethodCall>
+
+        <MixedPropertyFetch>
+            <errorLevel type="suppress">
+                <directory name="src/Services" />
+            </errorLevel>
+        </MixedPropertyFetch>
+
+        <InvalidStringClass>
+            <errorLevel type="suppress">
+                <directory name="src/Models" />
+            </errorLevel>
+        </InvalidStringClass>
+
+        <InvalidReturnType>
+            <errorLevel type="suppress">
+                <directory name="src/Services/AI" />
+            </errorLevel>
+        </InvalidReturnType>
+
+        <InvalidArgument>
+            <errorLevel type="suppress">
+                <directory name="src/Services/AI" />
+            </errorLevel>
+        </InvalidArgument>
+
+        <PossiblyInvalidArgument>
+            <errorLevel type="suppress">
+                <directory name="src/Services/AI" />
+            </errorLevel>
+        </PossiblyInvalidArgument>
+
+        <MixedInferredReturnType>
+            <errorLevel type="suppress">
+                <directory name="src/Services/AI" />
+            </errorLevel>
+        </MixedInferredReturnType>
+    </issueHandlers>
+</psalm>
