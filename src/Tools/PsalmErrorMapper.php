@@ -19,6 +19,13 @@ class PsalmErrorMapper {
             ];
         }
 
+        if (strpos($error['message'], 'MissingParamType') !== false) {
+            $error['fix_suggestions'][] = [
+                'message' => 'Add a parameter type declaration to the function.',
+                'code' => ': type',
+            ];
+        }
+
         // TODO: Implement the logic to map the Psalm error to a common format and add fix suggestions.
         return $error;
     }

@@ -147,8 +147,8 @@
             ],
             "parameters": {
                 "level": 8,
-                "tmpDir": "/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/build/phpstan",
-                "rootDir": "/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator",
+                "tmpDir": "build/phpstan",
+                "rootDir": ".",
                 "customRulesetUsed": true,
                 "bootstrapFiles": [],
                 "autoload_files": [],
@@ -164,10 +164,10 @@
                     "maximumNumberOfProcesses": 1
                 },
                 "excludePaths": [
-                    "/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/tests/tmp/*",
-                    "/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/tests/*",
-                    "/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/build/*",
-                    "/Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/*",
+                    "tests/tmp/*",
+                    "tests/*",
+                    "build/*",
+                    "vendor/*",
                     "*.blade.php"
                 ]
             }

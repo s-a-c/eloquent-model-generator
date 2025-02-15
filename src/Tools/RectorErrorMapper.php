@@ -19,6 +19,13 @@ class RectorErrorMapper {
             ];
         }
 
+        if (strpos($error['message'], 'Use array_key_exists() over isset()') !== false) {
+            $error['fix_suggestions'][] = [
+                'message' => 'Use array_key_exists() over isset()',
+                'code' => 'array_key_exists()',
+            ];
+        }
+
         // TODO: Implement the logic to map the Rector error to a common format and add fix suggestions.
         return $error;
     }

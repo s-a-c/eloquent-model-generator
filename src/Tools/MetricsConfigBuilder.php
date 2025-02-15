@@ -3,6 +3,7 @@
 namespace StandAloneComplex\EloquentModelGenerator\Tools;
 
 use StandAloneComplex\EloquentModelGenerator\Contracts\AnalysisConfig;
+use StandAloneComplex\EloquentModelGenerator\Tools\MetricsConfigurationValidator;
 
 class MetricsConfigBuilder implements AnalysisConfig {
     /**
@@ -11,7 +12,18 @@ class MetricsConfigBuilder implements AnalysisConfig {
      * @return array
      */
     public function getOptions(): array {
-        // TODO: Implement the logic to generate the Metrics configuration options.
-        return [];
+        $options = [
+            'report-html' => 'packages/StandAloneComplex/EloquentModelGenerator/build/metrics/report.html',
+        ];
+
+        $validator = new MetricsConfigurationValidator();
+        if (!$validator->validate($options)) {
+            throw new \Exception('Invalid Metrics configuration options.');
+        }
+
+        // Load Metrics specific configuration
+        $options['failure-condition'] = 'abc > 10'; // Example failure condition
+
+        return $options;
     }
 }

@@ -21,6 +21,9 @@ class PHPMDConfigBuilder implements AnalysisConfig {
             throw new \Exception('Invalid PHPMD configuration options.');
         }
 
+        // Load PHPMD specific configuration
+        $options['minimumpriority'] = 1; // Set the minimum priority
+
         return $options;
     }
 }

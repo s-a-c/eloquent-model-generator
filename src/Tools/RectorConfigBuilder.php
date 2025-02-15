@@ -21,6 +21,9 @@ class RectorConfigBuilder implements AnalysisConfig {
             throw new \Exception('Invalid Rector configuration options.');
         }
 
+        // Load Rector specific configuration
+        $options['dry-run'] = true; // Enable dry-run mode
+
         return $options;
     }
 }

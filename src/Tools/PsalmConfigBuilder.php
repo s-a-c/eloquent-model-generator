@@ -22,6 +22,9 @@ class PsalmConfigBuilder implements AnalysisConfig {
             throw new \Exception('Invalid Psalm configuration options.');
         }
 
+        // Load Psalm specific configuration
+        $options['level'] = 1; // Set the Psalm level to 1
+
         return $options;
     }
 }

@@ -1,11 +1,11 @@
 parameters:
     level: '8'
     paths:
-        - /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/src
+        - ./src
     errorFormat: prettyjson
-    tmpDir: /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/build/phpstan
+    tmpDir: build/phpstan
     parallel:
         maximumNumberOfProcesses: 1
         processTimeout: 300.0
 includes:
-    - /Users/s-a-c/Herd/laravel-package-dev/packages/StandAlonecomplex/EloquentModelGenerator/vendor/larastan/larastan/extension.neon
+    - vendor/larastan/larastan/extension.neon

@@ -19,6 +19,13 @@ class PHPMDErrorMapper {
             ];
         }
 
+        if (strpos($error['message'], 'UnusedFormalParameter') !== false) {
+            $error['fix_suggestions'][] = [
+                'message' => 'Remove the unused parameter or use it within the method.',
+                'code' => '// TODO: Remove the unused parameter or use it',
+            ];
+        }
+
         // TODO: Implement the logic to map the PHPMD error to a common format and add fix suggestions.
         return $error;
     }
