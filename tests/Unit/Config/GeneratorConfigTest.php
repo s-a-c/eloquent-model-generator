@@ -21,7 +21,7 @@ test('it correctly sets and gets model path', function () {
 });
 
 test('it uses default values when not specified', function () {
-    $config = new GeneratorConfig();
+    $config = new GeneratorConfig;
 
     expect($config)
         ->getNamespace()->toBe('App\\Models')

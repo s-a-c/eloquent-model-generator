@@ -1,16 +1,14 @@
 <?php
 
-use SAC\EloquentModelGenerator\ModelGenerator;
-
 test('it generates model with custom events', function () {
     $generator = createModelGenerator([
         'events' => [
             'creating' => [
                 'generateUuid',
-                'setDefaultStatus'
+                'setDefaultStatus',
             ],
-            'saving' => 'validateCustomRules'
-        ]
+            'saving' => 'validateCustomRules',
+        ],
     ]);
 
     $model = $generator->generate('test_users', getTestSchema());
@@ -25,7 +23,7 @@ test('it generates model with custom events', function () {
 
 test('it generates model with observer class', function () {
     $generator = createModelGenerator([
-        'observer' => 'App\\Observers\\UserObserver'
+        'observer' => 'App\\Observers\\UserObserver',
     ]);
 
     $model = $generator->generate('test_users', getTestSchema());

@@ -2,10 +2,10 @@
 
 namespace SAC\EloquentModelGenerator\Support\Traits;
 
-use Throwable;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use ReflectionClass;
 use ReflectionMethod;
-use Illuminate\Database\Eloquent\Relations\Relation;
+use Throwable;
 
 /**
  * @phpstan-type RelationshipDefinition array{
@@ -13,13 +13,15 @@ use Illuminate\Database\Eloquent\Relations\Relation;
  *     model: class-string|null
  * }
  */
-trait HasRelationships {
+trait HasRelationships
+{
     /**
      * Get all relationships defined in the model.
      *
      * @return array<string, RelationshipDefinition>
      */
-    public function getRelationships(): array {
+    public function getRelationships(): array
+    {
         $relationships = [];
         $methods = (new ReflectionClass($this))->getMethods(ReflectionMethod::IS_PUBLIC);
 
@@ -29,7 +31,7 @@ trait HasRelationships {
                 /** @var RelationshipDefinition */
                 $relationship = [
                     'type' => $this->getRelationshipType($name),
-                    'model' => $this->getRelatedModel($name)
+                    'model' => $this->getRelatedModel($name),
                 ];
                 $relationships[$name] = $relationship;
             }
@@ -43,7 +45,8 @@ trait HasRelationships {
      *
      * @return array<int, string>
      */
-    public function getRelationshipMethods(): array {
+    public function getRelationshipMethods(): array
+    {
         return array_keys($this->getRelationships());
     }
 
@@ -52,13 +55,14 @@ trait HasRelationships {
      *
      * @return class-string|null
      */
-    public function getRelationshipType(string $method): ?string {
-        if (!method_exists($this, $method)) {
+    public function getRelationshipType(string $method): ?string
+    {
+        if (! method_exists($this, $method)) {
             return null;
         }
 
         $relation = $this->$method();
-        if (!($relation instanceof Relation)) {
+        if (! ($relation instanceof Relation)) {
             return null;
         }
 
@@ -70,13 +74,14 @@ trait HasRelationships {
      *
      * @return class-string|null
      */
-    public function getRelatedModel(string $method): ?string {
-        if (!method_exists($this, $method)) {
+    public function getRelatedModel(string $method): ?string
+    {
+        if (! method_exists($this, $method)) {
             return null;
         }
 
         $relation = $this->$method();
-        if (!($relation instanceof Relation)) {
+        if (! ($relation instanceof Relation)) {
             return null;
         }
 
@@ -86,7 +91,8 @@ trait HasRelationships {
     /**
      * Determine if a method defines a relationship.
      */
-    protected function isRelationshipMethod(ReflectionMethod $method): bool {
+    protected function isRelationshipMethod(ReflectionMethod $method): bool
+    {
         // Skip methods that are not defined in the model
         if ($method->class !== $this::class) {
             return false;
@@ -100,6 +106,7 @@ trait HasRelationships {
         // Try to call the method and check if it returns a relationship
         try {
             $relation = $this->{$method->getName()}();
+
             return $relation instanceof Relation;
         } catch (Throwable) {
             return false;

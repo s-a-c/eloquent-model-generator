@@ -5,7 +5,8 @@ namespace SAC\EloquentModelGenerator\Support\Traits;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
-trait HasValidation {
+trait HasValidation
+{
     /**
      * @var array<string, array<string>>
      */
@@ -26,18 +27,21 @@ trait HasValidation {
      *
      * @return array<string, array<string>|string>
      */
-    public function getRules(): array {
+    public function getRules(): array
+    {
         return $this->rules;
     }
 
     /**
      * Set the validation rules.
      *
-     * @param array<string, array<string>|string> $rules
+     * @param  array<string, array<string>|string>  $rules
      * @return $this
      */
-    public function setRules(array $rules): static {
+    public function setRules(array $rules): static
+    {
         $this->rules = $rules;
+
         return $this;
     }
 
@@ -46,28 +50,31 @@ trait HasValidation {
      *
      * @return array<string, string>
      */
-    public function getMessages(): array {
+    public function getMessages(): array
+    {
         return $this->messages;
     }
 
     /**
      * Set the validation messages.
      *
-     * @param array<string, string> $messages
+     * @param  array<string, string>  $messages
      * @return $this
      */
-    public function setMessages(array $messages): static {
+    public function setMessages(array $messages): static
+    {
         $this->messages = $messages;
+
         return $this;
     }
 
     /**
      * Validate the model.
      *
-     * @return bool
      * @throws ValidationException
      */
-    public function validate(): bool {
+    public function validate(): bool
+    {
         $validator = Validator::make(
             $this->getAttributes(),
             $this->getRules(),
@@ -89,7 +96,8 @@ trait HasValidation {
      *
      * @return array<string, array<string>>
      */
-    public function getErrors(): array {
+    public function getErrors(): array
+    {
         return $this->errors;
     }
 
@@ -98,8 +106,10 @@ trait HasValidation {
      *
      * @return $this
      */
-    public function clearErrors(): static {
+    public function clearErrors(): static
+    {
         $this->errors = [];
+
         return $this;
     }
 }

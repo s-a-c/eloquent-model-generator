@@ -4,7 +4,7 @@ use SAC\EloquentModelGenerator\Tests\Support\Factories\ModelFactory;
 use SAC\EloquentModelGenerator\ValueObjects\ModelDefinition;
 
 beforeEach(function () {
-    $this->factory = new ModelFactory();
+    $this->factory = new ModelFactory;
 });
 
 test('it creates model definition', function () {
@@ -22,7 +22,7 @@ test('it creates model definition with custom attributes', function () {
         'className' => 'CustomUser',
         'namespace' => 'App\\Domain\\Models',
         'baseClass' => 'App\\Models\\BaseModel',
-        'withSoftDeletes' => true
+        'withSoftDeletes' => true,
     ]);
 
     expect($definition)
@@ -52,7 +52,7 @@ test('it creates soft deletes schema', function () {
 
 test('it creates relationship schema', function () {
     $relations = [
-        'posts' => ['type' => 'hasMany', 'model' => 'App\\Models\\Post']
+        'posts' => ['type' => 'hasMany', 'model' => 'App\\Models\\Post'],
     ];
 
     $schema = $this->factory->relationshipSchema('users', $relations);
@@ -66,7 +66,7 @@ test('it normalizes column definitions', function () {
     $schema = $this->factory->schema([
         'name' => 'string',
         'email' => ['type' => 'string', 'nullable' => true],
-        'active' => ['type' => 'boolean', 'default' => false]
+        'active' => ['type' => 'boolean', 'default' => false],
     ]);
 
     expect($schema['columns'])
@@ -80,7 +80,7 @@ test('it normalizes index definitions', function () {
     $schema = $this->factory->schema([], [
         'email_unique' => ['type' => 'unique', 'columns' => ['email']],
         'name_index' => 'name',
-        'composite' => ['created_at', 'updated_at']
+        'composite' => ['created_at', 'updated_at'],
     ]);
 
     expect($schema['indexes'])
@@ -92,7 +92,7 @@ test('it normalizes index definitions', function () {
 test('it normalizes relation definitions', function () {
     $schema = $this->factory->schema([], [], [
         'posts' => 'hasMany',
-        'profile' => ['type' => 'hasOne', 'model' => 'App\\Models\\Profile']
+        'profile' => ['type' => 'hasOne', 'model' => 'App\\Models\\Profile'],
     ]);
 
     expect($schema['relations'])

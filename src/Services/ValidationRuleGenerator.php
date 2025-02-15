@@ -2,16 +2,17 @@
 
 namespace SAC\EloquentModelGenerator\Services;
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Str;
 
-class ValidationRuleGenerator {
+class ValidationRuleGenerator
+{
     /**
      * Generate validation rules for a model based on its schema.
      *
      * @return array<string, string|array>
      */
-    public function generateRules(array $schema): array {
+    public function generateRules(array $schema): array
+    {
         $rules = [];
         $tableName = $schema['table_name'] ?? $schema['tableName'] ?? '';
 
@@ -32,7 +33,8 @@ class ValidationRuleGenerator {
     /**
      * Generate validation rules for a specific column.
      */
-    protected function generateColumnRules(string $column, array $definition, string $tableName): string|array {
+    protected function generateColumnRules(string $column, array $definition, string $tableName): string|array
+    {
         $rules = [];
 
         // Required/Nullable
@@ -43,7 +45,7 @@ class ValidationRuleGenerator {
 
         // Length/Size rules
         if (isset($definition['length'])) {
-            $rules[] = 'max:' . $definition['length'];
+            $rules[] = 'max:'.$definition['length'];
         }
 
         // Unique constraint
@@ -65,7 +67,8 @@ class ValidationRuleGenerator {
     /**
      * Get validation rules based on column type.
      */
-    protected function getTypeRules(array $definition): array {
+    protected function getTypeRules(array $definition): array
+    {
         $type = $definition['type'] ?? 'string';
         $rules = [];
 
@@ -88,7 +91,7 @@ class ValidationRuleGenerator {
                 }
 
                 if (isset($definition['scale'])) {
-                    $rules[] = 'decimal:' . $definition['scale'];
+                    $rules[] = 'decimal:'.$definition['scale'];
                 }
 
                 break;
@@ -110,7 +113,7 @@ class ValidationRuleGenerator {
             case 'enum':
                 if (isset($definition['values'])) {
                     $values = implode(',', $definition['values']);
-                    $rules[] = 'in:' . $values;
+                    $rules[] = 'in:'.$values;
                 }
 
                 break;
@@ -136,7 +139,8 @@ class ValidationRuleGenerator {
      *
      * @return array<string, string>
      */
-    public function generateMessages(array $schema): array {
+    public function generateMessages(array $schema): array
+    {
         $messages = [];
 
         foreach ($schema['columns'] as $column => $definition) {
@@ -156,12 +160,12 @@ class ValidationRuleGenerator {
             // Default messages
             $label = Str::title(str_replace('_', ' ', $column));
 
-            if (!($definition['nullable'] ?? true)) {
-                $messages[$column . '.required'] = $label . ' is required.';
+            if (! ($definition['nullable'] ?? true)) {
+                $messages[$column.'.required'] = $label.' is required.';
             }
 
             if (isset($definition['unique']) && $definition['unique']) {
-                $messages[$column . '.unique'] = $label . ' has already been taken.';
+                $messages[$column.'.unique'] = $label.' has already been taken.';
             }
 
             // Type-specific messages
@@ -174,50 +178,51 @@ class ValidationRuleGenerator {
     /**
      * Add type-specific validation messages.
      */
-    protected function addTypeSpecificMessages(array &$messages, string $column, string $label, array $definition): void {
+    protected function addTypeSpecificMessages(array &$messages, string $column, string $label, array $definition): void
+    {
         $type = $definition['type'] ?? 'string';
 
         switch ($type) {
             case 'integer':
-                $messages[$column . '.integer'] = $label . ' must be an integer.';
+                $messages[$column.'.integer'] = $label.' must be an integer.';
                 if (isset($definition['unsigned']) && $definition['unsigned']) {
-                    $messages[$column . '.min'] = $label . ' must be at least 0.';
+                    $messages[$column.'.min'] = $label.' must be at least 0.';
                 }
 
                 break;
             case 'decimal':
             case 'float':
-                $messages[$column . '.numeric'] = $label . ' must be a number.';
+                $messages[$column.'.numeric'] = $label.' must be a number.';
                 if (isset($definition['scale'])) {
-                    $messages[$column . '.decimal'] = sprintf('%s must have %s decimal places.', $label, $definition['scale']);
+                    $messages[$column.'.decimal'] = sprintf('%s must have %s decimal places.', $label, $definition['scale']);
                 }
 
                 break;
             case 'boolean':
-                $messages[$column . '.boolean'] = $label . ' must be true or false.';
+                $messages[$column.'.boolean'] = $label.' must be true or false.';
                 break;
             case 'date':
-                $messages[$column . '.date'] = $label . ' must be a valid date.';
+                $messages[$column.'.date'] = $label.' must be a valid date.';
                 break;
             case 'datetime':
-                $messages[$column . '.date_format'] = $label . ' must be in the format Y-m-d H:i:s.';
+                $messages[$column.'.date_format'] = $label.' must be in the format Y-m-d H:i:s.';
                 break;
             case 'email':
-                $messages[$column . '.email'] = $label . ' must be a valid email address.';
+                $messages[$column.'.email'] = $label.' must be a valid email address.';
                 break;
             case 'url':
-                $messages[$column . '.url'] = $label . ' must be a valid URL.';
+                $messages[$column.'.url'] = $label.' must be a valid URL.';
                 break;
             case 'ip':
-                $messages[$column . '.ip'] = $label . ' must be a valid IP address.';
+                $messages[$column.'.ip'] = $label.' must be a valid IP address.';
                 break;
             case 'uuid':
-                $messages[$column . '.uuid'] = $label . ' must be a valid UUID.';
+                $messages[$column.'.uuid'] = $label.' must be a valid UUID.';
                 break;
             case 'enum':
                 if (isset($definition['values'])) {
                     $values = implode(', ', $definition['values']);
-                    $messages[$column . '.in'] = sprintf('The %s field must be one of: %s.', $column, $values);
+                    $messages[$column.'.in'] = sprintf('The %s field must be one of: %s.', $column, $values);
                 }
 
                 break;

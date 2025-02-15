@@ -2,12 +2,13 @@
 
 namespace SAC\EloquentModelGenerator\Tests\Support\Traits;
 
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Collection;
 use RuntimeException;
 
-trait MeasurePerformance {
+trait MeasurePerformance
+{
     /**
      * Store query execution times.
      */
@@ -26,18 +27,21 @@ trait MeasurePerformance {
     /**
      * Initialize performance measurement.
      */
-    protected function initializePerformanceMeasurement(): void {
+    protected function initializePerformanceMeasurement(): void
+    {
         $this->performanceHistory = collect();
     }
 
     /**
      * Start measuring query execution time.
      *
-     * @param string|null $label Optional label for this measurement
+     * @param  string|null  $label  Optional label for this measurement
+     *
      * @throws RuntimeException If measurement is already in progress
      */
-    protected function startQueryMeasurement(?string $label = null): void {
-        if (!empty($this->queryTimes)) {
+    protected function startQueryMeasurement(?string $label = null): void
+    {
+        if (! empty($this->queryTimes)) {
             throw new RuntimeException('Query measurement already in progress');
         }
 
@@ -49,7 +53,7 @@ trait MeasurePerformance {
         } catch (\Exception $e) {
             Log::error('Failed to start query measurement', [
                 'error' => $e->getMessage(),
-                'trace' => $e->getTraceAsString()
+                'trace' => $e->getTraceAsString(),
             ]);
             throw $e;
         }
@@ -58,11 +62,13 @@ trait MeasurePerformance {
     /**
      * Stop measuring query execution time.
      *
-     * @param string|null $label Optional label for this measurement
+     * @param  string|null  $label  Optional label for this measurement
      * @return array Performance metrics
+     *
      * @throws RuntimeException If no measurement is in progress
      */
-    protected function stopQueryMeasurement(?string $label = null): array {
+    protected function stopQueryMeasurement(?string $label = null): array
+    {
         if (empty($this->queryTimes)) {
             throw new RuntimeException('No query measurement in progress');
         }
@@ -84,9 +90,9 @@ trait MeasurePerformance {
                     'start' => $this->memorySnapshots['start'] ?? 0,
                     'end' => $this->memorySnapshots[$label ?? 'end'] ?? 0,
                     'peak' => memory_get_peak_usage(true),
-                    'growth' => ($this->memorySnapshots[$label ?? 'end'] ?? 0) - ($this->memorySnapshots['start'] ?? 0)
+                    'growth' => ($this->memorySnapshots[$label ?? 'end'] ?? 0) - ($this->memorySnapshots['start'] ?? 0),
                 ],
-                'query_patterns' => $this->analyzeQueryPatterns($queryLog)
+                'query_patterns' => $this->analyzeQueryPatterns($queryLog),
             ];
 
             foreach ($queryLog as $query) {
@@ -111,7 +117,7 @@ trait MeasurePerformance {
             // Store in history for trend analysis
             $this->performanceHistory->push([
                 'timestamp' => microtime(true),
-                'metrics' => $summary
+                'metrics' => $summary,
             ]);
 
             $this->logPerformanceMetrics($summary);
@@ -120,7 +126,7 @@ trait MeasurePerformance {
         } catch (\Exception $e) {
             Log::error('Failed to stop query measurement', [
                 'error' => $e->getMessage(),
-                'trace' => $e->getTraceAsString()
+                'trace' => $e->getTraceAsString(),
             ]);
             throw $e;
         }
@@ -129,21 +135,24 @@ trait MeasurePerformance {
     /**
      * Take a memory usage snapshot.
      *
-     * @param string $key Snapshot identifier
+     * @param  string  $key  Snapshot identifier
      * @return int Memory usage in bytes
      */
-    protected function takeMemorySnapshot(string $key): int {
+    protected function takeMemorySnapshot(string $key): int
+    {
         $usage = memory_get_usage(true);
         $this->memorySnapshots[$key] = $usage;
+
         return $usage;
     }
 
     /**
      * Assert that the number of queries executed is within limits.
      *
-     * @param int $expectedCount Expected query count
-     * @param float|null $maxTime Maximum total time in milliseconds
-     * @param float|null $maxAverageTime Maximum average time per query
+     * @param  int  $expectedCount  Expected query count
+     * @param  float|null  $maxTime  Maximum total time in milliseconds
+     * @param  float|null  $maxAverageTime  Maximum average time per query
+     *
      * @throws RuntimeException If assertions fail
      */
     protected function assertQueryCount(
@@ -175,7 +184,7 @@ trait MeasurePerformance {
             $errors[] = "Average query time {$averageTime}ms exceeds maximum {$maxAverageTime}ms";
         }
 
-        if (!empty($errors)) {
+        if (! empty($errors)) {
             throw new RuntimeException(implode(PHP_EOL, $errors));
         }
     }
@@ -183,11 +192,13 @@ trait MeasurePerformance {
     /**
      * Assert that memory usage is within limits.
      *
-     * @param int $maxMemoryUsage Maximum memory usage in bytes
-     * @param bool $includePeak Whether to check peak memory usage
+     * @param  int  $maxMemoryUsage  Maximum memory usage in bytes
+     * @param  bool  $includePeak  Whether to check peak memory usage
+     *
      * @throws RuntimeException If memory usage exceeds limit
      */
-    protected function assertMemoryUsage(int $maxMemoryUsage, bool $includePeak = false): void {
+    protected function assertMemoryUsage(int $maxMemoryUsage, bool $includePeak = false): void
+    {
         $currentUsage = memory_get_usage(true);
         $peakUsage = memory_get_peak_usage(true);
 
@@ -209,7 +220,7 @@ trait MeasurePerformance {
             );
         }
 
-        if (!empty($errors)) {
+        if (! empty($errors)) {
             throw new RuntimeException(implode(PHP_EOL, $errors));
         }
     }
@@ -217,10 +228,11 @@ trait MeasurePerformance {
     /**
      * Analyze query patterns to identify potential issues.
      *
-     * @param array $queryLog Query log from DB::getQueryLog()
+     * @param  array  $queryLog  Query log from DB::getQueryLog()
      * @return array Analysis results
      */
-    protected function analyzeQueryPatterns(array $queryLog): array {
+    protected function analyzeQueryPatterns(array $queryLog): array
+    {
         $patterns = [
             'select_count' => 0,
             'insert_count' => 0,
@@ -238,10 +250,18 @@ trait MeasurePerformance {
             $query = strtolower($entry['query']);
 
             // Count query types
-            if (str_starts_with($query, 'select')) $patterns['select_count']++;
-            if (str_starts_with($query, 'insert')) $patterns['insert_count']++;
-            if (str_starts_with($query, 'update')) $patterns['update_count']++;
-            if (str_starts_with($query, 'delete')) $patterns['delete_count']++;
+            if (str_starts_with($query, 'select')) {
+                $patterns['select_count']++;
+            }
+            if (str_starts_with($query, 'insert')) {
+                $patterns['insert_count']++;
+            }
+            if (str_starts_with($query, 'update')) {
+                $patterns['update_count']++;
+            }
+            if (str_starts_with($query, 'delete')) {
+                $patterns['delete_count']++;
+            }
 
             // Detect table scans
             if (strpos($query, 'where') === false) {
@@ -256,7 +276,7 @@ trait MeasurePerformance {
 
             // Track repeated queries
             $queryHash = md5($query);
-            if (!isset($seenQueries[$queryHash])) {
+            if (! isset($seenQueries[$queryHash])) {
                 $seenQueries[$queryHash] = 1;
             } else {
                 $seenQueries[$queryHash]++;
@@ -274,7 +294,8 @@ trait MeasurePerformance {
      *
      * @return Collection Performance history
      */
-    protected function getPerformanceHistory(): Collection {
+    protected function getPerformanceHistory(): Collection
+    {
         return $this->performanceHistory;
     }
 
@@ -283,7 +304,8 @@ trait MeasurePerformance {
      *
      * @return array Trend analysis results
      */
-    protected function analyzePerformanceTrends(): array {
+    protected function analyzePerformanceTrends(): array
+    {
         if ($this->performanceHistory->isEmpty()) {
             return [];
         }
@@ -305,30 +327,31 @@ trait MeasurePerformance {
                 'min' => min($trends['query_count_trend']),
                 'max' => max($trends['query_count_trend']),
                 'avg' => array_sum($trends['query_count_trend']) / count($trends['query_count_trend']),
-                'trend' => $this->calculateTrend($trends['query_count_trend'])
+                'trend' => $this->calculateTrend($trends['query_count_trend']),
             ],
             'execution_time' => [
                 'min' => min($trends['execution_time_trend']),
                 'max' => max($trends['execution_time_trend']),
                 'avg' => array_sum($trends['execution_time_trend']) / count($trends['execution_time_trend']),
-                'trend' => $this->calculateTrend($trends['execution_time_trend'])
+                'trend' => $this->calculateTrend($trends['execution_time_trend']),
             ],
             'memory_usage' => [
                 'min' => min($trends['memory_usage_trend']),
                 'max' => max($trends['memory_usage_trend']),
                 'avg' => array_sum($trends['memory_usage_trend']) / count($trends['memory_usage_trend']),
-                'trend' => $this->calculateTrend($trends['memory_usage_trend'])
-            ]
+                'trend' => $this->calculateTrend($trends['memory_usage_trend']),
+            ],
         ];
     }
 
     /**
      * Calculate trend direction and magnitude.
      *
-     * @param array $values Series of values
+     * @param  array  $values  Series of values
      * @return array Trend analysis
      */
-    private function calculateTrend(array $values): array {
+    private function calculateTrend(array $values): array
+    {
         if (count($values) < 2) {
             return ['direction' => 'stable', 'magnitude' => 0];
         }
@@ -340,16 +363,17 @@ trait MeasurePerformance {
 
         return [
             'direction' => $change > 0 ? 'increasing' : ($change < 0 ? 'decreasing' : 'stable'),
-            'magnitude' => abs($percentChange)
+            'magnitude' => abs($percentChange),
         ];
     }
 
     /**
      * Log performance metrics.
      *
-     * @param array $metrics Performance metrics to log
+     * @param  array  $metrics  Performance metrics to log
      */
-    protected function logPerformanceMetrics(array $metrics): void {
+    protected function logPerformanceMetrics(array $metrics): void
+    {
         Log::info('Performance Metrics', [
             'total_queries' => $metrics['total_queries'],
             'total_time' => $metrics['total_time'],
@@ -359,18 +383,18 @@ trait MeasurePerformance {
             'fastest_query' => $metrics['fastest_query'],
             'fastest_time' => $metrics['fastest_time'],
             'memory_usage' => $metrics['memory_usage'],
-            'query_patterns' => $metrics['query_patterns']
+            'query_patterns' => $metrics['query_patterns'],
         ]);
 
         if ($metrics['query_patterns']['repeated_queries']) {
             Log::warning('Repeated queries detected', [
-                'queries' => $metrics['query_patterns']['repeated_queries']
+                'queries' => $metrics['query_patterns']['repeated_queries'],
             ]);
         }
 
         if ($metrics['query_patterns']['table_scans'] > 0) {
             Log::warning('Table scans detected', [
-                'count' => $metrics['query_patterns']['table_scans']
+                'count' => $metrics['query_patterns']['table_scans'],
             ]);
         }
     }
@@ -378,16 +402,17 @@ trait MeasurePerformance {
     /**
      * Get memory usage in a human-readable format.
      *
-     * @param int $bytes Memory usage in bytes
+     * @param  int  $bytes  Memory usage in bytes
      * @return string Formatted memory usage
      */
-    protected function formatMemoryUsage(int $bytes): string {
+    protected function formatMemoryUsage(int $bytes): string
+    {
         $units = ['B', 'KB', 'MB', 'GB'];
         $bytes = max($bytes, 0);
         $pow = floor(($bytes ? log($bytes) : 0) / log(1024));
         $pow = min($pow, count($units) - 1);
         $bytes /= (1 << (10 * $pow));
 
-        return round($bytes, 2) . ' ' . $units[$pow];
+        return round($bytes, 2).' '.$units[$pow];
     }
 }

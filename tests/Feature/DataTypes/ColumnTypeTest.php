@@ -1,11 +1,5 @@
 <?php
 
-use SAC\EloquentModelGenerator\Tests\Traits\{
-    UseMySQLConnection,
-    UsePostgreSQLConnection,
-    UseSQLiteConnection,
-    UseSQLServerConnection
-};
 use SAC\EloquentModelGenerator\ValueObjects\ModelDefinition;
 
 dataset('column_types', [

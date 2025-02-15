@@ -1,7 +1,7 @@
 <?php
 
-use SAC\EloquentModelGenerator\Tests\Support\Traits\WithSQLiteTesting;
 use SAC\EloquentModelGenerator\Models\GeneratedModel;
+use SAC\EloquentModelGenerator\Tests\Support\Traits\WithSQLiteTesting;
 use SAC\EloquentModelGenerator\ValueObjects\ModelDefinition;
 
 uses(WithSQLiteTesting::class);
@@ -91,9 +91,9 @@ test('handles foreign key constraints with sqlite', function () {
                 'name' => 'user',
                 'type' => 'belongsTo',
                 'foreign_key' => 'user_id',
-                'parent_table' => 'users'
-            ]
-        ]
+                'parent_table' => 'users',
+            ],
+        ],
     ];
 
     $generator = createModelGenerator();
@@ -121,7 +121,7 @@ test('handles virtual columns correctly', function () {
             'total_price' => [
                 'type' => 'decimal',
                 'virtual' => true,
-                'expression' => 'price * (1 + tax_rate)'
+                'expression' => 'price * (1 + tax_rate)',
             ],
             'created_at' => ['type' => 'datetime'],
         ],
@@ -154,11 +154,11 @@ test('handles check constraints correctly', function () {
             'id' => ['type' => 'integer', 'autoIncrement' => true],
             'age' => [
                 'type' => 'integer',
-                'check' => 'age >= 0 AND age <= 150'
+                'check' => 'age >= 0 AND age <= 150',
             ],
             'status' => [
                 'type' => 'string',
-                'check' => "status IN ('active', 'inactive', 'pending')"
+                'check' => "status IN ('active', 'inactive', 'pending')",
             ],
             'created_at' => ['type' => 'datetime'],
         ],

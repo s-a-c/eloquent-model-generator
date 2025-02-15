@@ -2,8 +2,10 @@
 
 namespace SAC\EloquentModelGenerator\Tests\Traits;
 
-trait UsePostgreSQLConnection {
-    protected function defineEnvironment($app): void {
+trait UsePostgreSQLConnection
+{
+    protected function defineEnvironment($app): void
+    {
         $app['config']->set('database.default', 'pgsql');
         $app['config']->set('database.connections.pgsql', [
             'driver' => 'pgsql',

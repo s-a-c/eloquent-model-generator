@@ -77,14 +77,14 @@ test('generates correct relationship methods', function (array $relation, string
 
     // Verify method structure and visibility
     expect($content)
-        ->toMatch('/public\s+function\s+' . preg_quote(str_replace('public function ', '', $expected_method), '/') . '/')
-        ->toMatch('/\s+' . preg_quote($expected_method, '/') . '\s*\{/');
+        ->toMatch('/public\s+function\s+'.preg_quote(str_replace('public function ', '', $expected_method), '/').'/')
+        ->toMatch('/\s+'.preg_quote($expected_method, '/').'\s*\{/');
 
     // Verify relation definition and return type
     $relationClass = ucfirst(str_replace(['$this->', '(', ')'], '', $expected_relation));
     expect($content)
         ->toContain($expected_relation)
-        ->toMatch('/\s+' . preg_quote($expected_relation, '/') . '/')
+        ->toMatch('/\s+'.preg_quote($expected_relation, '/').'/')
         ->toContain("use Illuminate\\Database\\Eloquent\\Relations\\$relationClass");
 
     // Verify proper use statements for related models
@@ -103,7 +103,7 @@ test('generates correct relationship methods', function (array $relation, string
     if (isset($relation['foreign_key'])) {
         expect($content)
             ->toContain($relation['foreign_key'])
-            ->toMatch('/\$this->[^;]+\([^)]*\'' . $relation['foreign_key'] . '\'[^)]*\)/');
+            ->toMatch('/\$this->[^;]+\([^)]*\''.$relation['foreign_key'].'\'[^)]*\)/');
     }
 
     // Verify proper method formatting

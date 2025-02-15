@@ -2,13 +2,15 @@
 
 namespace SAC\EloquentModelGenerator\Tests\Integration\Database\Concerns;
 
-use StandAloneComplex\EloquentModelGenerator\Services\Schema\SchemaAnalyzerInterface;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+use StandAloneComplex\EloquentModelGenerator\Services\Schema\SchemaAnalyzerInterface;
 
-trait TestsSchemaAnalyzer {
+trait TestsSchemaAnalyzer
+{
     /** @test */
-    public function it_detects_basic_column_types(): void {
+    public function it_detects_basic_column_types(): void
+    {
         $this->createTestTable('test_types', [
             'id' => 'increments',
             'string_col' => 'string',
@@ -36,7 +38,8 @@ trait TestsSchemaAnalyzer {
     }
 
     /** @test */
-    public function it_detects_nullable_fields(): void {
+    public function it_detects_nullable_fields(): void
+    {
         $this->createTestTable('test_nullable', [
             'id' => 'increments',
             'required' => 'string',
@@ -52,7 +55,8 @@ trait TestsSchemaAnalyzer {
     }
 
     /** @test */
-    public function it_detects_primary_keys(): void {
+    public function it_detects_primary_keys(): void
+    {
         $this->createTestTable('test_primary', [
             'id' => 'increments',
             'name' => 'string',
@@ -67,7 +71,8 @@ trait TestsSchemaAnalyzer {
     }
 
     /** @test */
-    public function it_detects_foreign_keys(): void {
+    public function it_detects_foreign_keys(): void
+    {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -89,7 +94,8 @@ trait TestsSchemaAnalyzer {
     }
 
     /** @test */
-    public function it_detects_indexes(): void {
+    public function it_detects_indexes(): void
+    {
         $this->createTestTable('test_indexes', [
             'id' => 'increments',
             'email' => ['string', 'unique'],
@@ -105,7 +111,8 @@ trait TestsSchemaAnalyzer {
     }
 
     /** @test */
-    public function it_handles_empty_tables(): void {
+    public function it_handles_empty_tables(): void
+    {
         Schema::create('empty_table', function (Blueprint $table) {
             $table->id();
         });
@@ -118,7 +125,8 @@ trait TestsSchemaAnalyzer {
     }
 
     /** @test */
-    public function it_handles_missing_tables(): void {
+    public function it_handles_missing_tables(): void
+    {
         $analyzer = $this->app->make(SchemaAnalyzerInterface::class);
 
         $this->expectException(\StandAloneComplex\EloquentModelGenerator\Exceptions\ModelGeneratorSchemaAnalyzerException::class);

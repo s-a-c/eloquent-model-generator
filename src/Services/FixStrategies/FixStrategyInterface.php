@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace SAC\EloquentModelGenerator\Services\FixStrategies;
 
-interface FixStrategyInterface {
+interface FixStrategyInterface
+{
     public function getName(): string;
 
     public function supportsLevel(int $level): bool;

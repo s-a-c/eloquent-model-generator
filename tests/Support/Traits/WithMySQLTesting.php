@@ -2,13 +2,15 @@
 
 namespace SAC\EloquentModelGenerator\Tests\Support\Traits;
 
-trait WithMySQLTesting {
+trait WithMySQLTesting
+{
     use WithDatabaseTesting;
 
-    protected function defineEnvironment($app): void {
+    protected function defineEnvironment($app): void
+    {
         parent::defineEnvironment($app);
 
-        if (!extension_loaded('pdo_mysql')) {
+        if (! extension_loaded('pdo_mysql')) {
             $this->markTestSkipped('MySQL extension is not available.');
         }
 
@@ -30,7 +32,8 @@ trait WithMySQLTesting {
         $this->createTestDatabase(env('DB_MYSQL_DATABASE', 'testing'));
     }
 
-    protected function tearDown(): void {
+    protected function tearDown(): void
+    {
         parent::tearDown();
         $this->dropTestDatabase(env('DB_MYSQL_DATABASE', 'testing'));
     }

@@ -2,13 +2,13 @@
 
 namespace SAC\EloquentModelGenerator\Support\Factories;
 
-use SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition;
-use SAC\EloquentModelGenerator\Support\Definitions\SchemaDefinition;
-use SAC\EloquentModelGenerator\Support\Definitions\RelationDefinition;
-use SAC\EloquentModelGenerator\ValueObjects\Column;
-use SAC\EloquentModelGenerator\ValueObjects\Index;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
+use SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition;
+use SAC\EloquentModelGenerator\Support\Definitions\RelationDefinition;
+use SAC\EloquentModelGenerator\Support\Definitions\SchemaDefinition;
+use SAC\EloquentModelGenerator\ValueObjects\Column;
+use SAC\EloquentModelGenerator\ValueObjects\Index;
 
 /**
  * @phpstan-type ColumnDefinition array{
@@ -24,7 +24,6 @@ use Illuminate\Support\Str;
  *     unique?: bool,
  *     default?: string|null
  * }
- *
  * @phpstan-type RelationshipDefinition array{
  *     type: string,
  *     model?: string|null,
@@ -33,16 +32,16 @@ use Illuminate\Support\Str;
  *     morphType?: string|null
  * }
  */
-class ModelGeneratorFactory {
+class ModelGeneratorFactory
+{
     /**
      * Create a model definition from table schema
      *
-     * @param string $table
-     * @param array<string, ColumnDefinition> $columns
-     * @param array<string, RelationshipDefinition> $relations
-     * @return ModelDefinition
+     * @param  array<string, ColumnDefinition>  $columns
+     * @param  array<string, RelationshipDefinition>  $relations
      */
-    public function createModelDefinition(string $table, array $columns, array $relations = []): ModelDefinition {
+    public function createModelDefinition(string $table, array $columns, array $relations = []): ModelDefinition
+    {
         /** @var Collection<int, Column> $columnCollection */
         $columnCollection = collect($columns)->map(function (array $column, string $name): Column {
             return new Column(
@@ -90,12 +89,11 @@ class ModelGeneratorFactory {
     /**
      * Create a schema definition from table schema
      *
-     * @param string $table
-     * @param array<string, ColumnDefinition> $columns
-     * @param array<string, array{type: string, columns: array<string>}> $indexes
-     * @return SchemaDefinition
+     * @param  array<string, ColumnDefinition>  $columns
+     * @param  array<string, array{type: string, columns: array<string>}>  $indexes
      */
-    public function createSchema(string $table, array $columns, array $indexes = []): SchemaDefinition {
+    public function createSchema(string $table, array $columns, array $indexes = []): SchemaDefinition
+    {
         /** @var Collection<int, Column> $columnCollection */
         $columnCollection = collect($columns)->map(function (array $column, string $name): Column {
             return new Column(
@@ -115,6 +113,7 @@ class ModelGeneratorFactory {
         $indexCollection = collect($indexes)->map(function (array $index, string $name): Index {
             /** @var array<int, string> $indexColumns */
             $indexColumns = array_values($index['columns']);
+
             return new Index($name, $index['type'], $indexColumns);
         });
 

@@ -1,12 +1,11 @@
 <?php
 
-use SAC\EloquentModelGenerator\ModelGenerator;
 use SAC\EloquentModelGenerator\Models\GeneratedModel;
 use SAC\EloquentModelGenerator\ValueObjects\ModelDefinition;
 
 test('it generates model with custom fillable attributes and proper validation', function () {
     $generator = createModelGenerator([
-        'fillable' => ['name', 'email', 'is_active']
+        'fillable' => ['name', 'email', 'is_active'],
     ]);
 
     $definition = new ModelDefinition(
@@ -46,8 +45,8 @@ test('it generates model with custom casts and proper type handling', function (
             'settings' => 'array',
             'price' => 'decimal:2',
             'metadata' => 'json',
-            'options' => 'collection'
-        ]
+            'options' => 'collection',
+        ],
     ]);
 
     $definition = new ModelDefinition(
@@ -92,7 +91,7 @@ test('it generates model with custom casts and proper type handling', function (
 test('it generates model with custom dates and proper Carbon handling', function () {
     $generator = createModelGenerator([
         'dates' => ['published_at', 'reviewed_at'],
-        'date_format' => 'Y-m-d H:i:s.u'
+        'date_format' => 'Y-m-d H:i:s.u',
     ]);
 
     $definition = new ModelDefinition(
@@ -135,8 +134,8 @@ test('it handles attribute modifiers correctly', function () {
         'modifiers' => [
             'name' => 'trim|uppercase',
             'email' => 'trim|lowercase',
-            'status' => 'uppercase'
-        ]
+            'status' => 'uppercase',
+        ],
     ]);
 
     $definition = new ModelDefinition(

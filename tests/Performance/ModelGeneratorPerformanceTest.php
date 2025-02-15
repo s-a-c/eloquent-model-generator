@@ -2,24 +2,28 @@
 
 namespace SAC\EloquentModelGenerator\Tests\Performance;
 
-use SAC\EloquentModelGenerator\Tests\TestCase;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use SAC\EloquentModelGenerator\Contracts\ModelGeneratorService;
 use SAC\EloquentModelGenerator\Contracts\ParallelModelGeneratorService;
-use SAC\EloquentModelGenerator\Config\ModelGeneratorConfig;
 use SAC\EloquentModelGenerator\Services\Benchmark;
-use SAC\EloquentModelGenerator\ValueObjects\BenchmarkResult;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Schema\Blueprint;
+use SAC\EloquentModelGenerator\Tests\TestCase;
 
-class ModelGeneratorPerformanceTest extends TestCase {
+class ModelGeneratorPerformanceTest extends TestCase
+{
     private ModelGeneratorService $service;
+
     private ParallelModelGeneratorService $parallelService;
+
     private array $tables = [];
+
     private const TABLE_COUNT = 50;
+
     private const COLUMN_COUNT = 20;
 
-    protected function setUp(): void {
+    protected function setUp(): void
+    {
         parent::setUp();
 
         $this->service = app(ModelGeneratorService::class);
@@ -29,7 +33,8 @@ class ModelGeneratorPerformanceTest extends TestCase {
         $this->createTestTables();
     }
 
-    private function createTestTables(): void {
+    private function createTestTables(): void
+    {
         for ($i = 0; $i < self::TABLE_COUNT; $i++) {
             $tableName = "test_table_{$i}";
             $this->tables[] = $tableName;
@@ -48,13 +53,14 @@ class ModelGeneratorPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function testumeasures_single_model_generation_performance(): void {
-        $benchmark = new Benchmark();
+    public function testumeasures_single_model_generation_performance(): void
+    {
+        $benchmark = new Benchmark;
 
         $result = $benchmark->measure(function () {
             return $this->service->generateModel($this->tables[0], [
                 'namespace' => 'App\\Models',
-                'output_path' => storage_path('app/models')
+                'output_path' => storage_path('app/models'),
             ]);
         });
 
@@ -71,13 +77,14 @@ class ModelGeneratorPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function testumeasures_batch_model_generation_performance(): void {
-        $benchmark = new Benchmark();
+    public function testumeasures_batch_model_generation_performance(): void
+    {
+        $benchmark = new Benchmark;
 
         $result = $benchmark->measure(function () {
             return $this->service->generateBatch($this->tables, [
                 'namespace' => 'App\\Models',
-                'output_path' => storage_path('app/models')
+                'output_path' => storage_path('app/models'),
             ]);
         });
 
@@ -96,14 +103,15 @@ class ModelGeneratorPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function testumeasures_parallel_model_generation_performance(): void {
-        $benchmark = new Benchmark();
+    public function testumeasures_parallel_model_generation_performance(): void
+    {
+        $benchmark = new Benchmark;
 
         $result = $benchmark->measure(function () {
             return $this->parallelService->generateModels($this->tables, [
                 'namespace' => 'App\\Models',
                 'output_path' => storage_path('app/models'),
-                'concurrency' => 4
+                'concurrency' => 4,
             ]);
         });
 
@@ -122,19 +130,20 @@ class ModelGeneratorPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function testumeasures_cache_performance(): void {
+    public function testumeasures_cache_performance(): void
+    {
         // First run to warm up cache
         $this->service->generateModel($this->tables[0], [
             'namespace' => 'App\\Models',
-            'output_path' => storage_path('app/models')
+            'output_path' => storage_path('app/models'),
         ]);
 
-        $benchmark = new Benchmark();
+        $benchmark = new Benchmark;
 
         $result = $benchmark->measure(function () {
             return $this->service->generateModel($this->tables[0], [
                 'namespace' => 'App\\Models',
-                'output_path' => storage_path('app/models')
+                'output_path' => storage_path('app/models'),
             ]);
         });
 
@@ -151,16 +160,17 @@ class ModelGeneratorPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function testudetects_memory_leaks(): void {
+    public function testudetects_memory_leaks(): void
+    {
         $iterations = 10;
         $memoryReadings = [];
 
         for ($i = 0; $i < $iterations; $i++) {
-            $benchmark = new Benchmark();
+            $benchmark = new Benchmark;
             $result = $benchmark->measure(function () {
                 return $this->service->generateModel($this->tables[0], [
                     'namespace' => 'App\\Models',
-                    'output_path' => storage_path('app/models')
+                    'output_path' => storage_path('app/models'),
                 ]);
             });
 
@@ -185,22 +195,23 @@ class ModelGeneratorPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function testuverifies_cache_hit_rate(): void {
+    public function testuverifies_cache_hit_rate(): void
+    {
         $iterations = 100;
         $cacheHits = 0;
 
         // First run to warm up cache
         $this->service->generateModel($this->tables[0], [
             'namespace' => 'App\\Models',
-            'output_path' => storage_path('app/models')
+            'output_path' => storage_path('app/models'),
         ]);
 
         for ($i = 0; $i < $iterations; $i++) {
-            $benchmark = new Benchmark();
+            $benchmark = new Benchmark;
             $result = $benchmark->measure(function () {
                 return $this->service->generateModel($this->tables[0], [
                     'namespace' => 'App\\Models',
-                    'output_path' => storage_path('app/models')
+                    'output_path' => storage_path('app/models'),
                 ]);
             });
 
@@ -220,13 +231,14 @@ class ModelGeneratorPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function testuverifies_parallel_efficiency(): void {
+    public function testuverifies_parallel_efficiency(): void
+    {
         // First measure sequential time
-        $benchmark = new Benchmark();
+        $benchmark = new Benchmark;
         $sequentialResult = $benchmark->measure(function () {
             return $this->service->generateBatch($this->tables, [
                 'namespace' => 'App\\Models',
-                'output_path' => storage_path('app/models')
+                'output_path' => storage_path('app/models'),
             ]);
         });
 
@@ -235,7 +247,7 @@ class ModelGeneratorPerformanceTest extends TestCase {
             return $this->parallelService->generateModels($this->tables, [
                 'namespace' => 'App\\Models',
                 'output_path' => storage_path('app/models'),
-                'concurrency' => 4
+                'concurrency' => 4,
             ]);
         });
 
@@ -251,7 +263,8 @@ class ModelGeneratorPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function testuhandles_large_tables_efficiently(): void {
+    public function testuhandles_large_tables_efficiently(): void
+    {
         // Create a large table with many columns
         $tableName = 'large_test_table';
         Schema::create($tableName, function (Blueprint $table) {
@@ -283,11 +296,11 @@ class ModelGeneratorPerformanceTest extends TestCase {
             $table->softDeletes();
         });
 
-        $benchmark = new Benchmark();
+        $benchmark = new Benchmark;
         $result = $benchmark->measure(function () use ($tableName) {
             return $this->service->generateModel($tableName, [
                 'namespace' => 'App\\Models',
-                'output_path' => storage_path('app/models')
+                'output_path' => storage_path('app/models'),
             ]);
         });
 
@@ -307,20 +320,21 @@ class ModelGeneratorPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function testuhandles_concurrent_access(): void {
+    public function testuhandles_concurrent_access(): void
+    {
         $concurrentRequests = 10;
         $results = [];
         $errors = 0;
 
         // Simulate concurrent requests using parallel processes
         for ($i = 0; $i < $concurrentRequests; $i++) {
-            $benchmark = new Benchmark();
+            $benchmark = new Benchmark;
             try {
                 $currentIndex = $i; // Capture the index in closure scope
                 $result = $benchmark->measure(function () use ($currentIndex) {
                     return $this->service->generateModel($this->tables[0], [
                         'namespace' => 'App\\Models',
-                        'output_path' => storage_path("app/models/concurrent_{$currentIndex}")
+                        'output_path' => storage_path("app/models/concurrent_{$currentIndex}"),
                     ]);
                 });
                 $results[] = $result;
@@ -336,9 +350,9 @@ class ModelGeneratorPerformanceTest extends TestCase {
         );
 
         // Verify response times are consistent
-        $times = array_map(fn($r) => $r->getDurationMs(), $results);
+        $times = array_map(fn ($r) => $r->getDurationMs(), $results);
         $avgTime = array_sum($times) / count($times);
-        $maxDeviation = max(array_map(fn($t) => abs($t - $avgTime), $times));
+        $maxDeviation = max(array_map(fn ($t) => abs($t - $avgTime), $times));
 
         $this->assertLessThan(
             500, // 500ms deviation tolerance
@@ -357,7 +371,8 @@ class ModelGeneratorPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function testumanages_database_connections_efficiently(): void {
+    public function testumanages_database_connections_efficiently(): void
+    {
         $maxConnections = 5;
         $totalOperations = 20;
         $activeConnections = 0;
@@ -376,14 +391,14 @@ class ModelGeneratorPerformanceTest extends TestCase {
         });
 
         // Run multiple model generations concurrently
-        $benchmark = new Benchmark();
+        $benchmark = new Benchmark;
         $result = $benchmark->measure(function () use ($totalOperations, &$errors) {
             $promises = [];
             for ($i = 0; $i < $totalOperations; $i++) {
                 try {
                     $this->service->generateModel($this->tables[$i % count($this->tables)], [
                         'namespace' => 'App\\Models',
-                        'output_path' => storage_path('app/models')
+                        'output_path' => storage_path('app/models'),
                     ]);
                 } catch (\Exception $e) {
                     $errors++;
@@ -411,7 +426,8 @@ class ModelGeneratorPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function testumeasures_template_rendering_performance(): void {
+    public function testumeasures_template_rendering_performance(): void
+    {
         // Create a complex model with many attributes and relationships
         $tableName = 'template_test_table';
         Schema::create($tableName, function (Blueprint $table) {
@@ -431,7 +447,7 @@ class ModelGeneratorPerformanceTest extends TestCase {
             $table->softDeletes();
         });
 
-        $benchmark = new Benchmark();
+        $benchmark = new Benchmark;
 
         // Measure template compilation time
         $result = $benchmark->measure(function () use ($tableName) {
@@ -440,7 +456,7 @@ class ModelGeneratorPerformanceTest extends TestCase {
                 'output_path' => storage_path('app/models'),
                 'with_relationships' => true,
                 'with_validation' => true,
-                'with_casts' => true
+                'with_casts' => true,
             ]);
         });
 
@@ -472,7 +488,8 @@ class ModelGeneratorPerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function testumeasures_schema_analysis_performance(): void {
+    public function testumeasures_schema_analysis_performance(): void
+    {
         // Create tables with complex relationships
         $tables = [
             'categories' => function (Blueprint $table) {
@@ -496,7 +513,7 @@ class ModelGeneratorPerformanceTest extends TestCase {
                 $table->foreignId('product_id')->constrained();
                 $table->foreignId('tag_id')->constrained();
                 $table->timestamps();
-            }
+            },
         ];
 
         // Create the tables in the correct order for foreign key constraints
@@ -505,14 +522,14 @@ class ModelGeneratorPerformanceTest extends TestCase {
         Schema::create('tags', $tables['tags']);
         Schema::create('product_tag', $tables['product_tag']);
 
-        $benchmark = new Benchmark();
+        $benchmark = new Benchmark;
 
         // Measure schema analysis time
         $result = $benchmark->measure(function () use ($tables) {
             return $this->service->generateBatch(array_keys($tables), [
                 'namespace' => 'App\\Models',
                 'output_path' => storage_path('app/models'),
-                'with_relationships' => true
+                'with_relationships' => true,
             ]);
         });
 
@@ -532,7 +549,7 @@ class ModelGeneratorPerformanceTest extends TestCase {
 
         // Verify relationship detection
         $modelPaths = array_map(function ($table) {
-            return storage_path("app/models/" . ucfirst($table) . ".php");
+            return storage_path('app/models/'.ucfirst($table).'.php');
         }, array_keys($tables));
 
         foreach ($modelPaths as $path) {
@@ -558,7 +575,8 @@ class ModelGeneratorPerformanceTest extends TestCase {
         Schema::dropIfExists('categories');
     }
 
-    protected function tearDown(): void {
+    protected function tearDown(): void
+    {
         // Drop test tables
         foreach ($this->tables as $table) {
             Schema::dropIfExists($table);

@@ -15,7 +15,7 @@ test('it correctly formats fillable attributes', function () {
 test('it correctly formats casts attributes', function () {
     $attributes = new Attributes([], [
         'created_at' => 'datetime',
-        'is_active' => 'boolean'
+        'is_active' => 'boolean',
     ]);
 
     expect($attributes->toCasts())

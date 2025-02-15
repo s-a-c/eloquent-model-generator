@@ -2,15 +2,17 @@
 
 namespace SAC\EloquentModelGenerator\Tests\Feature\PostgreSQL;
 
-use SAC\EloquentModelGenerator\Tests\TestCase;
-use SAC\EloquentModelGenerator\Tests\Support\Traits\WithPostgreSQLTesting;
 use SAC\EloquentModelGenerator\Models\GeneratedModel;
+use SAC\EloquentModelGenerator\Tests\Support\Traits\WithPostgreSQLTesting;
+use SAC\EloquentModelGenerator\Tests\TestCase;
 use SAC\EloquentModelGenerator\ValueObjects\ModelDefinition;
 
-class GenerateModelTest extends TestCase {
+class GenerateModelTest extends TestCase
+{
     use WithPostgreSQLTesting;
 
-    public function testGeneratesModelFromPostgresqlTableWithAllColumnTypes(): void {
+    public function test_generates_model_from_postgresql_table_with_all_column_types(): void
+    {
         $schema = [
             'columns' => [
                 'id' => ['type' => 'integer', 'autoIncrement' => true],
@@ -46,7 +48,8 @@ class GenerateModelTest extends TestCase {
             ->toContain('\'email\'');
     }
 
-    public function testHandlesPostgresqlSpecificTypes(): void {
+    public function test_handles_postgresql_specific_types(): void
+    {
         $schema = [
             'columns' => [
                 'id' => ['type' => 'integer', 'autoIncrement' => true],
@@ -83,7 +86,8 @@ class GenerateModelTest extends TestCase {
             ->toContain('\'updated_at\' => \'datetime\'');
     }
 
-    public function testHandlesSchemaNamespaces(): void {
+    public function test_handles_schema_namespaces(): void
+    {
         $schema = [
             'columns' => [
                 'id' => ['type' => 'integer', 'autoIncrement' => true],
@@ -96,7 +100,7 @@ class GenerateModelTest extends TestCase {
 
         $generator = createModelGenerator([
             'namespace' => 'App\\Models\\Public',
-            'schema' => 'public'
+            'schema' => 'public',
         ]);
 
         $definition = new ModelDefinition(
@@ -113,7 +117,8 @@ class GenerateModelTest extends TestCase {
             ->toContain('protected $table = \'public.test_table\'');
     }
 
-    public function testHandlesNullableColumns(): void {
+    public function test_handles_nullable_columns(): void
+    {
         $schema = [
             'columns' => [
                 'id' => ['type' => 'integer', 'autoIncrement' => true],
@@ -152,7 +157,8 @@ class GenerateModelTest extends TestCase {
             ->toContain('\'metadata\'');
     }
 
-    public function testHandlesCompositeIndexes(): void {
+    public function test_handles_composite_indexes(): void
+    {
         $schema = [
             'columns' => [
                 'id' => ['type' => 'integer', 'autoIncrement' => true],
@@ -184,7 +190,8 @@ class GenerateModelTest extends TestCase {
             ->toContain('\'category_created_idx\' => [\'category\', \'created_at\']');
     }
 
-    public function testHandlesDefaultValues(): void {
+    public function test_handles_default_values(): void
+    {
         $schema = [
             'columns' => [
                 'id' => ['type' => 'integer', 'autoIncrement' => true],

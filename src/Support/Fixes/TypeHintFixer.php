@@ -4,24 +4,24 @@ declare(strict_types=1);
 
 namespace SAC\EloquentModelGenerator\Support\Fixes;
 
-use PhpParser\PrettyPrinter\Standard;
-use PhpParser\Node\Name;
-use Throwable;
-use PhpParser\Node\Stmt\Return_;
-use PhpParser\Node\Expr;
-use PhpParser\Node\Scalar\String_;
-use PhpParser\Node\Scalar\LNumber;
-use PhpParser\Node\Scalar\DNumber;
-use PhpParser\Node\Expr\Array_;
-use PhpParser\Node\Expr\ConstFetch;
 use PhpParser\Error;
 use PhpParser\Node;
+use PhpParser\Node\Expr;
+use PhpParser\Node\Expr\Array_;
+use PhpParser\Node\Expr\ConstFetch;
+use PhpParser\Node\Name;
+use PhpParser\Node\Scalar\DNumber;
+use PhpParser\Node\Scalar\LNumber;
+use PhpParser\Node\Scalar\String_;
 use PhpParser\Node\Stmt\ClassMethod;
+use PhpParser\Node\Stmt\Return_;
 use PhpParser\NodeFinder;
 use PhpParser\ParserFactory;
-use PhpParser\PrettyPrinter;
+use PhpParser\PrettyPrinter\Standard;
+use Throwable;
 
-class TypeHintFixer extends AbstractFixStrategy {
+class TypeHintFixer extends AbstractFixStrategy
+{
     protected string $pattern = '/Method (?P<class>[^:]+)::(?P<method>[^(]+)\(\) has no return type specified/';
 
     protected int $priority = 100;
@@ -32,7 +32,8 @@ class TypeHintFixer extends AbstractFixStrategy {
 
     private ?Standard $printer = null;
 
-    public function fix(string $file, string $error): bool {
+    public function fix(string $file, string $error): bool
+    {
         try {
             $matches = $this->parseError($error);
             $className = $matches['class'];
@@ -42,17 +43,17 @@ class TypeHintFixer extends AbstractFixStrategy {
             $this->backupFile($file);
 
             $ast = $this->parseCode($code);
-            if (!$ast) {
+            if (! $ast) {
                 return false;
             }
 
             $method = $this->findMethod($ast, $methodName);
-            if (!$method instanceof ClassMethod) {
+            if (! $method instanceof ClassMethod) {
                 return false;
             }
 
             $inferredType = $this->inferReturnType($method);
-            if (!$inferredType) {
+            if (! $inferredType) {
                 return false;
             }
 
@@ -64,11 +65,13 @@ class TypeHintFixer extends AbstractFixStrategy {
             return true;
         } catch (Throwable) {
             $this->restoreFile($file);
+
             return false;
         }
     }
 
-    private function parseCode(string $code): ?array {
+    private function parseCode(string $code): ?array
+    {
         $parser = (new ParserFactory)->create(ParserFactory::ONLY_PHP7);
         try {
             return $parser->parse($code);
@@ -77,13 +80,15 @@ class TypeHintFixer extends AbstractFixStrategy {
         }
     }
 
-    private function findMethod(array $ast, string $methodName): ?ClassMethod {
-        return $this->getNodeFinder()->findFirst($ast, fn(Node $node): bool => $node instanceof ClassMethod && $node->name->toString() === $methodName);
+    private function findMethod(array $ast, string $methodName): ?ClassMethod
+    {
+        return $this->getNodeFinder()->findFirst($ast, fn (Node $node): bool => $node instanceof ClassMethod && $node->name->toString() === $methodName);
     }
 
-    private function inferReturnType(ClassMethod $method): ?string {
+    private function inferReturnType(ClassMethod $method): ?string
+    {
         // Simple return type inference
-        $returnNodes = $this->getNodeFinder()->find($method, fn(Node $node): bool => $node instanceof Return_);
+        $returnNodes = $this->getNodeFinder()->find($method, fn (Node $node): bool => $node instanceof Return_);
 
         if ($returnNodes === []) {
             return 'void';
@@ -91,8 +96,9 @@ class TypeHintFixer extends AbstractFixStrategy {
 
         $types = [];
         foreach ($returnNodes as $return) {
-            if (!$return->expr) {
+            if (! $return->expr) {
                 $types[] = 'void';
+
                 continue;
             }
 
@@ -107,10 +113,12 @@ class TypeHintFixer extends AbstractFixStrategy {
         }
 
         $types = array_unique($types);
+
         return count($types) === 1 ? $types[0] : 'mixed';
     }
 
-    private function inferExpressionType(Expr $expr): ?string {
+    private function inferExpressionType(Expr $expr): ?string
+    {
         if ($expr instanceof String_) {
             return 'string';
         }
@@ -140,11 +148,13 @@ class TypeHintFixer extends AbstractFixStrategy {
         return null;
     }
 
-    private function getNodeFinder(): NodeFinder {
+    private function getNodeFinder(): NodeFinder
+    {
         return $this->nodeFinder ??= new NodeFinder;
     }
 
-    private function getPrinter(): Standard {
+    private function getPrinter(): Standard
+    {
         return $this->printer ??= new Standard;
     }
 }

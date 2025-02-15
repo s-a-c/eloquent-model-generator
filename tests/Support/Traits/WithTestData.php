@@ -4,11 +4,11 @@ namespace SAC\EloquentModelGenerator\Tests\Support\Traits;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
-use Symfony\Component\Yaml\Yaml;
 use InvalidArgumentException;
+use Symfony\Component\Yaml\Yaml;
 
-trait WithTestData {
+trait WithTestData
+{
     /**
      * The base path for test fixtures.
      */
@@ -17,45 +17,41 @@ trait WithTestData {
     /**
      * Initialize the test data trait.
      */
-    protected function initializeTestData(): void {
-        $this->fixturesPath = __DIR__ . '/../../Fixtures';
+    protected function initializeTestData(): void
+    {
+        $this->fixturesPath = __DIR__.'/../../Fixtures';
         $this->createFixturesDirectory();
     }
 
     /**
      * Create a test fixture from an array.
      *
-     * @param string $name
-     * @param array $data
      * @return string The fixture path
      */
-    protected function createFixture(string $name, array $data): string {
+    protected function createFixture(string $name, array $data): string
+    {
         $path = $this->getFixturePath($name);
         File::put($path, json_encode($data, JSON_PRETTY_PRINT));
+
         return $path;
     }
 
     /**
      * Load a test fixture.
-     *
-     * @param string $name
-     * @return array
      */
-    protected function loadFixture(string $name): array {
+    protected function loadFixture(string $name): array
+    {
         $path = $this->getFixturePath($name);
-        if (!File::exists($path)) {
+        if (! File::exists($path)) {
             throw new \RuntimeException("Fixture {$name} not found at {$path}");
         }
+
         return json_decode(File::get($path), true);
     }
 
     /**
      * Create a test schema fixture.
      *
-     * @param string $name
-     * @param array $columns
-     * @param array $indexes
-     * @param array $relations
      * @return string The fixture path
      */
     protected function createSchemaFixture(
@@ -67,17 +63,13 @@ trait WithTestData {
         return $this->createFixture($name, [
             'columns' => $columns,
             'indexes' => $indexes,
-            'relations' => $relations
+            'relations' => $relations,
         ]);
     }
 
     /**
      * Create a test model fixture.
      *
-     * @param string $name
-     * @param string $namespace
-     * @param string $tableName
-     * @param array $attributes
      * @return string The fixture path
      */
     protected function createModelFixture(
@@ -90,25 +82,24 @@ trait WithTestData {
             'className' => $name,
             'namespace' => $namespace,
             'tableName' => $tableName,
-            'attributes' => $attributes
+            'attributes' => $attributes,
         ]);
     }
 
     /**
      * Get the path for a fixture.
-     *
-     * @param string $name
-     * @return string
      */
-    protected function getFixturePath(string $name): string {
-        return $this->fixturesPath . '/' . $name . '.json';
+    protected function getFixturePath(string $name): string
+    {
+        return $this->fixturesPath.'/'.$name.'.json';
     }
 
     /**
      * Create the fixtures directory if it doesn't exist.
      */
-    protected function createFixturesDirectory(): void {
-        if (!File::exists($this->fixturesPath)) {
+    protected function createFixturesDirectory(): void
+    {
+        if (! File::exists($this->fixturesPath)) {
             File::makeDirectory($this->fixturesPath, 0777, true);
         }
     }
@@ -116,7 +107,8 @@ trait WithTestData {
     /**
      * Clean up test fixtures.
      */
-    protected function cleanupTestData(): void {
+    protected function cleanupTestData(): void
+    {
         if (File::exists($this->fixturesPath)) {
             File::deleteDirectory($this->fixturesPath);
         }
@@ -125,15 +117,16 @@ trait WithTestData {
     /**
      * Load test data from a JSON file.
      *
-     * @param string $path Relative path to the JSON file from the datasets directory
-     * @param string|null $key Optional key to retrieve specific data from the JSON
-     * @return mixed
+     * @param  string  $path  Relative path to the JSON file from the datasets directory
+     * @param  string|null  $key  Optional key to retrieve specific data from the JSON
+     *
      * @throws \InvalidArgumentException
      */
-    protected function loadJsonTestData(string $path, ?string $key = null): mixed {
+    protected function loadJsonTestData(string $path, ?string $key = null): mixed
+    {
         $fullPath = $this->getTestDataPath($path);
 
-        if (!File::exists($fullPath)) {
+        if (! File::exists($fullPath)) {
             throw new InvalidArgumentException("Test data file not found: {$path}");
         }
 
@@ -149,15 +142,16 @@ trait WithTestData {
     /**
      * Load test data from a YAML file.
      *
-     * @param string $path Relative path to the YAML file from the datasets directory
-     * @param string|null $key Optional key to retrieve specific data from the YAML
-     * @return mixed
+     * @param  string  $path  Relative path to the YAML file from the datasets directory
+     * @param  string|null  $key  Optional key to retrieve specific data from the YAML
+     *
      * @throws \InvalidArgumentException
      */
-    protected function loadYamlTestData(string $path, ?string $key = null): mixed {
+    protected function loadYamlTestData(string $path, ?string $key = null): mixed
+    {
         $fullPath = $this->getTestDataPath($path);
 
-        if (!File::exists($fullPath)) {
+        if (! File::exists($fullPath)) {
             throw new InvalidArgumentException("Test data file not found: {$path}");
         }
 
@@ -173,22 +167,23 @@ trait WithTestData {
     /**
      * Get the full path to a test data file.
      *
-     * @param string $path Relative path from the datasets directory
-     * @return string
+     * @param  string  $path  Relative path from the datasets directory
      */
-    protected function getTestDataPath(string $path): string {
-        return __DIR__ . '/../../datasets/' . ltrim($path, '/');
+    protected function getTestDataPath(string $path): string
+    {
+        return __DIR__.'/../../datasets/'.ltrim($path, '/');
     }
 
     /**
      * Load test data from either JSON or YAML based on file extension.
      *
-     * @param string $path Relative path to the data file from the datasets directory
-     * @param string|null $key Optional key to retrieve specific data
-     * @return mixed
+     * @param  string  $path  Relative path to the data file from the datasets directory
+     * @param  string|null  $key  Optional key to retrieve specific data
+     *
      * @throws \InvalidArgumentException
      */
-    protected function loadTestData(string $path, ?string $key = null): mixed {
+    protected function loadTestData(string $path, ?string $key = null): mixed
+    {
         $extension = strtolower(pathinfo($path, PATHINFO_EXTENSION));
 
         return match ($extension) {

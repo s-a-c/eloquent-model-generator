@@ -18,9 +18,9 @@ return [
             'parameters' => [
                 'level' => 8,
                 'paths' => [
-                    dirname(__DIR__) . '/src',
+                    dirname(__DIR__).'/src',
                 ],
-                'tmpDir' => dirname(__DIR__) . '/build/phpstan',
+                'tmpDir' => dirname(__DIR__).'/build/phpstan',
                 'rootDir' => dirname(__DIR__),
                 'customRulesetUsed' => true,
                 'bootstrapFiles' => [],
@@ -37,10 +37,10 @@ return [
                     'maximumNumberOfProcesses' => 1,
                 ],
                 'excludePaths' => [
-                    dirname(__DIR__) . '/tests/tmp/*',
-                    dirname(__DIR__) . '/tests/*',
-                    dirname(__DIR__) . '/build/*',
-                    dirname(__DIR__) . '/vendor/*',
+                    dirname(__DIR__).'/tests/tmp/*',
+                    dirname(__DIR__).'/tests/*',
+                    dirname(__DIR__).'/build/*',
+                    dirname(__DIR__).'/vendor/*',
                     '*.blade.php',
                 ],
             ],

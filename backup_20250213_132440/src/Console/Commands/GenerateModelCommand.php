@@ -4,13 +4,11 @@ namespace SAC\EloquentModelGenerator\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
-use SAC\EloquentModelGenerator\Config\GeneratorConfig;
 use SAC\EloquentModelGenerator\Services\ModelGeneratorService;
 use SAC\EloquentModelGenerator\Services\ModelGeneratorTemplateEngine;
-use SAC\EloquentModelGenerator\ValueObjects\ModelDefinition;
-use Symfony\Component\Console\Output\OutputInterface;
 
-class GenerateModelCommand extends Command {
+class GenerateModelCommand extends Command
+{
     private const DEFAULT_OUTPUT_PATH = 'app/Models';
 
     /**
@@ -45,28 +43,30 @@ class GenerateModelCommand extends Command {
     /**
      * Execute the console command.
      */
-    public function handle(): int {
+    public function handle(): int
+    {
         try {
             $table = $this->argument('table');
-            $all = (bool)$this->option('all');
+            $all = (bool) $this->option('all');
             /** @var array<string> $exclude */
-            $exclude = array_filter((array)$this->option('exclude'), 'is_string');
+            $exclude = array_filter((array) $this->option('exclude'), 'is_string');
             $namespace = $this->option('namespace');
             $output = $this->option('output');
 
-            if (!$table && !$all) {
+            if (! $table && ! $all) {
                 $this->error('Table name is required unless --all option is used');
+
                 return 1;
             }
 
             /** @var array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool, output_path?: string} $config */
             $config = [];
             if ($namespace !== null) {
-                $namespace = is_array($namespace) ? implode('\\', $namespace) : (string)$namespace;
+                $namespace = is_array($namespace) ? implode('\\', $namespace) : (string) $namespace;
                 $config['namespace'] = $namespace;
             }
             if ($output !== null) {
-                $output = is_array($output) ? implode('/', $output) : (string)$output;
+                $output = is_array($output) ? implode('/', $output) : (string) $output;
                 $config['output_path'] = $output;
             }
 
@@ -74,6 +74,7 @@ class GenerateModelCommand extends Command {
                 $tables = $this->modelGeneratorService->getTables();
                 if (empty($tables)) {
                     $this->info('No tables found to generate models from.');
+
                     return 0;
                 }
 
@@ -83,13 +84,14 @@ class GenerateModelCommand extends Command {
                         $this->generateModel($table, $config);
                     }
                 }
-            } else if (is_string($table)) {
+            } elseif (is_string($table)) {
                 $this->generateModel($table, $config);
             }
 
             return 0;
         } catch (\Exception $e) {
-            $this->error('Error generating model: ' . $e->getMessage());
+            $this->error('Error generating model: '.$e->getMessage());
+
             return 1;
         }
     }
@@ -97,11 +99,12 @@ class GenerateModelCommand extends Command {
     /**
      * Generate a model for a specific table.
      *
-     * @param string $table
-     * @param array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool, output_path?: string} $config
+     * @param  array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool, output_path?: string}  $config
+     *
      * @throws \Exception If model generation fails
      */
-    private function generateModel(string $table, array $config): void {
+    private function generateModel(string $table, array $config): void
+    {
         // Generate the model definition
         $modelConfig = array_diff_key($config, ['output_path' => true]);
         /** @var array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool} $modelConfig */
@@ -115,8 +118,8 @@ class GenerateModelCommand extends Command {
         $className = $definition->getClassName();
 
         // Ensure the directory exists
-        $directory = dirname($outputPath . '/' . str_replace('\\', '/', $namespace) . '/' . $className . '.php');
-        if (!File::exists($directory)) {
+        $directory = dirname($outputPath.'/'.str_replace('\\', '/', $namespace).'/'.$className.'.php');
+        if (! File::exists($directory)) {
             File::makeDirectory($directory, 0755, true);
         }
 
@@ -125,12 +128,12 @@ class GenerateModelCommand extends Command {
         /** @var array{columns: array<string, array{type: non-empty-string, length?: int<1, max>|null, nullable?: bool, default?: mixed, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool}>, relations?: array<string, array{type: non-empty-string, model: class-string, foreignKey?: non-empty-string, localKey?: non-empty-string, table?: non-empty-string, morphType?: non-empty-string, morphClass?: class-string, pivotTable?: non-empty-string}>, indexes?: array<string, array{type: 'primary'|'unique'|'index'|'fulltext'|'spatial', columns: array<string>, name?: string, algorithm?: string, options?: array<string, mixed>}>, foreignKeys?: array<string, array{table: string, columns: array<string, string>, onDelete?: string, onUpdate?: string}>, timestamps?: bool, softDeletes?: bool, primaryKey?: string, incrementing?: bool} $schema */
         $content = $this->templateEngine->render($definition, $schema);
 
-        if (!is_string($content)) {
+        if (! is_string($content)) {
             throw new \RuntimeException('Failed to generate model content');
         }
 
         // Write the file
-        $filePath = $outputPath . '/' . str_replace('\\', '/', $namespace) . '/' . $className . '.php';
+        $filePath = $outputPath.'/'.str_replace('\\', '/', $namespace).'/'.$className.'.php';
         File::put($filePath, $content);
 
         $this->info("Generated model {$className} at {$namespace}\\{$className}");

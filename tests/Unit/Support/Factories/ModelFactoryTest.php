@@ -6,16 +6,19 @@ use SAC\EloquentModelGenerator\Tests\Support\Factories\ModelFactory;
 use SAC\EloquentModelGenerator\Tests\TestCase;
 use SAC\EloquentModelGenerator\ValueObjects\ModelDefinition;
 
-class ModelFactoryTest extends TestCase {
+class ModelFactoryTest extends TestCase
+{
     private ModelFactory $factory;
 
-    protected function setUp(): void {
+    protected function setUp(): void
+    {
         parent::setUp();
-        $this->factory = new ModelFactory();
+        $this->factory = new ModelFactory;
     }
 
     /** @test */
-    public function testucreates_model_definition(): void {
+    public function testucreates_model_definition(): void
+    {
         $definition = $this->factory->definition('test_users');
 
         $this->assertInstanceOf(ModelDefinition::class, $definition);
@@ -25,12 +28,13 @@ class ModelFactoryTest extends TestCase {
     }
 
     /** @test */
-    public function testucreates_model_definition_with_custom_attributes(): void {
+    public function testucreates_model_definition_with_custom_attributes(): void
+    {
         $definition = $this->factory->definition('users', [
             'className' => 'CustomUser',
             'namespace' => 'App\\Domain\\Models',
             'baseClass' => 'App\\Models\\BaseModel',
-            'withSoftDeletes' => true
+            'withSoftDeletes' => true,
         ]);
 
         $this->assertEquals('CustomUser', $definition->getClassName());
@@ -40,7 +44,8 @@ class ModelFactoryTest extends TestCase {
     }
 
     /** @test */
-    public function testucreates_basic_schema(): void {
+    public function testucreates_basic_schema(): void
+    {
         $schema = $this->factory->basicSchema('users');
 
         $this->assertArrayHasKey('columns', $schema);
@@ -51,7 +56,8 @@ class ModelFactoryTest extends TestCase {
     }
 
     /** @test */
-    public function testucreates_soft_deletes_schema(): void {
+    public function testucreates_soft_deletes_schema(): void
+    {
         $schema = $this->factory->softDeletesSchema('users');
 
         $this->assertArrayHasKey('deleted_at', $schema['columns']);
@@ -60,14 +66,15 @@ class ModelFactoryTest extends TestCase {
     }
 
     /** @test */
-    public function testucreates_relationship_schema(): void {
+    public function testucreates_relationship_schema(): void
+    {
         $relations = [
             'posts' => [
                 'type' => 'hasMany',
                 'model' => 'App\\Models\\Post',
                 'foreignKey' => null,
-                'localKey' => null
-            ]
+                'localKey' => null,
+            ],
         ];
 
         $schema = $this->factory->relationshipSchema('users', $relations);
@@ -77,11 +84,12 @@ class ModelFactoryTest extends TestCase {
     }
 
     /** @test */
-    public function testunormalizes_column_definitions(): void {
+    public function testunormalizes_column_definitions(): void
+    {
         $schema = $this->factory->schema([
             'name' => 'string',
             'email' => ['type' => 'string', 'nullable' => true],
-            'active' => ['type' => 'boolean', 'default' => false]
+            'active' => ['type' => 'boolean', 'default' => false],
         ]);
 
         $this->assertEquals('string', $schema['columns']['name']['type']);
@@ -91,11 +99,12 @@ class ModelFactoryTest extends TestCase {
     }
 
     /** @test */
-    public function testunormalizes_index_definitions(): void {
+    public function testunormalizes_index_definitions(): void
+    {
         $schema = $this->factory->schema([], [
             'email_unique' => ['type' => 'unique', 'columns' => ['email']],
             'name_index' => 'name',
-            'composite' => ['created_at', 'updated_at']
+            'composite' => ['created_at', 'updated_at'],
         ]);
 
         $this->assertEquals('unique', $schema['indexes']['email_unique']['type']);
@@ -104,10 +113,11 @@ class ModelFactoryTest extends TestCase {
     }
 
     /** @test */
-    public function testunormalizes_relation_definitions(): void {
+    public function testunormalizes_relation_definitions(): void
+    {
         $schema = $this->factory->schema([], [], [
             'posts' => 'hasMany',
-            'profile' => ['type' => 'hasOne', 'model' => 'App\\Models\\Profile']
+            'profile' => ['type' => 'hasOne', 'model' => 'App\\Models\\Profile'],
         ]);
 
         $this->assertEquals('hasMany', $schema['relations']['posts']['type']);

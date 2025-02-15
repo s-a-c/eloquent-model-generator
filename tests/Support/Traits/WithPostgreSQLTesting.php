@@ -2,13 +2,15 @@
 
 namespace SAC\EloquentModelGenerator\Tests\Support\Traits;
 
-trait WithPostgreSQLTesting {
+trait WithPostgreSQLTesting
+{
     use WithDatabaseTesting;
 
-    protected function defineEnvironment($app): void {
+    protected function defineEnvironment($app): void
+    {
         parent::defineEnvironment($app);
 
-        if (!extension_loaded('pdo_pgsql')) {
+        if (! extension_loaded('pdo_pgsql')) {
             $this->markTestSkipped('PostgreSQL extension is not available.');
         }
 
@@ -29,7 +31,8 @@ trait WithPostgreSQLTesting {
         $this->createTestDatabase(env('DB_PGSQL_DATABASE', 'testing'));
     }
 
-    protected function tearDown(): void {
+    protected function tearDown(): void
+    {
         parent::tearDown();
         $this->dropTestDatabase(env('DB_PGSQL_DATABASE', 'testing'));
     }

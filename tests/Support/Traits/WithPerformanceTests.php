@@ -4,7 +4,8 @@ namespace SAC\EloquentModelGenerator\Tests\Support\Traits;
 
 use SAC\EloquentModelGenerator\Services\Benchmark;
 
-trait WithPerformanceTests {
+trait WithPerformanceTests
+{
     protected function assertPerformanceConstraints(
         float $maxDurationMs,
         int $maxMemoryBytes,
@@ -12,7 +13,7 @@ trait WithPerformanceTests {
         string $durationMessage = '',
         string $memoryMessage = ''
     ): void {
-        $benchmark = new Benchmark();
+        $benchmark = new Benchmark;
         $result = $benchmark->measure($operation);
 
         $this->assertLessThan(
@@ -24,7 +25,7 @@ trait WithPerformanceTests {
         $this->assertLessThan(
             $maxMemoryBytes,
             $result->getMemoryPeakBytes(),
-            $memoryMessage ?: "Operation should use less than " . ($maxMemoryBytes / 1024 / 1024) . "MB memory"
+            $memoryMessage ?: 'Operation should use less than '.($maxMemoryBytes / 1024 / 1024).'MB memory'
         );
     }
 
@@ -34,7 +35,7 @@ trait WithPerformanceTests {
         int $workerCount,
         float $minEfficiencyPercent
     ): void {
-        $benchmark = new Benchmark();
+        $benchmark = new Benchmark;
 
         $sequentialResult = $benchmark->measure($sequentialOperation);
         $parallelResult = $benchmark->measure($parallelOperation);
@@ -57,7 +58,7 @@ trait WithPerformanceTests {
         $memoryReadings = [];
 
         for ($i = 0; $i < $iterations; $i++) {
-            $benchmark = new Benchmark();
+            $benchmark = new Benchmark;
             $result = $benchmark->measure($operation);
             $memoryReadings[] = $result->getMemoryPeakBytes();
         }
@@ -84,7 +85,7 @@ trait WithPerformanceTests {
         $operation();
 
         for ($i = 0; $i < $iterations; $i++) {
-            $benchmark = new Benchmark();
+            $benchmark = new Benchmark;
             $result = $benchmark->measure($operation);
 
             if ($result->getDurationMs() < $cacheHitThresholdMs) {

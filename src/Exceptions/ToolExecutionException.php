@@ -16,7 +16,8 @@ use Throwable;
  *     code: int
  * }
  */
-class ToolExecutionException extends AnalysisException {
+class ToolExecutionException extends AnalysisException
+{
     /**
      * The name of the tool that failed.
      */
@@ -30,11 +31,11 @@ class ToolExecutionException extends AnalysisException {
     /**
      * Create a new tool execution exception instance.
      *
-     * @param string $toolName The name of the tool that failed
-     * @param string $command The command that was executed
-     * @param string $message The exception message
-     * @param int $code The exception code
-     * @param \Throwable|null $previous The previous throwable used for exception chaining
+     * @param  string  $toolName  The name of the tool that failed
+     * @param  string  $command  The command that was executed
+     * @param  string  $message  The exception message
+     * @param  int  $code  The exception code
+     * @param  \Throwable|null  $previous  The previous throwable used for exception chaining
      */
     public function __construct(
         string $toolName,
@@ -56,11 +57,10 @@ class ToolExecutionException extends AnalysisException {
     /**
      * Create an exception for command execution failure.
      *
-     * @param string $toolName The name of the tool
-     * @param string $command The command that failed
-     * @param string $error The error message
-     * @param int $exitCode The command exit code
-     * @return self
+     * @param  string  $toolName  The name of the tool
+     * @param  string  $command  The command that failed
+     * @param  string  $error  The error message
+     * @param  int  $exitCode  The command exit code
      */
     public static function commandFailed(
         string $toolName,
@@ -84,11 +84,11 @@ class ToolExecutionException extends AnalysisException {
     /**
      * Create an exception for missing tool binary.
      *
-     * @param string $toolName The name of the tool
-     * @param string $binary The missing binary name
-     * @return self
+     * @param  string  $toolName  The name of the tool
+     * @param  string  $binary  The missing binary name
      */
-    public static function missingBinary(string $toolName, string $binary): self {
+    public static function missingBinary(string $toolName, string $binary): self
+    {
         self::validateNotEmpty($toolName, 'tool name');
         self::validateNotEmpty($binary, 'binary name');
 
@@ -103,12 +103,12 @@ class ToolExecutionException extends AnalysisException {
     /**
      * Create an exception for tool timeout.
      *
-     * @param string $toolName The name of the tool
-     * @param string $command The command that timed out
-     * @param int $timeout The timeout in seconds
-     * @return self
+     * @param  string  $toolName  The name of the tool
+     * @param  string  $command  The command that timed out
+     * @param  int  $timeout  The timeout in seconds
      */
-    public static function timeout(string $toolName, string $command, int $timeout): self {
+    public static function timeout(string $toolName, string $command, int $timeout): self
+    {
         self::validateNotEmpty($toolName, 'tool name');
         self::validateNotEmpty($command, 'command');
         self::validateRange($timeout, 1, 3600, 'timeout');
@@ -124,11 +124,10 @@ class ToolExecutionException extends AnalysisException {
     /**
      * Create an exception for invalid tool output.
      *
-     * @param string $toolName The name of the tool
-     * @param string $command The executed command
-     * @param string $output The invalid output
-     * @param string $reason The reason for invalidity
-     * @return self
+     * @param  string  $toolName  The name of the tool
+     * @param  string  $command  The executed command
+     * @param  string  $output  The invalid output
+     * @param  string  $reason  The reason for invalidity
      */
     public static function invalidOutput(
         string $toolName,
@@ -151,12 +150,12 @@ class ToolExecutionException extends AnalysisException {
     /**
      * Create an exception for tool configuration error.
      *
-     * @param string $toolName The name of the tool
-     * @param string $command The command with invalid configuration
-     * @param string $error The configuration error
-     * @return self
+     * @param  string  $toolName  The name of the tool
+     * @param  string  $command  The command with invalid configuration
+     * @param  string  $error  The configuration error
      */
-    public static function configurationError(string $toolName, string $command, string $error): self {
+    public static function configurationError(string $toolName, string $command, string $error): self
+    {
         self::validateNotEmpty($toolName, 'tool name');
         self::validateNotEmpty($command, 'command');
         self::validateNotEmpty($error, 'error message');
@@ -172,14 +171,16 @@ class ToolExecutionException extends AnalysisException {
     /**
      * Get the name of the tool that failed.
      */
-    public function getToolName(): string {
+    public function getToolName(): string
+    {
         return $this->toolName;
     }
 
     /**
      * Get the command that was executed.
      */
-    public function getCommand(): string {
+    public function getCommand(): string
+    {
         return $this->command;
     }
 
@@ -188,7 +189,8 @@ class ToolExecutionException extends AnalysisException {
      *
      * @return ToolContext
      */
-    public function getContext(): array {
+    public function getContext(): array
+    {
         return [
             'tool' => $this->toolName,
             'command' => $this->command,

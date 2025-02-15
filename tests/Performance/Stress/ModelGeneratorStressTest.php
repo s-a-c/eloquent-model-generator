@@ -2,23 +2,26 @@
 
 namespace SAC\EloquentModelGenerator\Tests\Performance\Stress;
 
-use SAC\EloquentModelGenerator\Tests\TestCase;
-use SAC\EloquentModelGenerator\Tests\Support\Traits\WithTestTables;
-use SAC\EloquentModelGenerator\Tests\Support\Traits\WithPerformanceTests;
-use SAC\EloquentModelGenerator\Contracts\ModelGeneratorService;
-use SAC\EloquentModelGenerator\Contracts\ParallelModelGeneratorService;
-use SAC\EloquentModelGenerator\Services\Benchmark;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use SAC\EloquentModelGenerator\Contracts\ModelGeneratorService;
+use SAC\EloquentModelGenerator\Contracts\ParallelModelGeneratorService;
+use SAC\EloquentModelGenerator\Tests\Support\Traits\WithPerformanceTests;
+use SAC\EloquentModelGenerator\Tests\Support\Traits\WithTestTables;
+use SAC\EloquentModelGenerator\Tests\TestCase;
 
-class ModelGeneratorStressTest extends TestCase {
-    use WithTestTables, WithPerformanceTests;
+class ModelGeneratorStressTest extends TestCase
+{
+    use WithPerformanceTests, WithTestTables;
 
     private ModelGeneratorService $service;
+
     private ParallelModelGeneratorService $parallelService;
+
     private array $stressTables = [];
 
-    protected function setUp(): void {
+    protected function setUp(): void
+    {
         parent::setUp();
 
         $this->service = app(ModelGeneratorService::class);
@@ -27,7 +30,8 @@ class ModelGeneratorStressTest extends TestCase {
         $this->createStressTables();
     }
 
-    private function createStressTables(): void {
+    private function createStressTables(): void
+    {
         // Create 50 tables with 20 columns each
         for ($i = 0; $i < 50; $i++) {
             $tableName = "stress_table_{$i}";
@@ -37,7 +41,7 @@ class ModelGeneratorStressTest extends TestCase {
                 'id' => 'id',
                 'created_at' => 'timestamp',
                 'updated_at' => 'timestamp',
-                'deleted_at' => 'timestamp:nullable'
+                'deleted_at' => 'timestamp:nullable',
             ];
 
             // Add various column types
@@ -69,7 +73,8 @@ class ModelGeneratorStressTest extends TestCase {
     }
 
     /** @test */
-    public function testuhandles_concurrent_database_load(): void {
+    public function testuhandles_concurrent_database_load(): void
+    {
         $maxConnections = 5;
         $totalOperations = 20;
         $activeConnections = 0;
@@ -94,7 +99,7 @@ class ModelGeneratorStressTest extends TestCase {
                             $this->stressTables[$i % count($this->stressTables)],
                             [
                                 'namespace' => 'App\\Domain\\Models',
-                                'output_path' => storage_path('app/Domain/Models')
+                                'output_path' => storage_path('app/Domain/Models'),
                             ]
                         );
                     } catch (\Exception $e) {
@@ -118,14 +123,15 @@ class ModelGeneratorStressTest extends TestCase {
     }
 
     /** @test */
-    public function testuhandles_large_scale_model_generation(): void {
+    public function testuhandles_large_scale_model_generation(): void
+    {
         $this->assertPerformanceConstraints(
             maxDurationMs: count($this->stressTables) * 200,
             maxMemoryBytes: 512 * 1024 * 1024,
-            operation: fn() => $this->parallelService->generateModels($this->stressTables, [
+            operation: fn () => $this->parallelService->generateModels($this->stressTables, [
                 'namespace' => 'App\\Domain\\Models',
                 'output_path' => storage_path('app/Domain/Models'),
-                'concurrency' => 4
+                'concurrency' => 4,
             ]),
             durationMessage: 'Large scale generation should average less than 200ms per model',
             memoryMessage: 'Memory usage should stay under 512MB for large scale generation'
@@ -133,7 +139,8 @@ class ModelGeneratorStressTest extends TestCase {
     }
 
     /** @test */
-    public function testumaintains_performance_under_continuous_load(): void {
+    public function testumaintains_performance_under_continuous_load(): void
+    {
         $duration = 30; // 30 seconds of continuous load
         $startTime = microtime(true);
         $operations = 0;
@@ -145,7 +152,7 @@ class ModelGeneratorStressTest extends TestCase {
                     $this->stressTables[$operations % count($this->stressTables)],
                     [
                         'namespace' => 'App\\Domain\\Models',
-                        'output_path' => storage_path('app/Domain/Models')
+                        'output_path' => storage_path('app/Domain/Models'),
                     ]
                 );
                 $operations++;
@@ -169,7 +176,8 @@ class ModelGeneratorStressTest extends TestCase {
         );
     }
 
-    protected function tearDown(): void {
+    protected function tearDown(): void
+    {
         foreach ($this->stressTables as $table) {
             Schema::dropIfExists($table);
         }

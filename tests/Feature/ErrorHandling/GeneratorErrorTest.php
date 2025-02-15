@@ -1,8 +1,8 @@
 <?php
 
+use SAC\EloquentModelGenerator\Exceptions\ModelGeneratorException;
 use SAC\EloquentModelGenerator\Tests\Support\Traits\WithSQLiteTesting;
 use SAC\EloquentModelGenerator\ValueObjects\ModelDefinition;
-use SAC\EloquentModelGenerator\Exceptions\ModelGeneratorException;
 
 uses(WithSQLiteTesting::class);
 
@@ -22,7 +22,7 @@ test('throws exception for invalid column type', function () {
 
     $generator = createModelGenerator();
 
-    expect(fn() => $generator->generate($definition, $schema))
+    expect(fn () => $generator->generate($definition, $schema))
         ->toThrow(ModelGeneratorException::class, 'Invalid column type: invalid_type');
 });
 
@@ -36,9 +36,9 @@ test('throws exception for invalid relation type', function () {
             [
                 'type' => 'invalid_relation',
                 'foreign_key' => 'user_id',
-                'parent_table' => 'users'
-            ]
-        ]
+                'parent_table' => 'users',
+            ],
+        ],
     ];
 
     $definition = new ModelDefinition(
@@ -51,7 +51,7 @@ test('throws exception for invalid relation type', function () {
 
     $generator = createModelGenerator();
 
-    expect(fn() => $generator->generate($definition, $schema))
+    expect(fn () => $generator->generate($definition, $schema))
         ->toThrow(ModelGeneratorException::class, 'Invalid relation type: invalid_relation');
 });
 
@@ -71,7 +71,7 @@ test('throws exception for invalid namespace format', function () {
 
     $generator = createModelGenerator();
 
-    expect(fn() => $generator->generate($definition, $schema))
+    expect(fn () => $generator->generate($definition, $schema))
         ->toThrow(ModelGeneratorException::class, 'Invalid namespace format');
 });
 
@@ -91,6 +91,6 @@ test('throws exception for invalid class name', function () {
 
     $generator = createModelGenerator();
 
-    expect(fn() => $generator->generate($definition, $schema))
+    expect(fn () => $generator->generate($definition, $schema))
         ->toThrow(ModelGeneratorException::class, 'Invalid class name format');
 });

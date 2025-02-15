@@ -3,7 +3,6 @@
 namespace SAC\EloquentModelGenerator\Services;
 
 use SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition;
-use Illuminate\Support\Str;
 
 /**
  * @phpstan-type EventConfig array{
@@ -11,7 +10,6 @@ use Illuminate\Support\Str;
  *     description?: string,
  *     payload?: array<string, mixed>
  * }
- *
  * @phpstan-type ModelConfig array{
  *     table: non-empty-string,
  *     connection?: non-empty-string,
@@ -25,15 +23,12 @@ use Illuminate\Support\Str;
  *     perPage?: positive-int,
  *     events?: array<non-empty-string, EventConfig>
  * }
- *
  * @phpstan-type ValidationRule array{
  *     rule: non-empty-string,
  *     parameters?: array<mixed>,
  *     message?: non-empty-string
  * }
- *
  * @phpstan-type ValidationRules array<non-empty-string, array<ValidationRule|non-empty-string>>
- *
  * @phpstan-type ColumnAttributes array{
  *     type: non-empty-string,
  *     length?: positive-int|null,
@@ -60,7 +55,6 @@ use Illuminate\Support\Str;
  *         onUpdate?: 'cascade'|'restrict'|'set null'|'no action'
  *     }
  * }
- *
  * @phpstan-type RelationConfig array{
  *     type: non-empty-string,
  *     model: class-string,
@@ -77,7 +71,6 @@ use Illuminate\Support\Str;
  *     withPivot?: array<non-empty-string>,
  *     using?: class-string
  * }
- *
  * @phpstan-type IndexConfig array{
  *     type: 'primary'|'unique'|'index'|'fulltext'|'spatial',
  *     columns: array<string>,
@@ -85,14 +78,12 @@ use Illuminate\Support\Str;
  *     algorithm?: string,
  *     options?: array<string, mixed>
  * }
- *
  * @phpstan-type ForeignKeyConfig array{
  *     table: string,
  *     columns: array<string, string>,
  *     onDelete?: string,
  *     onUpdate?: string
  * }
- *
  * @phpstan-type SchemaDefinition array{
  *     columns: array<string, ColumnAttributes>,
  *     relations?: array<string, RelationConfig>,
@@ -107,7 +98,8 @@ use Illuminate\Support\Str;
  *     dateFormat?: string
  * }
  */
-class ModelGeneratorTemplateEngine {
+class ModelGeneratorTemplateEngine
+{
     /**
      * @var array<string, string>
      */
@@ -121,18 +113,18 @@ class ModelGeneratorTemplateEngine {
     /**
      * Create a new template engine instance.
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->loadTemplates();
     }
 
     /**
      * Render a model template.
      *
-     * @param ModelDefinition $definition
-     * @param array{columns: array<string, array{type: non-empty-string, length?: int<1, max>|null, nullable?: bool, default?: mixed, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool}>, relations?: array<string, array{type: non-empty-string, model: class-string, foreignKey?: non-empty-string, localKey?: non-empty-string, table?: non-empty-string, morphType?: non-empty-string, morphClass?: class-string, pivotTable?: non-empty-string}>, indexes?: array<string, array{type: 'primary'|'unique'|'index'|'fulltext'|'spatial', columns: array<string>, name?: string, algorithm?: string, options?: array<string, mixed>}>, foreignKeys?: array<string, array{table: string, columns: array<string, string>, onDelete?: string, onUpdate?: string}>, timestamps?: bool, softDeletes?: bool, primaryKey?: string, incrementing?: bool} $schema
-     * @return string
+     * @param  array{columns: array<string, array{type: non-empty-string, length?: int<1, max>|null, nullable?: bool, default?: mixed, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool}>, relations?: array<string, array{type: non-empty-string, model: class-string, foreignKey?: non-empty-string, localKey?: non-empty-string, table?: non-empty-string, morphType?: non-empty-string, morphClass?: class-string, pivotTable?: non-empty-string}>, indexes?: array<string, array{type: 'primary'|'unique'|'index'|'fulltext'|'spatial', columns: array<string>, name?: string, algorithm?: string, options?: array<string, mixed>}>, foreignKeys?: array<string, array{table: string, columns: array<string, string>, onDelete?: string, onUpdate?: string}>, timestamps?: bool, softDeletes?: bool, primaryKey?: string, incrementing?: bool}  $schema
      */
-    public function render(ModelDefinition $definition, array $schema): string {
+    public function render(ModelDefinition $definition, array $schema): string
+    {
         $template = $this->getTemplate('model');
 
         $fillable = $this->getFillableColumns($schema['columns']);
@@ -156,7 +148,8 @@ class ModelGeneratorTemplateEngine {
     /**
      * Load the templates.
      */
-    private function loadTemplates(): void {
+    private function loadTemplates(): void
+    {
         $this->templates['model'] = <<<'PHP'
 <?php
 
@@ -209,12 +202,13 @@ PHP;
     /**
      * Get a template by name.
      *
-     * @param non-empty-string $name
-     * @return string
+     * @param  non-empty-string  $name
+     *
      * @throws \RuntimeException If template not found
      */
-    private function getTemplate(string $name): string {
-        if (!isset($this->templates[$name])) {
+    private function getTemplate(string $name): string
+    {
+        if (! isset($this->templates[$name])) {
             throw new \RuntimeException("Template '{$name}' not found");
         }
 
@@ -224,13 +218,12 @@ PHP;
     /**
      * Replace placeholders in a template.
      *
-     * @param string $template
-     * @param array<string, string> $replacements
-     * @return string
+     * @param  array<string, string>  $replacements
      */
-    private function replacePlaceholders(string $template, array $replacements): string {
+    private function replacePlaceholders(string $template, array $replacements): string
+    {
         foreach ($replacements as $key => $value) {
-            $template = str_replace('{{' . $key . '}}', $value, $template);
+            $template = str_replace('{{'.$key.'}}', $value, $template);
         }
 
         return $template;
@@ -239,90 +232,100 @@ PHP;
     /**
      * Get the fillable columns.
      *
-     * @param array<string, array{type: non-empty-string, length?: int<1, max>|null, nullable?: bool, default?: mixed, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool}> $columns
+     * @param  array<string, array{type: non-empty-string, length?: int<1, max>|null, nullable?: bool, default?: mixed, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool}>  $columns
      * @return array<non-empty-string>
      */
-    private function getFillableColumns(array $columns): array {
+    private function getFillableColumns(array $columns): array
+    {
         /** @var array<non-empty-string> */
         $fillable = array_filter(
             array_keys($columns),
-            fn(string $name): bool => !empty($name) && !($columns[$name]['primary'] ?? false)
+            fn (string $name): bool => ! empty($name) && ! ($columns[$name]['primary'] ?? false)
         );
+
         return $fillable;
     }
 
     /**
      * Get the guarded columns.
      *
-     * @param array<string, array{type: non-empty-string, length?: int<1, max>|null, nullable?: bool, default?: mixed, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool}> $columns
+     * @param  array<string, array{type: non-empty-string, length?: int<1, max>|null, nullable?: bool, default?: mixed, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool}>  $columns
      * @return array<non-empty-string>
      */
-    private function getGuardedColumns(array $columns): array {
+    private function getGuardedColumns(array $columns): array
+    {
         /** @var array<non-empty-string> */
         $guarded = array_filter(
             array_keys($columns),
-            fn(string $name): bool => !empty($name) && ($columns[$name]['primary'] ?? false)
+            fn (string $name): bool => ! empty($name) && ($columns[$name]['primary'] ?? false)
         );
+
         return $guarded;
     }
 
     /**
      * Get the casts.
      *
-     * @param array<string, array{type: non-empty-string, length?: int<1, max>|null, nullable?: bool, default?: mixed, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool}> $columns
+     * @param  array<string, array{type: non-empty-string, length?: int<1, max>|null, nullable?: bool, default?: mixed, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool}>  $columns
      * @return array<non-empty-string, non-empty-string>
      */
-    private function getCasts(array $columns): array {
+    private function getCasts(array $columns): array
+    {
         /** @var array<non-empty-string, non-empty-string> */
         $casts = array_filter(
             array_map(
-                fn(string $name, array $column): ?array =>
-                !empty($name) ? [$name => $this->getCastType($column['type'])] : null,
+                fn (string $name, array $column): ?array => ! empty($name) ? [$name => $this->getCastType($column['type'])] : null,
                 array_keys($columns),
                 array_values($columns)
             )
         );
+
         return array_merge(...$casts);
     }
 
     /**
      * Get the dates.
      *
-     * @param array<string, array{type: non-empty-string, length?: int<1, max>|null, nullable?: bool, default?: mixed, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool}> $columns
+     * @param  array<string, array{type: non-empty-string, length?: int<1, max>|null, nullable?: bool, default?: mixed, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool}>  $columns
      * @return array<non-empty-string>
      */
-    private function getDates(array $columns): array {
+    private function getDates(array $columns): array
+    {
         /** @var array<non-empty-string> */
         $dates = array_filter(
             array_keys($columns),
-            fn(string $name): bool => !empty($name) && in_array($columns[$name]['type'], ['date', 'datetime', 'timestamp'], true)
+            fn (string $name): bool => ! empty($name) && in_array($columns[$name]['type'], ['date', 'datetime', 'timestamp'], true)
         );
+
         return $dates;
     }
 
     /**
      * Get the hidden columns.
      *
-     * @param array<string, array{type: non-empty-string, length?: int<1, max>|null, nullable?: bool, default?: mixed, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool}> $columns
+     * @param  array<string, array{type: non-empty-string, length?: int<1, max>|null, nullable?: bool, default?: mixed, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool}>  $columns
      * @return array<non-empty-string>
      */
-    private function getHiddenColumns(array $columns): array {
+    private function getHiddenColumns(array $columns): array
+    {
         $hidden = [];
         foreach ($columns as $name => $column) {
             if (in_array($name, ['password', 'remember_token'], true)) {
                 $hidden[] = $name;
             }
         }
+
         return $hidden;
     }
 
     /**
      * Get the cast type for a column.
      *
-     * @param non-empty-string $type
+     * @param  non-empty-string  $type
      * @return non-empty-string
      */
-    private function getCastType(string $type): string {
+    private function getCastType(string $type): string
+    {
         /** @var non-empty-string */
         return match ($type) {
             'integer', 'bigint', 'smallint' => 'integer',
@@ -338,13 +341,11 @@ PHP;
     /**
      * Add model properties to the template.
      *
-     * @param string $template
-     * @param array<non-empty-string> $fillable
-     * @param array<non-empty-string> $guarded
-     * @param array<non-empty-string, non-empty-string> $casts
-     * @param array<non-empty-string> $dates
-     * @param array<non-empty-string> $hidden
-     * @return string
+     * @param  array<non-empty-string>  $fillable
+     * @param  array<non-empty-string>  $guarded
+     * @param  array<non-empty-string, non-empty-string>  $casts
+     * @param  array<non-empty-string>  $dates
+     * @param  array<non-empty-string>  $hidden
      */
     private function addModelProperties(
         string $template,
@@ -366,11 +367,10 @@ PHP;
     /**
      * Add model relations to the template.
      *
-     * @param string $template
-     * @param array<string, array{type: non-empty-string, model: class-string, foreignKey?: non-empty-string, localKey?: non-empty-string, table?: non-empty-string, morphType?: non-empty-string, morphClass?: class-string, pivotTable?: non-empty-string}> $relations
-     * @return string
+     * @param  array<string, array{type: non-empty-string, model: class-string, foreignKey?: non-empty-string, localKey?: non-empty-string, table?: non-empty-string, morphType?: non-empty-string, morphClass?: class-string, pivotTable?: non-empty-string}>  $relations
      */
-    private function addModelRelations(string $template, array $relations): string {
+    private function addModelRelations(string $template, array $relations): string
+    {
         $relationMethods = [];
 
         foreach ($relations as $name => $relation) {
@@ -383,11 +383,10 @@ PHP;
     /**
      * Add model indexes to the template.
      *
-     * @param string $template
      * @param array<string, array{type: 'primary'|'unique'|'index'|'fulltext'|'spatial', columns: array<string>, name?: string, algorithm?: string, options?: array<string, mixed>} $indexes
-     * @return string
      */
-    private function addModelIndexes(string $template, array $indexes): string {
+    private function addModelIndexes(string $template, array $indexes): string
+    {
         $indexMethods = [];
 
         foreach ($indexes as $name => $index) {
@@ -400,35 +399,35 @@ PHP;
     /**
      * Format an array as a PHP array string.
      *
-     * @param array<non-empty-string> $array
-     * @return string
+     * @param  array<non-empty-string>  $array
      */
-    private function formatArray(array $array): string {
-        return implode(', ', array_map(fn(string $value) => "'{$value}'", $array));
+    private function formatArray(array $array): string
+    {
+        return implode(', ', array_map(fn (string $value) => "'{$value}'", $array));
     }
 
     /**
      * Format a key-value array as a PHP array string.
      *
-     * @param array<non-empty-string, non-empty-string> $array
-     * @return string
+     * @param  array<non-empty-string, non-empty-string>  $array
      */
-    private function formatKeyValueArray(array $array): string {
+    private function formatKeyValueArray(array $array): string
+    {
         $formatted = [];
         foreach ($array as $key => $value) {
             $formatted[] = "'{$key}' => '{$value}'";
         }
+
         return implode(', ', $formatted);
     }
 
     /**
      * Generate a relation method.
      *
-     * @param string $name
-     * @param array{type: non-empty-string, model: class-string, foreignKey?: non-empty-string, localKey?: non-empty-string, table?: non-empty-string, morphType?: non-empty-string, morphClass?: class-string, pivotTable?: non-empty-string} $relation
-     * @return string
+     * @param  array{type: non-empty-string, model: class-string, foreignKey?: non-empty-string, localKey?: non-empty-string, table?: non-empty-string, morphType?: non-empty-string, morphClass?: class-string, pivotTable?: non-empty-string}  $relation
      */
-    private function generateRelationMethod(string $name, array $relation): string {
+    private function generateRelationMethod(string $name, array $relation): string
+    {
         $method = <<<PHP
     /**
      * Get the {$name} relation.
@@ -457,12 +456,11 @@ PHP;
     /**
      * Generate an index method.
      *
-     * @param string $name
-     * @param array{type: 'primary'|'unique'|'index'|'fulltext'|'spatial', columns: array<string>, name?: string, algorithm?: string, options?: array<string, mixed>} $index
-     * @return string
+     * @param  array{type: 'primary'|'unique'|'index'|'fulltext'|'spatial', columns: array<string>, name?: string, algorithm?: string, options?: array<string, mixed>}  $index
      */
-    private function generateIndexMethod(string $name, array $index): string {
-        $columns = implode(', ', array_map(fn(string $column) => "'{$column}'", $index['columns']));
+    private function generateIndexMethod(string $name, array $index): string
+    {
+        $columns = implode(', ', array_map(fn (string $column) => "'{$column}'", $index['columns']));
 
         return <<<PHP
     /**

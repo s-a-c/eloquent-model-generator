@@ -4,19 +4,17 @@ namespace SAC\EloquentModelGenerator\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Collection;
-use SAC\EloquentModelGenerator\Support\Traits\HasValidation;
 use SAC\EloquentModelGenerator\Support\Traits\HasRelationships;
+use SAC\EloquentModelGenerator\Support\Traits\HasValidation;
 
-abstract class BaseModel extends Model {
-    use SoftDeletes;
-    use HasValidation;
+abstract class BaseModel extends Model
+{
     use HasRelationships;
+    use HasValidation;
+    use SoftDeletes;
 
     /**
      * The table associated with the model.
-     *
-     * @var string
      */
     protected string $table;
 
@@ -86,10 +84,11 @@ abstract class BaseModel extends Model {
     /**
      * Create a new model instance.
      *
-     * @param array<string, mixed> $attributes
+     * @param  array<string, mixed>  $attributes
      */
-    public function __construct(array $attributes = []) {
-        if (!isset($this->table)) {
+    public function __construct(array $attributes = [])
+    {
+        if (! isset($this->table)) {
             $this->table = $this->guessTableName();
         }
         parent::__construct($attributes);
@@ -97,44 +96,47 @@ abstract class BaseModel extends Model {
 
     /**
      * Get the table associated with the model.
-     *
-     * @return string
      */
-    public function getTable(): string {
-        if (!isset($this->table)) {
+    public function getTable(): string
+    {
+        if (! isset($this->table)) {
             $this->table = $this->guessTableName();
         }
+
         return $this->table;
     }
 
     /**
      * Set the table associated with the model.
      *
-     * @param string $table
+     * @param  string  $table
      * @return $this
      */
-    public function setTable($table): static {
+    public function setTable($table): static
+    {
         $this->table = $table;
+
         return $this;
     }
 
     /**
      * Get the primary key for the model.
-     *
-     * @return string
      */
-    public function getKeyName(): string {
+    public function getKeyName(): string
+    {
         return $this->primaryKey;
     }
 
     /**
      * Set the primary key for the model.
      *
-     * @param string $key
+     * @param  string  $key
      * @return $this
      */
-    public function setKeyName($key): static {
+    public function setKeyName($key): static
+    {
         $this->primaryKey = $key;
+
         return $this;
     }
 
@@ -143,18 +145,21 @@ abstract class BaseModel extends Model {
      *
      * @return array<int, string>
      */
-    public function getFillable(): array {
+    public function getFillable(): array
+    {
         return $this->fillable;
     }
 
     /**
      * Set the fillable attributes for the model.
      *
-     * @param array<int, string> $fillable
+     * @param  array<int, string>  $fillable
      * @return $this
      */
-    public function setFillable(array $fillable): static {
+    public function setFillable(array $fillable): static
+    {
         $this->fillable = $fillable;
+
         return $this;
     }
 
@@ -163,18 +168,21 @@ abstract class BaseModel extends Model {
      *
      * @return array<int, string>
      */
-    public function getHidden(): array {
+    public function getHidden(): array
+    {
         return $this->hidden;
     }
 
     /**
      * Set the hidden attributes for the model.
      *
-     * @param array<int, string> $hidden
+     * @param  array<int, string>  $hidden
      * @return $this
      */
-    public function setHidden(array $hidden): static {
+    public function setHidden(array $hidden): static
+    {
         $this->hidden = $hidden;
+
         return $this;
     }
 
@@ -183,18 +191,21 @@ abstract class BaseModel extends Model {
      *
      * @return array<string, string>
      */
-    public function getCasts(): array {
+    public function getCasts(): array
+    {
         return $this->casts;
     }
 
     /**
      * Set the casts array.
      *
-     * @param array<string, string> $casts
+     * @param  array<string, string>  $casts
      * @return $this
      */
-    public function setCasts(array $casts): static {
+    public function setCasts(array $casts): static
+    {
         $this->casts = $casts;
+
         return $this;
     }
 
@@ -203,18 +214,21 @@ abstract class BaseModel extends Model {
      *
      * @return array<int, string>
      */
-    public function getTouches(): array {
+    public function getTouches(): array
+    {
         return $this->touches;
     }
 
     /**
      * Set the touches array.
      *
-     * @param array<int, string> $touches
+     * @param  array<int, string>  $touches
      * @return $this
      */
-    public function setTouches(array $touches): static {
+    public function setTouches(array $touches): static
+    {
         $this->touches = $touches;
+
         return $this;
     }
 
@@ -223,28 +237,31 @@ abstract class BaseModel extends Model {
      *
      * @return array<int, string>
      */
-    public function getWith(): array {
+    public function getWith(): array
+    {
         return $this->with;
     }
 
     /**
      * Set the with array.
      *
-     * @param array<int, string> $with
+     * @param  array<int, string>  $with
      * @return $this
      */
-    public function setWith(array $with): static {
+    public function setWith(array $with): static
+    {
         $this->with = $with;
+
         return $this;
     }
 
     /**
      * Guess the table name for the model.
-     *
-     * @return string
      */
-    protected function guessTableName(): string {
+    protected function guessTableName(): string
+    {
         $className = class_basename(static::class);
+
         return strtolower((string) preg_replace('/(?<!^)[A-Z]/', '_$0', $className));
     }
 }

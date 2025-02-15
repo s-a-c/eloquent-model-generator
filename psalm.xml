@@ -72,11 +72,11 @@
                 <directory name="src/Services/AI" />
             </errorLevel>
         </PossiblyInvalidArgument>
-        <MixedInferredReturnType>
+        <MixedReturnTypeCoercion>
             <errorLevel type="suppress">
                 <directory name="src/Services/AI" />
             </errorLevel>
-        </MixedInferredReturnType>
+        </MixedReturnTypeCoercion>
     </issueHandlers>
 
     <stubs>

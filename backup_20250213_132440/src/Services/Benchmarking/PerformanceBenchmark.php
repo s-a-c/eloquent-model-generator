@@ -3,10 +3,9 @@
 namespace SAC\EloquentModelGenerator\Services\Benchmarking;
 
 use SAC\EloquentModelGenerator\Services\Benchmark;
-use SAC\EloquentModelGenerator\ValueObjects\BenchmarkResult;
-use Illuminate\Support\Facades\DB;
 
-class PerformanceBenchmark extends Benchmark {
+class PerformanceBenchmark extends Benchmark
+{
     /**
      * @var array<string, array{start_time: float, start_memory: int, end_time?: float, end_memory?: int, duration?: float, memory_usage?: int}>
      */
@@ -14,26 +13,25 @@ class PerformanceBenchmark extends Benchmark {
 
     /**
      * Start a benchmark.
-     *
-     * @param string $name
-     * @return void
      */
-    public function startBenchmark(string $name): void {
+    public function startBenchmark(string $name): void
+    {
         $this->benchmarks[$name] = [
             'start_time' => microtime(true),
-            'start_memory' => memory_get_usage(true)
+            'start_memory' => memory_get_usage(true),
         ];
     }
 
     /**
      * End a benchmark.
      *
-     * @param string $name
      * @return array{duration: float, memory_usage: int}
+     *
      * @throws \RuntimeException If benchmark was not started
      */
-    public function endBenchmark(string $name): array {
-        if (!isset($this->benchmarks[$name])) {
+    public function endBenchmark(string $name): array
+    {
+        if (! isset($this->benchmarks[$name])) {
             throw new \RuntimeException("Benchmark '{$name}' was not started");
         }
 
@@ -51,7 +49,7 @@ class PerformanceBenchmark extends Benchmark {
 
         return [
             'duration' => $duration,
-            'memory_usage' => $memoryUsage
+            'memory_usage' => $memoryUsage,
         ];
     }
 
@@ -60,7 +58,8 @@ class PerformanceBenchmark extends Benchmark {
      *
      * @return array<string, array{start_time: float, start_memory: int, end_time?: float, end_memory?: int, duration?: float, memory_usage?: int}>
      */
-    public function getBenchmarks(): array {
+    public function getBenchmarks(): array
+    {
         return $this->benchmarks;
     }
 }

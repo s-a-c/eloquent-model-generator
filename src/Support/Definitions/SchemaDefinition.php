@@ -10,24 +10,22 @@ use SAC\EloquentModelGenerator\ValueObjects\Index;
  * Class SchemaDefinition
  *
  * Represents a database table schema with its columns and indexes.
- *
- * @package SAC\EloquentModelGenerator\Support\Definitions
  */
-class SchemaDefinition {
+class SchemaDefinition
+{
     /**
      * Create a new schema definition instance.
      *
-     * @param Collection<int, Column> $columns
-     * @param Collection<int, Index> $indexes
+     * @param  Collection<int, Column>  $columns
+     * @param  Collection<int, Index>  $indexes
      */
-    public function __construct(private readonly string $table, private readonly Collection $columns, private readonly Collection $indexes)
-    {
-    }
+    public function __construct(private readonly string $table, private readonly Collection $columns, private readonly Collection $indexes) {}
 
     /**
      * Get the table name.
      */
-    public function getTable(): string {
+    public function getTable(): string
+    {
         return $this->table;
     }
 
@@ -36,7 +34,8 @@ class SchemaDefinition {
      *
      * @return Collection<int, Column>
      */
-    public function getColumns(): Collection {
+    public function getColumns(): Collection
+    {
         return $this->columns;
     }
 
@@ -45,7 +44,8 @@ class SchemaDefinition {
      *
      * @return Collection<int, Index>
      */
-    public function getIndexes(): Collection {
+    public function getIndexes(): Collection
+    {
         return $this->indexes;
     }
 
@@ -54,8 +54,9 @@ class SchemaDefinition {
      *
      * @return Collection<int, Column>
      */
-    public function getNullableColumns(): Collection {
-        return $this->columns->filter(fn(Column $column): bool => $column->isNullable());
+    public function getNullableColumns(): Collection
+    {
+        return $this->columns->filter(fn (Column $column): bool => $column->isNullable());
     }
 
     /**
@@ -63,8 +64,9 @@ class SchemaDefinition {
      *
      * @return Collection<int, Column>
      */
-    public function getRequiredColumns(): Collection {
-        return $this->columns->filter(fn(Column $column): bool => !$column->isNullable());
+    public function getRequiredColumns(): Collection
+    {
+        return $this->columns->filter(fn (Column $column): bool => ! $column->isNullable());
     }
 
     /**
@@ -72,8 +74,9 @@ class SchemaDefinition {
      *
      * @return Collection<int, Column>
      */
-    public function getColumnsByType(string $type): Collection {
-        return $this->columns->filter(fn(Column $column): bool => $column->getType() === $type);
+    public function getColumnsByType(string $type): Collection
+    {
+        return $this->columns->filter(fn (Column $column): bool => $column->getType() === $type);
     }
 
     /**
@@ -81,15 +84,17 @@ class SchemaDefinition {
      *
      * @return Collection<int, Index>
      */
-    public function getIndexesForColumn(string $columnName): Collection {
-        return $this->indexes->filter(fn(Index $index): bool => $index->hasColumn($columnName));
+    public function getIndexesForColumn(string $columnName): Collection
+    {
+        return $this->indexes->filter(fn (Index $index): bool => $index->hasColumn($columnName));
     }
 
     /**
      * Check if the schema has a primary key.
      */
-    public function hasPrimaryKey(): bool {
-        return $this->indexes->contains(fn(Index $index): bool => $index->getType() === 'primary');
+    public function hasPrimaryKey(): bool
+    {
+        return $this->indexes->contains(fn (Index $index): bool => $index->getType() === 'primary');
     }
 
     /**
@@ -97,7 +102,8 @@ class SchemaDefinition {
      *
      * @return string A formatted string representation of the schema including table name, columns, and indexes
      */
-    public function toString(): string {
+    public function toString(): string
+    {
         /** @var array<int, string> $output */
         $output = [
             sprintf('Table: %s', $this->table),

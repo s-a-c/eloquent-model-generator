@@ -5,7 +5,8 @@ namespace SAC\EloquentModelGenerator\Support\Traits;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
-trait HasModelValidation {
+trait HasModelValidation
+{
     /**
      * The validation rules that apply to the model.
      *
@@ -32,33 +33,40 @@ trait HasModelValidation {
      *
      * @return array<string, string|array>
      */
-    public function getValidationRules(): array {
+    public function getValidationRules(): array
+    {
         return $this->validationRules;
     }
 
     /**
      * Set the validation rules.
      *
-     * @param array<string, string|array> $rules
+     * @param  array<string, string|array>  $rules
      */
-    public function setValidationRules(array $rules): self {
+    public function setValidationRules(array $rules): self
+    {
         $this->validationRules = $rules;
+
         return $this;
     }
 
     /**
      * Add a validation rule.
      */
-    public function addValidationRule(string $attribute, string|array $rules): self {
+    public function addValidationRule(string $attribute, string|array $rules): self
+    {
         $this->validationRules[$attribute] = $rules;
+
         return $this;
     }
 
     /**
      * Remove a validation rule.
      */
-    public function removeValidationRule(string $attribute): self {
+    public function removeValidationRule(string $attribute): self
+    {
         unset($this->validationRules[$attribute]);
+
         return $this;
     }
 
@@ -67,33 +75,40 @@ trait HasModelValidation {
      *
      * @return array<string, string>
      */
-    public function getValidationMessages(): array {
+    public function getValidationMessages(): array
+    {
         return $this->validationMessages;
     }
 
     /**
      * Set the validation messages.
      *
-     * @param array<string, string> $messages
+     * @param  array<string, string>  $messages
      */
-    public function setValidationMessages(array $messages): self {
+    public function setValidationMessages(array $messages): self
+    {
         $this->validationMessages = $messages;
+
         return $this;
     }
 
     /**
      * Add a validation message.
      */
-    public function addValidationMessage(string $rule, string $message): self {
+    public function addValidationMessage(string $rule, string $message): self
+    {
         $this->validationMessages[$rule] = $message;
+
         return $this;
     }
 
     /**
      * Remove a validation message.
      */
-    public function removeValidationMessage(string $rule): self {
+    public function removeValidationMessage(string $rule): self
+    {
         unset($this->validationMessages[$rule]);
+
         return $this;
     }
 
@@ -102,7 +117,8 @@ trait HasModelValidation {
      *
      * @throws ValidationException
      */
-    public function validate(): bool {
+    public function validate(): bool
+    {
         $this->validator = Validator::make(
             $this->getAttributes(),
             $this->getValidationRules(),
@@ -121,14 +137,16 @@ trait HasModelValidation {
      *
      * @return \Illuminate\Validation\Validator|null
      */
-    public function getValidator() {
+    public function getValidator()
+    {
         return $this->validator;
     }
 
     /**
      * Determine if the model is valid.
      */
-    public function isValid(): bool {
+    public function isValid(): bool
+    {
         try {
             return $this->validate();
         } catch (ValidationException) {
@@ -139,7 +157,8 @@ trait HasModelValidation {
     /**
      * Get the validation errors.
      */
-    public function getValidationErrors(): array {
+    public function getValidationErrors(): array
+    {
         if ($this->validator === null) {
             $this->isValid();
         }

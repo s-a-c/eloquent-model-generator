@@ -7,25 +7,14 @@ use Illuminate\Database\Schema\Builder;
 use SAC\EloquentModelGenerator\Contracts\SchemaAnalyzer;
 use SAC\EloquentModelGenerator\Exceptions\ModelGeneratorException;
 
-abstract class BaseSchemaAnalyzer implements SchemaAnalyzer {
-    /**
-     * @var ConnectionInterface
-     */
+abstract class BaseSchemaAnalyzer implements SchemaAnalyzer
+{
     protected ConnectionInterface $connection;
 
-    /**
-     * @var Builder|null
-     */
     private ?Builder $schemaBuilder = null;
 
-    /**
-     * @var string
-     */
     protected string $tablePrefix;
 
-    /**
-     * @param ConnectionInterface $connection
-     */
     public function __construct(
         protected readonly ConnectionInterface $connection
     ) {
@@ -36,7 +25,8 @@ abstract class BaseSchemaAnalyzer implements SchemaAnalyzer {
     /**
      * Get the schema builder instance.
      */
-    public function getSchemaBuilder(): Builder {
+    public function getSchemaBuilder(): Builder
+    {
         if ($this->schemaBuilder === null) {
             $this->schemaBuilder = $this->connection->getSchemaBuilder();
         }
@@ -47,7 +37,8 @@ abstract class BaseSchemaAnalyzer implements SchemaAnalyzer {
     /**
      * Get the table prefix.
      */
-    public function getTablePrefix(): string {
+    public function getTablePrefix(): string
+    {
         return $this->tablePrefix;
     }
 
@@ -55,9 +46,11 @@ abstract class BaseSchemaAnalyzer implements SchemaAnalyzer {
      * Get all available tables.
      *
      * @return array<string>
+     *
      * @throws ModelGeneratorException
      */
-    public function getTables(): array {
+    public function getTables(): array
+    {
         try {
             return $this->getSchemaBuilder()->getAllTables();
         } catch (\Throwable $e) {
@@ -71,7 +64,8 @@ abstract class BaseSchemaAnalyzer implements SchemaAnalyzer {
     /**
      * Check if a table exists.
      */
-    public function hasTable(string $table): bool {
+    public function hasTable(string $table): bool
+    {
         return $this->getSchemaBuilder()->hasTable($table);
     }
 
@@ -80,7 +74,8 @@ abstract class BaseSchemaAnalyzer implements SchemaAnalyzer {
      *
      * @return array{table: string, column: string}
      */
-    protected function getForeignKeyDefinition(string $foreignTable, string $foreignColumn): array {
+    protected function getForeignKeyDefinition(string $foreignTable, string $foreignColumn): array
+    {
         return [
             'table' => $foreignTable,
             'column' => $foreignColumn,
@@ -111,7 +106,8 @@ abstract class BaseSchemaAnalyzer implements SchemaAnalyzer {
      *
      * @return non-empty-string
      */
-    protected function mapColumnType(string $databaseType): string {
+    protected function mapColumnType(string $databaseType): string
+    {
         return match (strtolower($databaseType)) {
             'bigint', 'int8' => 'integer',
             'integer', 'int', 'int4' => 'integer',
@@ -131,11 +127,9 @@ abstract class BaseSchemaAnalyzer implements SchemaAnalyzer {
 
     /**
      * Get the cast type for a column type.
-     *
-     * @param string $type
-     * @return string
      */
-    protected function getCastType(string $type): string {
+    protected function getCastType(string $type): string
+    {
         return match ($type) {
             'json' => 'array',
             'datetime', 'timestamp' => 'datetime',
@@ -150,7 +144,8 @@ abstract class BaseSchemaAnalyzer implements SchemaAnalyzer {
     /**
      * Check if a table exists.
      */
-    public function tableExists(string $table): bool {
+    public function tableExists(string $table): bool
+    {
         return $this->hasTable($table);
     }
 }

@@ -90,7 +90,7 @@ test('respects custom date format', function () {
     );
 
     $generator = createModelGenerator([
-        'date_format' => 'Y-m-d H:i:s.u'
+        'date_format' => 'Y-m-d H:i:s.u',
     ]);
 
     $model = $generator->generate($definition, $schema);
@@ -114,7 +114,7 @@ test('respects custom connection configuration', function () {
     );
 
     $generator = createModelGenerator([
-        'connection' => 'custom_connection'
+        'connection' => 'custom_connection',
     ]);
 
     $model = $generator->generate($definition, $schema);

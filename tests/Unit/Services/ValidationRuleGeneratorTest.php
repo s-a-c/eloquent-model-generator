@@ -5,15 +5,18 @@ namespace SAC\EloquentModelGenerator\Tests\Unit\Services;
 use SAC\EloquentModelGenerator\Services\ValidationRuleGenerator;
 use SAC\EloquentModelGenerator\Tests\TestCase;
 
-class ValidationRuleGeneratorTest extends TestCase {
+class ValidationRuleGeneratorTest extends TestCase
+{
     private ValidationRuleGenerator $generator;
 
-    protected function setUp(): void {
+    protected function setUp(): void
+    {
         parent::setUp();
-        $this->generator = new ValidationRuleGenerator();
+        $this->generator = new ValidationRuleGenerator;
     }
 
-    public function test_generates_rules_for_basic_schema(): void {
+    public function test_generates_rules_for_basic_schema(): void
+    {
         $schema = [
             'columns' => [
                 'id' => ['type' => 'integer', 'autoIncrement' => true],
@@ -33,7 +36,8 @@ class ValidationRuleGeneratorTest extends TestCase {
             ->and($rules['age'])->toBe('nullable|integer|min:0');
     }
 
-    public function test_generates_rules_for_numeric_types(): void {
+    public function test_generates_rules_for_numeric_types(): void
+    {
         $schema = [
             'columns' => [
                 'price' => [
@@ -59,7 +63,8 @@ class ValidationRuleGeneratorTest extends TestCase {
             ->and($rules['quantity'])->toBe('required|integer|min:0');
     }
 
-    public function test_generates_rules_for_dates(): void {
+    public function test_generates_rules_for_dates(): void
+    {
         $schema = [
             'columns' => [
                 'birth_date' => ['type' => 'date'],
@@ -78,7 +83,8 @@ class ValidationRuleGeneratorTest extends TestCase {
             ->and($rules['opening_time'])->toBe('nullable|date_format:H:i:s');
     }
 
-    public function test_generates_rules_for_enum(): void {
+    public function test_generates_rules_for_enum(): void
+    {
         $schema = [
             'columns' => [
                 'status' => [
@@ -97,7 +103,8 @@ class ValidationRuleGeneratorTest extends TestCase {
             ->and($rules['status'])->toBe('required|in:active,inactive,pending');
     }
 
-    public function test_generates_rules_with_custom_rules(): void {
+    public function test_generates_rules_with_custom_rules(): void
+    {
         $schema = [
             'columns' => [
                 'password' => [
@@ -119,7 +126,8 @@ class ValidationRuleGeneratorTest extends TestCase {
             ->and($rules['password'])->toContain('regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/');
     }
 
-    public function test_generates_messages_for_basic_schema(): void {
+    public function test_generates_messages_for_basic_schema(): void
+    {
         $schema = [
             'columns' => [
                 'name' => ['type' => 'string', 'nullable' => false],
@@ -140,7 +148,8 @@ class ValidationRuleGeneratorTest extends TestCase {
             ->and($messages['age.integer'])->toBe('Age must be an integer.');
     }
 
-    public function test_generates_messages_with_custom_messages(): void {
+    public function test_generates_messages_with_custom_messages(): void
+    {
         $schema = [
             'columns' => [
                 'email' => [
@@ -165,7 +174,8 @@ class ValidationRuleGeneratorTest extends TestCase {
             ->and($messages['email.unique'])->toBe('This email is already registered');
     }
 
-    public function test_generates_type_specific_messages(): void {
+    public function test_generates_type_specific_messages(): void
+    {
         $schema = [
             'columns' => [
                 'price' => [

@@ -2,20 +2,22 @@
 
 namespace SAC\EloquentModelGenerator\Tests\Support\Traits;
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-trait WithTestTables {
+trait WithTestTables
+{
     protected array $testTables = [];
 
-    protected function createBasicTestTables(): void {
+    protected function createBasicTestTables(): void
+    {
         $this->createTestTable('users', [
             'id' => 'id',
             'name' => 'string',
             'email' => 'string:unique',
             'created_at' => 'timestamp',
             'updated_at' => 'timestamp',
-            'deleted_at' => 'timestamp:nullable'
+            'deleted_at' => 'timestamp:nullable',
         ]);
 
         $this->createTestTable('posts', [
@@ -24,19 +26,20 @@ trait WithTestTables {
             'title' => 'string',
             'content' => 'text:nullable',
             'created_at' => 'timestamp',
-            'updated_at' => 'timestamp'
+            'updated_at' => 'timestamp',
         ]);
 
         $this->testTables = ['users', 'posts'];
     }
 
-    protected function createComplexTestTables(): void {
+    protected function createComplexTestTables(): void
+    {
         $this->createTestTable('categories', [
             'id' => 'id',
             'name' => 'string',
             'parent_id' => 'unsignedBigInteger:nullable',
             'created_at' => 'timestamp',
-            'updated_at' => 'timestamp'
+            'updated_at' => 'timestamp',
         ]);
 
         $this->createTestTable('products', [
@@ -45,14 +48,14 @@ trait WithTestTables {
             'name' => 'string',
             'price' => 'decimal:8,2',
             'created_at' => 'timestamp',
-            'updated_at' => 'timestamp'
+            'updated_at' => 'timestamp',
         ]);
 
         $this->createTestTable('tags', [
             'id' => 'id',
             'name' => 'string',
             'created_at' => 'timestamp',
-            'updated_at' => 'timestamp'
+            'updated_at' => 'timestamp',
         ]);
 
         $this->createTestTable('product_tag', [
@@ -60,25 +63,27 @@ trait WithTestTables {
             'product_id' => ['foreign', 'product_id', 'id', 'products'],
             'tag_id' => ['foreign', 'tag_id', 'id', 'tags'],
             'created_at' => 'timestamp',
-            'updated_at' => 'timestamp'
+            'updated_at' => 'timestamp',
         ]);
 
         $this->testTables = array_merge($this->testTables, [
             'categories',
             'products',
             'tags',
-            'product_tag'
+            'product_tag',
         ]);
     }
 
-    protected function dropTestTables(): void {
+    protected function dropTestTables(): void
+    {
         // Drop in reverse order to handle foreign key constraints
         foreach (array_reverse($this->testTables) as $table) {
             Schema::dropIfExists($table);
         }
     }
 
-    protected function createTestTable(string $name, array $columns): void {
+    protected function createTestTable(string $name, array $columns): void
+    {
         Schema::create($name, function (Blueprint $table) use ($columns) {
             foreach ($columns as $column => $type) {
                 if (is_array($type)) {

@@ -1,11 +1,10 @@
 <?php
 
-use Carbon\Carbon;
 use SAC\EloquentModelGenerator\SchemaParser;
 
 test('it correctly parses table columns', function () {
     $schema = getTestSchema();
-    $parser = new SchemaParser();
+    $parser = new SchemaParser;
 
     $columns = $parser->parseColumns($schema['columns']);
 
@@ -24,7 +23,7 @@ test('it correctly parses table columns', function () {
 
 test('it correctly parses table indexes', function () {
     $schema = getTestSchema();
-    $parser = new SchemaParser();
+    $parser = new SchemaParser;
 
     $indexes = $parser->parseIndexes($schema['indexes']);
 

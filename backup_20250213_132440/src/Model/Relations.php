@@ -2,8 +2,6 @@
 
 namespace SAC\EloquentModelGenerator\Model;
 
-use Illuminate\Support\Str;
-
 /**
  * @phpstan-type RelationType 'hasOne'|'hasMany'|'belongsTo'|'belongsToMany'|'morphTo'|'morphOne'|'morphMany'|'morphToMany'
  * @phpstan-type RelationDefinition array{
@@ -17,7 +15,8 @@ use Illuminate\Support\Str;
  *     morphClass?: class-string
  * }
  */
-class Relations {
+class Relations
+{
     /**
      * @var array<string, array{
      *     type: string,
@@ -42,7 +41,8 @@ class Relations {
      *     pivotColumns?: array<string>
      * }> $relations
      */
-    public function __construct(array $relations = []) {
+    public function __construct(array $relations = [])
+    {
         $this->relations = $relations;
     }
 
@@ -57,7 +57,8 @@ class Relations {
      *     pivotColumns?: array<string>
      * }>
      */
-    public function getRelations(): array {
+    public function getRelations(): array
+    {
         return $this->relations;
     }
 
@@ -72,8 +73,9 @@ class Relations {
      *     pivotColumns?: array<string>
      * } $relation
      */
-    public function addRelation(array $relation): void {
-        if (!isset($relation['model'], $relation['type'], $relation['name'])) {
+    public function addRelation(array $relation): void
+    {
+        if (! isset($relation['model'], $relation['type'], $relation['name'])) {
             throw new \InvalidArgumentException('Relation must have model, type and name fields');
         }
 
@@ -85,21 +87,21 @@ class Relations {
                 $this->relations[$relation['name']] = [
                     'type' => 'hasOne',
                     'model' => $modelClass,
-                    'name' => $relation['name']
+                    'name' => $relation['name'],
                 ];
                 break;
             case 'hasmany':
                 $this->relations[$relation['name']] = [
                     'type' => 'hasMany',
                     'model' => $modelClass,
-                    'name' => $relation['name']
+                    'name' => $relation['name'],
                 ];
                 break;
             case 'belongsto':
                 $this->relations[$relation['name']] = [
                     'type' => 'belongsTo',
                     'model' => $modelClass,
-                    'name' => $relation['name']
+                    'name' => $relation['name'],
                 ];
                 break;
             default:
@@ -110,10 +112,10 @@ class Relations {
     /**
      * Get the relation method definition.
      *
-     * @param array<string, RelationDefinition> $relations
-     * @return string
+     * @param  array<string, RelationDefinition>  $relations
      */
-    public function getRelationMethods(array $relations): string {
+    public function getRelationMethods(array $relations): string
+    {
         $methods = [];
         foreach ($relations as $relation) {
             $modelClass = class_basename($relation['model']);

@@ -5,7 +5,7 @@ namespace SAC\EloquentModelGenerator\Tests\Feature;
 use SAC\EloquentModelGenerator\Support\Factories\ModelGeneratorFactory;
 
 beforeEach(function () {
-    $this->modelFactory = new ModelGeneratorFactory();
+    $this->modelFactory = new ModelGeneratorFactory;
 });
 
 test('generates basic model with standard columns and indexes', function (array $model) {
@@ -55,9 +55,9 @@ test('handles all column types and index variations', function (array $model) {
     if ($model['table'] === 'all_types') {
         expect($definition->columns)
             ->toHaveCount(32)
-            ->and($definition->columns->first(fn($col) => $col->name === 'uuid_col')->type)
+            ->and($definition->columns->first(fn ($col) => $col->name === 'uuid_col')->type)
             ->toBe('uuid')
-            ->and($definition->columns->first(fn($col) => $col->name === 'json_col')->type)
+            ->and($definition->columns->first(fn ($col) => $col->name === 'json_col')->type)
             ->toBe('json');
     }
 
@@ -65,9 +65,9 @@ test('handles all column types and index variations', function (array $model) {
     if ($model['table'] === 'all_indexes') {
         expect($schema->indexes)
             ->toHaveCount(6)
-            ->and($schema->indexes->first(fn($idx) => $idx->name === 'spatial_idx')->type)
+            ->and($schema->indexes->first(fn ($idx) => $idx->name === 'spatial_idx')->type)
             ->toBe('spatial')
-            ->and($schema->indexes->first(fn($idx) => $idx->name === 'composite_idx')->columns)
+            ->and($schema->indexes->first(fn ($idx) => $idx->name === 'composite_idx')->columns)
             ->toHaveCount(2);
     }
 })->with('edge_case_models');

@@ -4,11 +4,13 @@ namespace SAC\EloquentModelGenerator\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class GenerateModelRequest extends FormRequest {
+class GenerateModelRequest extends FormRequest
+{
     /**
      * Determine if the user is authorized to make this request.
      */
-    public function authorize(): bool {
+    public function authorize(): bool
+    {
         return true;
     }
 
@@ -17,7 +19,8 @@ class GenerateModelRequest extends FormRequest {
      *
      * @return array<string, array<string>>
      */
-    public function rules(): array {
+    public function rules(): array
+    {
         return [
             'table' => ['required', 'string', 'regex:/^[a-zA-Z0-9_]+$/'],
             'config' => ['sometimes', 'array'],

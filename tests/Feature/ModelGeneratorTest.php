@@ -1,6 +1,5 @@
 <?php
 
-use SAC\EloquentModelGenerator\ModelGenerator;
 use SAC\EloquentModelGenerator\Models\GeneratedModel;
 use SAC\EloquentModelGenerator\ValueObjects\ModelDefinition;
 

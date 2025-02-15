@@ -1,11 +1,10 @@
 <?php
 
-use SAC\EloquentModelGenerator\ModelGenerator;
 use Illuminate\Support\Facades\File;
 
 beforeEach(function () {
     // Create custom template directory
-    if (!File::exists(resource_path('templates'))) {
+    if (! File::exists(resource_path('templates'))) {
         File::makeDirectory(resource_path('templates'), 0755, true);
     }
 });
@@ -33,7 +32,7 @@ TEMPLATE;
     File::put(resource_path('templates/model.stub'), $customTemplate);
 
     $generator = createModelGenerator([
-        'template_path' => resource_path('templates/model.stub')
+        'template_path' => resource_path('templates/model.stub'),
     ]);
 
     $model = $generator->generate('test_users', getTestSchema());
@@ -66,7 +65,7 @@ TEMPLATE;
 
     $generator = createModelGenerator([
         'with_factory' => true,
-        'factory_template_path' => resource_path('templates/factory.stub')
+        'factory_template_path' => resource_path('templates/factory.stub'),
     ]);
 
     $model = $generator->generate('test_users', getTestSchema());

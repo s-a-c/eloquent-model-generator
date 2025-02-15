@@ -2,8 +2,8 @@
 
 namespace SAC\EloquentModelGenerator\Contracts;
 
-use SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition;
 use SAC\EloquentModelGenerator\Exceptions\ModelGeneratorException;
+use SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition;
 
 /**
  * @phpstan-type ColumnDefinition array{
@@ -18,7 +18,6 @@ use SAC\EloquentModelGenerator\Exceptions\ModelGeneratorException;
  *     comment?: non-empty-string|null,
  *     allowed?: array<string>|null
  * }
- *
  * @phpstan-type SchemaDefinition array{
  *     columns: array<string, ColumnDefinition>,
  *     indexes?: array<string, array{
@@ -46,7 +45,6 @@ use SAC\EloquentModelGenerator\Exceptions\ModelGeneratorException;
  *     primaryKey?: string,
  *     incrementing?: bool
  * }
- *
  * @phpstan-type ModelOptions array{
  *     class_name?: string,
  *     namespace?: string,
@@ -56,11 +54,13 @@ use SAC\EloquentModelGenerator\Exceptions\ModelGeneratorException;
  *     with_relationships?: bool
  * }
  */
-interface ModelGeneratorService {
+interface ModelGeneratorService
+{
     /**
      * Generate a model from a table name.
      *
-     * @param ModelOptions $options
+     * @param  ModelOptions  $options
+     *
      * @throws ModelGeneratorException If table does not exist or schema analysis fails
      */
     public function generateModel(string $table, array $options = []): ModelDefinition;
@@ -68,9 +68,10 @@ interface ModelGeneratorService {
     /**
      * Generate models for multiple tables
      *
-     * @param array<string> $tables
-     * @param ModelOptions $config
+     * @param  array<string>  $tables
+     * @param  ModelOptions  $config
      * @return array<ModelDefinition>
+     *
      * @throws ModelGeneratorException If any model generation fails
      */
     public function generateBatch(array $tables, array $config = []): array;
@@ -79,6 +80,7 @@ interface ModelGeneratorService {
      * Get all available tables
      *
      * @return array<string>
+     *
      * @throws ModelGeneratorException If table list cannot be retrieved
      */
     public function getTables(): array;
@@ -87,6 +89,7 @@ interface ModelGeneratorService {
      * Get the schema for a table
      *
      * @return SchemaDefinition
+     *
      * @throws ModelGeneratorException If schema analysis fails
      */
     public function getTableSchema(string $table): array;

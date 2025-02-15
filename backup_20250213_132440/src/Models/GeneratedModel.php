@@ -4,7 +4,8 @@ namespace SAC\EloquentModelGenerator\Models;
 
 use InvalidArgumentException;
 
-class GeneratedModel {
+class GeneratedModel
+{
     /**
      * Common Laravel validation rules.
      *
@@ -175,19 +176,11 @@ class GeneratedModel {
 
     /**
      * Whether the model uses soft deletes.
-     *
-     * @var bool
      */
     private bool $softDeletes = false;
 
     /**
      * Create a new generated model instance.
-     *
-     * @param string $className
-     * @param string $namespace
-     * @param string $tableName
-     * @param string $baseClass
-     * @param string $content
      */
     public function __construct(
         private string $className,
@@ -207,7 +200,8 @@ class GeneratedModel {
      *
      * @throws InvalidArgumentException
      */
-    private function validateArrays(): void {
+    private function validateArrays(): void
+    {
         $this->validateFillable();
         $this->validateHidden();
         $this->validateCasts();
@@ -222,14 +216,15 @@ class GeneratedModel {
      *
      * @throws InvalidArgumentException
      */
-    private function validateFillable(): void {
+    private function validateFillable(): void
+    {
         foreach ($this->fillable as $field) {
-            if (!is_string($field)) {
+            if (! is_string($field)) {
                 throw new InvalidArgumentException(
-                    "Invalid fillable field. All fillable fields must be strings."
+                    'Invalid fillable field. All fillable fields must be strings.'
                 );
             }
-            if (!isset($this->schema[$field])) {
+            if (! isset($this->schema[$field])) {
                 throw new InvalidArgumentException(
                     "Fillable field '{$field}' does not exist in schema."
                 );
@@ -242,14 +237,15 @@ class GeneratedModel {
      *
      * @throws InvalidArgumentException
      */
-    private function validateHidden(): void {
+    private function validateHidden(): void
+    {
         foreach ($this->hidden as $field) {
-            if (!is_string($field)) {
+            if (! is_string($field)) {
                 throw new InvalidArgumentException(
-                    "Invalid hidden field. All hidden fields must be strings."
+                    'Invalid hidden field. All hidden fields must be strings.'
                 );
             }
-            if (!isset($this->schema[$field])) {
+            if (! isset($this->schema[$field])) {
                 throw new InvalidArgumentException(
                     "Hidden field '{$field}' does not exist in schema."
                 );
@@ -262,21 +258,22 @@ class GeneratedModel {
      *
      * @throws InvalidArgumentException
      */
-    private function validateCasts(): void {
+    private function validateCasts(): void
+    {
         foreach ($this->casts as $field => $type) {
-            if (!is_string($field) || !is_string($type)) {
+            if (! is_string($field) || ! is_string($type)) {
                 throw new InvalidArgumentException(
-                    "Invalid cast definition. Both field and type must be strings."
+                    'Invalid cast definition. Both field and type must be strings.'
                 );
             }
-            if (!isset($this->schema[$field])) {
+            if (! isset($this->schema[$field])) {
                 throw new InvalidArgumentException(
                     "Cast field '{$field}' does not exist in schema."
                 );
             }
-            if (!in_array($type, self::VALID_CAST_TYPES, true)) {
+            if (! in_array($type, self::VALID_CAST_TYPES, true)) {
                 throw new InvalidArgumentException(
-                    "Invalid cast type '{$type}' for field '{$field}'. Valid types are: " . implode(', ', self::VALID_CAST_TYPES)
+                    "Invalid cast type '{$type}' for field '{$field}'. Valid types are: ".implode(', ', self::VALID_CAST_TYPES)
                 );
             }
         }
@@ -287,14 +284,15 @@ class GeneratedModel {
      *
      * @throws InvalidArgumentException
      */
-    private function validateDates(): void {
+    private function validateDates(): void
+    {
         foreach ($this->dates as $field) {
-            if (!is_string($field)) {
+            if (! is_string($field)) {
                 throw new InvalidArgumentException(
-                    "Invalid date field. All date fields must be strings."
+                    'Invalid date field. All date fields must be strings.'
                 );
             }
-            if (!isset($this->schema[$field])) {
+            if (! isset($this->schema[$field])) {
                 throw new InvalidArgumentException(
                     "Date field '{$field}' does not exist in schema."
                 );
@@ -307,14 +305,15 @@ class GeneratedModel {
      *
      * @throws InvalidArgumentException
      */
-    private function validateValidationRules(): void {
+    private function validateValidationRules(): void
+    {
         foreach ($this->validationRules as $field => $rules) {
-            if (!is_string($field)) {
+            if (! is_string($field)) {
                 throw new InvalidArgumentException(
-                    "Invalid validation rule key. Field name must be a string."
+                    'Invalid validation rule key. Field name must be a string.'
                 );
             }
-            if (!isset($this->schema[$field])) {
+            if (! isset($this->schema[$field])) {
                 throw new InvalidArgumentException(
                     "Validation rules field '{$field}' does not exist in schema."
                 );
@@ -332,19 +331,20 @@ class GeneratedModel {
     /**
      * Validate a single validation rule.
      *
-     * @param string $field
-     * @param string|array $rule
+     * @param  string|array  $rule
+     *
      * @throws InvalidArgumentException
      */
-    private function validateSingleRule(string $field, mixed $rule): void {
+    private function validateSingleRule(string $field, mixed $rule): void
+    {
         if (is_array($rule)) {
-            if (empty($rule) || !isset($rule[0]) || !is_string($rule[0])) {
+            if (empty($rule) || ! isset($rule[0]) || ! is_string($rule[0])) {
                 throw new InvalidArgumentException(
                     "Invalid validation rule format for field '{$field}'. Rule array must have a string as first element."
                 );
             }
             $ruleName = $rule[0];
-        } else if (is_string($rule)) {
+        } elseif (is_string($rule)) {
             $parts = explode(':', $rule, 2);
             $ruleName = $parts[0];
         } else {
@@ -355,9 +355,9 @@ class GeneratedModel {
 
         // Check if it's a common rule or a custom rule class
         if (
-            !in_array($ruleName, self::COMMON_VALIDATION_RULES, true) &&
-            !class_exists($ruleName) &&
-            !str_starts_with($ruleName, 'Rule::')
+            ! in_array($ruleName, self::COMMON_VALIDATION_RULES, true) &&
+            ! class_exists($ruleName) &&
+            ! str_starts_with($ruleName, 'Rule::')
         ) {
             throw new InvalidArgumentException(
                 "Invalid validation rule '{$ruleName}' for field '{$field}'. Rule is not recognized."
@@ -370,34 +370,35 @@ class GeneratedModel {
      *
      * @throws InvalidArgumentException
      */
-    private function validateSchema(): void {
+    private function validateSchema(): void
+    {
         foreach ($this->schema as $field => $definition) {
-            if (!is_string($field)) {
+            if (! is_string($field)) {
                 throw new InvalidArgumentException(
-                    "Invalid schema field name. Field name must be a string."
+                    'Invalid schema field name. Field name must be a string.'
                 );
             }
-            if (!is_array($definition)) {
+            if (! is_array($definition)) {
                 throw new InvalidArgumentException(
                     "Invalid schema definition for field '{$field}'. Definition must be an array."
                 );
             }
-            if (!isset($definition['type']) || !is_string($definition['type'])) {
+            if (! isset($definition['type']) || ! is_string($definition['type'])) {
                 throw new InvalidArgumentException(
                     "Invalid schema definition for field '{$field}'. Type must be specified and must be a string."
                 );
             }
-            if (isset($definition['nullable']) && !is_bool($definition['nullable'])) {
+            if (isset($definition['nullable']) && ! is_bool($definition['nullable'])) {
                 throw new InvalidArgumentException(
                     "Invalid schema definition for field '{$field}'. Nullable must be a boolean."
                 );
             }
-            if (isset($definition['unique']) && !is_bool($definition['unique'])) {
+            if (isset($definition['unique']) && ! is_bool($definition['unique'])) {
                 throw new InvalidArgumentException(
                     "Invalid schema definition for field '{$field}'. Unique must be a boolean."
                 );
             }
-            if (isset($definition['primary']) && !is_bool($definition['primary'])) {
+            if (isset($definition['primary']) && ! is_bool($definition['primary'])) {
                 throw new InvalidArgumentException(
                     "Invalid schema definition for field '{$field}'. Primary must be a boolean."
                 );
@@ -410,54 +411,55 @@ class GeneratedModel {
      *
      * @throws InvalidArgumentException
      */
-    private function validateRelationships(): void {
+    private function validateRelationships(): void
+    {
         foreach ($this->relationships as $name => $definition) {
-            if (!is_string($name)) {
+            if (! is_string($name)) {
                 throw new InvalidArgumentException(
-                    "Invalid relationship name. Name must be a string."
+                    'Invalid relationship name. Name must be a string.'
                 );
             }
-            if (!is_array($definition)) {
+            if (! is_array($definition)) {
                 throw new InvalidArgumentException(
                     "Invalid relationship definition for '{$name}'. Definition must be an array."
                 );
             }
-            if (!isset($definition['type']) || !is_string($definition['type'])) {
+            if (! isset($definition['type']) || ! is_string($definition['type'])) {
                 throw new InvalidArgumentException(
                     "Invalid relationship definition for '{$name}'. Type must be specified and must be a string."
                 );
             }
-            if (!in_array($definition['type'], self::VALID_RELATIONSHIP_TYPES, true)) {
+            if (! in_array($definition['type'], self::VALID_RELATIONSHIP_TYPES, true)) {
                 throw new InvalidArgumentException(
-                    "Invalid relationship type '{$definition['type']}' for '{$name}'. Valid types are: " . implode(', ', self::VALID_RELATIONSHIP_TYPES)
+                    "Invalid relationship type '{$definition['type']}' for '{$name}'. Valid types are: ".implode(', ', self::VALID_RELATIONSHIP_TYPES)
                 );
             }
-            if (!isset($definition['model']) || !is_string($definition['model'])) {
+            if (! isset($definition['model']) || ! is_string($definition['model'])) {
                 throw new InvalidArgumentException(
                     "Invalid relationship definition for '{$name}'. Model must be specified and must be a string."
                 );
             }
-            if (!$this->validateModelExists($definition['model'])) {
+            if (! $this->validateModelExists($definition['model'])) {
                 throw new InvalidArgumentException(
                     "Invalid relationship definition for '{$name}'. Model class '{$definition['model']}' does not exist."
                 );
             }
-            if (isset($definition['foreignKey']) && !is_string($definition['foreignKey'])) {
+            if (isset($definition['foreignKey']) && ! is_string($definition['foreignKey'])) {
                 throw new InvalidArgumentException(
                     "Invalid relationship definition for '{$name}'. Foreign key must be a string."
                 );
             }
-            if (isset($definition['localKey']) && !is_string($definition['localKey'])) {
+            if (isset($definition['localKey']) && ! is_string($definition['localKey'])) {
                 throw new InvalidArgumentException(
                     "Invalid relationship definition for '{$name}'. Local key must be a string."
                 );
             }
-            if (isset($definition['foreignKey']) && !isset($this->schema[$definition['foreignKey']])) {
+            if (isset($definition['foreignKey']) && ! isset($this->schema[$definition['foreignKey']])) {
                 throw new InvalidArgumentException(
                     "Invalid relationship definition for '{$name}'. Foreign key '{$definition['foreignKey']}' does not exist in schema."
                 );
             }
-            if (isset($definition['localKey']) && !isset($this->schema[$definition['localKey']])) {
+            if (isset($definition['localKey']) && ! isset($this->schema[$definition['localKey']])) {
                 throw new InvalidArgumentException(
                     "Invalid relationship definition for '{$name}'. Local key '{$definition['localKey']}' does not exist in schema."
                 );
@@ -467,35 +469,34 @@ class GeneratedModel {
 
     /**
      * Validate that a model class exists.
-     *
-     * @param string $modelClass
-     * @return bool
      */
-    private function validateModelExists(string $modelClass): bool {
+    private function validateModelExists(string $modelClass): bool
+    {
         // Handle fully qualified class names
         if (class_exists($modelClass)) {
             return true;
         }
 
         // Handle relative class names in the same namespace
-        $fullyQualifiedClass = $this->namespace . '\\' . $modelClass;
+        $fullyQualifiedClass = $this->namespace.'\\'.$modelClass;
         if (class_exists($fullyQualifiedClass)) {
             return true;
         }
 
         // Handle Laravel model namespace
-        $laravelModelClass = 'App\\Models\\' . $modelClass;
+        $laravelModelClass = 'App\\Models\\'.$modelClass;
+
         return class_exists($laravelModelClass);
     }
 
     /**
      * Validate the class name.
      *
-     * @param string $className
      * @throws InvalidArgumentException
      */
-    private function validateClassName(string $className): void {
-        if (!preg_match('/^[A-Z][a-zA-Z0-9]*$/', $className)) {
+    private function validateClassName(string $className): void
+    {
+        if (! preg_match('/^[A-Z][a-zA-Z0-9]*$/', $className)) {
             throw new InvalidArgumentException(
                 "Invalid class name '{$className}'. Class name must start with an uppercase letter and contain only alphanumeric characters."
             );
@@ -505,11 +506,11 @@ class GeneratedModel {
     /**
      * Validate the namespace.
      *
-     * @param string $namespace
      * @throws InvalidArgumentException
      */
-    private function validateNamespace(string $namespace): void {
-        if (!preg_match('/^[A-Za-z0-9\\\\]+$/', $namespace)) {
+    private function validateNamespace(string $namespace): void
+    {
+        if (! preg_match('/^[A-Za-z0-9\\\\]+$/', $namespace)) {
             throw new InvalidArgumentException(
                 "Invalid namespace '{$namespace}'. Namespace must contain only alphanumeric characters and backslashes."
             );
@@ -519,11 +520,11 @@ class GeneratedModel {
     /**
      * Validate the table name.
      *
-     * @param string $tableName
      * @throws InvalidArgumentException
      */
-    private function validateTableName(string $tableName): void {
-        if (!preg_match('/^[a-zA-Z_][a-zA-Z0-9_]*$/', $tableName)) {
+    private function validateTableName(string $tableName): void
+    {
+        if (! preg_match('/^[a-zA-Z_][a-zA-Z0-9_]*$/', $tableName)) {
             throw new InvalidArgumentException(
                 "Invalid table name '{$tableName}'. Table name must start with a letter or underscore and contain only alphanumeric characters and underscores."
             );
@@ -533,11 +534,11 @@ class GeneratedModel {
     /**
      * Validate the base class.
      *
-     * @param string $baseClass
      * @throws InvalidArgumentException
      */
-    private function validateBaseClass(string $baseClass): void {
-        if (!preg_match('/^[A-Za-z0-9\\\\]+$/', $baseClass)) {
+    private function validateBaseClass(string $baseClass): void
+    {
+        if (! preg_match('/^[A-Za-z0-9\\\\]+$/', $baseClass)) {
             throw new InvalidArgumentException(
                 "Invalid base class '{$baseClass}'. Base class must contain only alphanumeric characters and backslashes."
             );
@@ -546,37 +547,33 @@ class GeneratedModel {
 
     /**
      * Get the class name.
-     *
-     * @return string
      */
-    public function getClassName(): string {
+    public function getClassName(): string
+    {
         return $this->className;
     }
 
     /**
      * Get the namespace.
-     *
-     * @return string
      */
-    public function getNamespace(): string {
+    public function getNamespace(): string
+    {
         return $this->namespace;
     }
 
     /**
      * Get the table name.
-     *
-     * @return string
      */
-    public function getTableName(): string {
+    public function getTableName(): string
+    {
         return $this->tableName;
     }
 
     /**
      * Get the base class.
-     *
-     * @return string
      */
-    public function getBaseClass(): string {
+    public function getBaseClass(): string
+    {
         return $this->baseClass;
     }
 
@@ -585,7 +582,8 @@ class GeneratedModel {
      *
      * @return array<string, mixed>
      */
-    public function getSchema(): array {
+    public function getSchema(): array
+    {
         return $this->schema;
     }
 
@@ -594,7 +592,8 @@ class GeneratedModel {
      *
      * @return array<string, array{type: string, model: string, foreignKey?: string, localKey?: string, table?: string, pivotColumns?: array<string>}>
      */
-    public function getRelationships(): array {
+    public function getRelationships(): array
+    {
         return $this->relationships;
     }
 
@@ -603,7 +602,8 @@ class GeneratedModel {
      *
      * @return array<string, string>
      */
-    public function getCasts(): array {
+    public function getCasts(): array
+    {
         return $this->casts;
     }
 
@@ -612,7 +612,8 @@ class GeneratedModel {
      *
      * @return array<string>
      */
-    public function getFillable(): array {
+    public function getFillable(): array
+    {
         return $this->fillable;
     }
 
@@ -621,7 +622,8 @@ class GeneratedModel {
      *
      * @return array<string>
      */
-    public function getHidden(): array {
+    public function getHidden(): array
+    {
         return $this->hidden;
     }
 
@@ -630,7 +632,8 @@ class GeneratedModel {
      *
      * @return array<string, array<string>|string>
      */
-    public function getValidationRules(): array {
+    public function getValidationRules(): array
+    {
         return $this->validationRules;
     }
 
@@ -639,28 +642,27 @@ class GeneratedModel {
      *
      * @return array<string>
      */
-    public function getDates(): array {
+    public function getDates(): array
+    {
         return $this->dates;
     }
 
     /**
      * Check if the model uses soft deletes.
-     *
-     * @return bool
      */
-    public function usesSoftDeletes(): bool {
+    public function usesSoftDeletes(): bool
+    {
         return $this->softDeletes;
     }
 
     /**
      * Get the file path for this model.
-     *
-     * @param string $basePath
-     * @return string
      */
-    public function getFilePath(string $basePath): string {
+    public function getFilePath(string $basePath): string
+    {
         $relativePath = str_replace('\\', '/', $this->namespace);
-        return rtrim($basePath, '/') . '/' . $relativePath . '/' . $this->className . '.php';
+
+        return rtrim($basePath, '/').'/'.$relativePath.'/'.$this->className.'.php';
     }
 
     /**
@@ -668,7 +670,8 @@ class GeneratedModel {
      *
      * @return array<string, mixed>
      */
-    public function toArray(): array {
+    public function toArray(): array
+    {
         return [
             'className' => $this->className,
             'namespace' => $this->namespace,
@@ -687,28 +690,27 @@ class GeneratedModel {
 
     /**
      * Get the fully qualified class name.
-     *
-     * @return string
      */
-    public function getFullyQualifiedClassName(): string {
-        return $this->namespace . '\\' . $this->className;
+    public function getFullyQualifiedClassName(): string
+    {
+        return $this->namespace.'\\'.$this->className;
     }
 
     /**
      * Render the model as a string.
-     *
-     * @return string
      */
-    public function render(): string {
+    public function render(): string
+    {
         return $this->content;
     }
 
     /**
      * Set the validation rules.
      *
-     * @param array<string, array<string>|string> $rules
+     * @param  array<string, array<string>|string>  $rules
      */
-    public function setValidationRules(array $rules): void {
+    public function setValidationRules(array $rules): void
+    {
         $this->validateSingleRule($rules);
         $this->validationRules = $rules;
     }
@@ -716,10 +718,10 @@ class GeneratedModel {
     /**
      * Set the validation messages.
      *
-     * @param array<string, string> $messages
-     * @return void
+     * @param  array<string, string>  $messages
      */
-    public function setValidationMessages(array $messages): void {
+    public function setValidationMessages(array $messages): void
+    {
         $this->validationMessages = $messages;
     }
 
@@ -728,61 +730,60 @@ class GeneratedModel {
      *
      * @return array<string, string>
      */
-    public function getValidationMessages(): array {
+    public function getValidationMessages(): array
+    {
         return $this->validationMessages;
     }
 
     /**
      * Set the model content.
-     *
-     * @param string $content
-     * @return void
      */
-    public function setContent(string $content): void {
+    public function setContent(string $content): void
+    {
         $this->content = $content;
     }
 
     /**
      * Get the model content.
-     *
-     * @return string
      */
-    public function getContent(): string {
+    public function getContent(): string
+    {
         return $this->content;
     }
 
     /**
      * Validate array values in validation rules
      *
-     * @param array<string, string|array<string>> $rules
-     * @return bool
+     * @param  array<string, string|array<string>>  $rules
      */
-    protected function validateArrays(array $rules): bool {
+    protected function validateArrays(array $rules): bool
+    {
         foreach ($rules as $field => $rule) {
             if (is_array($rule)) {
                 foreach ($rule as $singleRule) {
-                    if (!is_string($singleRule)) {
+                    if (! is_string($singleRule)) {
                         return false;
                     }
                 }
-            } elseif (!is_string($rule)) {
+            } elseif (! is_string($rule)) {
                 return false;
             }
         }
+
         return true;
     }
 
     /**
      * Validate a single rule
      *
-     * @param string $field
-     * @param string|array<string> $rule
-     * @return bool
+     * @param  string|array<string>  $rule
      */
-    protected function validateSingleRule(string $field, $rule): bool {
+    protected function validateSingleRule(string $field, $rule): bool
+    {
         if (is_array($rule)) {
             return $this->validateArrays([$field => $rule]);
         }
+
         return is_string($rule);
     }
 }

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace SAC\EloquentModelGenerator\Exceptions;
 
-use InvalidArgumentException;
 use Throwable;
 
 /**
@@ -16,7 +15,8 @@ use Throwable;
  *     code: int
  * }
  */
-class OutputFormatException extends AnalysisException {
+class OutputFormatException extends AnalysisException
+{
     /**
      * The format that caused the error.
      */
@@ -25,10 +25,10 @@ class OutputFormatException extends AnalysisException {
     /**
      * Create a new output format exception instance.
      *
-     * @param string $format The invalid format
-     * @param string $message The exception message
-     * @param int $code The exception code
-     * @param \Throwable|null $previous The previous throwable used for exception chaining
+     * @param  string  $format  The invalid format
+     * @param  string  $message  The exception message
+     * @param  int  $code  The exception code
+     * @param  \Throwable|null  $previous  The previous throwable used for exception chaining
      */
     public function __construct(
         string $format,
@@ -44,13 +44,14 @@ class OutputFormatException extends AnalysisException {
     /**
      * Create an exception for unsupported format.
      *
-     * @param string $format The unsupported format
-     * @param string $tool The tool name
-     * @return self
+     * @param  string  $format  The unsupported format
+     * @param  string  $tool  The tool name
      */
-    public static function unsupportedFormat(string $format, string $tool): self {
+    public static function unsupportedFormat(string $format, string $tool): self
+    {
         self::validateNotEmpty($format, 'format');
         self::validateNotEmpty($tool, 'tool name');
+
         return new self(
             $format,
             sprintf('Tool %s does not support output format: %s', $tool, $format),
@@ -61,14 +62,15 @@ class OutputFormatException extends AnalysisException {
     /**
      * Create an exception for invalid format content.
      *
-     * @param string $format The format
-     * @param string $content The invalid content
-     * @param string $reason The reason for invalidity
-     * @return self
+     * @param  string  $format  The format
+     * @param  string  $content  The invalid content
+     * @param  string  $reason  The reason for invalidity
      */
-    public static function invalidContent(string $format, string $content, string $reason): self {
+    public static function invalidContent(string $format, string $content, string $reason): self
+    {
         self::validateNotEmpty($format, 'format');
         self::validateNotEmpty($reason, 'reason');
+
         return new self(
             $format,
             sprintf('Invalid %s content: %s. %s', $format, $content, $reason),
@@ -79,15 +81,16 @@ class OutputFormatException extends AnalysisException {
     /**
      * Create an exception for missing required fields.
      *
-     * @param string $format The format
-     * @param array<string> $fields The missing fields
-     * @return self
+     * @param  string  $format  The format
+     * @param  array<string>  $fields  The missing fields
      */
-    public static function missingFields(string $format, array $fields): self {
+    public static function missingFields(string $format, array $fields): self
+    {
         self::validateNotEmpty($format, 'format');
         if (empty($fields)) {
             throw new \InvalidArgumentException('Fields array cannot be empty');
         }
+
         return new self(
             $format,
             sprintf(
@@ -102,13 +105,14 @@ class OutputFormatException extends AnalysisException {
     /**
      * Create an exception for parsing error.
      *
-     * @param string $format The format
-     * @param string $error The parsing error
-     * @return self
+     * @param  string  $format  The format
+     * @param  string  $error  The parsing error
      */
-    public static function parsingError(string $format, string $error): self {
+    public static function parsingError(string $format, string $error): self
+    {
         self::validateNotEmpty($format, 'format');
         self::validateNotEmpty($error, 'error message');
+
         return new self(
             $format,
             sprintf('Failed to parse %s output: %s', $format, $error),
@@ -119,15 +123,16 @@ class OutputFormatException extends AnalysisException {
     /**
      * Create an exception for conversion error.
      *
-     * @param string $fromFormat The source format
-     * @param string $toFormat The target format
-     * @param string $error The conversion error
-     * @return self
+     * @param  string  $fromFormat  The source format
+     * @param  string  $toFormat  The target format
+     * @param  string  $error  The conversion error
      */
-    public static function conversionError(string $fromFormat, string $toFormat, string $error): self {
+    public static function conversionError(string $fromFormat, string $toFormat, string $error): self
+    {
         self::validateNotEmpty($fromFormat, 'source format');
         self::validateNotEmpty($toFormat, 'target format');
         self::validateNotEmpty($error, 'error message');
+
         return new self(
             $fromFormat,
             sprintf('Failed to convert from %s to %s: %s', $fromFormat, $toFormat, $error),
@@ -138,7 +143,8 @@ class OutputFormatException extends AnalysisException {
     /**
      * Get the format that caused the error.
      */
-    public function getFormat(): string {
+    public function getFormat(): string
+    {
         return $this->format;
     }
 
@@ -147,7 +153,8 @@ class OutputFormatException extends AnalysisException {
      *
      * @return FormatContext
      */
-    public function getContext(): array {
+    public function getContext(): array
+    {
         return [
             'format' => $this->format,
             'message' => $this->getMessage(),

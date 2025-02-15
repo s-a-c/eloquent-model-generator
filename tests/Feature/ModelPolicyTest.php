@@ -1,11 +1,10 @@
 <?php
 
-use SAC\EloquentModelGenerator\ModelGenerator;
 use Illuminate\Support\Facades\File;
 
 test('it generates model policy', function () {
     $generator = createModelGenerator([
-        'with_policy' => true
+        'with_policy' => true,
     ]);
 
     $model = $generator->generate('test_users', getTestSchema());
@@ -25,8 +24,8 @@ test('it generates model policy with custom methods', function () {
         'with_policy' => true,
         'policy_methods' => [
             'publish' => 'return $user->isAdmin();',
-            'archive' => 'return $user->can("archive_users");'
-        ]
+            'archive' => 'return $user->can("archive_users");',
+        ],
     ]);
 
     $model = $generator->generate('test_users', getTestSchema());

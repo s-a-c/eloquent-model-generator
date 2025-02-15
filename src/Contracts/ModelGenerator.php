@@ -2,15 +2,17 @@
 
 namespace SAC\EloquentModelGenerator\Contracts;
 
+use SAC\EloquentModelGenerator\Exceptions\ModelGeneratorException;
 use SAC\EloquentModelGenerator\Models\GeneratedModel;
 use SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition;
-use SAC\EloquentModelGenerator\Exceptions\ModelGeneratorException;
 
-interface ModelGenerator {
+interface ModelGenerator
+{
     /**
      * Generate a model from the given schema.
      *
-     * @param array<string, mixed> $schema
+     * @param  array<string, mixed>  $schema
+     *
      * @throws ModelGeneratorException
      */
     public function generate(ModelDefinition $definition, array $schema): GeneratedModel;
@@ -18,9 +20,10 @@ interface ModelGenerator {
     /**
      * Generate multiple models in batch.
      *
-     * @param array<ModelDefinition> $definitions
-     * @param array<string, array<string, mixed>> $schemas
+     * @param  array<ModelDefinition>  $definitions
+     * @param  array<string, array<string, mixed>>  $schemas
      * @return array<GeneratedModel>
+     *
      * @throws ModelGeneratorException
      */
     public function generateBatch(array $definitions, array $schemas): array;

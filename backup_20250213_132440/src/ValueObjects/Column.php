@@ -6,22 +6,21 @@ namespace SAC\EloquentModelGenerator\ValueObjects;
  * Class Column
  *
  * Represents a database column with its properties and attributes.
- *
- * @package SAC\EloquentModelGenerator\ValueObjects
  */
-class Column {
+class Column
+{
     /**
      * Create a new column instance.
      *
-     * @param string $name The name of the column
-     * @param string $type The SQL type of the column
-     * @param bool $isPrimary Whether this is a primary key column
-     * @param bool $isAutoIncrement Whether this column auto-increments
-     * @param bool $isNullable Whether this column can be null
-     * @param bool $isUnique Whether this column has a unique constraint
-     * @param string|null $default The default value for this column
-     * @param int|null $length The length/size of the column
-     * @param array<string>|null $enumValues The possible values for enum columns
+     * @param  string  $name  The name of the column
+     * @param  string  $type  The SQL type of the column
+     * @param  bool  $isPrimary  Whether this is a primary key column
+     * @param  bool  $isAutoIncrement  Whether this column auto-increments
+     * @param  bool  $isNullable  Whether this column can be null
+     * @param  bool  $isUnique  Whether this column has a unique constraint
+     * @param  string|null  $default  The default value for this column
+     * @param  int|null  $length  The length/size of the column
+     * @param  array<string>|null  $enumValues  The possible values for enum columns
      */
     public function __construct(
         private readonly string $name,
@@ -33,62 +32,69 @@ class Column {
         private readonly ?string $default = null,
         private readonly ?int $length = null,
         private readonly ?array $enumValues = null
-    ) {
-    }
+    ) {}
 
     /**
      * Get the column name.
      */
-    public function getName(): string {
+    public function getName(): string
+    {
         return $this->name;
     }
 
     /**
      * Get the column type.
      */
-    public function getType(): string {
+    public function getType(): string
+    {
         return $this->type;
     }
 
     /**
      * Check if the column is primary.
      */
-    public function isPrimary(): bool {
+    public function isPrimary(): bool
+    {
         return $this->isPrimary;
     }
 
     /**
      * Check if the column is auto-incrementing.
      */
-    public function isAutoIncrement(): bool {
+    public function isAutoIncrement(): bool
+    {
         return $this->isAutoIncrement;
     }
 
     /**
      * Check if the column is nullable.
      */
-    public function isNullable(): bool {
+    public function isNullable(): bool
+    {
         return $this->isNullable;
     }
 
     /**
      * Check if the column is unique.
      */
-    public function isUnique(): bool {
+    public function isUnique(): bool
+    {
         return $this->isUnique;
     }
 
     /**
      * Get the column default value.
      */
-    public function getDefault(): ?string {
+    public function getDefault(): ?string
+    {
         return $this->default;
     }
 
     /**
      * Get the column length.
      */
-    public function getLength(): ?int {
+    public function getLength(): ?int
+    {
         return $this->length;
     }
 
@@ -97,7 +103,8 @@ class Column {
      *
      * @return array<string>|null
      */
-    public function getEnumValues(): ?array {
+    public function getEnumValues(): ?array
+    {
         return $this->enumValues;
     }
 
@@ -106,7 +113,8 @@ class Column {
      *
      * @return string A formatted string containing the column name, type, and attributes
      */
-    public function toString(): string {
+    public function toString(): string
+    {
         /** @var array<int, string> $attributes */
         $attributes = [];
 
@@ -142,7 +150,7 @@ class Column {
             '%s %s%s',
             $this->name,
             $this->type,
-            $attributes ? ' (' . implode(', ', $attributes) . ')' : ''
+            $attributes ? ' ('.implode(', ', $attributes).')' : ''
         );
     }
 }

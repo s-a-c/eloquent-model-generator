@@ -6,7 +6,8 @@ namespace SAC\EloquentModelGenerator\Config;
 
 use Illuminate\Support\Facades\File;
 
-class AnalysisConfig {
+class AnalysisConfig
+{
     private string $normalizedTargetDir;
 
     public function __construct(
@@ -23,7 +24,8 @@ class AnalysisConfig {
         }
     }
 
-    public function toFile(string $path): void {
+    public function toFile(string $path): void
+    {
         file_put_contents($path, json_encode([
             'targetDir' => $this->targetDir,
             'levels' => $this->levels,
@@ -33,8 +35,10 @@ class AnalysisConfig {
         ], JSON_PRETTY_PRINT));
     }
 
-    public static function fromFile(string $path): self {
+    public static function fromFile(string $path): self
+    {
         $data = json_decode(file_get_contents($path), true);
+
         return new self(
             targetDir: $data['targetDir'],
             levels: $data['levels'],
@@ -44,12 +48,13 @@ class AnalysisConfig {
         );
     }
 
-    public function validate(): void {
+    public function validate(): void
+    {
         if (empty($this->normalizedTargetDir)) {
             throw new \InvalidArgumentException('Target directory is required');
         }
 
-        if (!File::isDirectory($this->normalizedTargetDir)) {
+        if (! File::isDirectory($this->normalizedTargetDir)) {
             throw new \InvalidArgumentException("Target directory does not exist: {$this->normalizedTargetDir}");
         }
 
@@ -58,27 +63,33 @@ class AnalysisConfig {
         }
     }
 
-    public function getTargetDir(): string {
+    public function getTargetDir(): string
+    {
         return $this->normalizedTargetDir;
     }
 
-    public function getLevels(): array {
+    public function getLevels(): array
+    {
         return $this->levels;
     }
 
-    public function getTools(): array {
+    public function getTools(): array
+    {
         return $this->tools;
     }
 
-    public function isParallel(): bool {
+    public function isParallel(): bool
+    {
         return $this->parallel;
     }
 
-    public function isDryRun(): bool {
+    public function isDryRun(): bool
+    {
         return $this->dryRun;
     }
 
-    public function toArray(): array {
+    public function toArray(): array
+    {
         return [
             'targetDir' => $this->normalizedTargetDir,
             'levels' => $this->levels,

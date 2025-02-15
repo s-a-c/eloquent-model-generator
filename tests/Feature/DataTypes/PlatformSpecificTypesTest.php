@@ -1,9 +1,7 @@
 <?php
 
-use SAC\EloquentModelGenerator\Tests\Traits\{
-    UsePostgreSQLConnection,
-    UseSQLServerConnection
-};
+use SAC\EloquentModelGenerator\Tests\Traits\UsePostgreSQLConnection;
+use SAC\EloquentModelGenerator\Tests\Traits\UseSQLServerConnection;
 use SAC\EloquentModelGenerator\ValueObjects\ModelDefinition;
 
 dataset('postgresql_types', [
@@ -217,8 +215,8 @@ test('handles sqlserver specific types correctly', function (array $types) {
             // Spatial types should have proper method accessors
             $methodName = str_replace('_column', '', $column);
             expect($content)
-                ->toMatch("/public\s+function\s+get" . ucfirst($methodName) . "Attribute/")
-                ->toMatch("/public\s+function\s+set" . ucfirst($methodName) . "Attribute/");
+                ->toMatch("/public\s+function\s+get".ucfirst($methodName).'Attribute/')
+                ->toMatch("/public\s+function\s+set".ucfirst($methodName).'Attribute/');
         }
     }
 

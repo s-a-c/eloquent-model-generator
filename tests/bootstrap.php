@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__.'/../vendor/autoload.php';
 
 // Set up error handler to suppress only thecodingmachine/safe deprecation notices
 set_error_handler(function ($errno, $errstr, $errfile) {

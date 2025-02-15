@@ -2,15 +2,16 @@
 
 namespace SAC\EloquentModelGenerator\Exceptions;
 
-use Throwable;
 use Exception;
+use Throwable;
 
-class ModelGeneratorException extends Exception {
+class ModelGeneratorException extends Exception
+{
     /**
      * Create a new model generator exception instance.
      */
     public function __construct(
-        string $message = "",
+        string $message = '',
         int $code = 0,
         ?Throwable $previous = null
     ) {

@@ -11,15 +11,14 @@ use Illuminate\Support\Str;
 use ReflectionClass;
 use ReflectionMethod;
 
-trait AssertModelRelations {
+trait AssertModelRelations
+{
     /**
      * Assert that a model has the expected relationships.
-     *
-     * @param string $modelClass
-     * @param array $expectedRelations
      */
-    protected function assertModelHasRelations(string $modelClass, array $expectedRelations): void {
-        $model = new $modelClass();
+    protected function assertModelHasRelations(string $modelClass, array $expectedRelations): void
+    {
+        $model = new $modelClass;
         $relations = $this->getModelRelations($model);
 
         foreach ($expectedRelations as $name => $type) {
@@ -38,11 +37,6 @@ trait AssertModelRelations {
 
     /**
      * Assert that a model has a specific relationship.
-     *
-     * @param string $modelClass
-     * @param string $relationName
-     * @param string $relationType
-     * @param array $config
      */
     protected function assertModelHasRelation(
         string $modelClass,
@@ -50,7 +44,7 @@ trait AssertModelRelations {
         string $relationType,
         array $config = []
     ): void {
-        $model = new $modelClass();
+        $model = new $modelClass;
         $relation = $this->getRelation($model, $relationName);
 
         $this->assertInstanceOf(
@@ -70,12 +64,6 @@ trait AssertModelRelations {
 
     /**
      * Assert that a model has a belongs to relationship.
-     *
-     * @param string $modelClass
-     * @param string $relationName
-     * @param string $relatedModel
-     * @param string|null $foreignKey
-     * @param string|null $ownerKey
      */
     protected function assertModelBelongsTo(
         string $modelClass,
@@ -85,20 +73,14 @@ trait AssertModelRelations {
         ?string $ownerKey = null
     ): void {
         $this->assertModelHasRelation($modelClass, $relationName, BelongsTo::class, [
-            'foreignKey' => $foreignKey ?? Str::snake($relationName) . '_id',
+            'foreignKey' => $foreignKey ?? Str::snake($relationName).'_id',
             'ownerKey' => $ownerKey ?? 'id',
-            'related' => new $relatedModel()
+            'related' => new $relatedModel,
         ]);
     }
 
     /**
      * Assert that a model has a has one relationship.
-     *
-     * @param string $modelClass
-     * @param string $relationName
-     * @param string $relatedModel
-     * @param string|null $foreignKey
-     * @param string|null $localKey
      */
     protected function assertModelHasOne(
         string $modelClass,
@@ -108,20 +90,14 @@ trait AssertModelRelations {
         ?string $localKey = null
     ): void {
         $this->assertModelHasRelation($modelClass, $relationName, HasOne::class, [
-            'foreignKey' => $foreignKey ?? Str::snake(class_basename($modelClass)) . '_id',
+            'foreignKey' => $foreignKey ?? Str::snake(class_basename($modelClass)).'_id',
             'localKey' => $localKey ?? 'id',
-            'related' => new $relatedModel()
+            'related' => new $relatedModel,
         ]);
     }
 
     /**
      * Assert that a model has a has many relationship.
-     *
-     * @param string $modelClass
-     * @param string $relationName
-     * @param string $relatedModel
-     * @param string|null $foreignKey
-     * @param string|null $localKey
      */
     protected function assertModelHasMany(
         string $modelClass,
@@ -131,21 +107,14 @@ trait AssertModelRelations {
         ?string $localKey = null
     ): void {
         $this->assertModelHasRelation($modelClass, $relationName, HasMany::class, [
-            'foreignKey' => $foreignKey ?? Str::snake(class_basename($modelClass)) . '_id',
+            'foreignKey' => $foreignKey ?? Str::snake(class_basename($modelClass)).'_id',
             'localKey' => $localKey ?? 'id',
-            'related' => new $relatedModel()
+            'related' => new $relatedModel,
         ]);
     }
 
     /**
      * Assert that a model has a belongs to many relationship.
-     *
-     * @param string $modelClass
-     * @param string $relationName
-     * @param string $relatedModel
-     * @param string|null $table
-     * @param string|null $foreignPivotKey
-     * @param string|null $relatedPivotKey
      */
     protected function assertModelBelongsToMany(
         string $modelClass,
@@ -157,19 +126,17 @@ trait AssertModelRelations {
     ): void {
         $this->assertModelHasRelation($modelClass, $relationName, BelongsToMany::class, [
             'table' => $table ?? $this->getDefaultPivotTableName($modelClass, $relatedModel),
-            'foreignPivotKey' => $foreignPivotKey ?? Str::snake(class_basename($modelClass)) . '_id',
-            'relatedPivotKey' => $relatedPivotKey ?? Str::snake(class_basename($relatedModel)) . '_id',
-            'related' => new $relatedModel()
+            'foreignPivotKey' => $foreignPivotKey ?? Str::snake(class_basename($modelClass)).'_id',
+            'relatedPivotKey' => $relatedPivotKey ?? Str::snake(class_basename($relatedModel)).'_id',
+            'related' => new $relatedModel,
         ]);
     }
 
     /**
      * Get all relations from a model.
-     *
-     * @param Model $model
-     * @return array
      */
-    private function getModelRelations(Model $model): array {
+    private function getModelRelations(Model $model): array
+    {
         $class = new ReflectionClass($model);
         $relations = [];
 
@@ -192,37 +159,34 @@ trait AssertModelRelations {
     /**
      * Get a specific relation from a model.
      *
-     * @param Model $model
-     * @param string $relationName
      * @return mixed
      */
-    private function getRelation(Model $model, string $relationName) {
+    private function getRelation(Model $model, string $relationName)
+    {
         return $model->$relationName();
     }
 
     /**
      * Check if an object is a relation.
      *
-     * @param mixed $object
-     * @return bool
+     * @param  mixed  $object
      */
-    private function isRelation($object): bool {
+    private function isRelation($object): bool
+    {
         return method_exists($object, 'getQuery');
     }
 
     /**
      * Get the default pivot table name for a many-to-many relationship.
-     *
-     * @param string $modelClass
-     * @param string $relatedModel
-     * @return string
      */
-    private function getDefaultPivotTableName(string $modelClass, string $relatedModel): string {
+    private function getDefaultPivotTableName(string $modelClass, string $relatedModel): string
+    {
         $models = [
             Str::snake(class_basename($modelClass)),
-            Str::snake(class_basename($relatedModel))
+            Str::snake(class_basename($relatedModel)),
         ];
         sort($models);
+
         return implode('_', $models);
     }
 }

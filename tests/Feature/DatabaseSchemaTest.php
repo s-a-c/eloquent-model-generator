@@ -12,7 +12,7 @@ test('it correctly analyzes table schema', function () {
         $table->timestamps();
     });
 
-    $analyzer = new SchemaAnalyzer();
+    $analyzer = new SchemaAnalyzer;
     $schema = $analyzer->analyze('test_users');
 
     expect($schema)
@@ -21,10 +21,10 @@ test('it correctly analyzes table schema', function () {
         ->and($schema['columns'])
         ->toHaveCount(4)
         ->sequence(
-            fn($column) => $column->toBe('id'),
-            fn($column) => $column->toBe('name'),
-            fn($column) => $column->toBe('email'),
-            fn($column) => $column->toBe('created_at')
+            fn ($column) => $column->toBe('id'),
+            fn ($column) => $column->toBe('name'),
+            fn ($column) => $column->toBe('email'),
+            fn ($column) => $column->toBe('created_at')
         );
 });
 
@@ -36,7 +36,7 @@ test('it correctly identifies foreign keys', function () {
         $table->timestamps();
     });
 
-    $analyzer = new SchemaAnalyzer();
+    $analyzer = new SchemaAnalyzer;
     $schema = $analyzer->analyze('test_posts');
 
     expect($schema['relations'])
@@ -46,6 +46,6 @@ test('it correctly identifies foreign keys', function () {
             'type' => 'belongsTo',
             'name' => 'user',
             'foreign_key' => 'user_id',
-            'parent_table' => 'test_users'
+            'parent_table' => 'test_users',
         ]);
 });

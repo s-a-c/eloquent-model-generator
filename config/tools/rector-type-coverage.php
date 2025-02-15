@@ -17,17 +17,17 @@ use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromStrictGetterMethodRe
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->paths([
-        __DIR__ . '/../../src',
+        __DIR__.'/../../src',
     ]);
 
     $rectorConfig->skip([
-        __DIR__ . '/../../tests',
-        __DIR__ . '/../../vendor',
+        __DIR__.'/../../tests',
+        __DIR__.'/../../vendor',
     ]);
 
     // Configure output format
     $rectorConfig->parameters()->set(Option::OUTPUT_FORMAT, 'json');
-    $rectorConfig->parameters()->set(Option::CACHE_DIR, __DIR__ . '/../../build/rector');
+    $rectorConfig->parameters()->set(Option::CACHE_DIR, __DIR__.'/../../build/rector');
 
     // Type coverage rules
     $rectorConfig->rules([
@@ -45,7 +45,7 @@ return static function (RectorConfig $rectorConfig): void {
 
     // Import type declaration sets
     $rectorConfig->sets([
-        __DIR__ . '/../../vendor/rector/rector/config/set/type-declaration.php',
-        __DIR__ . '/../../vendor/rector/rector/config/set/type-declaration-strict.php',
+        __DIR__.'/../../vendor/rector/rector/config/set/type-declaration.php',
+        __DIR__.'/../../vendor/rector/rector/config/set/type-declaration-strict.php',
     ]);
 };

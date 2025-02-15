@@ -2,8 +2,10 @@
 
 namespace SAC\EloquentModelGenerator\Tests\Traits;
 
-trait UseSQLServerConnection {
-    protected function defineEnvironment($app): void {
+trait UseSQLServerConnection
+{
+    protected function defineEnvironment($app): void
+    {
         $app['config']->set('database.default', 'sqlsrv');
         $app['config']->set('database.connections.sqlsrv', [
             'driver' => 'sqlsrv',

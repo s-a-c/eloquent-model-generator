@@ -2,9 +2,9 @@
 
 namespace SAC\EloquentModelGenerator\Support\Definitions;
 
-use RuntimeException;
-use InvalidArgumentException;
 use Illuminate\Support\Collection;
+use InvalidArgumentException;
+use RuntimeException;
 use SAC\EloquentModelGenerator\ValueObjects\Column;
 
 /**
@@ -20,7 +20,8 @@ use SAC\EloquentModelGenerator\ValueObjects\Column;
  *     comment?: non-empty-string|null
  * }
  */
-class ModelDefinition {
+class ModelDefinition
+{
     /**
      * @var non-empty-string
      */
@@ -29,12 +30,12 @@ class ModelDefinition {
     /**
      * Create a new model definition instance.
      *
-     * @param non-empty-string $className
-     * @param non-empty-string $namespace
-     * @param Collection<int, Column> $columns
-     * @param Collection<int, RelationDefinition> $relations
-     * @param class-string|null $baseClass
-     * @param non-empty-string|null $table
+     * @param  non-empty-string  $className
+     * @param  non-empty-string  $namespace
+     * @param  Collection<int, Column>  $columns
+     * @param  Collection<int, RelationDefinition>  $relations
+     * @param  class-string|null  $baseClass
+     * @param  non-empty-string|null  $table
      */
     public function __construct(
         private readonly string $className,
@@ -57,7 +58,8 @@ class ModelDefinition {
      *
      * @return non-empty-string
      */
-    public function getClassName(): string {
+    public function getClassName(): string
+    {
         return $this->className;
     }
 
@@ -66,7 +68,8 @@ class ModelDefinition {
      *
      * @return non-empty-string
      */
-    public function getNamespace(): string {
+    public function getNamespace(): string
+    {
         return $this->namespace;
     }
 
@@ -75,7 +78,8 @@ class ModelDefinition {
      *
      * @return Collection<int, Column>
      */
-    public function getColumns(): Collection {
+    public function getColumns(): Collection
+    {
         return $this->columns;
     }
 
@@ -84,7 +88,8 @@ class ModelDefinition {
      *
      * @return Collection<int, RelationDefinition>
      */
-    public function getRelations(): Collection {
+    public function getRelations(): Collection
+    {
         return $this->relations;
     }
 
@@ -93,28 +98,32 @@ class ModelDefinition {
      *
      * @return class-string|null
      */
-    public function getBaseClass(): ?string {
+    public function getBaseClass(): ?string
+    {
         return $this->baseClass;
     }
 
     /**
      * Check if soft deletes should be included.
      */
-    public function withSoftDeletes(): bool {
+    public function withSoftDeletes(): bool
+    {
         return $this->withSoftDeletes;
     }
 
     /**
      * Check if validation should be included.
      */
-    public function withValidation(): bool {
+    public function withValidation(): bool
+    {
         return $this->withValidation;
     }
 
     /**
      * Check if relationships should be included.
      */
-    public function withRelationships(): bool {
+    public function withRelationships(): bool
+    {
         return $this->withRelationships;
     }
 
@@ -122,10 +131,12 @@ class ModelDefinition {
      * Get the table name.
      *
      * @return non-empty-string
+     *
      * @throws RuntimeException If table name is not set
      */
-    public function getTableName(): string {
-        if (!isset($this->table)) {
+    public function getTableName(): string
+    {
+        if (! isset($this->table)) {
             throw new RuntimeException('Table name has not been set');
         }
 
@@ -135,10 +146,12 @@ class ModelDefinition {
     /**
      * Set the table name.
      *
-     * @param non-empty-string $table
+     * @param  non-empty-string  $table
+     *
      * @throws InvalidArgumentException If table name is empty
      */
-    public function setTableName(string $table): void {
+    public function setTableName(string $table): void
+    {
         if ($table === '0') {
             throw new InvalidArgumentException('Table name cannot be empty');
         }

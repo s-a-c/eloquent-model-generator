@@ -2,35 +2,18 @@
 
 namespace SAC\EloquentModelGenerator\Support\Definitions;
 
-class RelationDefinition {
-    /**
-     * @var string
-     */
+class RelationDefinition
+{
     public string $name;
 
-    /**
-     * @var string
-     */
     public string $type;
 
-    /**
-     * @var string|null
-     */
     public ?string $model;
 
-    /**
-     * @var string|null
-     */
     public ?string $foreignKey;
 
-    /**
-     * @var string|null
-     */
     public ?string $localKey;
 
-    /**
-     * @var string|null
-     */
     public ?string $morphType;
 
     public function __construct(

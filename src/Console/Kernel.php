@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace SAC\EloquentModelGenerator\Console;
 
-use Override;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Override;
 use SAC\EloquentModelGenerator\Console\Commands\AnalyzeCommand;
 
-class Kernel extends ConsoleKernel {
+class Kernel extends ConsoleKernel
+{
     /**
      * The Artisan commands provided by your application.
      *
@@ -22,7 +23,8 @@ class Kernel extends ConsoleKernel {
      * Register the commands for the application.
      */
     #[Override]
-    protected function commands(): void {
-        $this->load(__DIR__ . '/Commands');
+    protected function commands(): void
+    {
+        $this->load(__DIR__.'/Commands');
     }
 }

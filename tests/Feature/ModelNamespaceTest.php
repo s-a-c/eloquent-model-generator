@@ -1,14 +1,13 @@
 <?php
 
-use SAC\EloquentModelGenerator\ModelGenerator;
+use Illuminate\Support\Facades\File;
 use SAC\EloquentModelGenerator\Models\GeneratedModel;
 use SAC\EloquentModelGenerator\ValueObjects\ModelDefinition;
-use Illuminate\Support\Facades\File;
 
 test('it generates model in custom namespace with proper structure', function () {
     $generator = createModelGenerator([
         'namespace' => 'App\\Domain\\Models',
-        'path' => app_path('Domain/Models')
+        'path' => app_path('Domain/Models'),
     ]);
 
     $definition = new ModelDefinition(
@@ -41,7 +40,7 @@ test('it generates model in custom namespace with proper structure', function ()
 
 test('it generates model with custom base class and proper inheritance', function () {
     $generator = createModelGenerator([
-        'base_class' => 'App\\Base\\CustomModel'
+        'base_class' => 'App\\Base\\CustomModel',
     ]);
 
     $definition = new ModelDefinition(
@@ -72,7 +71,7 @@ test('it generates model with custom base class and proper inheritance', functio
 
 test('it generates model with custom name while maintaining conventions', function () {
     $generator = createModelGenerator([
-        'model_name' => 'CustomUser'
+        'model_name' => 'CustomUser',
     ]);
 
     $definition = new ModelDefinition(
@@ -103,7 +102,7 @@ test('it generates model with custom name while maintaining conventions', functi
 test('it handles nested namespaces correctly', function () {
     $generator = createModelGenerator([
         'namespace' => 'App\\Domain\\Core\\Models',
-        'path' => app_path('Domain/Core/Models')
+        'path' => app_path('Domain/Core/Models'),
     ]);
 
     $definition = new ModelDefinition(

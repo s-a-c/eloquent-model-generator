@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Foundation\Application;
 use Illuminate\Events\EventServiceProvider;
+use Illuminate\Foundation\Application;
 use Illuminate\Log\LogServiceProvider;
 use SAC\EloquentModelGenerator\EloquentModelGeneratorServiceProvider;
 

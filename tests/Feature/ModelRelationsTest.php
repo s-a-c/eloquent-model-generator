@@ -1,9 +1,7 @@
 <?php
 
-use SAC\EloquentModelGenerator\ModelGenerator;
 use SAC\EloquentModelGenerator\Models\GeneratedModel;
 use SAC\EloquentModelGenerator\ValueObjects\ModelDefinition;
-use Illuminate\Database\Eloquent\Relations;
 
 test('it generates model with custom relation names and proper method definitions', function () {
     $generator = createModelGenerator([
@@ -12,9 +10,9 @@ test('it generates model with custom relation names and proper method definition
                 'name' => 'articles',
                 'type' => 'hasMany',
                 'foreign_key' => 'user_id',
-                'local_key' => 'id'
-            ]
-        ]
+                'local_key' => 'id',
+            ],
+        ],
     ]);
 
     $definition = new ModelDefinition(
@@ -53,9 +51,9 @@ test('it generates model with custom relation types and proper return types', fu
             'test_posts' => [
                 'type' => 'hasOne',
                 'foreign_key' => 'user_id',
-                'local_key' => 'id'
-            ]
-        ]
+                'local_key' => 'id',
+            ],
+        ],
     ]);
 
     $definition = new ModelDefinition(
@@ -88,9 +86,9 @@ test('it generates model with custom relation class and proper namespace handlin
         'relations' => [
             'test_posts' => [
                 'model' => 'App\\Domain\\Models\\Article',
-                'type' => 'hasMany'
-            ]
-        ]
+                'type' => 'hasMany',
+            ],
+        ],
     ]);
 
     $definition = new ModelDefinition(
@@ -127,9 +125,9 @@ test('it generates model with proper polymorphic relations', function () {
                 'type' => 'morphMany',
                 'model' => 'App\\Models\\Image',
                 'name' => 'images',
-                'morphable' => true
-            ]
-        ]
+                'morphable' => true,
+            ],
+        ],
     ]);
 
     $definition = new ModelDefinition(
@@ -165,9 +163,9 @@ test('it generates model with proper pivot table attributes', function () {
                 'model' => 'App\\Models\\Role',
                 'pivot_table' => 'role_user',
                 'pivot_columns' => ['expires_at', 'active'],
-                'pivot_timestamps' => true
-            ]
-        ]
+                'pivot_timestamps' => true,
+            ],
+        ],
     ]);
 
     $definition = new ModelDefinition(

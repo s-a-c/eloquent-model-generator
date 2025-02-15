@@ -1,6 +1,5 @@
 <?php
 
-use SAC\EloquentModelGenerator\ModelGenerator;
 use Illuminate\Support\Facades\File;
 
 beforeEach(function () {
@@ -8,7 +7,7 @@ beforeEach(function () {
     collect([
         app_path('Domain/Models'),
         app_path('Domain/Policies'),
-        database_path('Domain/Factories')
+        database_path('Domain/Factories'),
     ])->each(function ($path) {
         if (File::exists($path)) {
             File::deleteDirectory($path);
@@ -23,7 +22,7 @@ test('it generates files in custom paths', function () {
         'with_factory' => true,
         'factory_path' => database_path('Domain/Factories'),
         'with_policy' => true,
-        'policy_path' => app_path('Domain/Policies')
+        'policy_path' => app_path('Domain/Policies'),
     ]);
 
     $model = $generator->generate('test_users', getTestSchema());
@@ -36,7 +35,7 @@ test('it generates files in custom paths', function () {
 test('it respects custom namespace structure', function () {
     $generator = createModelGenerator([
         'namespace' => 'App\\Domain\\Models\\Admin',
-        'path' => app_path('Domain/Models/Admin')
+        'path' => app_path('Domain/Models/Admin'),
     ]);
 
     $model = $generator->generate('test_users', getTestSchema());

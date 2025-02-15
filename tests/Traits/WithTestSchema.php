@@ -2,8 +2,10 @@
 
 namespace SAC\EloquentModelGenerator\Tests\Traits;
 
-trait WithTestSchema {
-    protected function getTestSchema(): array {
+trait WithTestSchema
+{
+    protected function getTestSchema(): array
+    {
         return [
             'columns' => [
                 'id' => ['type' => 'integer', 'autoIncrement' => true],

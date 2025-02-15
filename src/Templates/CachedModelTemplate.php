@@ -7,19 +7,20 @@ use Illuminate\Support\Facades\View;
 use SAC\EloquentModelGenerator\Models\GeneratedModel;
 use SAC\EloquentModelGenerator\Services\ConfigurationService;
 
-class CachedModelTemplate implements ModelTemplate {
+class CachedModelTemplate implements ModelTemplate
+{
     /**
      * Create a new cached model template instance.
      */
     public function __construct(
         private readonly ConfigurationService $config
-    ) {
-    }
+    ) {}
 
     /**
      * Render a model template.
      */
-    public function render(GeneratedModel $model): string {
+    public function render(GeneratedModel $model): string
+    {
         $cacheKey = $this->getCacheKey($model);
 
         /** @var string */
@@ -46,9 +47,11 @@ class CachedModelTemplate implements ModelTemplate {
      *
      * @return non-empty-string
      */
-    public function getTemplatePath(): string {
+    public function getTemplatePath(): string
+    {
         $path = $this->config->get('templates_path');
-        return $path ? $path . '/model.blade.php' : __DIR__ . '/../../resources/templates/model.blade.php';
+
+        return $path ? $path.'/model.blade.php' : __DIR__.'/../../resources/templates/model.blade.php';
     }
 
     /**
@@ -56,8 +59,9 @@ class CachedModelTemplate implements ModelTemplate {
      *
      * @return non-empty-string
      */
-    private function getCacheKey(GeneratedModel $model): string {
-        return 'model_template:' . md5(serialize($model->toArray()));
+    private function getCacheKey(GeneratedModel $model): string
+    {
+        return 'model_template:'.md5(serialize($model->toArray()));
     }
 
     /**
@@ -65,7 +69,8 @@ class CachedModelTemplate implements ModelTemplate {
      *
      * @return positive-int
      */
-    private function getCacheTtl(): int {
+    private function getCacheTtl(): int
+    {
         /** @var positive-int */
         return $this->config->get('cache.ttl', 3600);
     }

@@ -4,7 +4,8 @@ namespace SAC\EloquentModelGenerator\Templates;
 
 use SAC\EloquentModelGenerator\Models\GeneratedModel;
 
-interface ModelTemplate {
+interface ModelTemplate
+{
     /**
      * Render a model template.
      */

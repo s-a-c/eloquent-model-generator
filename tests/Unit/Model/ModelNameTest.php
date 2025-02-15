@@ -9,7 +9,7 @@ test('it correctly formats table name to class name', function () {
     $cases = [
         'users' => 'User',
         'blog_posts' => 'BlogPost',
-        'user_profiles' => 'UserProfile'
+        'user_profiles' => 'UserProfile',
     ];
 
     foreach ($cases as $table => $expected) {
@@ -37,7 +37,7 @@ test('it throws exception for invalid model names', function () {
     $invalidNames = ['user', '123User', 'User!', 'user_profile'];
 
     foreach ($invalidNames as $name) {
-        expect(fn() => new ModelName($name))
+        expect(fn () => new ModelName($name))
             ->toThrow(\InvalidArgumentException::class);
     }
 });
@@ -48,7 +48,7 @@ test('it handles edge cases correctly', function () {
         '_user' => 'User',
         'USER_PROFILE' => 'UserProfile',
         'user_profile_' => 'UserProfile',
-        '_user_profile' => 'UserProfile'
+        '_user_profile' => 'UserProfile',
     ];
 
     foreach ($edgeCases as $table => $expected) {

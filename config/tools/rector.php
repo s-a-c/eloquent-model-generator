@@ -18,12 +18,12 @@ use Rector\ValueObject\PhpVersion;
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->paths([
-        __DIR__ . '/../../src',
+        __DIR__.'/../../src',
     ]);
 
     $rectorConfig->skip([
-        __DIR__ . '/../../tests',
-        __DIR__ . '/../../vendor',
+        __DIR__.'/../../tests',
+        __DIR__.'/../../vendor',
     ]);
 
     // PHP version and features
@@ -33,7 +33,7 @@ return static function (RectorConfig $rectorConfig): void {
 
     // Output configuration
     $rectorConfig->output('json');
-    $rectorConfig->cacheDirectory(__DIR__ . '/../../build/rector');
+    $rectorConfig->cacheDirectory(__DIR__.'/../../build/rector');
 
     // Rule sets
     $rectorConfig->sets([

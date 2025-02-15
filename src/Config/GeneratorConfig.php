@@ -3,9 +3,7 @@
 namespace SAC\EloquentModelGenerator\Config;
 
 use DateTime;
-use InvalidArgumentException;
 use SAC\EloquentModelGenerator\Exceptions\InvalidConfigurationException;
-use Illuminate\Support\Str;
 
 /**
  * @phpstan-type RelationConfig array{
@@ -17,15 +15,10 @@ use Illuminate\Support\Str;
  *     morphType?: string
  * }
  */
-class GeneratorConfig {
-    /**
-     * @var string
-     */
+class GeneratorConfig
+{
     private string $namespace;
 
-    /**
-     * @var string
-     */
     private string $path;
 
     /**
@@ -33,29 +26,14 @@ class GeneratorConfig {
      */
     private array $relations = [];
 
-    /**
-     * @var bool
-     */
     private bool $withValidation = false;
 
-    /**
-     * @var bool
-     */
     private bool $withRelationships = false;
 
-    /**
-     * @var string|null
-     */
     private ?string $baseClass = null;
 
-    /**
-     * @var string|null
-     */
     private ?string $dateFormat = null;
 
-    /**
-     * @var string|null
-     */
     private ?string $connection = null;
 
     /**
@@ -72,7 +50,8 @@ class GeneratorConfig {
      *     connection?: string
      * } $config
      */
-    public function __construct(array $config) {
+    public function __construct(array $config)
+    {
         $this->namespace = (string) ($config['namespace'] ?? 'App\\Models');
         $this->path = (string) ($config['path'] ?? app_path('Models'));
         $this->relations = $this->validateRelationConfig($config['relations'] ?? []);
@@ -85,41 +64,43 @@ class GeneratorConfig {
         $this->validateConfig();
     }
 
-    private function validateConfig(): void {
+    private function validateConfig(): void
+    {
         // Validate namespace
-        if (!$this->isValidNamespace($this->namespace)) {
+        if (! $this->isValidNamespace($this->namespace)) {
             throw new InvalidConfigurationException('Invalid namespace format. Must be a valid PHP namespace.');
         }
 
         // Validate path
-        if (!$this->isValidPath($this->path)) {
+        if (! $this->isValidPath($this->path)) {
             throw new InvalidConfigurationException('Invalid path. Directory must exist or be creatable.');
         }
 
         // Validate relations
-        if (!empty($this->relations)) {
+        if (! empty($this->relations)) {
             $this->validateRelations();
         }
 
         // Validate base class if set
-        if ($this->baseClass !== null && !$this->isValidClassName($this->baseClass)) {
+        if ($this->baseClass !== null && ! $this->isValidClassName($this->baseClass)) {
             throw new InvalidConfigurationException('Invalid base class name.');
         }
 
         // Validate date format if set
-        if ($this->dateFormat !== null && !$this->isValidDateFormat($this->dateFormat)) {
+        if ($this->dateFormat !== null && ! $this->isValidDateFormat($this->dateFormat)) {
             throw new InvalidConfigurationException('Invalid date format.');
         }
     }
 
-    private function isValidNamespace(string $namespace): bool {
+    private function isValidNamespace(string $namespace): bool
+    {
         // Must start with a letter or underscore
-        if (!preg_match('/^[a-zA-Z_]/', $namespace)) {
+        if (! preg_match('/^[a-zA-Z_]/', $namespace)) {
             return false;
         }
 
         // Must contain only letters, numbers, underscores, and backslashes
-        if (!preg_match('/^[a-zA-Z0-9_\\\\]+$/', $namespace)) {
+        if (! preg_match('/^[a-zA-Z0-9_\\\\]+$/', $namespace)) {
             return false;
         }
 
@@ -130,7 +111,7 @@ class GeneratorConfig {
 
         // Each segment must be a valid PHP label
         foreach (explode('\\', $namespace) as $segment) {
-            if (!preg_match('/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/', $segment)) {
+            if (! preg_match('/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/', $segment)) {
                 return false;
             }
         }
@@ -138,7 +119,8 @@ class GeneratorConfig {
         return true;
     }
 
-    private function isValidPath(string $path): bool {
+    private function isValidPath(string $path): bool
+    {
         // If the directory exists, it's valid
         if (is_dir($path)) {
             return true;
@@ -147,43 +129,48 @@ class GeneratorConfig {
         // Try to create the directory
         try {
             mkdir($path, 0777, true);
+
             return true;
         } catch (\Exception $e) {
             return false;
         }
     }
 
-    private function validateRelations(): void {
+    private function validateRelations(): void
+    {
         $validTypes = ['belongsTo', 'hasMany', 'hasOne', 'belongsToMany', 'morphTo', 'morphMany', 'morphOne'];
 
         foreach ($this->relations as $relation => $config) {
-            if (!is_array($config)) {
+            if (! is_array($config)) {
                 throw new InvalidConfigurationException("Invalid relation configuration for '$relation'. Must be an array.");
             }
 
-            if (!isset($config['type'])) {
+            if (! isset($config['type'])) {
                 throw new InvalidConfigurationException("Relation type must be specified for '$relation'.");
             }
 
-            if (!in_array($config['type'], $validTypes, true)) {
+            if (! in_array($config['type'], $validTypes, true)) {
                 throw new InvalidConfigurationException("Invalid relation type '{$config['type']}' for '$relation'.");
             }
 
             // Validate related model if specified
-            if (isset($config['model']) && !$this->isValidClassName($config['model'])) {
+            if (isset($config['model']) && ! $this->isValidClassName($config['model'])) {
                 throw new InvalidConfigurationException("Invalid model name '{$config['model']}' for relation '$relation'.");
             }
         }
     }
 
-    private function isValidClassName(string $name): bool {
+    private function isValidClassName(string $name): bool
+    {
         return (bool) preg_match('/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/', $name);
     }
 
-    private function isValidDateFormat(string $format): bool {
+    private function isValidDateFormat(string $format): bool
+    {
         try {
-            $date = new DateTime();
+            $date = new DateTime;
             $result = $date->format($format);
+
             return $result !== false;
         } catch (\Exception $e) {
             return false;
@@ -191,42 +178,44 @@ class GeneratorConfig {
     }
 
     /**
-     * @param array<string, mixed> $relations
+     * @param  array<string, mixed>  $relations
      * @return array<string, RelationConfig>
+     *
      * @throws InvalidConfigurationException
      */
-    private function validateRelationConfig(array $relations): array {
+    private function validateRelationConfig(array $relations): array
+    {
         $validTypes = ['belongsTo', 'hasMany', 'hasOne', 'belongsToMany', 'morphTo', 'morphMany', 'morphOne'];
         $validatedRelations = [];
 
         foreach ($relations as $name => $config) {
-            if (!is_array($config)) {
+            if (! is_array($config)) {
                 throw new InvalidConfigurationException(
-                    sprintf("Invalid relation configuration for '%s'. Must be an array.", (string)$name)
+                    sprintf("Invalid relation configuration for '%s'. Must be an array.", (string) $name)
                 );
             }
 
-            if (!isset($config['type']) || !is_string($config['type'])) {
+            if (! isset($config['type']) || ! is_string($config['type'])) {
                 throw new InvalidConfigurationException(
-                    sprintf("Relation type must be specified for '%s'.", (string)$name)
+                    sprintf("Relation type must be specified for '%s'.", (string) $name)
                 );
             }
 
-            if (!in_array($config['type'], $validTypes, true)) {
+            if (! in_array($config['type'], $validTypes, true)) {
                 throw new InvalidConfigurationException(
-                    sprintf("Invalid relation type '%s' for '%s'.", $config['type'], (string)$name)
+                    sprintf("Invalid relation type '%s' for '%s'.", $config['type'], (string) $name)
                 );
             }
 
-            if (!isset($config['model']) || !is_string($config['model'])) {
+            if (! isset($config['model']) || ! is_string($config['model'])) {
                 throw new InvalidConfigurationException(
-                    sprintf("Model must be specified for relation '%s'.", (string)$name)
+                    sprintf("Model must be specified for relation '%s'.", (string) $name)
                 );
             }
 
-            if (!$this->isValidClassName((string)$config['model'])) {
+            if (! $this->isValidClassName((string) $config['model'])) {
                 throw new InvalidConfigurationException(
-                    sprintf("Invalid model name '%s' for relation '%s'.", (string)$config['model'], (string)$name)
+                    sprintf("Invalid model name '%s' for relation '%s'.", (string) $config['model'], (string) $name)
                 );
             }
 
@@ -241,36 +230,36 @@ class GeneratorConfig {
     /**
      * Get the namespace for generated models
      */
-    public function getNamespace(): string {
+    public function getNamespace(): string
+    {
         return $this->namespace;
     }
 
     /**
      * Set the namespace for generated models
-     *
-     * @param string $namespace
-     * @return self
      */
-    public function setNamespace(string $namespace): self {
+    public function setNamespace(string $namespace): self
+    {
         $this->namespace = $namespace;
+
         return $this;
     }
 
     /**
      * Get the path for generated models
      */
-    public function getPath(): string {
+    public function getPath(): string
+    {
         return $this->path;
     }
 
     /**
      * Set the path for generated models
-     *
-     * @param string $path
-     * @return self
      */
-    public function setPath(string $path): self {
+    public function setPath(string $path): self
+    {
         $this->path = $path;
+
         return $this;
     }
 
@@ -279,108 +268,110 @@ class GeneratorConfig {
      *
      * @return array<string, RelationConfig>
      */
-    public function getRelations(): array {
+    public function getRelations(): array
+    {
         return $this->relations;
     }
 
     /**
      * Set the relations configuration
      *
-     * @param array<string, RelationConfig> $relations
-     * @return self
+     * @param  array<string, RelationConfig>  $relations
      */
-    public function setRelations(array $relations): self {
+    public function setRelations(array $relations): self
+    {
         $this->relations = $relations;
+
         return $this;
     }
 
     /**
      * Check if validation should be included
      */
-    public function withValidation(): bool {
+    public function withValidation(): bool
+    {
         return $this->withValidation;
     }
 
     /**
      * Set whether validation should be included
-     *
-     * @param bool $withValidation
-     * @return self
      */
-    public function setWithValidation(bool $withValidation): self {
+    public function setWithValidation(bool $withValidation): self
+    {
         $this->withValidation = $withValidation;
+
         return $this;
     }
 
     /**
      * Check if relationships should be included
      */
-    public function withRelationships(): bool {
+    public function withRelationships(): bool
+    {
         return $this->withRelationships;
     }
 
     /**
      * Set whether relationships should be included
-     *
-     * @param bool $withRelationships
-     * @return self
      */
-    public function setWithRelationships(bool $withRelationships): self {
+    public function setWithRelationships(bool $withRelationships): self
+    {
         $this->withRelationships = $withRelationships;
+
         return $this;
     }
 
     /**
      * Get the base class for generated models
      */
-    public function getBaseClass(): ?string {
+    public function getBaseClass(): ?string
+    {
         return $this->baseClass;
     }
 
     /**
      * Set the base class for generated models
-     *
-     * @param string|null $baseClass
-     * @return self
      */
-    public function setBaseClass(?string $baseClass): self {
+    public function setBaseClass(?string $baseClass): self
+    {
         $this->baseClass = $baseClass;
+
         return $this;
     }
 
     /**
      * Get the date format for generated models
      */
-    public function getDateFormat(): ?string {
+    public function getDateFormat(): ?string
+    {
         return $this->dateFormat;
     }
 
     /**
      * Set the date format for generated models
-     *
-     * @param string|null $dateFormat
-     * @return self
      */
-    public function setDateFormat(?string $dateFormat): self {
+    public function setDateFormat(?string $dateFormat): self
+    {
         $this->dateFormat = $dateFormat;
+
         return $this;
     }
 
     /**
      * Get the database connection for generated models
      */
-    public function getConnection(): ?string {
+    public function getConnection(): ?string
+    {
         return $this->connection;
     }
 
     /**
      * Set the database connection for generated models
-     *
-     * @param string|null $connection
-     * @return self
      */
-    public function setConnection(?string $connection): self {
+    public function setConnection(?string $connection): self
+    {
         $this->connection = $connection;
+
         return $this;
     }
 
@@ -398,7 +389,8 @@ class GeneratorConfig {
      *     connection: string|null
      * }
      */
-    public function toArray(): array {
+    public function toArray(): array
+    {
         return [
             'namespace' => $this->namespace,
             'path' => $this->path,
@@ -424,9 +416,9 @@ class GeneratorConfig {
      *     date_format?: string,
      *     connection?: string
      * } $config
-     * @return self
      */
-    public static function fromArray(array $config): self {
+    public static function fromArray(array $config): self
+    {
         return new self($config);
     }
 }

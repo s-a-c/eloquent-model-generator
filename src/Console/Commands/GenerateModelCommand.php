@@ -6,13 +6,11 @@ namespace SAC\EloquentModelGenerator\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
-use SAC\EloquentModelGenerator\Config\GeneratorConfig;
 use SAC\EloquentModelGenerator\Services\ModelGeneratorService;
-use SAC\EloquentModelGenerator\Services\ModelGeneratorTemplateEngine;
-use SAC\EloquentModelGenerator\ValueObjects\ModelDefinition;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class GenerateModelCommand extends Command {
+class GenerateModelCommand extends Command
+{
     private const DEFAULT_OUTPUT_PATH = 'app/Models';
 
     /**
@@ -34,7 +32,8 @@ class GenerateModelCommand extends Command {
     /**
      * Create a new command instance.
      */
-    public function __construct(ModelGeneratorService $modelGenerator) {
+    public function __construct(ModelGeneratorService $modelGenerator)
+    {
         parent::__construct();
         $this->modelGenerator = $modelGenerator;
     }
@@ -42,7 +41,8 @@ class GenerateModelCommand extends Command {
     /**
      * Execute the console command.
      */
-    public function handle(): int {
+    public function handle(): int
+    {
         try {
             $table = $this->argument('table');
             $options = [
@@ -55,9 +55,11 @@ class GenerateModelCommand extends Command {
 
             $model = $this->modelGenerator->generateModel($table, $options);
             $this->info("Model {$model->getClassName()} generated successfully!");
+
             return self::SUCCESS;
         } catch (\Throwable $e) {
             $this->error($e->getMessage());
+
             return self::FAILURE;
         }
     }
@@ -67,20 +69,21 @@ class GenerateModelCommand extends Command {
      *
      * @return array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool, output_path?: string}
      */
-    private function getConfig(): array {
+    private function getConfig(): array
+    {
         $config = [];
 
         if ($namespace = $this->option('namespace')) {
-            $config['namespace'] = is_array($namespace) ? implode('\\', $namespace) : (string)$namespace;
+            $config['namespace'] = is_array($namespace) ? implode('\\', $namespace) : (string) $namespace;
         }
 
         if ($output = $this->option('output')) {
-            $config['output_path'] = is_array($output) ? implode('/', $output) : (string)$output;
+            $config['output_path'] = is_array($output) ? implode('/', $output) : (string) $output;
         }
 
         $config['with_soft_deletes'] = $this->option('with-soft-deletes');
         $config['with_validation'] = $this->option('with-validation');
-        $config['with_relationships'] = !$this->option('no-relations');
+        $config['with_relationships'] = ! $this->option('no-relations');
 
         return $config;
     }
@@ -88,17 +91,19 @@ class GenerateModelCommand extends Command {
     /**
      * Generate models for all tables.
      *
-     * @param array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool, output_path?: string} $config
+     * @param  array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool, output_path?: string}  $config
      */
-    private function generateAllModels(array $config): int {
+    private function generateAllModels(array $config): int
+    {
         $tables = $this->modelGenerator->getTables();
         if (empty($tables)) {
             $this->info('No tables found to generate models from.');
+
             return Command::SUCCESS;
         }
 
         /** @var array<string> $exclude */
-        $exclude = array_filter((array)$this->option('exclude'), 'is_string');
+        $exclude = array_filter((array) $this->option('exclude'), 'is_string');
         $tables = array_values(array_diff($tables, $exclude));
 
         $progress = $this->output->createProgressBar(count($tables));
@@ -106,7 +111,7 @@ class GenerateModelCommand extends Command {
 
         $success = true;
         foreach ($tables as $table) {
-            if (!is_string($table)) {
+            if (! is_string($table)) {
                 continue;
             }
 
@@ -114,7 +119,7 @@ class GenerateModelCommand extends Command {
                 $this->generateModel($table, $config);
             } catch (\Exception $e) {
                 $this->newLine();
-                $this->error("Error generating model for table {$table}: " . $e->getMessage());
+                $this->error("Error generating model for table {$table}: ".$e->getMessage());
                 $success = false;
             }
 
@@ -130,15 +135,17 @@ class GenerateModelCommand extends Command {
     /**
      * Generate model for a single table.
      *
-     * @param string $table
-     * @param array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool, output_path?: string} $config
+     * @param  array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool, output_path?: string}  $config
      */
-    private function generateSingleModel(string $table, array $config): int {
+    private function generateSingleModel(string $table, array $config): int
+    {
         try {
             $this->generateModel($table, $config);
+
             return Command::SUCCESS;
         } catch (\Exception $e) {
-            $this->error("Error generating model for table {$table}: " . $e->getMessage());
+            $this->error("Error generating model for table {$table}: ".$e->getMessage());
+
             return Command::FAILURE;
         }
     }
@@ -146,11 +153,12 @@ class GenerateModelCommand extends Command {
     /**
      * Generate a model for a specific table.
      *
-     * @param string $table
-     * @param array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool, output_path?: string} $config
+     * @param  array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool, output_path?: string}  $config
+     *
      * @throws \Exception If model generation fails
      */
-    private function generateModel(string $table, array $config): void {
+    private function generateModel(string $table, array $config): void
+    {
         // Generate the model definition
         $modelConfig = array_diff_key($config, ['output_path' => true]);
         /** @var array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool} $modelConfig */
@@ -164,14 +172,14 @@ class GenerateModelCommand extends Command {
         $className = $definition->getClassName();
 
         // Check if file exists
-        $filePath = $outputPath . '/' . str_replace('\\', '/', $namespace) . '/' . $className . '.php';
-        if (File::exists($filePath) && !$this->option('force')) {
+        $filePath = $outputPath.'/'.str_replace('\\', '/', $namespace).'/'.$className.'.php';
+        if (File::exists($filePath) && ! $this->option('force')) {
             throw new \RuntimeException("Model {$className} already exists. Use --force to overwrite.");
         }
 
         // Ensure the directory exists
         $directory = dirname($filePath);
-        if (!File::exists($directory)) {
+        if (! File::exists($directory)) {
             File::makeDirectory($directory, 0755, true);
         }
 
@@ -180,7 +188,7 @@ class GenerateModelCommand extends Command {
         /** @var array{columns: array<string, array{type: non-empty-string, length?: int<1, max>|null, nullable?: bool, default?: mixed, unsigned?: bool, autoIncrement?: bool, primary?: bool, unique?: bool}>, relations?: array<string, array{type: non-empty-string, model: class-string, foreignKey?: non-empty-string, localKey?: non-empty-string, table?: non-empty-string, morphType?: non-empty-string, morphClass?: class-string, pivotTable?: non-empty-string}>, indexes?: array<string, array{type: 'primary'|'unique'|'index'|'fulltext'|'spatial', columns: array<string>, name?: string, algorithm?: string, options?: array<string, mixed>}>, foreignKeys?: array<string, array{table: string, columns: array<string, string>, onDelete?: string, onUpdate?: string}>, timestamps?: bool, softDeletes?: bool, primaryKey?: string, incrementing?: bool} $schema */
         $content = $this->templateEngine->render($definition, $schema);
 
-        if (!is_string($content)) {
+        if (! is_string($content)) {
             throw new \RuntimeException('Failed to generate model content');
         }
 

@@ -1,23 +1,11 @@
 {
-    "targetDir": "\/Users\/s-a-c\/Herd\/laravel-package-dev\/packages\/StandAlonecomplex\/EloquentModelGenerator\/tests",
+    "targetDir": "\/Users\/s-a-c\/Herd\/laravel-package-dev\/packages\/StandAlonecomplex\/EloquentModelGenerator\/src",
     "levels": [
-        8
+        "8"
     ],
     "tools": [
-        "phpstan",
-        "phpmd",
-        "psalm",
-        "metrics",
-        "class-leak",
-        "type-coverage",
         "rector"
     ],
-    "options": {
-        "parallel": false,
-        "format": "html",
-        "ci": false,
-        "cache": false,
-        "debug": false
-    },
-    "cacheKey": null
+    "parallel": false,
+    "dryRun": false
 }

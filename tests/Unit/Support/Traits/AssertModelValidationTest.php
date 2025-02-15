@@ -2,22 +2,25 @@
 
 namespace SAC\EloquentModelGenerator\Tests\Unit\Support\Traits;
 
-use SAC\EloquentModelGenerator\Tests\TestCase;
-use SAC\EloquentModelGenerator\Tests\Support\Traits\AssertModelValidation;
-use SAC\EloquentModelGenerator\ValueObjects\ModelDefinition;
 use SAC\EloquentModelGenerator\ModelGenerator;
+use SAC\EloquentModelGenerator\Tests\Support\Traits\AssertModelValidation;
+use SAC\EloquentModelGenerator\Tests\TestCase;
+use SAC\EloquentModelGenerator\ValueObjects\ModelDefinition;
 
-class AssertModelValidationTest extends TestCase {
+class AssertModelValidationTest extends TestCase
+{
     use AssertModelValidation;
 
     private ModelGenerator $generator;
 
-    protected function setUp(): void {
+    protected function setUp(): void
+    {
         parent::setUp();
         $this->generator = $this->app->make(ModelGenerator::class);
     }
 
-    public function test_assert_model_has_validation_rules(): void {
+    public function test_assert_model_has_validation_rules(): void
+    {
         $schema = [
             'columns' => [
                 'name' => [
@@ -50,7 +53,8 @@ class AssertModelValidationTest extends TestCase {
         $this->assertModelHasValidationRules($model, $expectedRules);
     }
 
-    public function test_validation_passes_with_valid_data(): void {
+    public function test_validation_passes_with_valid_data(): void
+    {
         $schema = [
             'columns' => [
                 'age' => [
@@ -73,7 +77,8 @@ class AssertModelValidationTest extends TestCase {
         $this->assertValidationPasses($model, ['age' => 25]);
     }
 
-    public function test_validation_fails_with_invalid_data(): void {
+    public function test_validation_fails_with_invalid_data(): void
+    {
         $schema = [
             'columns' => [
                 'email' => [
@@ -100,7 +105,8 @@ class AssertModelValidationTest extends TestCase {
         );
     }
 
-    public function test_assert_has_validation_rule(): void {
+    public function test_assert_has_validation_rule(): void
+    {
         $schema = [
             'columns' => [
                 'password' => [
@@ -123,7 +129,8 @@ class AssertModelValidationTest extends TestCase {
         $this->assertHasValidationRule($model, 'password', 'min:8');
     }
 
-    public function test_validation_rule_enforced(): void {
+    public function test_validation_rule_enforced(): void
+    {
         $schema = [
             'columns' => [
                 'status' => [
@@ -152,7 +159,8 @@ class AssertModelValidationTest extends TestCase {
         );
     }
 
-    public function test_assert_validation_messages(): void {
+    public function test_assert_validation_messages(): void
+    {
         $schema = [
             'columns' => [
                 'age' => [

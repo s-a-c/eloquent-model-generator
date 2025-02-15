@@ -4,8 +4,10 @@ namespace SAC\EloquentModelGenerator\Services;
 
 use SAC\EloquentModelGenerator\ValueObjects\BenchmarkResult;
 
-class Benchmark {
-    public function measure(callable $operation): BenchmarkResult {
+class Benchmark
+{
+    public function measure(callable $operation): BenchmarkResult
+    {
         $startTime = microtime(true);
         $startMemory = memory_get_usage(true);
 

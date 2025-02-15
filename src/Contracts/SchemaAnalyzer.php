@@ -4,7 +4,8 @@ namespace SAC\EloquentModelGenerator\Contracts;
 
 use SAC\EloquentModelGenerator\Exceptions\ModelGeneratorSchemaAnalyzerException;
 
-interface SchemaAnalyzer {
+interface SchemaAnalyzer
+{
     /**
      * Analyze the database table schema.
      *
@@ -25,6 +26,7 @@ interface SchemaAnalyzer {
      *         localKey: string
      *     }>
      * }
+     *
      * @throws ModelGeneratorSchemaAnalyzerException
      */
     public function analyze(string $table): array;
@@ -33,6 +35,7 @@ interface SchemaAnalyzer {
      * Get the list of tables in the database.
      *
      * @return array<string>
+     *
      * @throws ModelGeneratorSchemaAnalyzerException
      */
     public function getTables(): array;

@@ -3,7 +3,7 @@
 use SAC\EloquentModelGenerator\Model\Relations;
 
 test('it correctly generates belongs to relation', function () {
-    $relations = new Relations();
+    $relations = new Relations;
     $relations->addBelongsTo('user', 'App\\Models\\User');
 
     expect($relations->toString())
@@ -12,7 +12,7 @@ test('it correctly generates belongs to relation', function () {
 });
 
 test('it correctly generates has many relation', function () {
-    $relations = new Relations();
+    $relations = new Relations;
     $relations->addHasMany('posts', 'App\\Models\\Post');
 
     expect($relations->toString())
@@ -21,7 +21,7 @@ test('it correctly generates has many relation', function () {
 });
 
 test('it correctly generates many to many relation', function () {
-    $relations = new Relations();
+    $relations = new Relations;
     $relations->addManyToMany('roles', 'App\\Models\\Role');
 
     expect($relations->toString())

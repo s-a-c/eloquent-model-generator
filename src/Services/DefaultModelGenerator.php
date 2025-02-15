@@ -3,20 +3,21 @@
 namespace SAC\EloquentModelGenerator\Services;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 use SAC\EloquentModelGenerator\Models\GeneratedModel;
 use SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition;
 use SAC\EloquentModelGenerator\ValueObjects\TableSchema;
-use SAC\EloquentModelGenerator\Services\ConfigurationService;
-use Illuminate\Support\Str;
-use Illuminate\Support\Collection;
 
-class DefaultModelGenerator implements ModelGeneratorInterface {
+class DefaultModelGenerator implements ModelGeneratorInterface
+{
     /**
      * Generate a model.
      *
-     * @param array<string, mixed> $config
+     * @param  array<string, mixed>  $config
      */
-    public function generate(string $table, TableSchema $schema, array $config = []): GeneratedModel {
+    public function generate(string $table, TableSchema $schema, array $config = []): GeneratedModel
+    {
         /** @var array{class_name?: string, namespace?: string, base_class?: string, with_soft_deletes?: bool, with_validation?: bool, with_relationships?: bool} $modelConfig */
         $modelConfig = array_intersect_key($config, array_flip([
             'class_name',
@@ -24,14 +25,14 @@ class DefaultModelGenerator implements ModelGeneratorInterface {
             'base_class',
             'with_soft_deletes',
             'with_validation',
-            'with_relationships'
+            'with_relationships',
         ]));
 
         $definition = new ModelDefinition(
             className: $modelConfig['class_name'] ?? $this->generateClassName($table),
             namespace: $modelConfig['namespace'] ?? 'App\\Models',
-            columns: new Collection(),
-            relations: new Collection(),
+            columns: new Collection,
+            relations: new Collection,
             baseClass: $modelConfig['base_class'] ?? Model::class,
             withSoftDeletes: $modelConfig['with_soft_deletes'] ?? false,
             withValidation: $modelConfig['with_validation'] ?? false,
@@ -59,7 +60,7 @@ class DefaultModelGenerator implements ModelGeneratorInterface {
     /**
      * Generate the model content.
      *
-     * @param array{columns: array<string, array{type: string, nullable: bool, default?: mixed, length?: int|null, unsigned?: bool, autoIncrement?: bool, comment?: string|null}>, indexes?: array<string, array{type: string, columns: array<string>}>, foreignKeys?: array<string, array{table: string, columns: array<string, string>}>} $schema
+     * @param  array{columns: array<string, array{type: string, nullable: bool, default?: mixed, length?: int|null, unsigned?: bool, autoIncrement?: bool, comment?: string|null}>, indexes?: array<string, array{type: string, columns: array<string>}>, foreignKeys?: array<string, array{table: string, columns: array<string, string>}>}  $schema
      */
     protected function generateModelContent(
         string $className,
@@ -85,7 +86,8 @@ class DefaultModelGenerator implements ModelGeneratorInterface {
     /**
      * Get the model template.
      */
-    protected function getTemplate(): string {
+    protected function getTemplate(): string
+    {
         return <<<'PHP'
 <?php
 
@@ -107,19 +109,22 @@ PHP;
     /**
      * Generate the fillable property.
      *
-     * @param array<string, array{type: string, nullable: bool, default?: mixed, length?: int|null, unsigned?: bool, autoIncrement?: bool, comment?: string|null}> $columns
+     * @param  array<string, array{type: string, nullable: bool, default?: mixed, length?: int|null, unsigned?: bool, autoIncrement?: bool, comment?: string|null}>  $columns
      */
-    protected function generateFillable(array $columns): string {
+    protected function generateFillable(array $columns): string
+    {
         $fillable = array_keys($columns);
-        return "'" . implode("', '", $fillable) . "'";
+
+        return "'".implode("', '", $fillable)."'";
     }
 
     /**
      * Generate the casts property.
      *
-     * @param array<string, array{type: string, nullable: bool, default?: mixed, length?: int|null, unsigned?: bool, autoIncrement?: bool, comment?: string|null}> $columns
+     * @param  array<string, array{type: string, nullable: bool, default?: mixed, length?: int|null, unsigned?: bool, autoIncrement?: bool, comment?: string|null}>  $columns
      */
-    protected function generateCasts(array $columns): string {
+    protected function generateCasts(array $columns): string
+    {
         $casts = [];
         foreach ($columns as $name => $column) {
             $type = $this->getCastType($column['type']);
@@ -134,7 +139,8 @@ PHP;
     /**
      * Get the cast type for a column.
      */
-    protected function getCastType(string $type): ?string {
+    protected function getCastType(string $type): ?string
+    {
         return match ($type) {
             'integer', 'bigint', 'smallint' => 'integer',
             'decimal', 'float' => 'float',
@@ -149,7 +155,8 @@ PHP;
     /**
      * Generate a class name from a table name.
      */
-    private function generateClassName(string $table): string {
+    private function generateClassName(string $table): string
+    {
         return Str::studly(Str::singular($table));
     }
 }

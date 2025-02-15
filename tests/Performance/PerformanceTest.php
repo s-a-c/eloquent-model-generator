@@ -2,27 +2,28 @@
 
 namespace SAC\EloquentModelGenerator\Tests\Performance;
 
-use SAC\EloquentModelGenerator\Tests\TestCase;
-use SAC\EloquentModelGenerator\Services\Benchmarking\PerformanceBenchmark;
-use SAC\EloquentModelGenerator\Contracts\ModelGeneratorService;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
+use SAC\EloquentModelGenerator\Contracts\ModelGeneratorService;
+use SAC\EloquentModelGenerator\Services\Benchmarking\PerformanceBenchmark;
+use SAC\EloquentModelGenerator\Tests\TestCase;
 
 /**
  * Performance Tests
  *
- * @package SAC\EloquentModelGenerator\Tests\Performance
  * @group performance
  */
-class PerformanceTest extends TestCase {
+class PerformanceTest extends TestCase
+{
     private PerformanceBenchmark $benchmark;
+
     private ModelGeneratorService $service;
 
-    protected function setUp(): void {
+    protected function setUp(): void
+    {
         parent::setUp();
-        $this->benchmark = new PerformanceBenchmark();
+        $this->benchmark = new PerformanceBenchmark;
         $this->service = $this->app->make(ModelGeneratorService::class);
 
         // Enable query logging for benchmarking
@@ -31,9 +32,11 @@ class PerformanceTest extends TestCase {
 
     /**
      * @test
+     *
      * @testdox Generates multiple models efficiently
      */
-    public function testuhandles_multiple_models_efficiently(): void {
+    public function testuhandles_multiple_models_efficiently(): void
+    {
         $start = microtime(true);
 
         for ($i = 1; $i <= 100; $i++) {
@@ -49,7 +52,8 @@ class PerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function testumaintains_performance_under_load(): void {
+    public function testumaintains_performance_under_load(): void
+    {
         $tables = $this->generateTestTables(100);
 
         $this->benchmark->startBenchmark('batch_generation');
@@ -64,7 +68,8 @@ class PerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function testuhandles_large_relationships_efficiently(): void {
+    public function testuhandles_large_relationships_efficiently(): void
+    {
         $this->createTestSchema();
 
         $this->benchmark->startBenchmark('relationship_analysis');
@@ -80,7 +85,8 @@ class PerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function testucaches_effectively(): void {
+    public function testucaches_effectively(): void
+    {
         $this->createTestSchema();
 
         // First run - no cache
@@ -101,7 +107,8 @@ class PerformanceTest extends TestCase {
     }
 
     /** @test */
-    public function testuhandles_concurrent_generation_efficiently(): void {
+    public function testuhandles_concurrent_generation_efficiently(): void
+    {
         $tables = $this->generateTestTables(50);
         $startMemory = memory_get_usage(true);
 
@@ -119,11 +126,13 @@ class PerformanceTest extends TestCase {
         );
     }
 
-    private function generateTestTables(int $count): array {
-        return array_map(fn($i) => "test_table_{$i}", range(1, $count));
+    private function generateTestTables(int $count): array
+    {
+        return array_map(fn ($i) => "test_table_{$i}", range(1, $count));
     }
 
-    private function createTestSchema(): void {
+    private function createTestSchema(): void
+    {
         // Create test tables with relationships
         Schema::create('users', function ($table) {
             $table->id();
@@ -147,7 +156,8 @@ class PerformanceTest extends TestCase {
         });
     }
 
-    protected function tearDown(): void {
+    protected function tearDown(): void
+    {
         // Clean up test tables
         Schema::dropIfExists('comments');
         Schema::dropIfExists('posts');

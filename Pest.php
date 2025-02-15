@@ -1,9 +1,9 @@
 <?php
 
-use StandAloneComplex\EloquentModelGenerator\Tests\TestCase;
 use StandAloneComplex\EloquentModelGenerator\Contracts\ModelGenerator;
 use StandAloneComplex\EloquentModelGenerator\Services\ModelGeneratorService;
 use StandAloneComplex\EloquentModelGenerator\Templates\ModelGeneratorTemplateEngine;
+use StandAloneComplex\EloquentModelGenerator\Tests\TestCase;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,12 +48,15 @@ expect()->extend('toBeModel', function () {
 |
 */
 
-function createModelGenerator(): ModelGenerator {
+function createModelGenerator(): ModelGenerator
+{
     /** @var ModelGeneratorTemplateEngine $templateEngine */
     $templateEngine = \Mockery::mock(ModelGeneratorTemplateEngine::class);
+
     return new ModelGenerator($templateEngine);
 }
 
-function createModelGeneratorService(): ModelGeneratorService {
+function createModelGeneratorService(): ModelGeneratorService
+{
     return app(ModelGeneratorService::class);
 }

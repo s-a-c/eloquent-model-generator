@@ -4,7 +4,8 @@ namespace SAC\EloquentModelGenerator\Services\Schema;
 
 use SAC\EloquentModelGenerator\ValueObjects\TableSchema;
 
-interface SchemaAnalyzerInterface {
+interface SchemaAnalyzerInterface
+{
     /**
      * Analyze the schema of a table.
      */

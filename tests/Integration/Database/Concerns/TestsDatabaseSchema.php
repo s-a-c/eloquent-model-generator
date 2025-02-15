@@ -2,13 +2,15 @@
 
 namespace SAC\EloquentModelGenerator\Tests\Integration\Database\Concerns;
 
-use StandAloneComplex\EloquentModelGenerator\Services\ModelGeneratorService;
-use StandAloneComplex\EloquentModelGenerator\Models\GeneratedModel;
 use StandAloneComplex\EloquentModelGenerator\Models\BaseModel;
+use StandAloneComplex\EloquentModelGenerator\Models\GeneratedModel;
+use StandAloneComplex\EloquentModelGenerator\Services\ModelGeneratorService;
 
-trait TestsDatabaseSchema {
+trait TestsDatabaseSchema
+{
     /** @test */
-    public function testGeneratesBasicModel(): void {
+    public function testGeneratesBasicModel(): void
+    {
         $this->createTestTable('users', [
             'id' => 'increments',
             'name' => 'string',
@@ -29,7 +31,8 @@ trait TestsDatabaseSchema {
     }
 
     /** @test */
-    public function testHandlesRelationships(): void {
+    public function testHandlesRelationships(): void
+    {
         $this->createTestTable('categories', [
             'id' => 'increments',
             'name' => 'string',
@@ -56,7 +59,8 @@ trait TestsDatabaseSchema {
     }
 
     /** @test */
-    public function testHandlesNullableFields(): void {
+    public function testHandlesNullableFields(): void
+    {
         $this->createTestTable('articles', [
             'id' => 'increments',
             'title' => 'string',
@@ -72,7 +76,8 @@ trait TestsDatabaseSchema {
     }
 
     /** @test */
-    public function testHandlesSoftDeletes(): void {
+    public function testHandlesSoftDeletes(): void
+    {
         $this->createTestTable('products', [
             'id' => 'increments',
             'name' => 'string',
@@ -89,7 +94,8 @@ trait TestsDatabaseSchema {
     }
 
     /** @test */
-    public function testHandlesCustomColumnTypes(): void {
+    public function testHandlesCustomColumnTypes(): void
+    {
         $this->createTestTable('documents', [
             'id' => 'increments',
             'title' => 'string',
@@ -109,10 +115,16 @@ trait TestsDatabaseSchema {
     }
 
     abstract protected function createTestTable(string $name, array $columns): void;
+
     abstract protected function getCustomColumnType(): string;
+
     abstract protected function getModelPath(string $className): string;
+
     abstract protected function assertModelHasRelationship(array $model, string $type, string $relation): void;
+
     abstract protected function assertModelHasNullableField(array $model, string $field): void;
+
     abstract protected function assertModelUsesSoftDeletes(array $model): void;
+
     abstract protected function assertModelHasCustomCasts(array $model): void;
 }

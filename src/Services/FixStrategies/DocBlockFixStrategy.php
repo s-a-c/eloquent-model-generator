@@ -4,31 +4,35 @@ declare(strict_types=1);
 
 namespace SAC\EloquentModelGenerator\Services\FixStrategies;
 
+use Illuminate\Support\Facades\File;
+use phpDocumentor\Reflection\DocBlockFactory;
+use phpDocumentor\Reflection\Types\ContextFactory;
 use ReflectionClass;
 use Throwable;
-use phpDocumentor\Reflection\DocBlockFactory;
-use phpDocumentor\Reflection\Types\Context;
-use phpDocumentor\Reflection\Types\ContextFactory;
-use Illuminate\Support\Facades\File;
 
-class DocBlockFixStrategy implements FixStrategyInterface {
-    public function getName(): string {
-        return "DocBlock Fixes";
+class DocBlockFixStrategy implements FixStrategyInterface
+{
+    public function getName(): string
+    {
+        return 'DocBlock Fixes';
     }
 
-    public function supportsLevel(int $level): bool {
+    public function supportsLevel(int $level): bool
+    {
         return $level <= 4;
     }
 
-    public function fix(string $file, string $description): bool {
+    public function fix(string $file, string $description): bool
+    {
         try {
             $code = File::get($file);
             $factory = DocBlockFactory::createInstance();
-            $contextFactory = new ContextFactory();
+            $contextFactory = new ContextFactory;
             $context = $contextFactory->createFromReflector(new ReflectionClass(static::class));
             $modified = $this->updateDocBlocks($code);
             if ($modified !== $code) {
                 File::put($file, $modified);
+
                 return true;
             }
         } catch (Throwable) {
@@ -38,7 +42,8 @@ class DocBlockFixStrategy implements FixStrategyInterface {
         return false;
     }
 
-    private function updateDocBlocks(string $code): string {
+    private function updateDocBlocks(string $code): string
+    {
         return $code;
     }
 }

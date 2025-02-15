@@ -2,10 +2,12 @@
 
 namespace SAC\EloquentModelGenerator\Tests\Support\Traits;
 
-trait WithSQLiteTesting {
+trait WithSQLiteTesting
+{
     use WithDatabaseTesting;
 
-    protected function defineEnvironment($app): void {
+    protected function defineEnvironment($app): void
+    {
         parent::defineEnvironment($app);
 
         $app['config']->set('database.default', 'sqlite');

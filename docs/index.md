@@ -34,43 +34,43 @@ php artisan model:analyze
 ## Documentation
 
 ### Core Features
-1. [Model Generation](features/generation.md)
+1. [Model Generation](../../../StandAloneComplex/EloquentModelGenerator/docs/features/generation.md)
    - Schema analysis
    - Type inference
    - Relation detection
    - Custom attributes
 
-2. [Model Analysis](features/analysis.md)
+2. [Model Analysis](../../../StandAloneComplex/EloquentModelGenerator/docs/features/analysis.md)
    - Static analysis
    - Type checking
    - Code quality
    - Metrics
 
 ### Configuration
-1. [Basic Configuration](config/basic.md)
+1. [Basic Configuration](../../../StandAloneComplex/EloquentModelGenerator/docs/config/basic.md)
    - Database connection
    - Namespace settings
    - Output paths
 
-2. [Advanced Configuration](config/advanced.md)
+2. [Advanced Configuration](../../../StandAloneComplex/EloquentModelGenerator/docs/config/advanced.md)
    - Custom templates
    - Type mappings
    - Naming conventions
    - Analysis rules
 
 ### Development
-1. [Testing](dev/testing.md)
+1. [Testing](../../../StandAloneComplex/EloquentModelGenerator/docs/dev/testing.md)
    - Unit tests
    - Feature tests
    - Performance tests
 
-2. [Contributing](dev/contributing.md)
+2. [Contributing](../../../StandAloneComplex/EloquentModelGenerator/docs/dev/contributing.md)
    - Setup guide
    - Coding standards
    - Pull requests
 
 ### Tools
-1. [Analysis Tools](tools/analysis-tools.md)
+1. [Analysis Tools](../../../StandAloneComplex/EloquentModelGenerator/docs/tools/analysis-tools.md)
    - PHPStan/Larastan
    - Psalm
    - Rector
@@ -86,9 +86,9 @@ php artisan model:analyze
 ## Support
 
 - [Issues](https://github.com/stand-alone-complex/eloquent-model-generator/issues)
-- [Security](security.md)
-- [Code of Conduct](code_of_conduct.md)
+- [Security](../../../StandAloneComplex/EloquentModelGenerator/docs/security.md)
+- [Code of Conduct](../../../StandAloneComplex/EloquentModelGenerator/docs/code_of_conduct.md)
 
 ## License
 
-[MIT License](license.md)
+[MIT License](../../../StandAloneComplex/EloquentModelGenerator/docs/license.md)

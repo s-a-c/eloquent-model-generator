@@ -6,16 +6,21 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\Stopwatch\Stopwatch;
 
-trait AdvancedPerformanceProfile {
+trait AdvancedPerformanceProfile
+{
     private Stopwatch $stopwatch;
+
     private Collection $profileData;
+
     private array $checkpoints = [];
+
     private ?float $baselineMemory = null;
 
     /**
      * Initialize the performance profiler.
      */
-    protected function initializeProfiler(): void {
+    protected function initializeProfiler(): void
+    {
         $this->stopwatch = new Stopwatch(true);
         $this->profileData = collect();
         $this->baselineMemory = memory_get_usage(true);
@@ -24,27 +29,29 @@ trait AdvancedPerformanceProfile {
     /**
      * Start profiling a section.
      *
-     * @param string $section Section identifier
-     * @param string $category Optional category for grouping
+     * @param  string  $section  Section identifier
+     * @param  string  $category  Optional category for grouping
      */
-    protected function startProfile(string $section, string $category = 'default'): void {
+    protected function startProfile(string $section, string $category = 'default'): void
+    {
         $this->stopwatch->start("{$category}:{$section}");
         $this->checkpoints[$section] = [
             'memory_start' => memory_get_usage(true),
             'peak_start' => memory_get_peak_usage(true),
             'time_start' => microtime(true),
-            'category' => $category
+            'category' => $category,
         ];
     }
 
     /**
      * Stop profiling a section and collect metrics.
      *
-     * @param string $section Section identifier
+     * @param  string  $section  Section identifier
      * @return array Profile data for the section
      */
-    protected function stopProfile(string $section): array {
-        if (!isset($this->checkpoints[$section])) {
+    protected function stopProfile(string $section): array
+    {
+        if (! isset($this->checkpoints[$section])) {
             throw new \RuntimeException("No profile started for section: {$section}");
         }
 
@@ -58,23 +65,23 @@ trait AdvancedPerformanceProfile {
             'duration' => [
                 'wall_time' => (microtime(true) - $checkpoint['time_start']) * 1000,
                 'cpu_time' => $event->getDuration(),
-                'periods' => $event->getPeriods()
+                'periods' => $event->getPeriods(),
             ],
             'memory' => [
                 'start' => $checkpoint['memory_start'],
                 'end' => memory_get_usage(true),
                 'peak' => memory_get_peak_usage(true),
                 'peak_increase' => memory_get_peak_usage(true) - $checkpoint['peak_start'],
-                'net_increase' => memory_get_usage(true) - $checkpoint['memory_start']
+                'net_increase' => memory_get_usage(true) - $checkpoint['memory_start'],
             ],
             'relative_to_baseline' => [
                 'memory_increase' => memory_get_usage(true) - $this->baselineMemory,
-                'peak_increase' => memory_get_peak_usage(true) - $this->baselineMemory
+                'peak_increase' => memory_get_peak_usage(true) - $this->baselineMemory,
             ],
             'system' => [
                 'load_average' => sys_getloadavg(),
-                'memory_info' => $this->getSystemMemoryInfo()
-            ]
+                'memory_info' => $this->getSystemMemoryInfo(),
+            ],
         ];
 
         $this->profileData->push($metrics);
@@ -87,10 +94,9 @@ trait AdvancedPerformanceProfile {
 
     /**
      * Get aggregated profile statistics.
-     *
-     * @return array
      */
-    protected function getProfileStats(): array {
+    protected function getProfileStats(): array
+    {
         return [
             'by_category' => $this->profileData->groupBy('category')->map(function ($items) {
                 return [
@@ -100,16 +106,16 @@ trait AdvancedPerformanceProfile {
                     'max_duration' => $items->max('duration.wall_time'),
                     'total_memory_increase' => $items->sum('memory.net_increase'),
                     'avg_memory_increase' => $items->average('memory.net_increase'),
-                    'max_memory_increase' => $items->max('memory.net_increase')
+                    'max_memory_increase' => $items->max('memory.net_increase'),
                 ];
             })->toArray(),
             'overall' => [
                 'total_sections' => $this->profileData->count(),
                 'total_duration' => $this->profileData->sum('duration.wall_time'),
                 'peak_memory' => $this->profileData->max('memory.peak'),
-                'total_memory_growth' => memory_get_usage(true) - $this->baselineMemory
+                'total_memory_growth' => memory_get_usage(true) - $this->baselineMemory,
             ],
-            'performance_score' => $this->calculatePerformanceScore()
+            'performance_score' => $this->calculatePerformanceScore(),
         ];
     }
 
@@ -118,7 +124,8 @@ trait AdvancedPerformanceProfile {
      *
      * @return float Score between 0 and 100
      */
-    protected function calculatePerformanceScore(): float {
+    protected function calculatePerformanceScore(): float
+    {
         $stats = $this->profileData->map(function ($metrics) {
             $durationScore = min(100, 1000 / max(1, $metrics['duration']['wall_time'])) * 0.4;
             $memoryScore = min(100, (50 * 1024 * 1024) / max(1, $metrics['memory']['net_increase'])) * 0.4;
@@ -132,10 +139,9 @@ trait AdvancedPerformanceProfile {
 
     /**
      * Get detailed system memory information.
-     *
-     * @return array
      */
-    private function getSystemMemoryInfo(): array {
+    private function getSystemMemoryInfo(): array
+    {
         if (PHP_OS_FAMILY === 'Darwin') {
             // macOS memory info
             $output = shell_exec('vm_stat');
@@ -144,7 +150,7 @@ trait AdvancedPerformanceProfile {
 
             foreach ($lines as $line) {
                 if (preg_match('/^(.+):\s+(\d+)/', $line, $matches)) {
-                    $stats[trim($matches[1])] = (int)$matches[2] * 4096; // Convert to bytes
+                    $stats[trim($matches[1])] = (int) $matches[2] * 4096; // Convert to bytes
                 }
             }
 
@@ -158,10 +164,10 @@ trait AdvancedPerformanceProfile {
             if (isset($lines[1])) {
                 $values = preg_split('/\s+/', trim($lines[1]));
                 $stats = [
-                    'total' => (int)$values[1],
-                    'used' => (int)$values[2],
-                    'free' => (int)$values[3],
-                    'available' => (int)$values[6] ?? null
+                    'total' => (int) $values[1],
+                    'used' => (int) $values[2],
+                    'free' => (int) $values[3],
+                    'available' => (int) $values[6] ?? null,
                 ];
             }
 
@@ -173,25 +179,23 @@ trait AdvancedPerformanceProfile {
 
     /**
      * Log profile metrics with detailed analysis.
-     *
-     * @param string $section
-     * @param array $metrics
      */
-    private function logProfileMetrics(string $section, array $metrics): void {
+    private function logProfileMetrics(string $section, array $metrics): void
+    {
         $analysis = [
             'performance_rating' => $this->getRatingForMetrics($metrics),
             'warnings' => $this->analyzeForWarnings($metrics),
-            'recommendations' => $this->generateRecommendations($metrics)
+            'recommendations' => $this->generateRecommendations($metrics),
         ];
 
         Log::info("Profile metrics for {$section}", [
             'metrics' => $metrics,
-            'analysis' => $analysis
+            'analysis' => $analysis,
         ]);
 
-        if (!empty($analysis['warnings'])) {
+        if (! empty($analysis['warnings'])) {
             Log::warning("Performance warnings for {$section}", [
-                'warnings' => $analysis['warnings']
+                'warnings' => $analysis['warnings'],
             ]);
         }
     }
@@ -199,10 +203,10 @@ trait AdvancedPerformanceProfile {
     /**
      * Get performance rating based on metrics.
      *
-     * @param array $metrics
      * @return string excellent|good|fair|poor
      */
-    private function getRatingForMetrics(array $metrics): string {
+    private function getRatingForMetrics(array $metrics): string
+    {
         $score = $this->calculateMetricScore($metrics);
 
         return match (true) {
@@ -215,11 +219,9 @@ trait AdvancedPerformanceProfile {
 
     /**
      * Analyze metrics for potential warnings.
-     *
-     * @param array $metrics
-     * @return array
      */
-    private function analyzeForWarnings(array $metrics): array {
+    private function analyzeForWarnings(array $metrics): array
+    {
         $warnings = [];
 
         if ($metrics['duration']['wall_time'] > 1000) {
@@ -239,11 +241,9 @@ trait AdvancedPerformanceProfile {
 
     /**
      * Generate performance improvement recommendations.
-     *
-     * @param array $metrics
-     * @return array
      */
-    private function generateRecommendations(array $metrics): array {
+    private function generateRecommendations(array $metrics): array
+    {
         $recommendations = [];
 
         if ($metrics['duration']['wall_time'] > $metrics['duration']['cpu_time'] * 1.5) {
@@ -263,11 +263,9 @@ trait AdvancedPerformanceProfile {
 
     /**
      * Calculate a score for specific metrics.
-     *
-     * @param array $metrics
-     * @return float
      */
-    private function calculateMetricScore(array $metrics): float {
+    private function calculateMetricScore(array $metrics): float
+    {
         $timeScore = min(100, 1000 / max(1, $metrics['duration']['wall_time'])) * 0.4;
         $memoryScore = min(100, (50 * 1024 * 1024) / max(1, $metrics['memory']['net_increase'])) * 0.4;
         $peakScore = min(100, (100 * 1024 * 1024) / max(1, $metrics['memory']['peak'])) * 0.2;

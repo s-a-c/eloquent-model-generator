@@ -1,48 +1,25 @@
 # Version History
 
-## 2.0.0-dev (Current)
+## 0.1.0 (Current)
+
+**Release Date:** 2025-02-15
+
+**Features:**
+- Implemented static analysis tools (PHPStan, Psalm, Rector, PHPMD, Metrics, Pint)
+- Created configuration builders and error mappers for all analysis tools
+- Set up default rules for Laravel best practices, type safety, code quality, and performance
+- Implemented configuration validators for all analysis tools
 
 **Breaking Changes:**
 - Requires PHP 8.3+
-- Requires Laravel 10.x
-- New configuration format
-- Updated interfaces
+- Requires Laravel 11.x
+- New configuration format (tool-specific configuration files)
+- Updated interfaces (AnalysisTool, AnalysisResult, AnalysisConfig, ResultFormatter)
 
-**Added:**
-- Static analysis integration
-- Type safety checks
-- Code quality tools
-- Metrics generation
-- Security validation
-
-**Changed:**
-- Enhanced error handling
-- Improved documentation
-- Stricter validation
-- Better test coverage
-
-**Fixed:**
-- Exception handling
-- Configuration validation
-- Documentation structure
-
-## 1.0.0 (Legacy)
-
-**Features:**
-- Basic model generation
-- Simple type inference
-- Schema analysis
-- Laravel integration
-
-**Requirements:**
-- PHP 8.2+
-- Laravel 9.x
-
-## Support Status
+**Support Status**
 
 | Version | PHP  | Laravel | Status | Security Until |
 | ------- | ---- | ------- | ------ | -------------- |
-| 2.x     | 8.3+ | 10.x    | Dev    | -              |
-| 1.x     | 8.2+ | 9.x     | EOL    | Q2 2024        |
+| 0.1.0   | 8.3+ | 11.x    | Stable | -              |
 
 For detailed information, see [Documentation](docs/version_history.md).

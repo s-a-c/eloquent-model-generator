@@ -2,13 +2,15 @@
 
 namespace SAC\EloquentModelGenerator\Tests\Support\Traits;
 
-trait WithSQLServerTesting {
+trait WithSQLServerTesting
+{
     use WithDatabaseTesting;
 
-    protected function defineEnvironment($app): void {
+    protected function defineEnvironment($app): void
+    {
         parent::defineEnvironment($app);
 
-        if (!extension_loaded('pdo_sqlsrv')) {
+        if (! extension_loaded('pdo_sqlsrv')) {
             $this->markTestSkipped('SQL Server extension is not available.');
         }
 
@@ -28,7 +30,8 @@ trait WithSQLServerTesting {
         $this->createTestDatabase(env('DB_SQLSRV_DATABASE', 'testing'));
     }
 
-    protected function tearDown(): void {
+    protected function tearDown(): void
+    {
         parent::tearDown();
         $this->dropTestDatabase(env('DB_SQLSRV_DATABASE', 'testing'));
     }

@@ -2,20 +2,21 @@
 
 namespace SAC\EloquentModelGenerator\Model;
 
-use InvalidArgumentException;
 use Illuminate\Support\Str;
+use InvalidArgumentException;
 
-class ModelName {
+class ModelName
+{
     private readonly string $name;
 
     /**
      * Create a new model name instance.
      *
-     * @param string $name
      * @throws InvalidArgumentException
      */
-    public function __construct(string $name) {
-        if (!$this->isValidClassName($name)) {
+    public function __construct(string $name)
+    {
+        if (! $this->isValidClassName($name)) {
             throw new InvalidArgumentException('Invalid class name format');
         }
         $this->name = $name;
@@ -24,11 +25,10 @@ class ModelName {
     /**
      * Create a model name from a table name.
      *
-     * @param string $table
-     * @return self
      * @throws InvalidArgumentException
      */
-    public static function fromTable(string $table): self {
+    public static function fromTable(string $table): self
+    {
         if (empty($table)) {
             throw new InvalidArgumentException('Table name cannot be empty');
         }
@@ -68,7 +68,7 @@ class ModelName {
             'geese' => 'Goose',
             'phenomena' => 'Phenomenon',
             'criteria' => 'Criterion',
-            'radii' => 'Radius'
+            'radii' => 'Radius',
         ];
 
         $lowerTable = strtolower($table);
@@ -81,27 +81,24 @@ class ModelName {
 
     /**
      * Convert the model name to a string.
-     *
-     * @return string
      */
-    public function toString(): string {
+    public function toString(): string
+    {
         return $this->name;
     }
 
     /**
      * Check if a string is a valid class name.
-     *
-     * @param string $name
-     * @return bool
      */
-    private function isValidClassName(string $name): bool {
+    private function isValidClassName(string $name): bool
+    {
         // Must start with an uppercase letter
-        if (!preg_match('/^[A-Z]/', $name)) {
+        if (! preg_match('/^[A-Z]/', $name)) {
             return false;
         }
 
         // Must only contain letters, numbers, and no spaces or special characters
-        if (!preg_match('/^[A-Za-z0-9]+$/', $name)) {
+        if (! preg_match('/^[A-Za-z0-9]+$/', $name)) {
             return false;
         }
 

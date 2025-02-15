@@ -4,24 +4,25 @@ namespace SAC\EloquentModelGenerator\Services;
 
 use RuntimeException;
 use SAC\EloquentModelGenerator\Contracts\ModelGeneratorService;
-use SAC\EloquentModelGenerator\Support\Factories\ModelGeneratorFactory;
-use SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition;
-use SAC\EloquentModelGenerator\Support\Definitions\SchemaDefinition;
 use SAC\EloquentModelGenerator\Exceptions\ModelGeneratorException;
+use SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition;
+use SAC\EloquentModelGenerator\Support\Factories\ModelGeneratorFactory;
 
-class ModelGenerator implements ModelGeneratorService {
+class ModelGenerator implements ModelGeneratorService
+{
     public function __construct(
         private readonly ModelGeneratorFactory $factory
-    ) {
-    }
+    ) {}
 
     /**
      * Generate a model from a table name.
      *
-     * @param array<string, mixed> $options
+     * @param  array<string, mixed>  $options
+     *
      * @throws ModelGeneratorException
      */
-    public function generateModel(string $table, array $options = []): ModelDefinition {
+    public function generateModel(string $table, array $options = []): ModelDefinition
+    {
         $schema = $this->getTableSchema($table);
         $columns = $schema['columns'] ?? [];
         $relations = $schema['relations'] ?? [];
@@ -36,19 +37,21 @@ class ModelGenerator implements ModelGeneratorService {
     /**
      * Generate models for multiple tables.
      *
-     * @param array<string> $tables
-     * @param array<string, mixed> $config
+     * @param  array<string>  $tables
+     * @param  array<string, mixed>  $config
      * @return array<int, ModelDefinition>
+     *
      * @throws ModelGeneratorException
      */
-    public function generateBatch(array $tables, array $config = []): array {
+    public function generateBatch(array $tables, array $config = []): array
+    {
         $models = [];
         foreach ($tables as $table) {
             try {
                 $models[] = $this->generateModel($table, $config);
             } catch (ModelGeneratorException $e) {
                 throw new ModelGeneratorException(
-                    sprintf("Failed to generate model for table '%s': ", $table) . $e->getMessage(),
+                    sprintf("Failed to generate model for table '%s': ", $table).$e->getMessage(),
                     0,
                     $e
                 );
@@ -63,7 +66,8 @@ class ModelGenerator implements ModelGeneratorService {
      *
      * @return array<string>
      */
-    public function getTables(): array {
+    public function getTables(): array
+    {
         return [];  // This should be implemented by concrete classes
     }
 
@@ -88,7 +92,8 @@ class ModelGenerator implements ModelGeneratorService {
      *     }>
      * }
      */
-    public function getTableSchema(string $table): array {
+    public function getTableSchema(string $table): array
+    {
         // Implementation should be provided by concrete classes
         throw new RuntimeException('Method getTableSchema() must be implemented by concrete classes.');
     }

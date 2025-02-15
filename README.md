@@ -39,17 +39,17 @@ php artisan model:analyze
 
 ## Documentation
 
-Comprehensive documentation is available in the [docs](docs/index.md) directory:
+Comprehensive documentation is available in the [docs](../../StandAloneComplex/EloquentModelGenerator/docs/index.md) directory:
 
-- [Model Generation](docs/features/generation.md)
-- [Model Analysis](docs/features/analysis.md)
-- [Configuration](docs/config/basic.md)
-- [Contributing](docs/dev/contributing.md)
+- [Model Generation](../../StandAloneComplex/EloquentModelGenerator/docs/features/generation.md)
+- [Model Analysis](../../StandAloneComplex/EloquentModelGenerator/docs/features/analysis.md)
+- [Configuration](../../StandAloneComplex/EloquentModelGenerator/docs/config/basic.md)
+- [Contributing](../../StandAloneComplex/EloquentModelGenerator/docs/dev/contributing.md)
 
 ## Requirements
 
 - PHP 8.3+
-- Laravel 10.x
+- Laravel 11.x
 - MySQL/PostgreSQL/SQLite
 
 ## Testing
@@ -60,12 +60,12 @@ composer test
 
 ## Security
 
-Please review our [Security Policy](docs/security.md) for reporting vulnerabilities.
+Please review our [Security Policy](../../StandAloneComplex/EloquentModelGenerator/docs/security.md) for reporting vulnerabilities.
 
 ## Contributing
 
-Please see our [Contributing Guide](docs/dev/contributing.md) and [Code of Conduct](docs/code_of_conduct.md).
+Please see our [Contributing Guide](../../StandAloneComplex/EloquentModelGenerator/docs/dev/contributing.md) and [Code of Conduct](../../StandAloneComplex/EloquentModelGenerator/docs/code_of_conduct.md).
 
 ## License
 
-The MIT License (MIT). Please see [License File](docs/license.md) for more information.
+The MIT License (MIT). Please see [License File](../../StandAloneComplex/EloquentModelGenerator/docs/license.md) for more information.

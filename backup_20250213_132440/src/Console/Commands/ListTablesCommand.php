@@ -5,7 +5,8 @@ namespace SAC\EloquentModelGenerator\Console\Commands;
 use Illuminate\Console\Command;
 use SAC\EloquentModelGenerator\Services\ModelGeneratorService;
 
-class ListTablesCommand extends Command {
+class ListTablesCommand extends Command
+{
     /**
      * The name and signature of the console command.
      *
@@ -33,7 +34,8 @@ class ListTablesCommand extends Command {
     /**
      * Execute the console command.
      */
-    public function handle(): int {
+    public function handle(): int
+    {
         try {
             $connection = $this->option('connection');
             if ($connection) {
@@ -44,17 +46,19 @@ class ListTablesCommand extends Command {
 
             if (empty($tables)) {
                 $this->info('No tables found in the database.');
+
                 return 0;
             }
 
             $this->table(
                 ['Table Name'],
-                array_map(fn($table) => [$table], $tables)
+                array_map(fn ($table) => [$table], $tables)
             );
 
             return 0;
         } catch (\Exception $e) {
-            $this->error('Error listing tables: ' . $e->getMessage());
+            $this->error('Error listing tables: '.$e->getMessage());
+
             return 1;
         }
     }

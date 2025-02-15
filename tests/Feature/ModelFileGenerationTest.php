@@ -1,6 +1,5 @@
 <?php
 
-use SAC\EloquentModelGenerator\ModelGenerator;
 use Illuminate\Support\Facades\File;
 
 beforeEach(function () {
@@ -38,6 +37,6 @@ test('it does not overwrite existing model file by default', function () {
     $customContent = "<?php\n\nnamespace App\\Models;\n\nclass User extends Model\n{\n    // Custom code\n}";
     File::put(app_path('Models/User.php'), $customContent);
 
-    expect(fn() => $generator->generate('test_users', getTestSchema()))
+    expect(fn () => $generator->generate('test_users', getTestSchema()))
         ->toThrow(RuntimeException::class, 'Model file already exists');
 });

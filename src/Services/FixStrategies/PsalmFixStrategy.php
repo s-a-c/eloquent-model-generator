@@ -4,18 +4,17 @@ declare(strict_types=1);
 
 namespace SAC\EloquentModelGenerator\Services\FixStrategies;
 
-use PhpParser\Node;
-use PhpParser\NodeTraverser;
-use PhpParser\ParserFactory;
-use PhpParser\PrettyPrinter\Standard;
 use Symfony\Component\Process\Process;
 
-class PsalmFixStrategy implements FixStrategyInterface {
-    public function getName(): string {
+class PsalmFixStrategy implements FixStrategyInterface
+{
+    public function getName(): string
+    {
         return 'psalm';
     }
 
-    public function fix(string $file, string $description): bool {
+    public function fix(string $file, string $description): bool
+    {
         // Use Psalm's auto-fix capabilities
         $process = new Process([
             'vendor/bin/psalm',
@@ -23,14 +22,16 @@ class PsalmFixStrategy implements FixStrategyInterface {
             '--alter',
             '--issues=all',
             '--no-cache',
-            '--no-progress'
+            '--no-progress',
         ]);
 
         $process->run();
+
         return $process->isSuccessful();
     }
 
-    public function supportsLevel(int $level): bool {
+    public function supportsLevel(int $level): bool
+    {
         // Psalm fixes can be applied at any level
         return true;
     }

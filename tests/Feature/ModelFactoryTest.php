@@ -1,11 +1,10 @@
 <?php
 
-use SAC\EloquentModelGenerator\ModelGenerator;
 use Illuminate\Support\Facades\File;
 
 test('it generates model factory', function () {
     $generator = createModelGenerator([
-        'with_factory' => true
+        'with_factory' => true,
     ]);
 
     $model = $generator->generate('test_users', getTestSchema());
@@ -26,7 +25,7 @@ test('it generates model factory with custom definition', function () {
         'factory_definition' => [
             'name' => "fake()->name('female')",
             'status' => "fake()->randomElement(['active', 'inactive'])",
-        ]
+        ],
     ]);
 
     $model = $generator->generate('test_users', getTestSchema());

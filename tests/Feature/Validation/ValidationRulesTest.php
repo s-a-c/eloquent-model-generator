@@ -2,12 +2,10 @@
 
 namespace SAC\EloquentModelGenerator\Tests\Feature\Validation;
 
-use SAC\EloquentModelGenerator\Tests\Support\Traits\{
-    AssertModelValidation,
-    WithSQLiteTesting
-};
-use SAC\EloquentModelGenerator\ValueObjects\ModelDefinition;
 use SAC\EloquentModelGenerator\ModelGenerator;
+use SAC\EloquentModelGenerator\Tests\Support\Traits\AssertModelValidation;
+use SAC\EloquentModelGenerator\Tests\Support\Traits\WithSQLiteTesting;
+use SAC\EloquentModelGenerator\ValueObjects\ModelDefinition;
 
 uses(WithSQLiteTesting::class, AssertModelValidation::class);
 

@@ -2,21 +2,21 @@
 
 namespace SAC\EloquentModelGenerator\ValueObjects;
 
-class TableSchema {
+class TableSchema
+{
     /**
-     * @param string $tableName
-     * @param array<Column> $columns
+     * @param  array<Column>  $columns
      */
     public function __construct(
         private readonly string $tableName,
         private readonly array $columns
-    ) {
-    }
+    ) {}
 
     /**
      * Get the table name.
      */
-    public function getTableName(): string {
+    public function getTableName(): string
+    {
         return $this->tableName;
     }
 
@@ -25,7 +25,8 @@ class TableSchema {
      *
      * @return array<Column>
      */
-    public function getColumns(): array {
+    public function getColumns(): array
+    {
         return $this->columns;
     }
 
@@ -53,7 +54,8 @@ class TableSchema {
      *     }>
      * }
      */
-    public function toArray(): array {
+    public function toArray(): array
+    {
         $columns = [];
         foreach ($this->columns as $column) {
             $columns[$column->getName()] = [
@@ -63,14 +65,14 @@ class TableSchema {
                 'length' => $column->getLength(),
                 'autoIncrement' => $column->isAutoIncrement(),
                 'primary' => $column->isPrimary(),
-                'unique' => $column->isUnique()
+                'unique' => $column->isUnique(),
             ];
         }
 
         return [
             'columns' => $columns,
             'indexes' => [],
-            'foreignKeys' => []
+            'foreignKeys' => [],
         ];
     }
 }

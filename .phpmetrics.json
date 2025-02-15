@@ -1,0 +1,23 @@
+{
+    "includes": [
+        "src"
+    ],
+    "exclude": [
+        "vendor"
+    ],
+    "report": {
+        "html": "build/reports/metrics/html",
+        "json": "build/reports/metrics/report.json",
+        "violations": "build/reports/metrics/violations.xml"
+    },
+    "groups": [
+        {
+            "name": "Models",
+            "match": "!Models/.+!"
+        },
+        {
+            "name": "Exceptions",
+            "match": "!Exceptions/.+!"
+        }
+    ]
+}

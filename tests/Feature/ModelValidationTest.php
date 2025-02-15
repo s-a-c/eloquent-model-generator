@@ -2,22 +2,25 @@
 
 namespace SAC\EloquentModelGenerator\Tests\Feature;
 
-use SAC\EloquentModelGenerator\Tests\TestCase;
-use SAC\EloquentModelGenerator\Tests\Support\Traits\AssertModelValidation;
-use SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition;
 use SAC\EloquentModelGenerator\ModelGenerator;
+use SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition;
+use SAC\EloquentModelGenerator\Tests\Support\Traits\AssertModelValidation;
+use SAC\EloquentModelGenerator\Tests\TestCase;
 
-class ModelValidationTest extends TestCase {
+class ModelValidationTest extends TestCase
+{
     use AssertModelValidation;
 
     private ModelGenerator $generator;
 
-    protected function setUp(): void {
+    protected function setUp(): void
+    {
         parent::setUp();
         $this->generator = $this->app->make(ModelGenerator::class);
     }
 
-    public function testGeneratesModelWithValidationRules(): void {
+    public function test_generates_model_with_validation_rules(): void
+    {
         $schema = [
             'columns' => [
                 'name' => [
@@ -79,7 +82,8 @@ class ModelValidationTest extends TestCase {
         ]);
     }
 
-    public function testMergesCustomValidationRules(): void {
+    public function test_merges_custom_validation_rules(): void
+    {
         $schema = [
             'columns' => [
                 'email' => [
@@ -137,7 +141,8 @@ class ModelValidationTest extends TestCase {
         );
     }
 
-    public function testHandlesCustomValidationMessages(): void {
+    public function test_handles_custom_validation_messages(): void
+    {
         $schema = [
             'columns' => [
                 'age' => [

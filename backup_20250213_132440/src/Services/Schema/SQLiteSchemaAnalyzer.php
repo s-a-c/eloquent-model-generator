@@ -2,15 +2,14 @@
 
 namespace SAC\EloquentModelGenerator\Services\Schema;
 
-use Illuminate\Support\Collection;
 use SAC\EloquentModelGenerator\Exceptions\ModelGeneratorException;
 use SAC\EloquentModelGenerator\ValueObjects\Column;
 
-class SQLiteSchemaAnalyzer extends BaseSchemaAnalyzer {
+class SQLiteSchemaAnalyzer extends BaseSchemaAnalyzer
+{
     /**
      * Analyze table schema.
      *
-     * @param string $table
      * @return array{
      *     columns: array<string, array{
      *         type: string,
@@ -30,10 +29,12 @@ class SQLiteSchemaAnalyzer extends BaseSchemaAnalyzer {
      *         localKey: string
      *     }>
      * }
+     *
      * @throws ModelGeneratorException
      */
-    public function analyze(string $table): array {
-        if (!$this->hasTable($table)) {
+    public function analyze(string $table): array
+    {
+        if (! $this->hasTable($table)) {
             throw new ModelGeneratorException("Table '{$table}' does not exist");
         }
 
@@ -50,7 +51,6 @@ class SQLiteSchemaAnalyzer extends BaseSchemaAnalyzer {
     /**
      * Analyze table columns.
      *
-     * @param string $table
      * @return array<string, array{
      *     type: string,
      *     nullable: bool,
@@ -63,7 +63,8 @@ class SQLiteSchemaAnalyzer extends BaseSchemaAnalyzer {
      *     comment?: string|null
      * }>
      */
-    protected function analyzeColumns(string $table): array {
+    protected function analyzeColumns(string $table): array
+    {
         $schema = $this->getSchemaBuilder();
         $columns = [];
 
@@ -71,7 +72,7 @@ class SQLiteSchemaAnalyzer extends BaseSchemaAnalyzer {
             $type = $schema->getColumnType($table, $columnName);
             $columns[$columnName] = [
                 'type' => $this->mapColumnType($type),
-                'nullable' => !$schema->getColumns($table)[$columnName]['notnull'],
+                'nullable' => ! $schema->getColumns($table)[$columnName]['notnull'],
                 'default' => $schema->getColumns($table)[$columnName]['default'],
                 'length' => $this->getColumnLength($table, $columnName),
                 'unsigned' => $this->isColumnUnsigned($table, $columnName),
@@ -88,10 +89,10 @@ class SQLiteSchemaAnalyzer extends BaseSchemaAnalyzer {
     /**
      * Analyze table relationships.
      *
-     * @param string $table
      * @return array<array{type: string, foreignTable: string, foreignKey: string, localKey: string}>
      */
-    protected function analyzeRelationships(string $table): array {
+    protected function analyzeRelationships(string $table): array
+    {
         $schema = $this->getSchemaBuilder();
         $relationships = [];
 
@@ -110,53 +111,65 @@ class SQLiteSchemaAnalyzer extends BaseSchemaAnalyzer {
     /**
      * Get column length.
      */
-    protected function getColumnLength(string $table, string $column): ?int {
+    protected function getColumnLength(string $table, string $column): ?int
+    {
         $columns = $this->getSchemaBuilder()->getColumns($table);
+
         return $columns[$column]['length'] ?? null;
     }
 
     /**
      * Check if column is unsigned.
      */
-    protected function isColumnUnsigned(string $table, string $column): bool {
+    protected function isColumnUnsigned(string $table, string $column): bool
+    {
         $columns = $this->getSchemaBuilder()->getColumns($table);
+
         return $columns[$column]['unsigned'] ?? false;
     }
 
     /**
      * Check if column is auto-increment.
      */
-    protected function isColumnAutoIncrement(string $table, string $column): bool {
+    protected function isColumnAutoIncrement(string $table, string $column): bool
+    {
         $columns = $this->getSchemaBuilder()->getColumns($table);
+
         return $columns[$column]['autoincrement'] ?? false;
     }
 
     /**
      * Check if column is primary key.
      */
-    protected function isColumnPrimary(string $table, string $column): bool {
+    protected function isColumnPrimary(string $table, string $column): bool
+    {
         $schema = $this->getSchemaBuilder();
+
         return in_array($column, $schema->getIndexes($table)['primary']['columns'] ?? [], true);
     }
 
     /**
      * Check if column is unique.
      */
-    protected function isColumnUnique(string $table, string $column): bool {
+    protected function isColumnUnique(string $table, string $column): bool
+    {
         $schema = $this->getSchemaBuilder();
         foreach ($schema->getIndexes($table) as $index) {
             if ($index['unique'] && count($index['columns']) === 1 && $index['columns'][0] === $column) {
                 return true;
             }
         }
+
         return false;
     }
 
     /**
      * Get column comment.
      */
-    protected function getColumnComment(string $table, string $column): ?string {
+    protected function getColumnComment(string $table, string $column): ?string
+    {
         $columns = $this->getSchemaBuilder()->getColumns($table);
+
         return $columns[$column]['comment'] ?? null;
     }
 }

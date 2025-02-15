@@ -4,8 +4,10 @@ namespace SAC\EloquentModelGenerator\Tests\Integration;
 
 use Orchestra\Testbench\TestCase;
 
-abstract class DatabaseTestCase extends TestCase {
-    protected function defineEnvironment($app): void {
+abstract class DatabaseTestCase extends TestCase
+{
+    protected function defineEnvironment($app): void
+    {
         parent::defineEnvironment($app);
 
         if ($this->getConnectionDriver() === 'mongodb') {
@@ -15,7 +17,7 @@ abstract class DatabaseTestCase extends TestCase {
         // Set up database configuration
         $app['config']->set('database.default', $this->getConnectionDriver());
         $app['config']->set(
-            'database.connections.' . $this->getConnectionDriver(),
+            'database.connections.'.$this->getConnectionDriver(),
             $this->getConnectionConfig()
         );
     }

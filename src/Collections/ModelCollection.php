@@ -8,47 +8,54 @@ use SAC\EloquentModelGenerator\Models\GeneratedModel;
 /**
  * @template TKey of array-key
  * @template TValue of GeneratedModel
+ *
  * @extends Collection<TKey, TValue>
  */
-class ModelCollection extends Collection {
+class ModelCollection extends Collection
+{
     /**
      * Create a new model collection.
      *
-     * @param array<TKey, TValue> $items
+     * @param  array<TKey, TValue>  $items
      */
-    public function __construct(array $items = []) {
+    public function __construct(array $items = [])
+    {
         parent::__construct($items);
     }
 
     /**
      * Get a model by its name
      *
-     * @param string $name The name of the model to find
+     * @param  string  $name  The name of the model to find
      */
-    public function getModel(string $name): ?GeneratedModel {
-        return $this->first(fn(GeneratedModel $model): bool => $model->getClassName() === $name);
+    public function getModel(string $name): ?GeneratedModel
+    {
+        return $this->first(fn (GeneratedModel $model): bool => $model->getClassName() === $name);
     }
 
     /**
      * Add a model to the collection
      *
-     * @param TValue $model The model to add
+     * @param  TValue  $model  The model to add
      * @return $this
      */
-    public function addModel(GeneratedModel $model): self {
+    public function addModel(GeneratedModel $model): self
+    {
         $this->push($model);
+
         return $this;
     }
 
     /**
      * Remove a model from the collection
      *
-     * @param string $name The name of the model to remove
+     * @param  string  $name  The name of the model to remove
      * @return static<TKey, TValue>
      */
-    public function removeModel(string $name): static {
+    public function removeModel(string $name): static
+    {
         /** @var static<TKey, TValue> */
-        return $this->reject(fn(GeneratedModel $model): bool => $model->getClassName() === $name);
+        return $this->reject(fn (GeneratedModel $model): bool => $model->getClassName() === $name);
     }
 
     /**
@@ -56,7 +63,8 @@ class ModelCollection extends Collection {
      *
      * @return array<TKey, TValue>
      */
-    public function getModels(): array {
+    public function getModels(): array
+    {
         return $this->all();
     }
 }

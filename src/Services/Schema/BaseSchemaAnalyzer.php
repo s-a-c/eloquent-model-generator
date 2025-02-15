@@ -4,20 +4,22 @@ declare(strict_types=1);
 
 namespace SAC\EloquentModelGenerator\Services\Schema;
 
-use Throwable;
-use Illuminate\Database\ConnectionInterface;
 use Illuminate\Database\Connection;
+use Illuminate\Database\ConnectionInterface;
 use Illuminate\Database\Schema\Builder;
 use SAC\EloquentModelGenerator\Contracts\SchemaAnalyzer;
 use SAC\EloquentModelGenerator\Exceptions\ModelGeneratorException;
+use Throwable;
 
-abstract class BaseSchemaAnalyzer implements SchemaAnalyzer {
+abstract class BaseSchemaAnalyzer implements SchemaAnalyzer
+{
     private ?Builder $schemaBuilder = null;
 
     protected string $tablePrefix;
 
-    public function __construct(private readonly ConnectionInterface $connection) {
-        if (!$connection instanceof Connection) {
+    public function __construct(private readonly ConnectionInterface $connection)
+    {
+        if (! $connection instanceof Connection) {
             throw new ModelGeneratorException('Connection must be an instance of Illuminate\Database\Connection');
         }
 
@@ -27,9 +29,10 @@ abstract class BaseSchemaAnalyzer implements SchemaAnalyzer {
     /**
      * Get the schema builder instance.
      */
-    public function getSchemaBuilder(): Builder {
-        if (!$this->schemaBuilder instanceof Builder) {
-            if (!$this->connection instanceof Connection) {
+    public function getSchemaBuilder(): Builder
+    {
+        if (! $this->schemaBuilder instanceof Builder) {
+            if (! $this->connection instanceof Connection) {
                 throw new ModelGeneratorException('Connection must be an instance of Illuminate\Database\Connection');
             }
 
@@ -42,7 +45,8 @@ abstract class BaseSchemaAnalyzer implements SchemaAnalyzer {
     /**
      * Get the table prefix.
      */
-    public function getTablePrefix(): string {
+    public function getTablePrefix(): string
+    {
         return $this->tablePrefix;
     }
 
@@ -50,14 +54,16 @@ abstract class BaseSchemaAnalyzer implements SchemaAnalyzer {
      * Get all available tables.
      *
      * @return array<string>
+     *
      * @throws ModelGeneratorException
      */
-    public function getTables(): array {
+    public function getTables(): array
+    {
         try {
             return $this->getSchemaBuilder()->getAllTables();
         } catch (Throwable $throwable) {
             throw new ModelGeneratorException(
-                'Failed to get tables: ' . $throwable->getMessage(),
+                'Failed to get tables: '.$throwable->getMessage(),
                 previous: $throwable
             );
         }
@@ -66,7 +72,8 @@ abstract class BaseSchemaAnalyzer implements SchemaAnalyzer {
     /**
      * Check if a table exists.
      */
-    public function hasTable(string $table): bool {
+    public function hasTable(string $table): bool
+    {
         return $this->getSchemaBuilder()->hasTable($table);
     }
 
@@ -75,7 +82,8 @@ abstract class BaseSchemaAnalyzer implements SchemaAnalyzer {
      *
      * @return array{table: string, column: string}
      */
-    protected function getForeignKeyDefinition(string $foreignTable, string $foreignColumn): array {
+    protected function getForeignKeyDefinition(string $foreignTable, string $foreignColumn): array
+    {
         return [
             'table' => $foreignTable,
             'column' => $foreignColumn,
@@ -106,7 +114,8 @@ abstract class BaseSchemaAnalyzer implements SchemaAnalyzer {
      *
      * @return non-empty-string
      */
-    protected function mapColumnType(string $databaseType): string {
+    protected function mapColumnType(string $databaseType): string
+    {
         return match (strtolower($databaseType)) {
             'bigint', 'int8' => 'integer',
             'integer', 'int', 'int4' => 'integer',
@@ -127,7 +136,8 @@ abstract class BaseSchemaAnalyzer implements SchemaAnalyzer {
     /**
      * Get the cast type for a column type.
      */
-    protected function getCastType(string $type): string {
+    protected function getCastType(string $type): string
+    {
         return match ($type) {
             'int', 'integer', 'tinyint', 'smallint', 'mediumint', 'bigint' => 'int',
             'decimal', 'float', 'double', 'real' => 'float',
@@ -140,7 +150,8 @@ abstract class BaseSchemaAnalyzer implements SchemaAnalyzer {
     /**
      * Check if a table exists.
      */
-    public function tableExists(string $table): bool {
+    public function tableExists(string $table): bool
+    {
         return $this->hasTable($table);
     }
 }

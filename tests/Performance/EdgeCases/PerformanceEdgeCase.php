@@ -1,9 +1,9 @@
 <?php
 
-use SAC\EloquentModelGenerator\Contracts\ModelGeneratorService;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
+use SAC\EloquentModelGenerator\Contracts\ModelGeneratorService;
 
 beforeEach(function () {
     $this->service = app(ModelGeneratorService::class);
@@ -35,8 +35,7 @@ test('handles extremely large tables', function () {
     });
 
     $metrics = withPerformanceMonitoring(
-        fn() =>
-        $this->service->generateModel('large_table')
+        fn () => $this->service->generateModel('large_table')
     );
 
     expect($metrics['time'])->toBeLessThan(5000)
@@ -48,10 +47,9 @@ test('handles deep relationship chains', function () {
     createDeepRelationshipChain(10);
 
     $metrics = withPerformanceMonitoring(
-        fn() =>
-        $this->service->generateModel('level_1', [
+        fn () => $this->service->generateModel('level_1', [
             'with_relationships' => true,
-            'relationship_depth' => 10
+            'relationship_depth' => 10,
         ])
     );
 
@@ -68,9 +66,8 @@ test('handles circular relationships', function () {
     });
 
     $metrics = withPerformanceMonitoring(
-        fn() =>
-        $this->service->generateModel('users', [
-            'with_relationships' => true
+        fn () => $this->service->generateModel('users', [
+            'with_relationships' => true,
         ])
     );
 
@@ -94,13 +91,14 @@ test('handles concurrent model generation under load', function () {
         usleep(10000); // Add 10ms delay to each query
     });
 
-    $tables = array_map(fn($i) => "concurrent_table_{$i}", range(0, 19));
+    $tables = array_map(fn ($i) => "concurrent_table_{$i}", range(0, 19));
 
     $metrics = withPerformanceMonitoring(function () use ($tables) {
         $results = [];
         foreach ($tables as $table) {
             $results[] = $this->service->generateModel($table);
         }
+
         return $results;
     });
 
@@ -124,6 +122,7 @@ test('handles rapid successive generations', function () {
             $this->service->generateModel('rapid_test');
             $memoryGrowth[] = memory_get_usage(true) - $startMemory;
         }
+
         return $memoryGrowth;
     });
 
@@ -141,8 +140,7 @@ test('handles invalid schema gracefully', function () {
     });
 
     $metrics = withPerformanceMonitoring(
-        fn() =>
-        $this->service->generateModel('edge_case_table')
+        fn () => $this->service->generateModel('edge_case_table')
     );
 
     expect($metrics['time'])->toBeLessThan(2000)
@@ -161,8 +159,7 @@ test('handles memory pressure', function () {
     });
 
     $metrics = withPerformanceMonitoring(
-        fn() =>
-        $this->service->generateModel('memory_test')
+        fn () => $this->service->generateModel('memory_test')
     );
 
     expect($metrics['time'])->toBeLessThan(2000)
@@ -172,12 +169,13 @@ test('handles memory pressure', function () {
     unset($memoryHog);
 })->group('performance', 'memory-pressure');
 
-function createDeepRelationshipChain(int $depth): void {
+function createDeepRelationshipChain(int $depth): void
+{
     for ($i = 1; $i <= $depth; $i++) {
         Schema::create("level_{$i}", function (Blueprint $table) use ($i) {
             $table->id();
             if ($i > 1) {
-                $table->foreignId("level_" . ($i - 1) . "_id")->constrained();
+                $table->foreignId('level_'.($i - 1).'_id')->constrained();
             }
             $table->string('name');
             $table->timestamps();

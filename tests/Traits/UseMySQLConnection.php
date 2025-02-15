@@ -2,8 +2,10 @@
 
 namespace SAC\EloquentModelGenerator\Tests\Traits;
 
-trait UseMySQLConnection {
-    protected function defineEnvironment($app): void {
+trait UseMySQLConnection
+{
+    protected function defineEnvironment($app): void
+    {
         $app['config']->set('database.default', 'mysql');
         $app['config']->set('database.connections.mysql', [
             'driver' => 'mysql',

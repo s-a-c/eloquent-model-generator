@@ -1,12 +1,12 @@
 <?php
 
-use SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition;
-use SAC\EloquentModelGenerator\Support\Definitions\SchemaDefinition;
-use SAC\EloquentModelGenerator\Support\Definitions\RelationDefinition;
-use SAC\EloquentModelGenerator\Tests\TestCase;
 use Illuminate\Support\Facades\DB;
 use parallel\Runtime;
 use SAC\EloquentModelGenerator\Services\ModelGeneratorService;
+use SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition;
+use SAC\EloquentModelGenerator\Support\Definitions\RelationDefinition;
+use SAC\EloquentModelGenerator\Support\Definitions\SchemaDefinition;
+use SAC\EloquentModelGenerator\Tests\TestCase;
 
 /*
 |--------------------------------------------------------------------------
@@ -130,6 +130,7 @@ expect()->extend('toHaveValidPerformanceMetrics', function () {
 
 expect()->extend('toBeWithinMemoryLimits', function (int $maxUsage, ?int $maxPeak = null) {
     $maxPeak = $maxPeak ?? $maxUsage;
+
     return $this->value
         ->toHaveKey('memory')
         ->and($this->value['memory']['used'])->toBeLessThan($maxUsage)
@@ -213,17 +214,20 @@ expect()->extend('toBeValidClassName', function () {
 |--------------------------------------------------------------------------
 */
 
-function createModelGenerator(array $config = []): ModelGeneratorService {
+function createModelGenerator(array $config = []): ModelGeneratorService
+{
     $app = app();
+
     return $app->make(ModelGeneratorService::class, [
         'config' => array_merge([
             'namespace' => 'App\\Models',
             'path' => app_path('Models'),
-        ], $config)
+        ], $config),
     ]);
 }
 
-function getTestSchema(): array {
+function getTestSchema(): array
+{
     return [
         'columns' => [
             'id' => ['type' => 'integer', 'autoIncrement' => true],
@@ -239,7 +243,8 @@ function getTestSchema(): array {
     ];
 }
 
-function createTestTable(string $name, ?callable $callback = null): void {
+function createTestTable(string $name, ?callable $callback = null): void
+{
     $schema = app('db')->connection()->getSchemaBuilder();
 
     $schema->create($name, function ($table) use ($callback) {
@@ -252,35 +257,41 @@ function createTestTable(string $name, ?callable $callback = null): void {
     });
 }
 
-function dropTestTable(string $name): void {
+function dropTestTable(string $name): void
+{
     $schema = app('db')->connection()->getSchemaBuilder();
     $schema->dropIfExists($name);
 }
 
-function createTestModel(string $tableName, array $attributes = []): array {
+function createTestModel(string $tableName, array $attributes = []): array
+{
     return [
         'tableName' => $tableName,
         'className' => str($tableName)->studly()->singular()->toString(),
         'namespace' => 'App\\Models',
         'baseClass' => 'Illuminate\\Database\\Eloquent\\Model',
         'withSoftDeletes' => false,
-        ...$attributes
+        ...$attributes,
     ];
 }
 
-function assertValidModelDefinition($definition): void {
+function assertValidModelDefinition($definition): void
+{
     expect($definition)->toBeValidModelDefinition();
 }
 
-function assertValidSchema($schema): void {
+function assertValidSchema($schema): void
+{
     expect($schema)->toHaveValidSchema();
 }
 
-function assertValidRelations($schema): void {
+function assertValidRelations($schema): void
+{
     expect($schema)->toHaveValidRelations();
 }
 
-function withPerformanceMonitoring(callable $operation): array {
+function withPerformanceMonitoring(callable $operation): array
+{
     $startTime = microtime(true);
     $startMemory = memory_get_usage();
 
@@ -300,7 +311,8 @@ function withPerformanceMonitoring(callable $operation): array {
     ];
 }
 
-function withQueryMonitoring(callable $operation): array {
+function withQueryMonitoring(callable $operation): array
+{
     DB::enableQueryLog();
     $result = $operation();
     $queries = DB::getQueryLog();
@@ -315,7 +327,8 @@ function withQueryMonitoring(callable $operation): array {
     ];
 }
 
-function stats_standard_deviation(array $numbers): float {
+function stats_standard_deviation(array $numbers): float
+{
     $count = count($numbers);
     if ($count < 2) {
         return 0.0;
@@ -329,11 +342,14 @@ function stats_standard_deviation(array $numbers): float {
     return sqrt(array_sum($squaredDifferences) / ($count - 1));
 }
 
-function async(callable $operation): Runtime {
-    $runtime = new Runtime();
+function async(callable $operation): Runtime
+{
+    $runtime = new Runtime;
+
     return $runtime->run($operation);
 }
 
-function await($promise) {
+function await($promise)
+{
     return $promise->value();
 }

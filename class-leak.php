@@ -6,15 +6,15 @@ use TomasVotruba\ClassLeak\Configuration;
 
 return static function (Configuration $configuration): void {
     $configuration->paths([
-        __DIR__ . '/src'
+        __DIR__.'/src',
     ]);
 
     // Skip paths that are excluded in PHPStan
     $configuration->skip([
-        __DIR__ . '/tests/tmp/*',
-        __DIR__ . '/tests/*',
-        __DIR__ . '/build/*',
-        __DIR__ . '/vendor/*',
+        __DIR__.'/tests/tmp/*',
+        __DIR__.'/tests/*',
+        __DIR__.'/build/*',
+        __DIR__.'/vendor/*',
         '*.blade.php',
     ]);
 
@@ -27,7 +27,7 @@ return static function (Configuration $configuration): void {
     $configuration->skipClasses([
         'SAC\EloquentModelGenerator\Models\*',
         'SAC\EloquentModelGenerator\Services\*',
-        'SAC\EloquentModelGenerator\Console\Commands\*'
+        'SAC\EloquentModelGenerator\Console\Commands\*',
     ]);
 
     $configuration->skipTraits(true); // Skip trait analysis at level 1
@@ -37,7 +37,7 @@ return static function (Configuration $configuration): void {
     $configuration->allowClasses([
         'Illuminate\Support\*',
         'Illuminate\Database\*',
-        'Illuminate\Console\*'
+        'Illuminate\Console\*',
     ]);
 
     // Configure dependency thresholds

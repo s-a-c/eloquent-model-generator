@@ -6,15 +6,15 @@ use TomasVotruba\TypeCoverage\Configuration;
 
 return static function (Configuration $configuration): void {
     $configuration->paths([
-        __DIR__ . '/src'
+        __DIR__.'/src',
     ]);
 
     // Skip paths that are excluded in PHPStan
     $configuration->skip([
-        __DIR__ . '/tests/tmp/*',
-        __DIR__ . '/tests/*',
-        __DIR__ . '/build/*',
-        __DIR__ . '/vendor/*',
+        __DIR__.'/tests/tmp/*',
+        __DIR__.'/tests/*',
+        __DIR__.'/build/*',
+        __DIR__.'/vendor/*',
         '*.blade.php',
     ]);
 
