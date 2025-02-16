@@ -125,10 +125,92 @@ class ModelGeneratorService implements ModelGenerator {
     }
 
     /**
-     * Generate class name from table name.
+     * Analyze a model for potential fixes.
+     *
+     * @param array<string> $fixTypes Types of fixes to analyze for
+     * @return array<array{
+     *     type: string,
+     *     description: string,
+     *     file: string,
+     *     line: int,
+     *     current: string,
+     *     suggested: string
+     * }>
+     *
+     * @throws ModelGeneratorException
      */
-    private function generateClassName(string $table): string {
-        return Str::studly(Str::singular($table));
+    public function analyzeFixes(string $model, array $fixTypes): array {
+        try {
+            $fixes = [];
+            $modelPath = str_replace('\\', '/', $model) . '.php';
+
+            if (!file_exists($modelPath)) {
+                throw new ModelGeneratorException("Model file not found: {$modelPath}");
+            }
+
+            $content = file_get_contents($modelPath);
+            $schema = $this->schemaAnalyzer->analyze($this->getTableFromModel($model));
+
+            // Check for type fixes
+            if (in_array('types', $fixTypes, true)) {
+                $fixes = array_merge($fixes, $this->analyzeTypeFixes($content, $schema));
+            }
+
+            // Check for relation fixes
+            if (in_array('relations', $fixTypes, true)) {
+                $fixes = array_merge($fixes, $this->analyzeRelationFixes($content, $schema));
+            }
+
+            // Check for validation fixes
+            if (in_array('validation', $fixTypes, true)) {
+                $fixes = array_merge($fixes, $this->analyzeValidationFixes($content, $schema));
+            }
+
+            return $fixes;
+        } catch (\Throwable $throwable) {
+            throw new ModelGeneratorException(
+                "Failed to analyze fixes for model {$model}: " . $throwable->getMessage(),
+                previous: $throwable
+            );
+        }
+    }
+
+    /**
+     * Apply a fix to a model.
+     *
+     * @param array{
+     *     type: string,
+     *     description: string,
+     *     file: string,
+     *     line: int,
+     *     current: string,
+     *     suggested: string
+     * } $fix
+     *
+     * @throws ModelGeneratorException
+     */
+    public function applyFix(string $model, array $fix): void {
+        try {
+            $modelPath = str_replace('\\', '/', $model) . '.php';
+
+            if (!file_exists($modelPath)) {
+                throw new ModelGeneratorException("Model file not found: {$modelPath}");
+            }
+
+            $content = file_get_contents($modelPath);
+            $lines = explode("\n", $content);
+
+            // Apply the fix
+            $lines[$fix['line'] - 1] = $fix['suggested'];
+
+            // Write back to file
+            file_put_contents($modelPath, implode("\n", $lines));
+        } catch (\Throwable $throwable) {
+            throw new ModelGeneratorException(
+                "Failed to apply fix to model {$model}: " . $throwable->getMessage(),
+                previous: $throwable
+            );
+        }
     }
 
     /**
@@ -208,5 +290,74 @@ class ModelGeneratorService implements ModelGenerator {
                 {$method}
             }
             PHP;
+    }
+
+    /**
+     * Generate class name from table name.
+     */
+    private function generateClassName(string $table): string {
+        return Str::studly(Str::singular($table));
+    }
+
+    /**
+     * Get table name from model class name.
+     */
+    private function getTableFromModel(string $model): string {
+        $className = basename(str_replace('\\', '/', $model));
+        return Str::snake(Str::pluralStudly($className));
+    }
+
+    /**
+     * Analyze type fixes for a model.
+     *
+     * @param array<string, array<string, mixed>> $schema
+     * @return array<array{
+     *     type: string,
+     *     description: string,
+     *     file: string,
+     *     line: int,
+     *     current: string,
+     *     suggested: string
+     * }>
+     */
+    private function analyzeTypeFixes(string $content, array $schema): array {
+        // TODO: Implement type fix analysis
+        return [];
+    }
+
+    /**
+     * Analyze relation fixes for a model.
+     *
+     * @param array<string, array<string, mixed>> $schema
+     * @return array<array{
+     *     type: string,
+     *     description: string,
+     *     file: string,
+     *     line: int,
+     *     current: string,
+     *     suggested: string
+     * }>
+     */
+    private function analyzeRelationFixes(string $content, array $schema): array {
+        // TODO: Implement relation fix analysis
+        return [];
+    }
+
+    /**
+     * Analyze validation fixes for a model.
+     *
+     * @param array<string, array<string, mixed>> $schema
+     * @return array<array{
+     *     type: string,
+     *     description: string,
+     *     file: string,
+     *     line: int,
+     *     current: string,
+     *     suggested: string
+     * }>
+     */
+    private function analyzeValidationFixes(string $content, array $schema): array {
+        // TODO: Implement validation fix analysis
+        return [];
     }
 }

@@ -4,275 +4,217 @@ declare(strict_types=1);
 
 namespace SAC\EloquentModelGenerator\Services\Relations;
 
-use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use SAC\EloquentModelGenerator\Contracts\RelationDetector;
-use SAC\EloquentModelGenerator\Contracts\SchemaAnalyzer;
-use SAC\EloquentModelGenerator\Exceptions\ModelGeneratorException;
 use SAC\EloquentModelGenerator\ValueObjects\Column;
+use SAC\EloquentModelGenerator\ValueObjects\ForeignKey;
 
 class RelationDetectorService implements RelationDetector {
-    public function __construct(
-        private readonly SchemaAnalyzer $schemaAnalyzer
-    ) {
-    }
-
     /**
-     * Detect all relationships for a table.
-     *
-     * @return array<array{
-     *     type: string,
-     *     name: string,
-     *     related: string,
-     *     foreignKey: string,
-     *     localKey: string,
-     *     through?: string,
-     *     pivotTable?: string,
-     *     pivotForeignKey?: string,
-     *     pivotRelatedKey?: string
-     * }>
+     * @inheritDoc
      */
-    public function detectRelationships(string $table): array {
-        $schema = $this->schemaAnalyzer->analyze($table);
-        $relationships = [];
+    public function detectRelations(string $table, array $columns, array $foreignKeys = []): array {
+        $relations = [];
 
-        // Process direct relationships from foreign keys
-        foreach ($schema['relationships'] as $relation) {
-            $relationships[] = $this->processDirectRelation($table, $relation);
+        // Detect belongsTo relations from foreign keys in columns
+        foreach ($columns as $column) {
+            if ($foreignKey = $column->getForeignKey()) {
+                $relations[] = $this->createBelongsToRelation(
+                    $foreignKey,
+                    $column->getName()
+                );
+            }
         }
 
-        // Detect many-to-many relationships through pivot tables
-        $pivotRelations = $this->detectPivotRelationships($table);
-        $relationships = array_merge($relationships, $pivotRelations);
+        // Detect hasOne/hasMany relations from foreign keys referencing this table
+        foreach ($foreignKeys as $foreignKey) {
+            if ($this->isOneToOneRelation($foreignKey->getForeignTable())) {
+                $relations[] = $this->createHasOneRelation($foreignKey);
+            } else {
+                $relations[] = $this->createHasManyRelation($foreignKey);
+            }
+        }
 
-        // Detect polymorphic relationships
-        $polyRelations = $this->detectPolymorphicRelationships($table, $schema['columns']);
-        $relationships = array_merge($relationships, $polyRelations);
+        // Detect morphTo relations
+        foreach ($columns as $column) {
+            if ($this->isMorphColumn($column->getName())) {
+                $morphName = $this->getMorphName($column->getName());
+                $relations[] = $this->createMorphToRelation($morphName);
+            }
+        }
 
-        // Detect has-many-through relationships
-        $throughRelations = $this->detectHasManyThrough($table);
-        $relationships = array_merge($relationships, $throughRelations);
+        // Detect belongsToMany relations
+        $pivotForeignKeys = $this->groupPivotForeignKeys($foreignKeys);
+        foreach ($pivotForeignKeys as $pivotTable => $keys) {
+            if (count($keys) === 2) {
+                $relations[] = $this->createBelongsToManyRelation($table, $pivotTable, $keys);
+            }
+        }
 
-        return $relationships;
+        return $relations;
     }
 
     /**
-     * Process a direct relationship (belongsTo, hasOne, hasMany).
-     *
-     * @param array{type: string, foreignTable: string, foreignKey: string, localKey: string} $relation
-     *
-     * @return array{type: string, name: string, related: string, foreignKey: string, localKey: string}
+     * @inheritDoc
      */
-    private function processDirectRelation(string $table, array $relation): array {
-        $name = $this->generateRelationshipName(
-            $relation['type'],
-            $relation['foreignTable'],
-            $relation['foreignKey']
-        );
+    public function detectMorphRelations(string $table, array $columns, array $morphColumns): array {
+        $relations = [];
 
+        foreach ($morphColumns as $column) {
+            if ($this->isMorphColumn($column->getName())) {
+                $morphName = $this->getMorphName($column->getName());
+                $modelName = $this->getModelName($table);
+
+                if ($this->isOneToOneRelation($table)) {
+                    $relations[] = [
+                        'type' => 'morphOne',
+                        'name' => Str::singular($table),
+                        'model' => $modelName,
+                        'morphName' => $morphName,
+                    ];
+                } else {
+                    $relations[] = [
+                        'type' => 'morphMany',
+                        'name' => Str::plural($table),
+                        'model' => $modelName,
+                        'morphName' => $morphName,
+                    ];
+                }
+            }
+        }
+
+        return $relations;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function detectMorphToManyRelations(string $table, array $columns, array $morphPivotColumns): array {
+        $relations = [];
+
+        foreach ($morphPivotColumns as $column) {
+            if ($this->isMorphColumn($column->getName())) {
+                $morphName = $this->getMorphName($column->getName());
+                $pivotTable = Str::plural($morphName);
+                $modelName = $this->getModelName(Str::singular($morphName));
+
+                $relations[] = [
+                    'type' => 'morphToMany',
+                    'name' => Str::plural($morphName),
+                    'model' => $modelName,
+                    'table' => $pivotTable,
+                    'morphName' => $morphName,
+                ];
+            }
+        }
+
+        return $relations;
+    }
+
+    private function createBelongsToRelation(ForeignKey $foreignKey, string $columnName): array {
         return [
-            'type' => $relation['type'],
-            'name' => $name,
-            'related' => $relation['foreignTable'],
-            'foreignKey' => $relation['foreignKey'],
-            'localKey' => $relation['localKey'],
+            'type' => 'belongsTo',
+            'name' => Str::camel(str_replace('_id', '', $columnName)),
+            'model' => $this->getModelName($foreignKey->getForeignTable()),
+            'foreignKey' => $columnName,
+            'localKey' => $foreignKey->getForeignColumn(),
         ];
     }
 
-    /**
-     * Detect many-to-many relationships through pivot tables.
-     *
-     * @return array<array{
-     *     type: string,
-     *     name: string,
-     *     related: string,
-     *     foreignKey: string,
-     *     localKey: string,
-     *     pivotTable: string,
-     *     pivotForeignKey: string,
-     *     pivotRelatedKey: string
-     * }>
-     */
-    private function detectPivotRelationships(string $table): array {
-        $relationships = [];
-        $tables = $this->schemaAnalyzer->getTables();
+    private function createHasOneRelation(ForeignKey $foreignKey): array {
+        return [
+            'type' => 'hasOne',
+            'name' => Str::camel(Str::singular($foreignKey->getForeignTable())),
+            'model' => $this->getModelName($foreignKey->getForeignTable()),
+            'foreignKey' => $foreignKey->getColumn(),
+            'localKey' => $foreignKey->getForeignColumn(),
+        ];
+    }
 
-        foreach ($tables as $potentialPivot) {
-            // Skip non-pivot tables
-            if (!$this->isPivotTable($potentialPivot)) {
-                continue;
-            }
+    private function createHasManyRelation(ForeignKey $foreignKey): array {
+        return [
+            'type' => 'hasMany',
+            'name' => Str::camel(Str::plural($foreignKey->getForeignTable())),
+            'model' => $this->getModelName($foreignKey->getForeignTable()),
+            'foreignKey' => $foreignKey->getColumn(),
+            'localKey' => $foreignKey->getForeignColumn(),
+        ];
+    }
 
-            $pivotSchema = $this->schemaAnalyzer->analyze($potentialPivot);
-            $foreignKeys = array_filter(
-                $pivotSchema['relationships'],
-                fn($rel) => $rel['type'] === 'belongsTo'
-            );
+    private function createMorphToRelation(string $morphName): array {
+        return [
+            'type' => 'morphTo',
+            'name' => $morphName,
+            'morphType' => "{$morphName}_type",
+            'morphId' => "{$morphName}_id",
+        ];
+    }
 
-            if (count($foreignKeys) !== 2) {
-                continue;
-            }
+    private function createBelongsToManyRelation(string $table, string $pivotTable, array $foreignKeys): array {
+        $pivotForeignKey = $this->findPivotForeignKey($foreignKeys, $table);
+        $relatedForeignKey = $this->findRelatedForeignKey($foreignKeys, $table);
 
-            // Check if this pivot connects to our table
-            $pivotKeys = array_values($foreignKeys);
-            if ($pivotKeys[0]['foreignTable'] === $table) {
-                $relationships[] = [
-                    'type' => 'belongsToMany',
-                    'name' => Str::camel(Str::plural($pivotKeys[1]['foreignTable'])),
-                    'related' => $pivotKeys[1]['foreignTable'],
-                    'foreignKey' => $pivotKeys[0]['foreignKey'],
-                    'localKey' => $pivotKeys[0]['localKey'],
-                    'pivotTable' => $potentialPivot,
-                    'pivotForeignKey' => $pivotKeys[0]['foreignKey'],
-                    'pivotRelatedKey' => $pivotKeys[1]['foreignKey'],
-                ];
-            } elseif ($pivotKeys[1]['foreignTable'] === $table) {
-                $relationships[] = [
-                    'type' => 'belongsToMany',
-                    'name' => Str::camel(Str::plural($pivotKeys[0]['foreignTable'])),
-                    'related' => $pivotKeys[0]['foreignTable'],
-                    'foreignKey' => $pivotKeys[1]['foreignKey'],
-                    'localKey' => $pivotKeys[1]['localKey'],
-                    'pivotTable' => $potentialPivot,
-                    'pivotForeignKey' => $pivotKeys[1]['foreignKey'],
-                    'pivotRelatedKey' => $pivotKeys[0]['foreignKey'],
-                ];
-            }
-        }
+        return [
+            'type' => 'belongsToMany',
+            'name' => Str::camel(Str::plural(str_replace('_id', '', $relatedForeignKey->getColumn()))),
+            'model' => $this->getModelName(str_replace('_id', '', $relatedForeignKey->getColumn())),
+            'table' => $pivotTable,
+            'foreignPivotKey' => $pivotForeignKey->getColumn(),
+            'relatedPivotKey' => $relatedForeignKey->getColumn(),
+            'parentKey' => $pivotForeignKey->getForeignColumn(),
+            'relatedKey' => $relatedForeignKey->getForeignColumn(),
+        ];
+    }
 
-        return $relationships;
+    private function isOneToOneRelation(string $table): bool {
+        return Str::singular($table) === $table;
+    }
+
+    private function isMorphColumn(string $column): bool {
+        return Str::endsWith($column, ['_type', '_id']) && !Str::endsWith($column, '_id_type');
+    }
+
+    private function getMorphName(string $column): string {
+        return Str::beforeLast($column, '_type');
+    }
+
+    private function getModelName(string $table): string {
+        return Str::studly(Str::singular($table));
     }
 
     /**
-     * Detect polymorphic relationships.
-     *
-     * @param array<string, array{type: string, nullable: bool}> $columns
-     *
-     * @return array<array{
-     *     type: string,
-     *     name: string,
-     *     related: string,
-     *     foreignKey: string,
-     *     localKey: string
-     * }>
+     * @param ForeignKey[] $foreignKeys
+     * @return array<string, ForeignKey[]>
      */
-    private function detectPolymorphicRelationships(string $table, array $columns): array {
-        $relationships = [];
-        $morphColumns = [];
-
-        // Find potential morphable columns (ending with _type and _id)
-        foreach ($columns as $name => $column) {
-            if (str_ends_with($name, '_type')) {
-                $baseColumn = substr($name, 0, -5);
-                if (isset($columns["{$baseColumn}_id"])) {
-                    $morphColumns[] = $baseColumn;
-                }
-            }
+    private function groupPivotForeignKeys(array $foreignKeys): array {
+        $grouped = [];
+        foreach ($foreignKeys as $foreignKey) {
+            $grouped[$foreignKey->getForeignTable()][] = $foreignKey;
         }
-
-        // Create morphTo relationships for each morphable column
-        foreach ($morphColumns as $morphColumn) {
-            $relationships[] = [
-                'type' => 'morphTo',
-                'name' => $morphColumn,
-                'related' => '*', // Polymorphic relationships can relate to multiple models
-                'foreignKey' => "{$morphColumn}_id",
-                'localKey' => 'id',
-            ];
-        }
-
-        return $relationships;
+        return $grouped;
     }
 
     /**
-     * Detect has-many-through relationships.
-     *
-     * @return array<array{
-     *     type: string,
-     *     name: string,
-     *     related: string,
-     *     foreignKey: string,
-     *     localKey: string,
-     *     through: string
-     * }>
+     * @param ForeignKey[] $foreignKeys
      */
-    private function detectHasManyThrough(string $table): array {
-        $relationships = [];
-        $schema = $this->schemaAnalyzer->analyze($table);
-
-        // Get all tables that have a foreign key to this table
-        foreach ($schema['relationships'] as $relation) {
-            if ($relation['type'] !== 'hasMany') {
-                continue;
-            }
-
-            // Check if the related table has its own relationships
-            $throughSchema = $this->schemaAnalyzer->analyze($relation['foreignTable']);
-            foreach ($throughSchema['relationships'] as $throughRelation) {
-                if ($throughRelation['type'] !== 'hasMany') {
-                    continue;
-                }
-
-                // Found a potential has-many-through relationship
-                $relationships[] = [
-                    'type' => 'hasManyThrough',
-                    'name' => Str::camel(Str::plural($throughRelation['foreignTable'])),
-                    'related' => $throughRelation['foreignTable'],
-                    'foreignKey' => $relation['foreignKey'],
-                    'localKey' => $relation['localKey'],
-                    'through' => $relation['foreignTable'],
-                ];
+    private function findPivotForeignKey(array $foreignKeys, string $table): ForeignKey {
+        foreach ($foreignKeys as $foreignKey) {
+            if (Str::contains($foreignKey->getColumn(), Str::singular($table))) {
+                return $foreignKey;
             }
         }
-
-        return $relationships;
+        return $foreignKeys[0];
     }
 
     /**
-     * Check if a table is likely a pivot table.
+     * @param ForeignKey[] $foreignKeys
      */
-    private function isPivotTable(string $table): bool {
-        // Pivot tables typically have a compound name (e.g., role_user)
-        if (!str_contains($table, '_')) {
-            return false;
+    private function findRelatedForeignKey(array $foreignKeys, string $table): ForeignKey {
+        foreach ($foreignKeys as $foreignKey) {
+            if (!Str::contains($foreignKey->getColumn(), Str::singular($table))) {
+                return $foreignKey;
+            }
         }
-
-        $schema = $this->schemaAnalyzer->analyze($table);
-
-        // Pivot tables typically have exactly two foreign keys
-        $foreignKeys = array_filter(
-            $schema['relationships'],
-            fn($rel) => $rel['type'] === 'belongsTo'
-        );
-
-        if (count($foreignKeys) !== 2) {
-            return false;
-        }
-
-        // Pivot tables typically have few columns beyond foreign keys
-        return count($schema['columns']) <= 4; // Allow for timestamps
-    }
-
-    /**
-     * Generate a relationship name based on type and related table.
-     */
-    private function generateRelationshipName(string $type, string $relatedTable, string $foreignKey): string {
-        // If the foreign key follows convention (e.g., user_id), use the base name
-        if (str_ends_with($foreignKey, '_id')) {
-            $baseName = substr($foreignKey, 0, -3);
-            return match ($type) {
-                'hasMany' => Str::camel(Str::plural($baseName)),
-                'hasOne' => Str::camel($baseName),
-                'belongsTo' => Str::camel($baseName),
-                default => Str::camel($relatedTable),
-            };
-        }
-
-        // Otherwise, use the table name
-        return match ($type) {
-            'hasMany' => Str::camel(Str::plural($relatedTable)),
-            'hasOne', 'belongsTo' => Str::camel($relatedTable),
-            default => Str::camel($relatedTable),
-        };
+        return $foreignKeys[1];
     }
 }

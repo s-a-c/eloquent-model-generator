@@ -4,144 +4,59 @@ declare(strict_types=1);
 
 namespace SAC\EloquentModelGenerator\Exceptions;
 
-use InvalidArgumentException;
-use Throwable;
-
-/**
- * Exception thrown when configuration errors occur.
- */
-class ConfigurationException extends AnalysisException
-{
-    /**
-     * Create a new configuration exception instance.
-     *
-     * @param  string  $message  The exception message
-     * @param  int  $code  The exception code
-     * @param  \Throwable|null  $previous  The previous throwable used for exception chaining
-     */
-    public function __construct(
-        string $message = 'Invalid configuration',
-        int $code = self::ERROR_INVALID_CONFIG,
-        ?Throwable $previous = null
-    ) {
-        parent::__construct($message, $code, $previous);
+class ConfigurationException extends ModelGeneratorException {
+    public static function fileNotFound(string $path): self {
+        $exception = new self("Configuration file not found");
+        $exception->validateExists($path, 'Configuration file');
+        return $exception;
     }
 
-    /**
-     * Create an exception for missing configuration.
-     *
-     * @param  string  $configName  The name of the missing configuration
-     */
-    public static function missingConfig(string $configName): self
-    {
-        self::validateNotEmpty($configName, 'configuration name');
+    public static function invalidFormat(): self {
+        return new self('Configuration must be an array');
+    }
 
-        return new self(
-            sprintf('Missing required configuration: %s', $configName),
-            self::ERROR_MISSING_CONFIG
+    public static function invalidValues(array $errors): self {
+        return new self('Invalid configuration values: ' . implode(', ', $errors));
+    }
+
+    public static function invalidNamespace(string $namespace): self {
+        $exception = new self("Invalid namespace format");
+        $exception->validateRegex(
+            $namespace,
+            '/^[a-zA-Z_\x80-\xff][a-zA-Z0-9_\x80-\xff\\\\]*$/',
+            'Namespace'
         );
+        return $exception;
     }
 
-    /**
-     * Create an exception for invalid configuration.
-     *
-     * @param  string  $configName  The name of the invalid configuration
-     * @param  string  $reason  The reason for invalidity
-     */
-    public static function invalidConfig(string $configName, string $reason): self
-    {
-        self::validateNotEmpty($configName, 'configuration name');
-        self::validateNotEmpty($reason, 'reason');
-
-        return new self(
-            sprintf('Invalid configuration %s: %s', $configName, $reason),
-            self::ERROR_INVALID_CONFIG
-        );
-    }
-
-    /**
-     * Create an exception for invalid configuration value.
-     *
-     * @param  string  $configName  The name of the configuration
-     * @param  string  $value  The invalid value
-     * @param  string  $expected  The expected value or format
-     */
-    public static function invalidValue(string $configName, string $value, string $expected): self
-    {
-        self::validateNotEmpty($configName, 'configuration name');
-        self::validateNotEmpty($expected, 'expected value');
-
-        return new self(
-            sprintf(
-                'Invalid value for configuration %s: got "%s", expected %s',
-                $configName,
-                $value,
-                $expected
-            ),
-            self::ERROR_INVALID_CONFIG
-        );
-    }
-
-    /**
-     * Create an exception for missing required value.
-     *
-     * @param  string  $configName  The name of the configuration
-     * @param  string  $value  The name of the missing value
-     */
-    public static function missingRequiredValue(string $configName, string $value): self
-    {
-        self::validateNotEmpty($configName, 'configuration name');
-        self::validateNotEmpty($value, 'value name');
-
-        return new self(
-            sprintf(
-                'Missing required value "%s" in configuration %s',
-                $value,
-                $configName
-            ),
-            self::ERROR_MISSING_CONFIG
-        );
-    }
-
-    /**
-     * Create an exception for incompatible configuration.
-     *
-     * @param  string  $configName  The name of the configuration
-     * @param  string  $otherConfig  The name of the incompatible configuration
-     * @param  string  $reason  The reason for incompatibility
-     */
-    public static function incompatibleConfig(
-        string $configName,
-        string $otherConfig,
-        string $reason
-    ): self {
-        self::validateNotEmpty($configName, 'configuration name');
-        self::validateNotEmpty($otherConfig, 'other configuration name');
-        self::validateNotEmpty($reason, 'reason');
-
-        return new self(
-            sprintf(
-                'Configuration %s is incompatible with %s: %s',
-                $configName,
-                $otherConfig,
-                $reason
-            ),
-            self::ERROR_INVALID_CONFIG
-        );
-    }
-
-    /**
-     * Validate configuration name.
-     *
-     * @param  string  $configName  The configuration name to validate
-     * @param  string  $type  The type of configuration
-     *
-     * @throws \InvalidArgumentException If config name is empty
-     */
-    private static function validateNotEmpty(string $configName, string $type): void
-    {
-        if (empty($configName)) {
-            throw new InvalidArgumentException("{$type} cannot be empty");
+    public static function invalidPath(string $path): self {
+        if (str_starts_with($path, '/')) {
+            return new self("Path must be relative: {$path}");
         }
+        return new self("Invalid path: {$path}");
+    }
+
+    public static function invalidBaseClass(string $class): self {
+        $exception = new self("Invalid base class");
+        $exception->validateClass($class, 'Base class');
+        return $exception;
+    }
+
+    public static function invalidType(string $key, string $expectedType, mixed $value): self {
+        $exception = new self("Invalid configuration type");
+        $exception->validateType($value, $expectedType, $key);
+        return $exception;
+    }
+
+    public static function emptyValue(string $key): self {
+        $exception = new self("Empty configuration value");
+        $exception->validateNotEmpty($key, 'Configuration key');
+        return $exception;
+    }
+
+    public static function invalidArrayValue(string $key, string $expectedType, array $value): self {
+        $exception = new self("Invalid array configuration value");
+        $exception->validateArrayOf($value, $expectedType, $key);
+        return $exception;
     }
 }
