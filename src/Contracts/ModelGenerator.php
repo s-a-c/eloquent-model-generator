@@ -1,35 +1,29 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SAC\EloquentModelGenerator\Contracts;
 
-use SAC\EloquentModelGenerator\Exceptions\ModelGeneratorException;
-use SAC\EloquentModelGenerator\Models\GeneratedModel;
-use SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition;
-
-interface ModelGenerator
-{
+interface ModelGenerator {
     /**
-     * Generate a model from the given schema.
+     * Generate a model class for a table.
      *
-     * @param  array<string, mixed>  $schema
-     *
-     * @throws ModelGeneratorException
+     * @throws \SAC\EloquentModelGenerator\Exceptions\ModelGeneratorException
      */
-    public function generate(ModelDefinition $definition, array $schema): GeneratedModel;
+    public function generate(string $table): string;
 
     /**
-     * Generate multiple models in batch.
+     * Generate models for multiple tables.
      *
-     * @param  array<ModelDefinition>  $definitions
-     * @param  array<string, array<string, mixed>>  $schemas
-     * @return array<GeneratedModel>
+     * @param array<string> $tables
+     * @return array<string, string>
      *
-     * @throws ModelGeneratorException
+     * @throws \SAC\EloquentModelGenerator\Exceptions\ModelGeneratorException
      */
-    public function generateBatch(array $definitions, array $schemas): array;
+    public function generateBatch(array $tables): array;
 
     /**
-     * Check if a model already exists.
+     * Check if a model exists for a table.
      */
-    public function modelExists(string $className, string $namespace): bool;
+    public function modelExists(string $table): bool;
 }

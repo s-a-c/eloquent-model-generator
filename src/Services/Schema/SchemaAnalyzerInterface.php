@@ -2,24 +2,45 @@
 
 namespace SAC\EloquentModelGenerator\Services\Schema;
 
-use SAC\EloquentModelGenerator\ValueObjects\TableSchema;
+use SAC\EloquentModelGenerator\Exceptions\ModelGeneratorSchemaAnalyzerException;
 
-interface SchemaAnalyzerInterface
-{
+interface SchemaAnalyzerInterface {
     /**
-     * Analyze the schema of a table.
+     * Analyze the database table schema.
+     *
+     * @return array{
+     *     columns: array<string, array{
+     *         type: string,
+     *         nullable: bool,
+     *         primary?: bool,
+     *         unique?: bool,
+     *         index?: bool,
+     *         foreign?: array{table: string, column: string},
+     *         default?: mixed
+     *     }>,
+     *     relationships: array<array{
+     *         type: string,
+     *         foreignTable: string,
+     *         foreignKey: string,
+     *         localKey: string
+     *     }>
+     * }
+     *
+     * @throws ModelGeneratorSchemaAnalyzerException
      */
-    public function analyze(string $table): TableSchema;
+    public function analyze(string $table): array;
 
     /**
-     * Get all available tables.
+     * Get the list of tables in the database.
      *
      * @return array<string>
+     *
+     * @throws ModelGeneratorSchemaAnalyzerException
      */
     public function getTables(): array;
 
     /**
      * Check if a table exists.
      */
-    public function hasTable(string $table): bool;
+    public function tableExists(string $table): bool;
 }

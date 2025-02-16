@@ -4,174 +4,143 @@ declare(strict_types=1);
 
 namespace SAC\EloquentModelGenerator\Services\Schema;
 
-use SAC\EloquentModelGenerator\Exceptions\ModelGeneratorException;
+use Illuminate\Support\Facades\DB;
+use SAC\EloquentModelGenerator\Exceptions\ModelGeneratorSchemaAnalyzerException;
 use SAC\EloquentModelGenerator\ValueObjects\Column;
+use Throwable;
 
-class MySQLSchemaAnalyzer extends BaseSchemaAnalyzer
-{
+class MySQLSchemaAnalyzer extends BaseSchemaAnalyzer {
     /**
-     * Analyze table schema.
+     * Get the columns for a table.
      *
-     * @return array{
-     *     columns: array<string, array{
-     *         type: string,
-     *         nullable: bool,
-     *         default?: mixed,
-     *         length?: int|null,
-     *         unsigned?: bool,
-     *         autoIncrement?: bool,
-     *         primary?: bool,
-     *         unique?: bool,
-     *         comment?: string|null
-     *     }>,
-     *     relationships: array<array{
-     *         type: string,
-     *         foreignTable: string,
-     *         foreignKey: string,
-     *         localKey: string
-     *     }>
-     * }
+     * @return Column[]
      *
-     * @throws ModelGeneratorException
+     * @throws ModelGeneratorSchemaAnalyzerException
      */
-    public function analyze(string $table): array
-    {
-        if (! $this->hasTable($table)) {
-            throw new ModelGeneratorException(sprintf("Table '%s' does not exist", $table));
-        }
+    protected function getColumns(string $table): array {
+        try {
+            $columns = [];
+            $schemaBuilder = $this->getSchemaBuilder();
+            $columnListing = $schemaBuilder->getColumnListing($table);
 
-        $this->getSchemaBuilder();
-        $columns = $this->analyzeColumns($table);
-        $relationships = $this->analyzeRelationships($table);
+            // Get primary key
+            $primaryKey = null;
+            $keys = DB::select("SHOW KEYS FROM `{$table}` WHERE Key_name = 'PRIMARY'");
+            if (!empty($keys)) {
+                $primaryKey = $keys[0]->Column_name;
+            }
 
-        return [
-            'columns' => $columns,
-            'relationships' => $relationships,
-        ];
-    }
+            // Get column details
+            foreach ($columnListing as $columnName) {
+                $columnInfo = DB::select("SHOW FULL COLUMNS FROM `{$table}` WHERE Field = ?", [$columnName])[0];
 
-    /**
-     * Analyze table columns.
-     *
-     * @return array<string, array{
-     *     type: string,
-     *     nullable: bool,
-     *     default?: mixed,
-     *     length?: int|null,
-     *     unsigned?: bool,
-     *     autoIncrement?: bool,
-     *     primary?: bool,
-     *     unique?: bool,
-     *     comment?: string|null
-     * }>
-     */
-    protected function analyzeColumns(string $table): array
-    {
-        $schema = $this->getSchemaBuilder();
-        $columns = [];
+                $type = strtolower($columnInfo->Type);
+                $length = null;
 
-        foreach ($schema->getColumnListing($table) as $columnName) {
-            $type = $schema->getColumnType($table, $columnName);
-            $columns[$columnName] = [
-                'type' => $this->mapColumnType($type),
-                'nullable' => ! $schema->getColumns($table)[$columnName]['notnull'],
-                'default' => $schema->getColumns($table)[$columnName]['default'],
-                'length' => $this->getColumnLength($table, $columnName),
-                'unsigned' => $this->isColumnUnsigned($table, $columnName),
-                'autoIncrement' => $this->isColumnAutoIncrement($table, $columnName),
-                'primary' => $this->isColumnPrimary($table, $columnName),
-                'unique' => $this->isColumnUnique($table, $columnName),
-                'comment' => $this->getColumnComment($table, $columnName),
-            ];
-        }
+                // Extract length if specified
+                if (preg_match('/^(\w+)\((\d+)\)/', $type, $matches)) {
+                    $type = $matches[1];
+                    $length = (int) $matches[2];
+                }
 
-        return $columns;
-    }
+                // Check for unsigned
+                $isUnsigned = str_contains($columnInfo->Type, 'unsigned');
+                if ($isUnsigned) {
+                    $type = str_replace(' unsigned', '', $type);
+                }
 
-    /**
-     * Analyze table relationships.
-     *
-     * @return array<array{type: string, foreignTable: string, foreignKey: string, localKey: string}>
-     */
-    protected function analyzeRelationships(string $table): array
-    {
-        $schema = $this->getSchemaBuilder();
-        $relationships = [];
+                // Get enum values if applicable
+                $enumValues = null;
+                if (str_starts_with($type, 'enum')) {
+                    preg_match("/^enum\((.*)\)$/", $columnInfo->Type, $matches);
+                    if (isset($matches[1])) {
+                        $enumValues = array_map(
+                            fn($value) => trim($value, "'"),
+                            explode(',', $matches[1])
+                        );
+                    }
+                    $type = 'enum';
+                }
 
-        foreach ($schema->getForeignKeys($table) as $foreignKey) {
-            $relationships[] = $this->getRelationshipDefinition(
-                'belongsTo',
-                $foreignKey['foreign_table'],
-                $foreignKey['foreign_column'],
-                $foreignKey['local_column']
+                $columns[] = new Column(
+                    name: $columnName,
+                    type: $this->mapColumnType($type),
+                    isPrimary: $columnName === $primaryKey,
+                    isAutoIncrement: str_contains(strtolower($columnInfo->Extra), 'auto_increment'),
+                    isNullable: strtolower($columnInfo->Null) === 'yes',
+                    isUnique: str_contains(strtolower($columnInfo->Key), 'uni'),
+                    default: $columnInfo->Default,
+                    length: $length,
+                    enumValues: $enumValues
+                );
+            }
+
+            return $columns;
+        } catch (Throwable $throwable) {
+            throw new ModelGeneratorSchemaAnalyzerException(
+                "Failed to get columns for table {$table}: " . $throwable->getMessage(),
+                previous: $throwable
             );
         }
-
-        return $relationships;
     }
 
     /**
-     * Get column length.
+     * Get relationships for a table.
+     *
+     * @return array<array{type: string, foreignTable: string, foreignKey: string, localKey: string}>
+     *
+     * @throws ModelGeneratorSchemaAnalyzerException
      */
-    protected function getColumnLength(string $table, string $column): ?int
-    {
-        $columns = $this->getSchemaBuilder()->getColumns($table);
+    protected function getRelationships(string $table): array {
+        try {
+            $relationships = [];
 
-        return $columns[$column]['length'] ?? null;
-    }
+            // Get foreign key constraints
+            $foreignKeys = DB::select("
+                SELECT
+                    COLUMN_NAME as column_name,
+                    REFERENCED_TABLE_NAME as referenced_table,
+                    REFERENCED_COLUMN_NAME as referenced_column
+                FROM information_schema.KEY_COLUMN_USAGE
+                WHERE
+                    TABLE_SCHEMA = DATABASE()
+                    AND TABLE_NAME = ?
+                    AND REFERENCED_TABLE_NAME IS NOT NULL
+            ", [$table]);
 
-    /**
-     * Check if column is unsigned.
-     */
-    protected function isColumnUnsigned(string $table, string $column): bool
-    {
-        $columns = $this->getSchemaBuilder()->getColumns($table);
+            foreach ($foreignKeys as $foreignKey) {
+                // Determine relationship type based on column names and constraints
+                $type = 'belongsTo'; // Default to belongsTo for foreign keys
 
-        return $columns[$column]['unsigned'] ?? false;
-    }
+                // Check if the referenced table has a foreign key back to this table
+                $reverseFK = DB::select("
+                    SELECT
+                        COLUMN_NAME
+                    FROM information_schema.KEY_COLUMN_USAGE
+                    WHERE
+                        TABLE_SCHEMA = DATABASE()
+                        AND TABLE_NAME = ?
+                        AND REFERENCED_TABLE_NAME = ?
+                ", [$foreignKey->referenced_table, $table]);
 
-    /**
-     * Check if column is auto-increment.
-     */
-    protected function isColumnAutoIncrement(string $table, string $column): bool
-    {
-        $columns = $this->getSchemaBuilder()->getColumns($table);
+                if (!empty($reverseFK)) {
+                    $type = 'belongsToMany'; // It's a many-to-many relationship
+                }
 
-        return $columns[$column]['autoincrement'] ?? false;
-    }
-
-    /**
-     * Check if column is primary key.
-     */
-    protected function isColumnPrimary(string $table, string $column): bool
-    {
-        $schema = $this->getSchemaBuilder();
-
-        return in_array($column, $schema->getIndexes($table)['primary']['columns'] ?? [], true);
-    }
-
-    /**
-     * Check if column is unique.
-     */
-    protected function isColumnUnique(string $table, string $column): bool
-    {
-        $schema = $this->getSchemaBuilder();
-        foreach ($schema->getIndexes($table) as $index) {
-            if ($index['unique'] && count($index['columns']) === 1 && $index['columns'][0] === $column) {
-                return true;
+                $relationships[] = $this->getRelationshipDefinition(
+                    type: $type,
+                    foreignTable: $foreignKey->referenced_table,
+                    foreignKey: $foreignKey->column_name,
+                    localKey: $foreignKey->referenced_column
+                );
             }
+
+            return $relationships;
+        } catch (Throwable $throwable) {
+            throw new ModelGeneratorSchemaAnalyzerException(
+                "Failed to get relationships for table {$table}: " . $throwable->getMessage(),
+                previous: $throwable
+            );
         }
-
-        return false;
-    }
-
-    /**
-     * Get column comment.
-     */
-    protected function getColumnComment(string $table, string $column): ?string
-    {
-        $columns = $this->getSchemaBuilder()->getColumns($table);
-
-        return $columns[$column]['comment'] ?? null;
     }
 }

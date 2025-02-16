@@ -8,19 +8,18 @@ use Illuminate\Database\Connection;
 use Illuminate\Database\ConnectionInterface;
 use Illuminate\Database\Schema\Builder;
 use SAC\EloquentModelGenerator\Contracts\SchemaAnalyzer;
-use SAC\EloquentModelGenerator\Exceptions\ModelGeneratorException;
+use SAC\EloquentModelGenerator\Exceptions\ModelGeneratorSchemaAnalyzerException;
+use SAC\EloquentModelGenerator\ValueObjects\Column;
 use Throwable;
 
-abstract class BaseSchemaAnalyzer implements SchemaAnalyzer
-{
+abstract class BaseSchemaAnalyzer implements SchemaAnalyzer {
     private ?Builder $schemaBuilder = null;
 
     protected string $tablePrefix;
 
-    public function __construct(private readonly ConnectionInterface $connection)
-    {
+    public function __construct(private readonly ConnectionInterface $connection) {
         if (! $connection instanceof Connection) {
-            throw new ModelGeneratorException('Connection must be an instance of Illuminate\Database\Connection');
+            throw new ModelGeneratorSchemaAnalyzerException('Connection must be an instance of Illuminate\Database\Connection');
         }
 
         $this->tablePrefix = $connection->getTablePrefix() ?? '';
@@ -29,11 +28,10 @@ abstract class BaseSchemaAnalyzer implements SchemaAnalyzer
     /**
      * Get the schema builder instance.
      */
-    public function getSchemaBuilder(): Builder
-    {
+    public function getSchemaBuilder(): Builder {
         if (! $this->schemaBuilder instanceof Builder) {
             if (! $this->connection instanceof Connection) {
-                throw new ModelGeneratorException('Connection must be an instance of Illuminate\Database\Connection');
+                throw new ModelGeneratorSchemaAnalyzerException('Connection must be an instance of Illuminate\Database\Connection');
             }
 
             $this->schemaBuilder = $this->connection->getSchemaBuilder();
@@ -45,8 +43,7 @@ abstract class BaseSchemaAnalyzer implements SchemaAnalyzer
     /**
      * Get the table prefix.
      */
-    public function getTablePrefix(): string
-    {
+    public function getTablePrefix(): string {
         return $this->tablePrefix;
     }
 
@@ -55,15 +52,14 @@ abstract class BaseSchemaAnalyzer implements SchemaAnalyzer
      *
      * @return array<string>
      *
-     * @throws ModelGeneratorException
+     * @throws ModelGeneratorSchemaAnalyzerException
      */
-    public function getTables(): array
-    {
+    public function getTables(): array {
         try {
             return $this->getSchemaBuilder()->getAllTables();
         } catch (Throwable $throwable) {
-            throw new ModelGeneratorException(
-                'Failed to get tables: '.$throwable->getMessage(),
+            throw new ModelGeneratorSchemaAnalyzerException(
+                'Failed to get tables: ' . $throwable->getMessage(),
                 previous: $throwable
             );
         }
@@ -72,8 +68,7 @@ abstract class BaseSchemaAnalyzer implements SchemaAnalyzer
     /**
      * Check if a table exists.
      */
-    public function hasTable(string $table): bool
-    {
+    public function hasTable(string $table): bool {
         return $this->getSchemaBuilder()->hasTable($table);
     }
 
@@ -82,8 +77,7 @@ abstract class BaseSchemaAnalyzer implements SchemaAnalyzer
      *
      * @return array{table: string, column: string}
      */
-    protected function getForeignKeyDefinition(string $foreignTable, string $foreignColumn): array
-    {
+    protected function getForeignKeyDefinition(string $foreignTable, string $foreignColumn): array {
         return [
             'table' => $foreignTable,
             'column' => $foreignColumn,
@@ -114,8 +108,7 @@ abstract class BaseSchemaAnalyzer implements SchemaAnalyzer
      *
      * @return non-empty-string
      */
-    protected function mapColumnType(string $databaseType): string
-    {
+    protected function mapColumnType(string $databaseType): string {
         return match (strtolower($databaseType)) {
             'bigint', 'int8' => 'integer',
             'integer', 'int', 'int4' => 'integer',
@@ -136,8 +129,7 @@ abstract class BaseSchemaAnalyzer implements SchemaAnalyzer
     /**
      * Get the cast type for a column type.
      */
-    protected function getCastType(string $type): string
-    {
+    protected function getCastType(string $type): string {
         return match ($type) {
             'int', 'integer', 'tinyint', 'smallint', 'mediumint', 'bigint' => 'int',
             'decimal', 'float', 'double', 'real' => 'float',
@@ -150,8 +142,79 @@ abstract class BaseSchemaAnalyzer implements SchemaAnalyzer
     /**
      * Check if a table exists.
      */
-    public function tableExists(string $table): bool
-    {
+    public function tableExists(string $table): bool {
         return $this->hasTable($table);
     }
+
+    /**
+     * Analyze the schema of a table.
+     *
+     * @return array{
+     *     columns: array<string, array{
+     *         type: string,
+     *         nullable: bool,
+     *         primary?: bool,
+     *         unique?: bool,
+     *         index?: bool,
+     *         foreign?: array{table: string, column: string},
+     *         default?: mixed
+     *     }>,
+     *     relationships: array<array{
+     *         type: string,
+     *         foreignTable: string,
+     *         foreignKey: string,
+     *         localKey: string
+     *     }>
+     * }
+     *
+     * @throws ModelGeneratorSchemaAnalyzerException
+     */
+    public function analyze(string $table): array {
+        if (!$this->hasTable($table)) {
+            throw new ModelGeneratorSchemaAnalyzerException("Table {$table} does not exist");
+        }
+
+        try {
+            $columns = $this->getColumns($table);
+            $relationships = $this->getRelationships($table);
+
+            $columnData = [];
+            foreach ($columns as $column) {
+                $columnData[$column->getName()] = [
+                    'type' => $column->getType(),
+                    'nullable' => $column->isNullable(),
+                    'primary' => $column->isPrimary(),
+                    'unique' => $column->isUnique(),
+                    'default' => $column->getDefault(),
+                ];
+            }
+
+            return [
+                'columns' => $columnData,
+                'relationships' => $relationships,
+            ];
+        } catch (Throwable $throwable) {
+            throw new ModelGeneratorSchemaAnalyzerException(
+                "Failed to analyze table {$table}: " . $throwable->getMessage(),
+                previous: $throwable
+            );
+        }
+    }
+
+    /**
+     * Get relationships for a table.
+     *
+     * @return array<array{type: string, foreignTable: string, foreignKey: string, localKey: string}>
+     */
+    protected function getRelationships(string $table): array {
+        // This should be implemented by specific database analyzers
+        return [];
+    }
+
+    /**
+     * Get the columns for a table.
+     *
+     * @return Column[]
+     */
+    abstract protected function getColumns(string $table): array;
 }
