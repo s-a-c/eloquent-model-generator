@@ -1,69 +1,85 @@
-# Version History
+# Detailed Version History
 
-## 0.1.0 (Current)
+## Version 0.3.0 (2025-02-16)
 
-**Release Date:** 2025-02-15
+### Features Added
+- Complete SQLite database support
+  * Schema analysis with table structure detection
+  * Comprehensive type mapping system
+  * Full relationship detection
+  * Integration with real SQLite databases
 
-### Features
-- Implemented static analysis tools (PHPStan, Psalm, Rector, PHPMD, Metrics, Pint)
-- Created configuration builders and error mappers for all analysis tools
-- Set up default rules for Laravel best practices, type safety, code quality, and performance
-- Implemented configuration validators for all analysis tools
+- Model Generation Features
+  * Base model generation with validation support
+  * Factory generation with state definitions
+  * Policy generation with CRUD methods
+  * Resource generation with conditional fields
 
-### Breaking Changes
-- Requires PHP 8.3+
-- Requires Laravel 11.x
-- New configuration structure
-- Updated tool interfaces
+- Testing Infrastructure
+  * Unit test suite
+  * Integration tests
+  * Performance benchmarks
+  * Memory usage optimization
 
-### Support Status
-
-| Version | PHP  | Laravel | Status | Security Until |
-| ------- | ---- | ------- | ------ | -------------- |
-| 0.1.0   | 8.3+ | 11.x    | Stable | -              |
-
-## [Unreleased]
-
-### Added
-- Initial package structure
-- Basic documentation
-- Analysis tool configurations
-    - PHPStan/Larastan setup
-    - Psalm integration
-    - Rector configuration
-    - PHPMD rules
-    - PHPMetrics setup
-- Error handling system
-    - Base exception classes
-    - Tool-specific exceptions
-    - Error validation
 - Documentation
-    - Core documentation structure
-    - Analysis tools guide
-    - Configuration guides
-    - Security policy
-    - Code of conduct
+  * API documentation
+  * Usage examples
+  * Configuration guide
+  * Best practices
 
-### Changed
-- Updated minimum PHP version to 8.3
+### Improvements
 - Enhanced error handling
-- Improved documentation structure
+- Performance optimizations
+- Memory usage improvements
+- Code quality enhancements
 
-### Fixed
-- Exception handling in tool configurations
-- Documentation links and formatting
-- Configuration validation
+### Security
+- Input validation
+- SQL injection prevention
+- Access control checks
+- Security best practices
 
-## Release Schedule
+## Version 0.2.0 (2025-02-15)
 
-### Version 0.1.0
-- Alpha: Q1 2024
-- Beta: Q2 2024
-- RC: Q3 2024
-- Stable: Q4 2024
+### Features Added
+- Initial SQLite schema analyzer
+  * Basic table structure analysis
+  * Column type detection
+  * Index analysis
+  * Foreign key detection
 
-### Long Term Support
-- Will begin with 1.0.0 release
-- Security updates
-- Bug fixes
-- Performance improvements
+- Type Mapping System
+  * Basic SQLite type mapping
+  * Nullable type support
+  * Default value handling
+
+- Relationship Framework
+  * Basic relationship detection
+  * Foreign key relationships
+  * Initial polymorphic support
+
+### Infrastructure
+- Test suite setup
+- CI/CD pipeline
+- Code quality tools
+- Development workflows
+
+## Version 0.1.0 (2025-02-14)
+
+### Initial Setup
+- Repository initialization
+- Project structure
+- Basic documentation
+- Development environment
+
+### Infrastructure
+- Composer configuration
+- PHPUnit setup
+- Code style configuration
+- Git workflow setup
+
+### Documentation
+- Initial README
+- Contributing guidelines
+- Code of conduct
+- License information

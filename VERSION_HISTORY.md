@@ -1,25 +1,20 @@
 # Version History
 
-## 0.1.0 (Current)
+## v0.3.0 (2025-02-16)
+- Complete SQLite support implementation
+- Model generation with validation
+- Factory, policy, and resource generation
+- Comprehensive test suite
+- Full documentation
 
-**Release Date:** 2025-02-15
+## v0.2.0 (2025-02-15)
+- Initial SQLite schema analyzer
+- Basic type mapping
+- Relationship detection framework
+- Test infrastructure setup
 
-**Features:**
-- Implemented static analysis tools (PHPStan, Psalm, Rector, PHPMD, Metrics, Pint)
-- Created configuration builders and error mappers for all analysis tools
-- Set up default rules for Laravel best practices, type safety, code quality, and performance
-- Implemented configuration validators for all analysis tools
-
-**Breaking Changes:**
-- Requires PHP 8.3+
-- Requires Laravel 11.x
-- New configuration format (tool-specific configuration files)
-- Updated interfaces (AnalysisTool, AnalysisResult, AnalysisConfig, ResultFormatter)
-
-**Support Status**
-
-| Version | PHP  | Laravel | Status | Security Until |
-| ------- | ---- | ------- | ------ | -------------- |
-| 0.1.0   | 8.3+ | 11.x    | Stable | -              |
-
-For detailed information, see [Documentation](docs/version_history.md).
+## v0.1.0 (2025-02-14)
+- Initial repository setup
+- Basic project structure
+- Development environment configuration
+- Documentation framework
