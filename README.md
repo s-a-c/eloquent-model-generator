@@ -1,68 +1,96 @@
 # Eloquent Model Generator
 
-A Laravel package for generating Eloquent models with comprehensive SQLite support.
+A Laravel package for generating Eloquent models with comprehensive type support and relationship detection.
 
 ## Features
 
-### SQLite Support
-- Complete schema analysis with table structure detection
-- Comprehensive type mapping for all SQLite data types
-- Full relationship detection (including polymorphic)
-- Real database integration and testing
-
-### Model Generation
-- Base model generation with validation support
-- Factory generation with state definitions
-- Policy generation with CRUD methods
-- Resource generation with conditional fields
-
-### Testing & Documentation
-- Comprehensive test suite
-- Performance benchmarks
-- API documentation
-- Usage examples
+- Rich domain model implementation
+- Comprehensive type system
+- Functional programming utilities
+- Domain services for model generation
+- Laravel integration
+- Flexible configuration system
 
 ## Installation
 
 ```bash
-composer require standalonecomplexdev/eloquent-model-generator
+composer require sac/eloquent-model-generator
 ```
 
-## Basic Usage
+## Usage
 
 ```php
 use SAC\EloquentModelGenerator\ModelGenerator;
-use SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition;
 
-// Initialize generator
-$generator = new ModelGenerator();
-
-// Create model definition
-$definition = new ModelDefinition('User', 'App\\Models');
-$definition->withValidation()
-          ->withFactory()
-          ->withPolicy()
-          ->withResource();
-
-// Generate model
-$model = $generator->generate($definition, $schema);
+$generator = app(ModelGenerator::class);
+$generator->generate('users');
 ```
 
-## Documentation
+## Development
 
-For detailed documentation, please visit:
-- [Overview](docs/index.md)
-- [SQLite Support](docs/sqlite-support.md)
-- [Model Generation](docs/model-generation.md)
-- [Testing Guide](docs/testing.md)
+### Requirements
+
+- PHP 8.2+
+- Laravel 10.0+
+- Composer 2.0+
+
+### Setup
+
+1. Clone the repository
+2. Install dependencies:
+
+   ```bash
+   composer install
+   ```
+
+3. Run tests:
+
+   ```bash
+   ./vendor/bin/pest
+   ```
+
+### Testing Principles
+
+This project follows strict testing and static analysis principles:
+
+1. All tests must be written in Pest format
+2. Tests and results must be catalogued in sprint logs
+3. Static analysis must pass at:
+   - PHPStan/Larastan level 8
+   - Psalm error level 1
+4. All results must be documented
+
+See [Testing Principles](docs/testing-principles.md) for detailed guidelines.
+
+### Quality Assurance
+
+- All code must pass static analysis:
+
+  ```bash
+  composer analyse
+  ```
+
+- All tests must pass:
+
+  ```bash
+  composer test
+  ```
+
+- Type coverage must be maintained:
+
+  ```bash
+  composer type-coverage
+  ```
+
+### Documentation
+
+- [Testing Principles](docs/testing-principles.md)
+- [Model Casting Assertions](docs/model-casting-assertions.md)
+- [Version History](VERSION_HISTORY.md)
 
 ## Contributing
 
 Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
-
-## Security
-
-If you discover any security related issues, please email security@standalonecomplexdev.com.
 
 ## License
 

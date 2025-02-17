@@ -1,279 +1,175 @@
-# Sprint 4: Validation & Error Handling
-
-**Duration**: 5 working days
-**Focus**: Validation system, error handling, and security
+# Sprint 4: Domain Model and Infrastructure Improvements
 
 ## Objectives
 
-1. Implement validation rule generation
-2. Create comprehensive error handling
-3. Add security features
-4. Build validation rule builders
+1. Enhance Domain Model
+   - [ ] Create ColumnType value object
+   - [ ] Implement RelationType enum
+   - [ ] Add fluent model builders
+   - [ ] Add property validation
 
-## Tasks
+2. Improve Event System
+   - [ ] Add event versioning
+   - [ ] Implement event upcasting
+   - [ ] Add event replay
+   - [ ] Create event snapshots
 
-### Day 1: Validation System
+3. Enhance Testing Infrastructure
+   - [ ] Create integration test suite
+   - [ ] Implement test data factories
+   - [ ] Add database test helpers
+   - [ ] Add performance benchmarks
 
-#### Rule Generation
-- [ ] Create validation rule builder
-  ```php
-  final class ValidationRuleBuilder
-  {
-      public function __construct(
-          private readonly TypeResolver $typeResolver,
-          private readonly RuleRegistry $ruleRegistry
-      ) {}
+4. Improve Code Quality
+   - [ ] Add architectural decision records
+   - [ ] Implement coding standards
+   - [ ] Add mutation testing
+   - [ ] Enhance documentation
 
-      public function buildRules(Property $property): array
-      {
-          return pipe(
-              $this->getBaseRules(),
-              $this->addTypeRules(),
-              $this->addCustomRules(),
-              $this->filterInvalidRules()
-          )($property);
-      }
-  }
-  ```
+5. Developer Experience
+   - [ ] Create make commands
+   - [ ] Add dev container support
+   - [ ] Improve error messages
+   - [ ] Add debug helpers
 
-#### Custom Rules
-- [ ] Implement custom validation rules
-  ```php
-  final class UniqueInTenant implements Rule
-  {
-      public function __construct(
-          private readonly string $table,
-          private readonly ?string $column = null
-      ) {}
+## Deliverables
 
-      public function validate(
-          string $attribute,
-          mixed $value,
-          Closure $fail
-      ): void {
-          // Validation logic
-      }
-  }
-  ```
+### Domain Layer
 
-### Day 2: Error Handling
+- src/Domain/Model/ColumnType.php
+- src/Domain/Model/RelationType.php
+- src/Domain/Model/Builders/ModelBuilder.php
+- src/Domain/Model/Validation/ModelValidator.php
 
-#### Error Types
-- [ ] Create error value objects
-  ```php
-  final class Error
-  {
-      private function __construct(
-          private readonly string $code,
-          private readonly string $message,
-          private readonly array $context = []
-      ) {}
+### Event System
 
-      public static function validation(
-          string $message,
-          array $context = []
-      ): self {
-          return new self('VALIDATION_ERROR', $message, $context);
-      }
-  }
-  ```
+- src/EventSourcing/Versioning/EventVersion.php
+- src/EventSourcing/Versioning/EventUpgrader.php
+- src/EventSourcing/Replay/EventReplayer.php
+- src/EventSourcing/Snapshot/EventSnapshot.php
 
-#### Error Collection
-- [ ] Implement error collection
-  ```php
-  final class ErrorCollection
-  {
-      private function __construct(
-          private readonly array $errors
-      ) {}
+### Testing Infrastructure
 
-      public static function create(Error ...$errors): self
-      {
-          return new self($errors);
-      }
+- tests/Integration/TestCase.php
+- tests/Factories/ModelFactory.php
+- tests/Helpers/DatabaseTestHelper.php
+- tests/Benchmarks/ModelGenerationBench.php
 
-      public function hasErrors(): bool
-      {
-          return !empty($this->errors);
-      }
+### Code Quality
 
-      public function toArray(): array
-      {
-          return array_map(
-              fn(Error $error) => $error->toArray(),
-              $this->errors
-          );
-      }
-  }
-  ```
+- docs/adr/0001-record-architecture-decisions.md
+- .php-cs-fixer.dist.php
+- infection.json.dist
+- docs/development.md
 
-### Day 3: Security Features
+### Developer Tools
 
-#### Input Sanitization
-- [ ] Create input sanitizer
-  ```php
-  final class InputSanitizer
-  {
-      public function sanitize(mixed $input): mixed
-      {
-          return match (true) {
-              is_string($input) => $this->sanitizeString($input),
-              is_array($input) => $this->sanitizeArray($input),
-              default => $input
-          };
-      }
+- src/Console/Commands/MakeModelCommand.php
+- .devcontainer/devcontainer.json
+- src/Exceptions/FriendlyException.php
+- src/Support/Debug/ModelDebugger.php
 
-      private function sanitizeString(string $input): string
-      {
-          return pipe(
-              $this->removeControlCharacters(),
-              $this->escapeHtml(),
-              $this->normalizeEncoding()
-          )($input);
-      }
-  }
-  ```
+## Technical Requirements
 
-#### Security Middleware
-- [ ] Implement security middleware
-  ```php
-  final class SecurityMiddleware
-  {
-      public function __construct(
-          private readonly InputSanitizer $sanitizer
-      ) {}
+1. Domain Model
+   - Immutable value objects
+   - Type-safe enums
+   - Fluent interfaces
+   - Validation rules
 
-      public function handle(Request $request, Closure $next): mixed
-      {
-          $sanitizedInput = $this->sanitizer->sanitize(
-              $request->all()
-          );
+2. Event System
+   - Event versioning schema
+   - Backward compatibility
+   - Performance optimization
+   - Data integrity
 
-          $request->replace($sanitizedInput);
+3. Testing
+   - PHPUnit/Pest integration
+   - Database transactions
+   - Factory patterns
+   - Performance metrics
 
-          return $next($request);
-      }
-  }
-  ```
+4. Code Quality
+   - PSR-12 compliance
+   - Static analysis
+   - Documentation standards
+   - Code coverage
 
-### Day 4: Validation Integration
+5. Developer Tools
+   - Docker support
+   - CLI commands
+   - Error handling
+   - Debug tooling
 
-#### Model Validation
-- [ ] Create model validator
-  ```php
-  final class ModelValidator
-  {
-      public function __construct(
-          private readonly ValidationRuleBuilder $ruleBuilder,
-          private readonly Validator $validator
-      ) {}
+## Dependencies
 
-      public function validate(ModelDefinition $model): Result
-      {
-          return pipe(
-              $this->buildRules(),
-              $this->validateModel(),
-              $this->handleErrors()
-          )($model);
-      }
-  }
-  ```
+- PHP 8.2+
+- Laravel 10.x
+- PHPUnit/Pest
+- PHP-CS-Fixer
+- Infection
+- Docker
 
-#### Validation Events
-- [ ] Add validation events
-  ```php
-  final class ModelValidationFailed implements DomainEvent
-  {
-      public function __construct(
-          private readonly string $eventId,
-          private readonly DateTimeImmutable $occurredOn,
-          private readonly ModelDefinition $model,
-          private readonly ErrorCollection $errors
-      ) {}
-  }
-  ```
+## Timeline
 
-### Day 5: Testing & Documentation
+1. Domain Model (2 days)
+   - Value objects
+   - Enums
+   - Builders
+   - Validation
 
-#### Testing
-- [ ] Write validation tests
-  ```php
-  final class ValidationTest extends TestCase
-  {
-      /** @test */
-      public function it_validates_required_fields(): void
-      {
-          $model = ModelDefinition::create('User')
-              ->withProperty(Property::create('email', Type::string()));
+2. Event System (2 days)
+   - Versioning
+   - Upcasting
+   - Replay
+   - Snapshots
 
-          $result = $this->validator->validate($model);
+3. Testing (2 days)
+   - Integration tests
+   - Factories
+   - Helpers
+   - Benchmarks
 
-          $this->assertTrue($result->hasErrors());
-          $this->assertContains('email', $result->getErrorCodes());
-      }
-  }
-  ```
+4. Code Quality (1 day)
+   - ADRs
+   - Standards
+   - Mutation testing
+   - Documentation
 
-#### Integration
-- [ ] Update service provider
-  ```php
-  final class GeneratorServiceProvider extends ServiceProvider
-  {
-      public function register(): void
-      {
-          $this->app->singleton(ValidationRuleBuilder::class);
-          $this->app->singleton(InputSanitizer::class);
+5. Developer Tools (1 day)
+   - Commands
+   - Container
+   - Errors
+   - Debugging
 
-          $this->app->when(ModelValidator::class)
-              ->needs(Validator::class)
-              ->give(fn() => $this->app['validator']);
-      }
-  }
-  ```
+## Success Criteria
 
-## Commit Message
+1. Domain Model
+   - 100% type coverage
+   - Comprehensive validation
+   - Fluent API
+   - Immutability
 
-```
-feat(validation): implement validation and error handling
+2. Event System
+   - Version compatibility
+   - Replay functionality
+   - Snapshot support
+   - Performance metrics
 
-- Add validation rule generation system
-- Implement comprehensive error handling
-- Create security features and sanitization
-- Add validation events and testing
-- Integrate with Laravel's validation
+3. Testing
+   - 95%+ code coverage
+   - Integration tests
+   - Performance baselines
+   - Factory coverage
 
-Following DDD principles:
-- Rich domain models for errors
-- Value objects for validation rules
-- Clear validation boundaries
-- Domain events for failures
+4. Code Quality
+   - Zero static analysis errors
+   - Mutation score > 90%
+   - Documentation coverage
+   - ADR compliance
 
-SOLID compliance:
-- Single responsibility for validators
-- Open for extension (rules)
-- Interface segregation for validation
-- Dependency inversion in services
-
-Breaking changes: none
-```
-
-## Version History Update
-
-```markdown
-## [0.3.2-dev.5] - 2025-03-14
-
-### Added
-- Validation rule generation
-- Error handling system
-- Security features
-- Input sanitization
-- Validation events
-- Comprehensive test suite
-
-### Changed
-- Enhanced model validation
-- Improved error reporting
-- Added security measures
-
-### Breaking Changes
-None
+5. Developer Tools
+   - Container functionality
+   - CLI usability
+   - Error clarity
+   - Debug capabilities

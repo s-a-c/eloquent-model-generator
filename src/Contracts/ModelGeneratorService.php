@@ -1,52 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SAC\EloquentModelGenerator\Contracts;
 
+use SAC\EloquentModelGenerator\Model\ModelDefinition;
 use SAC\EloquentModelGenerator\Exceptions\ModelGeneratorException;
-use SAC\EloquentModelGenerator\Support\Definitions\ModelDefinition;
 
 /**
- * @phpstan-type ColumnDefinition array{
- *     type: non-empty-string,
- *     nullable: bool,
- *     default?: mixed,
- *     length?: positive-int|null,
- *     unsigned?: bool,
- *     autoIncrement?: bool,
- *     primary?: bool,
- *     unique?: bool,
- *     comment?: non-empty-string|null,
- *     allowed?: array<string>|null
- * }
- * @phpstan-type SchemaDefinition array{
- *     columns: array<string, ColumnDefinition>,
- *     indexes?: array<string, array{
- *         type: 'primary'|'unique'|'index'|'fulltext'|'spatial',
- *         columns: array<string>,
- *         name?: string,
- *         algorithm?: string,
- *         options?: array<string, mixed>
- *     }>,
- *     foreignKeys?: array<string, array{
- *         table: string,
- *         columns: array<string, string>,
- *         onDelete?: string,
- *         onUpdate?: string
- *     }>,
- *     relations?: array<string, array{
- *         type: string,
- *         model?: string,
- *         foreignKey?: string,
- *         localKey?: string,
- *         morphType?: string
- *     }>,
- *     timestamps?: bool,
- *     softDeletes?: bool,
- *     primaryKey?: string,
- *     incrementing?: bool
- * }
  * @phpstan-type ModelOptions array{
- *     class_name?: string,
  *     namespace?: string,
  *     base_class?: class-string|null,
  *     with_soft_deletes?: bool,
@@ -88,7 +50,31 @@ interface ModelGeneratorService
     /**
      * Get the schema for a table
      *
-     * @return SchemaDefinition
+     * @return array{
+     *     columns: array<string, array{
+     *         type: string,
+     *         nullable: bool,
+     *         default?: mixed,
+     *         length?: int|null,
+     *         unsigned?: bool,
+     *         autoIncrement?: bool,
+     *         primary?: bool,
+     *         unique?: bool
+     *     }>,
+     *     indexes?: array<string, array{
+     *         type: string,
+     *         columns: array<string>,
+     *         name?: string,
+     *         algorithm?: string,
+     *         options?: array<string, mixed>
+     *     }>,
+     *     foreignKeys?: array<string, array{
+     *         table: string,
+     *         columns: array<string, string>,
+     *         onDelete?: string,
+     *         onUpdate?: string
+     *     }>
+     * }
      *
      * @throws ModelGeneratorException If schema analysis fails
      */

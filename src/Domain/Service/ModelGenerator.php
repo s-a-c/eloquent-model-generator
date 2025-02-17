@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace SAC\EloquentModelGenerator\Domain\Service;
 
-use SAC\EloquentModelGenerator\Domain\Model\ModelDefinition;
-use SAC\EloquentModelGenerator\Domain\Model\Property;
+use SAC\EloquentModelGenerator\Model\ModelDefinition;
 use SAC\EloquentModelGenerator\Domain\Functional\Collection;
-use SAC\EloquentModelGenerator\Domain\Functional\Compose;
 
 /**
  * ModelGenerator service is responsible for generating Eloquent model classes
@@ -38,7 +36,7 @@ final class ModelGenerator
      */
     private function generateHeader(ModelDefinition $definition): string
     {
-        $namespace = $definition->getNamespace() ?? 'App\\Models';
+        $namespace = $definition->getNamespace();
 
         return "<?php\n\n" .
             "declare(strict_types=1);\n\n" .
@@ -51,7 +49,7 @@ final class ModelGenerator
      */
     private function generateClassDefinition(ModelDefinition $definition): string
     {
-        $table = $definition->getTable();
+        $table = $definition->getTableName();
 
         return "/**\n" .
             " * @property-read int \$id\n" .
@@ -72,9 +70,9 @@ final class ModelGenerator
      */
     private function generatePropertyDocBlocks(ModelDefinition $definition): string
     {
-        return Collection::of($definition->getProperties())
-            ->map(fn(Property $property, string $name): string =>
-                " * @property-read {$property->getType()->getPhpType()} \${$name}\n"
+        return Collection::of($definition->getColumns())
+            ->map(fn(array $column, string $name): string =>
+                " * @property-read {$this->getPhpType($column)} \${$name}\n"
             )
             ->reduce(fn(string $carry, string $line): string => $carry . $line, '');
     }
@@ -84,9 +82,9 @@ final class ModelGenerator
      */
     private function generateProperties(ModelDefinition $definition): string
     {
-        $fillable = Collection::of($definition->getProperties())
-            ->filter(fn(Property $property): bool => !$property->isPrimary())
-            ->map(fn(Property $_, string $name): string => "        '{$name}'")
+        $fillable = Collection::of($definition->getColumns())
+            ->filter(fn(array $column): bool => !($column['primary'] ?? false))
+            ->map(fn(array $_, string $name): string => "        '{$name}'")
             ->reduce(fn(string $carry, string $line): string =>
                 $carry . $line . ",\n", '');
 
@@ -109,10 +107,10 @@ final class ModelGenerator
      */
     private function generateCasts(ModelDefinition $definition): string
     {
-        $casts = Collection::of($definition->getProperties())
-            ->filter(fn(Property $property): bool => $property->getType()->getEloquentCast() !== null)
-            ->map(fn(Property $property, string $name): string =>
-                "        '{$name}' => '{$property->getType()->getEloquentCast()}'"
+        $casts = Collection::of($definition->getColumns())
+            ->filter(fn(array $column): bool => $this->getEloquentCast($column) !== null)
+            ->map(fn(array $column, string $name): string =>
+                "        '{$name}' => '{$this->getEloquentCast($column)}'"
             )
             ->reduce(fn(string $carry, string $line): string =>
                 $carry . $line . ",\n", '');
@@ -137,5 +135,30 @@ final class ModelGenerator
     private function generateFooter(): string
     {
         return "}\n";
+    }
+
+    private function getPhpType(array $column): string
+    {
+        return match ($column['type']) {
+            'integer', 'bigint' => 'int',
+            'decimal', 'float', 'double' => 'float',
+            'boolean' => 'bool',
+            'date', 'datetime' => '\\DateTimeInterface',
+            'json' => 'array',
+            default => 'string'
+        };
+    }
+
+    private function getEloquentCast(array $column): ?string
+    {
+        return match ($column['type']) {
+            'integer', 'bigint' => 'integer',
+            'decimal', 'float', 'double' => 'float',
+            'boolean' => 'boolean',
+            'date' => 'date',
+            'datetime' => 'datetime',
+            'json' => 'array',
+            default => null
+        };
     }
 }
