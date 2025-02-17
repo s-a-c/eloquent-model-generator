@@ -205,7 +205,7 @@
 
 ``` shell
 git commit -a \
--m "feat(core): implement core domain model and type system" \
+-m "feat(core): core domain model and type system" \
 -m "" \
 -m "- Add immutable domain models (ModelDefinition, Property)" \
 -m "- Implement functional type system with pure functions" \

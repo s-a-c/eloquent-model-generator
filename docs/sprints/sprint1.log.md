@@ -1,5 +1,22 @@
 # Sprint 1 Log - Domain Implementation
 
+## Roo prompt
+
+```prompt
+/Architect
+create a prompt for Roo Code.
+The prompt should cause Roo Code to complete all the tasks in `docs/sprints/sprint2.md`
+Create all the specified deliverables to achieve the sprint goals.
+log all activities in `docs/sprints/sprint2.log.md`, include timestamps and durations, include a catalog of all outputs/deliverables
+the deliverables/outputs should adhere to DDD, SOLID, functional programming paradigm, laravel best practice and conventions.
+finally:
+- update sprint2.md, marking checkboxes
+- update `VERSION_HISTORY.md` and `version_history.md` appropriately
+- execute `git add .`
+- add to the sprint log, a comprehensive `git commit` command, using multiple `-m` switches and `\` line continuation
+- add to the sprint log a suitable `git tag` command
+```
+
 ## Overview
 
 Implementation of core domain models, type system, functional programming utilities, and domain services following DDD, SOLID, and FP principles.

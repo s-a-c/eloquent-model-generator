@@ -1,45 +1,64 @@
 # Version History
 
-## [0.3.2-dev.6] - 2025-03-21
+## [0.3.2-dev.3] - 2025-02-17
 
 ### Added
-- Comprehensive documentation structure
-- Sprint-based development plans
-- Detailed architectural documentation
-- Performance monitoring system
-- Caching infrastructure
-- Batch processing capabilities
+- Database adapter interface and implementations
+  * DatabaseAdapter interface with clear contract
+  * MySQL adapter implementation using Laravel Schema
+  * Rich domain models for database schema
+- Schema analysis system
+  * SchemaAnalyzer service for metadata extraction
+  * Support for columns, indexes, and relationships
+  * Pure functional approach to schema analysis
+- Relationship detection and mapping
+  * Value objects for relationship types
+  * Support for belongsTo, hasMany, belongsToMany
+  * Automatic pivot table detection
+- Integration with model generator
+  * Clean separation of concerns
+  * Dependency injection ready
+  * Extensible for other databases
 
 ### Changed
-- Reorganized documentation for clarity
-- Enhanced code examples
-- Improved type system documentation
-- Updated relationship examples
-- Added session model examples
+- Improved database abstraction layer
+  * Removed direct database access from models
+  * Added type-safe schema definitions
+  * Enhanced relationship detection
+- Enhanced relationship detection
+  * More accurate foreign key analysis
+  * Better pivot table detection
+  * Support for composite keys
+- Refined type mapping system
+  * Consistent type handling
+  * Better null safety
+  * Improved default value handling
 
-### Development Process
-- Implemented DDD principles
-- Applied SOLID design patterns
-- Followed functional programming paradigms
-- Integrated Laravel best practices
+### Breaking Changes
+None
 
-### Technical Improvements
-- Enhanced type safety
-- Improved error handling
-- Added performance metrics
-- Enhanced caching strategy
-- Optimized memory usage
+## [0.3.2-dev.2] - 2025-02-16
 
-### Documentation
-- Created getting started guide
-- Added feature documentation
-- Included architectural overview
-- Added development guidelines
-- Created sprint planning structure
+### Added
+- Initial project structure
+- Basic model generation
+- Command line interface
 
-## Previous Versions
+### Changed
+- None
 
-### [0.3.1] - 2025-02-14
-- Initial development setup
-- Basic documentation structure
-- Core feature planning
+### Breaking Changes
+- None
+
+## [0.3.2-dev.1] - 2025-02-15
+
+### Added
+- Project initialization
+- Development environment setup
+- Basic documentation
+
+### Changed
+- None
+
+### Breaking Changes
+- None

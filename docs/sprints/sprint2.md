@@ -14,7 +14,9 @@
 ### Day 1: Database Abstraction
 
 #### Database Adapter Interface
-- [ ] Create adapter interface
+
+- [x] Create adapter interface
+
   ```php
   interface DatabaseAdapter
   {
@@ -26,7 +28,9 @@
   ```
 
 #### MySQL Adapter
-- [ ] Implement MySQL adapter
+
+- [x] Implement MySQL adapter
+
   ```php
   final class MySQLAdapter implements DatabaseAdapter
   {
@@ -37,11 +41,15 @@
 
       public function getSchema(): SchemaDefinition
       {
-          return pipe(
-              $this->getTables(),
-              $this->analyzeSchema(),
-              $this->enrichWithRelationships()
-          )($this->connection);
+          return $this->analyzer->analyze($this->connection);
+      }
+
+      public function getColumns(string $table): Collection
+      {
+          return $this->getSchema()
+              ->table($table)
+              ?->columns()
+              ?? collect();
       }
   }
   ```
@@ -49,7 +57,9 @@
 ### Day 2: Schema Analysis
 
 #### Schema Definition
-- [ ] Create schema value objects
+
+- [x] Create schema value objects
+
   ```php
   final class SchemaDefinition
   {
@@ -64,21 +74,33 @@
       ): self {
           return new self($tables, $relationships);
       }
+
+      public function table(string $name): ?TableDefinition
+      {
+          return $this->tables->first(fn (TableDefinition $table) => $table->name() === $name);
+      }
   }
   ```
 
 #### Schema Analysis
-- [ ] Implement schema analyzer
+
+- [x] Implement schema analyzer
+
   ```php
   final class SchemaAnalyzer
   {
       public function analyze(Connection $connection): SchemaDefinition
       {
-          return pipe(
-              $this->extractTableDefinitions(),
-              $this->detectRelationships(),
-              $this->validateSchema()
-          )($connection);
+          $tables = $this->extractTableDefinitions($connection);
+          $relationships = $this->detectRelationships($tables);
+
+          return SchemaDefinition::create($tables, $relationships);
+      }
+
+      private function extractTableDefinitions(Connection $connection): Collection
+      {
+          return collect(Schema::getAllTables())
+              ->map(fn (array $table) => $this->extractTableDefinition($connection, $table['name']));
       }
   }
   ```
@@ -86,7 +108,9 @@
 ### Day 3: Relationship Detection
 
 #### Relationship Types
+
 - [ ] Create relationship value objects
+
   ```php
   final class Relationship
   {
@@ -113,7 +137,9 @@
   ```
 
 #### Relationship Detection
+
 - [ ] Implement relationship detector
+
   ```php
   final class RelationshipDetector
   {
@@ -132,7 +158,9 @@
 ### Day 4: Relationship Mapping
 
 #### Relationship Builders
+
 - [ ] Create relationship builders
+
   ```php
   final class RelationshipBuilder
   {
@@ -149,6 +177,7 @@
   ```
 
 #### Method Generation
+
 - [ ] Implement method generators
 - [ ] Add PHPDoc generation
 - [ ] Create return type resolution
@@ -156,7 +185,9 @@
 ### Day 5: Integration & Testing
 
 #### Integration
+
 - [ ] Connect adapters with generators
+
   ```php
   final class ModelGenerationService
   {
@@ -178,35 +209,38 @@
   ```
 
 #### Testing
+
 - [ ] Write adapter tests
 - [ ] Test relationship detection
 - [ ] Verify generated methods
 
 ## Commit Message
 
-```
-feat(database): implement database adapters and relationship mapping
-
-- Add database adapter interface and implementations
-- Create schema analysis infrastructure
-- Implement relationship detection system
-- Add relationship mapping and generation
-- Include integration with model generator
-- Add comprehensive test coverage
-
-Following DDD principles:
-- Clear adapter interfaces
-- Rich domain models for schema and relationships
-- Pure functions for analysis
-- Immutable value objects
-
-SOLID compliance:
-- Interface segregation for adapters
-- Single responsibility for analyzers
-- Open/closed for relationship types
-- Dependency inversion in services
-
-Breaking changes: none
+``` shell
+git add .
+git commat -a \
+-m "feat(database): implement database adapters and relationship mapping" \
+-m "" \
+-m "- Add database adapter interface and implementations" \
+-m "- Create schema analysis infrastructure" \
+-m "- Implement relationship detection system" \
+-m "- Add relationship mapping and generation" \
+-m "- Include integration with model generator" \
+-m "- Add comprehensive test coverage" \
+-m "" \
+-m "Following DDD principles:" \
+-m "- Clear adapter interfaces" \
+-m "- Rich domain models for schema and relationships" \
+-m "- Pure functions for analysis" \
+-m "- Immutable value objects" \
+-m "" \
+-m "SOLID compliance:" \
+-m "- Interface segregation for adapters" \
+-m "- Single responsibility for analyzers" \
+-m "- Open/closed for relationship types" \
+-m "- Dependency inversion in services" \
+-m "" \
+-m "Breaking changes: none"
 ```
 
 ## Version History Update
