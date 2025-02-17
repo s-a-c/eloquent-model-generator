@@ -109,7 +109,7 @@
 
 #### Relationship Types
 
-- [ ] Create relationship value objects
+- [x] Create relationship value objects
 
   ```php
   final class Relationship
@@ -118,19 +118,37 @@
           private readonly string $type,
           private readonly string $localTable,
           private readonly string $foreignTable,
-          private readonly Collection $keys
+          private readonly Collection $keys,
+          private readonly array $attributes = []
       ) {}
 
       public static function belongsTo(
           string $localTable,
           string $foreignTable,
-          string $foreignKey
+          string $foreignKey,
+          ?string $ownerKey = null
       ): self {
           return new self(
               'belongsTo',
               $localTable,
               $foreignTable,
-              collect([$foreignKey])
+              collect([$foreignKey]),
+              ['owner_key' => $ownerKey]
+          );
+      }
+
+      public static function hasMany(
+          string $localTable,
+          string $foreignTable,
+          string $foreignKey,
+          ?string $localKey = null
+      ): self {
+          return new self(
+              'hasMany',
+              $localTable,
+              $foreignTable,
+              collect([$foreignKey]),
+              ['local_key' => $localKey]
           );
       }
   }
@@ -138,19 +156,33 @@
 
 #### Relationship Detection
 
-- [ ] Implement relationship detector
+- [x] Implement relationship detector in SchemaAnalyzer
 
   ```php
-  final class RelationshipDetector
+  final class SchemaAnalyzer
   {
-      public function detect(TableDefinition $table): Collection
+      private function detectRelationships(Collection $tables): Collection
       {
-          return pipe(
-              $this->findForeignKeys(),
-              $this->analyzeIndexes(),
-              $this->determineTypes(),
-              $this->validateRelationships()
-          )($table);
+          $relationships = collect();
+
+          $tables->each(function (TableDefinition $table) use ($relationships, $tables) {
+              // Detect belongsTo relationships from foreign keys
+              $table->foreignKeys()->each(function (Column $column) use ($relationships, $table) {
+                  $relationships->push(
+                      Relationship::belongsTo(
+                          $table->name(),
+                          $column->getForeignTable(),
+                          $column->name(),
+                          'id'
+                      )
+                  );
+              });
+
+              // Detect hasMany relationships (inverse of belongsTo)
+              $this->detectHasManyRelationships($table, $tables, $relationships);
+          });
+
+          return $relationships;
       }
   }
   ```
@@ -159,7 +191,7 @@
 
 #### Relationship Builders
 
-- [ ] Create relationship builders
+- [x] Create relationship builders
 
   ```php
   final class RelationshipBuilder
@@ -173,20 +205,56 @@
               default => throw new UnsupportedRelationshipException(),
           };
       }
+
+      private function buildBelongsTo(Relationship $relationship): string
+      {
+          $methodName = Str::camel($relationship->foreignTable());
+          $modelClass = Str::studly(Str::singular($relationship->foreignTable()));
+
+          return <<<PHP
+          public function {$methodName}(): BelongsTo
+          {
+              return \$this->belongsTo({$modelClass}::class);
+          }
+          PHP;
+      }
   }
   ```
 
 #### Method Generation
 
-- [ ] Implement method generators
-- [ ] Add PHPDoc generation
-- [ ] Create return type resolution
+- [x] Implement method generators with PHPDoc
+
+  ```php
+  /**
+   * Get the posts for this user.
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\HasMany<\App\Models\Post>
+   */
+  public function posts(): HasMany
+  {
+      return $this->hasMany(Post::class);
+  }
+  ```
+
+- [x] Add return type resolution
+
+  ```php
+  private function resolveReturnType(Relationship $relationship): string
+  {
+      return match ($relationship->type()) {
+          'belongsTo' => 'BelongsTo',
+          'hasMany' => 'HasMany',
+          'belongsToMany' => 'BelongsToMany',
+      };
+  }
+  ```
 
 ### Day 5: Integration & Testing
 
 #### Integration
 
-- [ ] Connect adapters with generators
+- [x] Connect adapters with generators
 
   ```php
   final class ModelGenerationService
@@ -199,20 +267,65 @@
 
       public function generate(string $table): ModelDefinition
       {
-          return pipe(
-              $this->adapter->getSchema(),
-              $this->generator->generate(),
-              $this->relationshipBuilder->addRelationships()
-          )($table);
+          $schema = $this->adapter->getSchema();
+          $tableDefinition = $schema->table($table);
+
+          if (!$tableDefinition) {
+              throw new TableNotFoundException($table);
+          }
+
+          return $this->generator
+              ->withSchema($schema)
+              ->generate($tableDefinition)
+              ->withMethods($this->buildRelationshipMethods($schema, $table));
       }
   }
   ```
 
 #### Testing
 
-- [ ] Write adapter tests
-- [ ] Test relationship detection
-- [ ] Verify generated methods
+- [x] Write adapter tests
+
+  ```php
+  public function test_mysql_adapter_gets_schema(): void
+  {
+      $schema = $this->adapter->getSchema();
+
+      $this->assertInstanceOf(SchemaDefinition::class, $schema);
+      $this->assertCount(5, $schema->tables());
+  }
+  ```
+
+- [x] Test relationship detection
+
+  ```php
+  public function test_detects_belongs_to_relationship(): void
+  {
+      $relationships = $this->analyzer->analyze($this->connection);
+
+      $this->assertTrue(
+          $relationships->contains(fn ($rel) =>
+              $rel->type() === 'belongsTo' &&
+              $rel->localTable() === 'posts' &&
+              $rel->foreignTable() === 'users'
+          )
+      );
+  }
+  ```
+
+- [x] Verify generated methods
+
+  ```php
+  public function test_generates_relationship_methods(): void
+  {
+      $definition = $this->service->generate('posts');
+
+      $this->assertStringContainsString(
+          'public function user(): BelongsTo',
+          $definition->toString()
+      );
+  }
+  ```
 
 ## Commit Message
 
@@ -241,6 +354,7 @@ git commat -a \
 -m "- Dependency inversion in services" \
 -m "" \
 -m "Breaking changes: none"
+git tag -a v0.3.2-dev.3 -m "Database adapters and relationship mapping"
 ```
 
 ## Version History Update
