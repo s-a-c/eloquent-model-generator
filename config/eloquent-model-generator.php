@@ -3,140 +3,133 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Default Namespace
+    | Model Namespace
     |--------------------------------------------------------------------------
     |
-    | The default namespace for generated models.
+    | This value defines the default namespace for generated models.
+    | You may change this to any namespace you wish to use.
     |
     */
-    'namespace' => env('EMG_NAMESPACE', 'App\\Models'),
+    'namespace' => 'App\\Models',
 
     /*
     |--------------------------------------------------------------------------
-    | Output Path
+    | Model Path
     |--------------------------------------------------------------------------
     |
-    | The path where generated models will be saved, relative to the application
-    | base path.
+    | This value defines the path where generated models will be placed.
+    | The path should be relative to the project root.
     |
     */
-    'output_path' => env('EMG_OUTPUT_PATH', 'app/Models'),
+    'path' => 'app/Models',
 
     /*
     |--------------------------------------------------------------------------
-    | Base Model Class
+    | Type Mappings
     |--------------------------------------------------------------------------
     |
-    | The base class for generated models.
+    | Define custom mappings between database column types and PHP types.
+    | These mappings will be merged with the default mappings.
     |
     */
-    'base_class' => env('EMG_BASE_CLASS', 'Illuminate\\Database\\Eloquent\\Model'),
-
-    /*
-    |--------------------------------------------------------------------------
-    | Model Generation Options
-    |--------------------------------------------------------------------------
-    |
-    | Configure various aspects of model generation.
-    |
-    */
-    'with_relationships' => env('EMG_WITH_RELATIONSHIPS', true),
-    'with_validation' => env('EMG_WITH_VALIDATION', true),
-    'with_soft_deletes' => env('EMG_WITH_SOFT_DELETES', false),
-
-    /*
-    |--------------------------------------------------------------------------
-    | Table Filtering
-    |--------------------------------------------------------------------------
-    |
-    | Configure which tables to include or exclude from model generation.
-    |
-    */
-    'exclude_tables' => array_filter(
-        explode(',', env('EMG_EXCLUDE_TABLES', 'migrations,failed_jobs,password_resets,personal_access_tokens'))
-    ),
-
-    'only_tables' => array_filter(
-        explode(',', env('EMG_ONLY_TABLES', ''))
-    ),
-
-    /*
-    |--------------------------------------------------------------------------
-    | Performance Options
-    |--------------------------------------------------------------------------
-    |
-    | Configure performance-related settings.
-    |
-    */
-    'use_cache' => env('EMG_USE_CACHE', true),
-    'cache_ttl' => env('EMG_CACHE_TTL', 3600),
-    'concurrency' => env('EMG_CONCURRENCY', 4),
-
-    /*
-    |--------------------------------------------------------------------------
-    | Database Analysis Settings
-    |--------------------------------------------------------------------------
-    |
-    | Configure how the generator analyzes your database schema.
-    |
-    */
-    'analysis' => [
-        'foreign_keys' => env('EMG_ANALYZE_FOREIGN_KEYS', true),
-        'indexes' => env('EMG_ANALYZE_INDEXES', true),
-        'column_types' => env('EMG_ANALYZE_COLUMN_TYPES', true),
+    'type_mappings' => [
+        // Example:
+        // 'enum' => \App\Types\EnumType::class,
     ],
 
     /*
     |--------------------------------------------------------------------------
-    | Code Style Settings
+    | Relationship Detection
     |--------------------------------------------------------------------------
     |
-    | Configure the code style of generated models.
-    |
-    */
-    'style' => [
-        'psr12_compliance' => env('EMG_PSR12_COMPLIANCE', true),
-        'with_docblocks' => env('EMG_WITH_DOCBLOCKS', true),
-        'with_type_hints' => env('EMG_WITH_TYPE_HINTS', true),
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Relationship Settings
-    |--------------------------------------------------------------------------
-    |
-    | Configure how relationships are detected and generated.
+    | Configure how relationships between models are detected.
     |
     */
     'relationships' => [
-        'detect_polymorphic' => env('EMG_DETECT_POLYMORPHIC', true),
-        'detect_many_to_many' => env('EMG_DETECT_MANY_TO_MANY', true),
-        'detect_has_through' => env('EMG_DETECT_HAS_THROUGH', true),
+        // Enable or disable automatic relationship detection
+        'auto_detect' => true,
+
+        // Custom patterns for detecting relationships
+        'patterns' => [
+            // Format: 'pattern' => 'relationship_type'
+            '_id$' => 'belongsTo',
+            '^parent_id$' => 'belongsTo',
+            '^owner_id$' => 'belongsTo',
+        ],
     ],
 
     /*
     |--------------------------------------------------------------------------
-    | Validation Settings
+    | Model Generation
     |--------------------------------------------------------------------------
     |
-    | Configure how validation rules are generated.
+    | Configure how models are generated.
+    |
+    */
+    'generation' => [
+        // Whether to generate PHPDoc blocks for properties
+        'generate_phpdoc' => true,
+
+        // Whether to generate property type hints
+        'generate_type_hints' => true,
+
+        // Whether to generate validation rules
+        'generate_validation' => true,
+
+        // Whether to generate relationship methods
+        'generate_relationships' => true,
+
+        // Whether to generate method docblocks
+        'generate_method_docs' => true,
+
+        // Base model class to extend
+        'base_model_class' => \Illuminate\Database\Eloquent\Model::class,
+
+        // Traits to include in generated models
+        'traits' => [
+            // Example:
+            // \Illuminate\Database\Eloquent\SoftDeletes::class,
+        ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Validation
+    |--------------------------------------------------------------------------
+    |
+    | Configure validation rule generation.
     |
     */
     'validation' => [
-        'from_database_rules' => env('EMG_VALIDATION_FROM_DB_RULES', true),
-        'include_form_request' => env('EMG_VALIDATION_INCLUDE_FORMREQUEST', true),
+        // Whether to generate validation rules in a separate class
+        'separate_validator' => false,
+
+        // Namespace for generated validator classes
+        'validator_namespace' => 'App\\Models\\Validation',
+
+        // Custom validation rules
+        'custom_rules' => [
+            // Example:
+            // 'phone' => \App\Rules\PhoneNumber::class,
+        ],
     ],
 
     /*
     |--------------------------------------------------------------------------
-    | Cache Settings
+    | File Generation
     |--------------------------------------------------------------------------
     |
-    | Configure the caching behavior of the generator.
+    | Configure how files are generated.
     |
     */
-    'cache' => [
-        'driver' => env('EMG_CACHE_DRIVER', 'file'),
-        'prefix' => env('EMG_CACHE_PREFIX', 'model_generator_'),
+    'files' => [
+        // Whether to backup existing files before overwriting
+        'backup' => true,
+
+        // File extension for generated files
+        'extension' => '.php',
+
+        // Whether to generate one file per model
+        'separate_files' => true,
     ],
 ];
