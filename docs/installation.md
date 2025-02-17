@@ -129,7 +129,7 @@ composer check-all
 
 ## Next Steps
 
-- Read the [Basic Usage Guide](../../../StandAloneComplex/EloquentModelGenerator/docs/basic-usage.md)
-- Explore [Advanced Features](../../../StandAloneComplex/EloquentModelGenerator/docs/advanced-usage.md)
-- Learn about [Code Quality Tools](../../../StandAloneComplex/EloquentModelGenerator/docs/code-quality.md)
-- Review [Best Practices](../../../StandAloneComplex/EloquentModelGenerator/docs/best-practices.md)
+- Read the [Basic Usage Guide](../../../SAC/EloquentModelGenerator/docs/basic-usage.md)
+- Explore [Advanced Features](../../../SAC/EloquentModelGenerator/docs/advanced-usage.md)
+- Learn about [Code Quality Tools](../../../SAC/EloquentModelGenerator/docs/code-quality.md)
+- Review [Best Practices](../../../SAC/EloquentModelGenerator/docs/best-practices.md)

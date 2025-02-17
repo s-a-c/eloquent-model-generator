@@ -1,6 +1,6 @@
 <?php
 
-namespace StandAloneComplex\EloquentModelGenerator\Contracts;
+namespace SAC\EloquentModelGenerator\Contracts;
 
 interface ResultFormatter {
     /**

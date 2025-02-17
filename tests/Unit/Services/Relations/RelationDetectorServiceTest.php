@@ -35,11 +35,11 @@ class RelationDetectorServiceTest extends TestCase {
             new Column(
                 name: 'role_id',
                 type: 'integer',
-                isPrimary: false,
-                isAutoIncrement: false,
-                isNullable: false,
-                isUnique: false,
-                foreignKey: $foreignKey
+                primary: false,
+                autoIncrement: false,
+                nullable: false,
+                unique: false,
+                attributes: ['foreign_key' => $foreignKey]
             ),
         ];
 
@@ -66,10 +66,10 @@ class RelationDetectorServiceTest extends TestCase {
             new Column(
                 name: 'id',
                 type: 'integer',
-                isPrimary: true,
-                isAutoIncrement: true,
-                isNullable: false,
-                isUnique: true
+                primary: true,
+                autoIncrement: true,
+                nullable: false,
+                unique: true
             ),
         ];
 
@@ -171,18 +171,18 @@ class RelationDetectorServiceTest extends TestCase {
             new Column(
                 name: 'imageable_id',
                 type: 'integer',
-                isPrimary: false,
-                isAutoIncrement: false,
-                isNullable: false,
-                isUnique: false
+                primary: false,
+                autoIncrement: false,
+                nullable: false,
+                unique: false
             ),
             new Column(
                 name: 'imageable_type',
                 type: 'string',
-                isPrimary: false,
-                isAutoIncrement: false,
-                isNullable: false,
-                isUnique: false
+                primary: false,
+                autoIncrement: false,
+                nullable: false,
+                unique: false
             ),
         ];
 
@@ -210,18 +210,18 @@ class RelationDetectorServiceTest extends TestCase {
             new Column(
                 name: 'commentable_id',
                 type: 'integer',
-                isPrimary: false,
-                isAutoIncrement: false,
-                isNullable: false,
-                isUnique: false
+                primary: false,
+                autoIncrement: false,
+                nullable: false,
+                unique: false
             ),
             new Column(
                 name: 'commentable_type',
                 type: 'string',
-                isPrimary: false,
-                isAutoIncrement: false,
-                isNullable: false,
-                isUnique: false
+                primary: false,
+                autoIncrement: false,
+                nullable: false,
+                unique: false
             ),
         ];
 
@@ -252,18 +252,18 @@ class RelationDetectorServiceTest extends TestCase {
             new Column(
                 name: 'taggable_id',
                 type: 'integer',
-                isPrimary: false,
-                isAutoIncrement: false,
-                isNullable: false,
-                isUnique: false
+                primary: false,
+                autoIncrement: false,
+                nullable: false,
+                unique: false
             ),
             new Column(
                 name: 'taggable_type',
                 type: 'string',
-                isPrimary: false,
-                isAutoIncrement: false,
-                isNullable: false,
-                isUnique: false
+                primary: false,
+                autoIncrement: false,
+                nullable: false,
+                unique: false
             ),
         ];
 
@@ -294,26 +294,26 @@ class RelationDetectorServiceTest extends TestCase {
             new Column(
                 name: 'taggable_id',
                 type: 'integer',
-                isPrimary: false,
-                isAutoIncrement: false,
-                isNullable: false,
-                isUnique: false
+                primary: false,
+                autoIncrement: false,
+                nullable: false,
+                unique: false
             ),
             new Column(
                 name: 'taggable_type',
                 type: 'string',
-                isPrimary: false,
-                isAutoIncrement: false,
-                isNullable: false,
-                isUnique: false
+                primary: false,
+                autoIncrement: false,
+                nullable: false,
+                unique: false
             ),
             new Column(
                 name: 'tag_id',
                 type: 'integer',
-                isPrimary: false,
-                isAutoIncrement: false,
-                isNullable: false,
-                isUnique: false
+                primary: false,
+                autoIncrement: false,
+                nullable: false,
+                unique: false
             ),
         ];
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace StandAloneComplex\EloquentModelGenerator\Tools;
+namespace SAC\EloquentModelGenerator\Tools;
 
-use StandAloneComplex\EloquentModelGenerator\Contracts\AnalysisConfig;
-use StandAloneComplex\EloquentModelGenerator\Tools\PsalmConfigurationValidator;
+use SAC\EloquentModelGenerator\Contracts\AnalysisConfig;
+use SAC\EloquentModelGenerator\Tools\PsalmConfigurationValidator;
 
 class PsalmConfigBuilder implements AnalysisConfig {
     /**

@@ -1,12 +1,12 @@
 <?php
 
-namespace StandAloneComplex\EloquentModelGenerator\Tools;
+namespace SAC\EloquentModelGenerator\Tools;
 
-use StandAloneComplex\EloquentModelGenerator\Contracts\AnalysisTool;
+use SAC\EloquentModelGenerator\Contracts\AnalysisTool;
 use Symfony\Component\Process\Process;
-use StandAloneComplex\EloquentModelGenerator\Contracts\AnalysisConfig;
-use StandAloneComplex\EloquentModelGenerator\Contracts\AnalysisResult;
-use StandAloneComplex\EloquentModelGenerator\Tools\MetricsErrorMapper;
+use SAC\EloquentModelGenerator\Contracts\AnalysisConfig;
+use SAC\EloquentModelGenerator\Contracts\AnalysisResult;
+use SAC\EloquentModelGenerator\Tools\MetricsErrorMapper;
 
 class MetricsTool implements AnalysisTool {
     /**

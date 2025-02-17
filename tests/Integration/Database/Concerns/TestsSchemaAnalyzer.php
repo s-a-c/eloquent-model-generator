@@ -4,7 +4,7 @@ namespace SAC\EloquentModelGenerator\Tests\Integration\Database\Concerns;
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use StandAloneComplex\EloquentModelGenerator\Services\Schema\SchemaAnalyzerInterface;
+use SAC\EloquentModelGenerator\Services\Schema\SchemaAnalyzerInterface;
 
 trait TestsSchemaAnalyzer
 {

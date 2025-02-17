@@ -8,27 +8,27 @@ abstract class ArchitectureTestCase extends TestCase
 {
     protected function getDomainNamespace(): string
     {
-        return 'StandAloneComplex\\EloquentModelGenerator\\Domain';
+        return 'SAC\\EloquentModelGenerator\\Domain';
     }
 
     protected function getApplicationNamespace(): string
     {
-        return 'StandAloneComplex\\EloquentModelGenerator\\Application';
+        return 'SAC\\EloquentModelGenerator\\Application';
     }
 
     protected function getInfrastructureNamespace(): string
     {
-        return 'StandAloneComplex\\EloquentModelGenerator\\Infrastructure';
+        return 'SAC\\EloquentModelGenerator\\Infrastructure';
     }
 
     protected function getPresentationNamespace(): string
     {
-        return 'StandAloneComplex\\EloquentModelGenerator\\Presentation';
+        return 'SAC\\EloquentModelGenerator\\Presentation';
     }
 
     protected function getSupportNamespace(): string
     {
-        return 'StandAloneComplex\\EloquentModelGenerator\\Support';
+        return 'SAC\\EloquentModelGenerator\\Support';
     }
 
     protected function assertNamespaceExists(string $namespace): void
@@ -48,7 +48,7 @@ abstract class ArchitectureTestCase extends TestCase
     private function namespaceToPath(string $namespace): string
     {
         $basePath = __DIR__.'/../../src/';
-        $relativePath = str_replace('StandAloneComplex\\EloquentModelGenerator\\', '', $namespace);
+        $relativePath = str_replace('SAC\\EloquentModelGenerator\\', '', $namespace);
 
         return $basePath.str_replace('\\', '/', $relativePath);
     }

@@ -1,13 +1,13 @@
 <?php
 
-namespace StandAloneComplex\EloquentModelGenerator\Tools;
+namespace SAC\EloquentModelGenerator\Tools;
 
-use StandAloneComplex\EloquentModelGenerator\Contracts\AnalysisTool;
+use SAC\EloquentModelGenerator\Contracts\AnalysisTool;
 use Symfony\Component\Process\Process;
-use StandAloneComplex\EloquentModelGenerator\Contracts\AnalysisConfig;
-use StandAloneComplex\EloquentModelGenerator\Contracts\AnalysisResult;
-use StandAloneComplex\EloquentModelGenerator\Tools\PintConfigBuilder;
-use StandAloneComplex\EloquentModelGenerator\Tools\PintErrorMapper;
+use SAC\EloquentModelGenerator\Contracts\AnalysisConfig;
+use SAC\EloquentModelGenerator\Contracts\AnalysisResult;
+use SAC\EloquentModelGenerator\Tools\PintConfigBuilder;
+use SAC\EloquentModelGenerator\Tools\PintErrorMapper;
 
 class PintTool implements AnalysisTool {
     /**

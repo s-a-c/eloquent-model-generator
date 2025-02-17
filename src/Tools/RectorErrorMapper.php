@@ -1,6 +1,6 @@
 <?php
 
-namespace StandAloneComplex\EloquentModelGenerator\Tools;
+namespace SAC\EloquentModelGenerator\Tools;
 
 class RectorErrorMapper {
     /**

@@ -2,9 +2,9 @@
 
 namespace SAC\EloquentModelGenerator\Tests\Integration\Database\Concerns;
 
-use StandAloneComplex\EloquentModelGenerator\Models\BaseModel;
-use StandAloneComplex\EloquentModelGenerator\Models\GeneratedModel;
-use StandAloneComplex\EloquentModelGenerator\Services\ModelGeneratorService;
+use SAC\EloquentModelGenerator\Models\BaseModel;
+use SAC\EloquentModelGenerator\Models\GeneratedModel;
+use SAC\EloquentModelGenerator\Services\ModelGeneratorService;
 
 trait TestsDatabaseSchema
 {

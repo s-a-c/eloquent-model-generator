@@ -1,8 +1,8 @@
 <?php
 
-namespace StandAloneComplex\EloquentModelGenerator\Tools;
+namespace SAC\EloquentModelGenerator\Tools;
 
-use StandAloneComplex\EloquentModelGenerator\Contracts\ConfigurationValidator;
+use SAC\EloquentModelGenerator\Contracts\ConfigurationValidator;
 
 class PintConfigurationValidator implements ConfigurationValidator {
     /**
