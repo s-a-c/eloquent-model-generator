@@ -15,7 +15,9 @@
 ### Day 1: Domain Events
 
 #### Event Definitions
-- [ ] Create base event interface
+
+- [x] Create base event interface
+
   ```php
   interface DomainEvent
   {
@@ -26,7 +28,9 @@
   ```
 
 #### Model Events
-- [ ] Implement model generation events
+
+- [x] Implement model generation events
+
   ```php
   final class ModelGenerationStarted implements DomainEvent
   {
@@ -62,7 +66,9 @@
 ### Day 2: Event Sourcing
 
 #### Event Store
-- [ ] Create event store interface
+
+- [x] Create event store interface
+
   ```php
   interface EventStore
   {
@@ -73,7 +79,9 @@
   ```
 
 #### Database Event Store
-- [ ] Implement database event store
+
+- [x] Implement database event store
+
   ```php
   final class DatabaseEventStore implements EventStore
   {
@@ -97,7 +105,9 @@
 ### Day 3: Queue Integration
 
 #### Queue Jobs
-- [ ] Create model analysis job
+
+- [x] Create model analysis job
+
   ```php
   final class AnalyzeModelJob implements ShouldQueue
   {
@@ -116,7 +126,9 @@
   ```
 
 #### Job Middleware
-- [ ] Implement rate limiting
+
+- [x] Implement rate limiting
+
   ```php
   final class RateLimitedJob implements JobMiddleware
   {
@@ -136,7 +148,9 @@
 ### Day 4: Event Listeners
 
 #### Event Subscribers
-- [ ] Create event subscribers
+
+- [x] Create event subscribers
+
   ```php
   final class ModelGenerationSubscriber
   {
@@ -163,7 +177,9 @@
   ```
 
 #### Event Broadcasting
+
 - [ ] Add real-time updates
+
   ```php
   final class ModelGenerated implements ShouldBroadcast
   {
@@ -185,7 +201,9 @@
 ### Day 5: Integration & Testing
 
 #### Service Provider
-- [ ] Update service provider
+
+- [x] Update service provider
+
   ```php
   final class GeneratorServiceProvider extends ServiceProvider
   {
@@ -212,13 +230,14 @@
   ```
 
 #### Testing
-- [ ] Write event tests
-- [ ] Test queue processing
-- [ ] Verify event sourcing
+
+- [x] Write event tests
+- [x] Test queue processing
+- [x] Verify event sourcing
 
 ## Commit Message
 
-```
+``` shell
 feat(events): implement event system and queue integration
 
 - Add domain events and event sourcing
@@ -262,3 +281,25 @@ Breaking changes: none
 
 ### Breaking Changes
 None
+
+## Roo Prompt
+
+```prompt
+/Architect
+create a prompt for Roo Code.
+The prompt should cause Roo Code to complete *all* the tasks in `docs/sprints/sprint3.md`
+- Create all the specified deliverables to achieve the sprint goals.
+- log all activities in `docs/sprints/sprint3.log.md`
+    - include timestamps and durations
+        - prefix all timestamps with sprint number and day number in decimal notation, e.g. 3.1 for sprint 3 day 1
+    - include a catalogue of all outputs/deliverables
+- all deliverables/outputs to adhere to DDD, SOLID, functional programming paradigm, laravel best practice and conventions.
+- finally:
+    - append to the sprint log:
+        - a series of git commands to:
+            - commit with a comprehensive message, using multiple `-m` flags and `\` line continuation
+            - tag the commit
+    - update sprint3.md, marking checkboxes
+    - update `VERSION_HISTORY.md` and `version_history.md` appropriately
+    - execute `git add .`
+```

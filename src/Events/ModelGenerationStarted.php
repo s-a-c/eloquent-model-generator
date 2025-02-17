@@ -6,24 +6,23 @@ namespace SAC\EloquentModelGenerator\Events;
 
 use DateTimeImmutable;
 use Ramsey\Uuid\Uuid;
-use SAC\EloquentModelGenerator\Model\ModelDefinition;
 
-final class ModelGenerated implements DomainEvent
+final class ModelGenerationStarted implements DomainEvent
 {
     private function __construct(
         private readonly string $eventId,
         private readonly DateTimeImmutable $occurredOn,
-        private readonly ModelDefinition $model,
-        private readonly string $path
+        private readonly string $table,
+        private readonly array $options
     ) {}
 
-    public static function create(ModelDefinition $model, string $path): self
+    public static function create(string $table, array $options): self
     {
         return new self(
             Uuid::uuid4()->toString(),
             new DateTimeImmutable(),
-            $model,
-            $path
+            $table,
+            $options
         );
     }
 
@@ -40,31 +39,27 @@ final class ModelGenerated implements DomainEvent
     public function payload(): array
     {
         return [
-            'model' => [
-                'name' => $this->model->getName(),
-                'namespace' => $this->model->getNamespace(),
-                'table' => $this->model->getTableName(),
-            ],
-            'path' => $this->path,
+            'table' => $this->table,
+            'options' => $this->options,
         ];
     }
 
-    public function model(): ModelDefinition
+    public function table(): string
     {
-        return $this->model;
+        return $this->table;
     }
 
-    public function path(): string
+    public function options(): array
     {
-        return $this->path;
+        return $this->options;
     }
 
     public static function reconstitute(
         string $eventId,
         DateTimeImmutable $occurredOn,
-        ModelDefinition $model,
-        string $path
+        string $table,
+        array $options
     ): self {
-        return new self($eventId, $occurredOn, $model, $path);
+        return new self($eventId, $occurredOn, $table, $options);
     }
 }
