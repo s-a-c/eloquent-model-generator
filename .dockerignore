@@ -1,0 +1,53 @@
+# Version control
+.git
+.gitignore
+.gitattributes
+
+# Dependencies
+/vendor
+/node_modules
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# IDE files
+.idea
+.vscode
+*.sublime-project
+*.sublime-workspace
+
+# Testing
+/coverage
+.phpunit.result.cache
+.phpunit.cache
+
+# Logs
+/storage/logs/*
+*.log
+
+# Cache
+.php_cs.cache
+.php-cs-fixer.cache
+
+# Docker
+Dockerfile
+docker-compose.yml
+.docker
+
+# Documentation
+/docs
+*.md
+
+# Development tools
+phpstan.neon
+phpunit.xml
+infection.json
+.php_cs
+.php_cs.dist
+.php-cs-fixer.php
+
+# OS files
+.DS_Store
+Thumbs.db

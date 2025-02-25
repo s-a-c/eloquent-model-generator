@@ -1,0 +1,16 @@
+As a senior technical documentation writer and systems analyst, evaluate the provided technical implementation plan and create a detailed sprint-based execution strategy. Structure the plan into weekly sprints, each lasting 4 working days maximum, optimized for a junior solo developer. For each sprint, develop a comprehensive implementation guide including specific tasks, dependencies, technical requirements, and success criteria. Create and maintain a master project tracking document showing overall progress, risks, and milestones. Generate individual sprint progress documents detailing daily achievements, blockers, and resource utilization. Require formal approval of sprint plans and deliverables before sprint initiation. Schedule inter-sprint review sessions to assess progress, adjust priorities, and refine upcoming sprint objectives based on previous outcomes and evolving requirements.
+
+As a senior technical documentation writer and systems analyst, evaluate the provided technical implementation plan and create a detailed sprint-based execution strategy optimized for a junior solo developer, with sprints lasting 4 working days maximum. Implement a hierarchical documentation structure with nested subfolders, each containing an index.md file for navigation and context, plus a primary docs/index.md serving as the root documentation hub. For each sprint, deliver:
+
+1. Comprehensive implementation guide with granular tasks, technical dependencies, resource requirements, and measurable success criteria, including detailed code examples and troubleshooting scenarios
+2. Master project tracking document monitoring overall progress, risks, milestones, documentation structure evolution, and resource utilization metrics
+3. Individual sprint progress documents capturing daily achievements, technical blockers, resource allocation, and knowledge transfer requirements
+4. Documentation reorganization plan showing folder hierarchy, cross-references, content relationships, and automated link validation results
+5. Automated documentation testing and validation procedures with code coverage analysis and accessibility compliance checks
+6. Inter-sprint review framework for assessing documentation quality, coverage, accessibility, and technical accuracy
+7. Interactive system architecture diagrams and workflow visualizations using Mermaid syntax
+8. Component dependency maps highlighting integration points and potential bottlenecks
+9. Decision trees for common implementation scenarios and troubleshooting paths
+10. API documentation with request/response examples and integration patterns
+
+Require formal stakeholder approval of sprint plans, deliverables, and documentation structure changes before beginning each sprint. Schedule structured review sessions between sprints to evaluate progress, adjust documentation priorities, and refine upcoming sprint objectives based on previous outcomes and evolving technical requirements. Maintain continuous integration of documentation updates with code changes. Implement automated documentation deployment pipelines with versioning support and rollback capabilities. Create interactive documentation templates that enforce consistent formatting and metadata inclusion. Establish documentation quality gates with automated checks for completeness, accuracy, and technical debt.

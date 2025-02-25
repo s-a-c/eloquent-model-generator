@@ -1,0 +1,35 @@
+
+ ! [NOTE] You are running with "--xdebug" enabled, and the Xdebug PHP extension is active.                              
+ !        The process will halt at breakpoints, but PHPStan will run much slower.                                       
+ !        Use this only if you are debugging PHPStan itself or your custom extensions.                                  
+
+
+Fatal error: Uncaught _PHPStan_24e2736d6\Nette\DI\ServiceCreationException: Service of type PHPStan\Rules\Functions\CallCallablesRule: Parameter $reportMaybes in CallCallablesRule::__construct() has no class type or default value, so its value must be specified. in phar:///Users/s-a-c/Herd/livewire-starter-kit/packages/s-a-c/eloquent-model-generator/vendor/phpstan/phpstan/phpstan.phar/vendor/nette/di/src/DI/Resolver.php on line 495
+
+_PHPStan_24e2736d6\Nette\DI\ServiceCreationException: Service of type PHPStan\Rules\Functions\CallCallablesRule: Parameter $reportMaybes in CallCallablesRule::__construct() has no class type or default value, so its value must be specified. in phar:///Users/s-a-c/Herd/livewire-starter-kit/packages/s-a-c/eloquent-model-generator/vendor/phpstan/phpstan/phpstan.phar/vendor/nette/di/src/DI/Resolver.php on line 495
+
+Call Stack:
+    0.0030     759408   1. {main}() /Users/s-a-c/Herd/livewire-starter-kit/packages/s-a-c/eloquent-model-generator/vendor/bin/phpstan:0
+    0.0527    3701536   4. {closure:phar:///Users/s-a-c/Herd/livewire-starter-kit/packages/s-a-c/eloquent-model-generator/vendor/phpstan/phpstan/phpstan.phar/bin/phpstan:14-115}() phar:///Users/s-a-c/Herd/livewire-starter-kit/packages/s-a-c/eloquent-model-generator/vendor/phpstan/phpstan/phpstan.phar/bin/phpstan:115
+    0.2945   46352480   5. _PHPStan_24e2736d6\Symfony\Component\Console\Application->run() phar:///Users/s-a-c/Herd/livewire-starter-kit/packages/s-a-c/eloquent-model-generator/vendor/phpstan/phpstan/phpstan.phar/bin/phpstan:114
+    0.3021   46687584   6. _PHPStan_24e2736d6\Symfony\Component\Console\Application->doRun() phar:///Users/s-a-c/Herd/livewire-starter-kit/packages/s-a-c/eloquent-model-generator/vendor/phpstan/phpstan/phpstan.phar/vendor/symfony/console/Application.php:157
+    0.3024   46723944   7. _PHPStan_24e2736d6\Symfony\Component\Console\Application->doRunCommand() phar:///Users/s-a-c/Herd/livewire-starter-kit/packages/s-a-c/eloquent-model-generator/vendor/phpstan/phpstan/phpstan.phar/vendor/symfony/console/Application.php:261
+    0.3024   46723944   8. PHPStan\Command\AnalyseCommand->run() phar:///Users/s-a-c/Herd/livewire-starter-kit/packages/s-a-c/eloquent-model-generator/vendor/phpstan/phpstan/phpstan.phar/vendor/symfony/console/Application.php:870
+    0.3026   46728376   9. PHPStan\Command\AnalyseCommand->execute() phar:///Users/s-a-c/Herd/livewire-starter-kit/packages/s-a-c/eloquent-model-generator/vendor/phpstan/phpstan/phpstan.phar/vendor/symfony/console/Command/Command.php:259
+    0.3026   46728376  10. PHPStan\Command\CommandHelper::begin() phar:///Users/s-a-c/Herd/livewire-starter-kit/packages/s-a-c/eloquent-model-generator/vendor/phpstan/phpstan/phpstan.phar/src/Command/AnalyseCommand.php:129
+    0.3112   48099344  11. PHPStan\DependencyInjection\ContainerFactory->create() phar:///Users/s-a-c/Herd/livewire-starter-kit/packages/s-a-c/eloquent-model-generator/vendor/phpstan/phpstan/phpstan.phar/src/Command/CommandHelper.php:282
+    0.3691   48742296  12. PHPStan\DependencyInjection\Configurator->createContainer() phar:///Users/s-a-c/Herd/livewire-starter-kit/packages/s-a-c/eloquent-model-generator/vendor/phpstan/phpstan/phpstan.phar/src/DependencyInjection/ContainerFactory.php:103
+    0.3691   48742680  13. PHPStan\DependencyInjection\Configurator->createContainer() phar:///Users/s-a-c/Herd/livewire-starter-kit/packages/s-a-c/eloquent-model-generator/vendor/phpstan/phpstan/phpstan.phar/src/DependencyInjection/Configurator.php:164
+    0.3691   48742680  14. PHPStan\DependencyInjection\Configurator->loadContainer() phar:///Users/s-a-c/Herd/livewire-starter-kit/packages/s-a-c/eloquent-model-generator/vendor/phpstan/phpstan/phpstan.phar/vendor/nette/bootstrap/src/Bootstrap/Configurator.php:177
+    0.3701   48802072  15. _PHPStan_24e2736d6\Nette\DI\ContainerLoader->load() phar:///Users/s-a-c/Herd/livewire-starter-kit/packages/s-a-c/eloquent-model-generator/vendor/phpstan/phpstan/phpstan.phar/src/DependencyInjection/Configurator.php:71
+    0.3702   48802120  16. _PHPStan_24e2736d6\Nette\DI\ContainerLoader->loadFile() phar:///Users/s-a-c/Herd/livewire-starter-kit/packages/s-a-c/eloquent-model-generator/vendor/phpstan/phpstan/phpstan.phar/vendor/nette/di/src/DI/ContainerLoader.php:34
+    0.3703   48802952  17. _PHPStan_24e2736d6\Nette\DI\ContainerLoader->generate() phar:///Users/s-a-c/Herd/livewire-starter-kit/packages/s-a-c/eloquent-model-generator/vendor/phpstan/phpstan/phpstan.phar/vendor/nette/di/src/DI/ContainerLoader.php:65
+    0.4656   50142192  18. _PHPStan_24e2736d6\Nette\DI\Compiler->compile() phar:///Users/s-a-c/Herd/livewire-starter-kit/packages/s-a-c/eloquent-model-generator/vendor/phpstan/phpstan/phpstan.phar/vendor/nette/di/src/DI/ContainerLoader.php:99
+    0.5901   54212448  19. _PHPStan_24e2736d6\Nette\DI\Compiler->processBeforeCompile() phar:///Users/s-a-c/Herd/livewire-starter-kit/packages/s-a-c/eloquent-model-generator/vendor/phpstan/phpstan/phpstan.phar/vendor/nette/di/src/DI/Compiler.php:159
+    0.6669   59098408  20. _PHPStan_24e2736d6\Nette\DI\ContainerBuilder->complete() phar:///Users/s-a-c/Herd/livewire-starter-kit/packages/s-a-c/eloquent-model-generator/vendor/phpstan/phpstan/phpstan.phar/vendor/nette/di/src/DI/Compiler.php:203
+    0.6931   59570528  21. _PHPStan_24e2736d6\Nette\DI\Resolver->completeDefinition() phar:///Users/s-a-c/Herd/livewire-starter-kit/packages/s-a-c/eloquent-model-generator/vendor/phpstan/phpstan/phpstan.phar/vendor/nette/di/src/DI/ContainerBuilder.php:256
+    0.6931   59570528  22. _PHPStan_24e2736d6\Nette\DI\Definitions\ServiceDefinition->complete() phar:///Users/s-a-c/Herd/livewire-starter-kit/packages/s-a-c/eloquent-model-generator/vendor/phpstan/phpstan/phpstan.phar/vendor/nette/di/src/DI/Resolver.php:127
+    0.6931   59570528  23. _PHPStan_24e2736d6\Nette\DI\Resolver->completeStatement() phar:///Users/s-a-c/Herd/livewire-starter-kit/packages/s-a-c/eloquent-model-generator/vendor/phpstan/phpstan/phpstan.phar/vendor/nette/di/src/DI/Definitions/ServiceDefinition.php:135
+    0.6931   59571192  24. _PHPStan_24e2736d6\Nette\DI\Resolver::autowireArguments() phar:///Users/s-a-c/Herd/livewire-starter-kit/packages/s-a-c/eloquent-model-generator/vendor/phpstan/phpstan/phpstan.phar/vendor/nette/di/src/DI/Resolver.php:174
+    0.6931   59572144  25. _PHPStan_24e2736d6\Nette\DI\Resolver::autowireArgument() phar:///Users/s-a-c/Herd/livewire-starter-kit/packages/s-a-c/eloquent-model-generator/vendor/phpstan/phpstan/phpstan.phar/vendor/nette/di/src/DI/Resolver.php:429
+

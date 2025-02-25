@@ -1,0 +1,76 @@
+# <type>(<scope>): <subject>        | 50 chars max title, no period --|
+#                                                                          |
+# Detailed explanation of the change. Wrap text at 72 characters.         |
+# Include motivation for the change and contrast with previous behavior.  |
+# ────────────────────────────────────────────────────────────────────── |
+# Example:                                                                |
+# feat(auth): implement JWT-based authentication                          |
+#                                                                        |
+# Add secure authentication system with role-based access control:       |
+# - Create login/signup endpoints with rate limiting                     |
+# - Add token validation middleware                                      |
+# - Implement password hashing with bcrypt                              |
+# ────────────────────────────────────────────────────────────────────── |
+#                                                                        |
+# Type Options:                                                          |
+#   feat     - A new feature                                            |
+#   fix      - A bug fix                                                |
+#   docs     - Documentation only changes                               |
+#   style    - Changes not affecting code (formatting, etc)             |
+#   refactor - Code change that neither fixes a bug nor adds feature    |
+#   perf     - Code change that improves performance                    |
+#   test     - Adding missing tests or correcting existing tests        |
+#   chore    - Changes to build process or auxiliary tools              |
+#   ci       - Changes to CI configuration files and scripts            |
+#                                                                        |
+# Scope Options:                                                         |
+#   auth     - Authentication related                                    |
+#   api      - API related changes                                      |
+#   ui       - User interface components                                |
+#   db       - Database related                                         |
+#   workflow - Development workflow                                      |
+#   deps     - Dependencies                                             |
+#   config   - Configuration changes                                    |
+#                                                                        |
+# Breaking Changes:                                                      |
+# Start with "BREAKING CHANGE:" followed by description and migration    |
+# steps if applicable.                                                   |
+#                                                                        |
+# Example:                                                               |
+# BREAKING CHANGE: Remove support for Node 14                            |
+# Node 16 or higher is now required for all build processes.            |
+# ────────────────────────────────────────────────────────────────────── |
+#                                                                        |
+# Rules:                                                                 |
+# 1. Subject line:                                                       |
+#    - Use imperative mood ("add" not "added")                          |
+#    - No period at end                                                 |
+#    - 50 characters max                                                |
+#    - Capitalize first letter                                          |
+#                                                                        |
+# 2. Body:                                                              |
+#    - Separate from subject with blank line                            |
+#    - Wrap at 72 characters                                            |
+#    - Use bullet points for multiple items                             |
+#    - Explain what and why vs. how                                     |
+#                                                                        |
+# 3. Breaking Changes:                                                   |
+#    - Start with "BREAKING CHANGE:"                                     |
+#    - Include migration instructions                                    |
+#    - Separate from body with blank line                               |
+#                                                                        |
+# 4. References:                                                         |
+#    - Reference issues at bottom: "Closes #123, #456"                  |
+#    - Reference PRs: "See PR #789"                                     |
+#                                                                        |
+# Multi-line Commit Command:                                            |
+# git commit -m "feat(auth): implement JWT authentication" \             |
+#   -m "" \                                                             |
+#   -m "Add secure authentication system with role-based access:" \     |
+#   -m "- Create login/signup endpoints" \                              |
+#   -m "- Add token validation" \                                       |
+#   -m "" \                                                             |
+#   -m "BREAKING CHANGE: Require Authorization header" \                |
+#   -m "" \                                                             |
+#   -m "Closes #123"                                                    |
+# ────────────────────────────────────────────────────────────────────── |

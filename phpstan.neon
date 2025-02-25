@@ -1,0 +1,95 @@
+parameters:
+    level: 10
+    paths:
+        - src
+        - tests
+
+    checkMissingIterableValueType: true
+    checkGenericClassInNonGenericObjectType: true
+    checkUninitializedProperties: true
+
+    strictRules:
+        allRules: true
+        strictCalls: true
+        strictTemplateTypes: true
+        strictGenerics: true
+        strictBinaryOperands: true
+        strictPropertyVariance: true
+        strictMethodArguments: true
+        strictReturnTypes: true
+        strictMixed: true
+
+    exceptions:
+        check:
+            missingCheckedExceptionInThrows: true
+            tooWideThrowType: true
+
+    ignoreErrors:
+        - '#PHPDoc tag @template has invalid value#'
+        - '#Call to an undefined method Illuminate\\Support\\Str::#'
+        - '#Access to an undefined property Illuminate\\Config\\Repository::#'
+
+    tmpDir: .phpstan
+
+    parallel:
+        maximumNumberOfProcesses: 4
+        processTimeout: 300.0
+
+    bootstrapFiles:
+        - vendor/autoload.php
+
+    scanDirectories:
+        - src
+        - tests
+
+    excludePaths:
+        - tests/*/data/*
+        - vendor/*
+
+    checkModelProperties: true
+    noUnnecessaryCollectionCall: true
+    noUnnecessaryCollectionCallOnly: true
+    checkOctaneCompatibility: false
+
+    # PHPStan 2.1 specific configuration
+    treatPhpDocTypesAsCertain: true
+    rememberPossiblyImpureFunctionValues: false
+    checkAlwaysTrueCheckTypeFunctionCall: true
+    checkAlwaysTrueInstanceof: true
+    checkAlwaysTrueStrictComparison: true
+    checkExplicitMixedMissingReturn: true
+    checkFunctionNameCase: true
+    checkInternalClassCaseSensitivity: true
+    reportMaybesInMethodSignatures: true
+    reportStaticMethodSignatures: true
+
+services:
+    -
+        class: PHPStan\Rules\Classes\RequireParentConstructCallRule
+        tags:
+            - phpstan.rules.rule
+
+    -
+        class: PHPStan\Rules\Functions\CallCallablesRule
+        tags:
+            - phpstan.rules.rule
+
+    -
+        class: PHPStan\Rules\Methods\ReturnTypeRule
+        tags:
+            - phpstan.rules.rule
+
+    -
+        class: PHPStan\Rules\Properties\ReadOnlyPropertyRule
+        tags:
+            - phpstan.rules.rule
+
+    -
+        class: PHPStan\Rules\Properties\UninitializedPropertyRule
+        tags:
+            - phpstan.rules.rule
+
+    -
+        class: PHPStan\Rules\Variables\DefinedVariableRule
+        tags:
+            - phpstan.rules.rule

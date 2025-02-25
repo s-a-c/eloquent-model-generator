@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: emg-app
+    restart: unless-stopped
+    working_dir: /var/www/package
+    volumes:
+      - .:/var/www/package
+      - ./storage/logs:/var/www/package/storage/logs
+    environment:
+      PHP_IDE_CONFIG: "serverName=EMG"
+      EMG_DEBUG: "true"
+      EMG_ENVIRONMENT: "development"
+      EMG_DATABASE_DRIVER: "sqlite"
+      EMG_DATABASE_PATH: "/var/www/package/database/database.sqlite"
+      EMG_CACHE_DRIVER: "file"
+      EMG_QUEUE_CONNECTION: "sync"
+    networks:
+      - emg-network
+
+networks:
+  emg-network:
+    driver: bridge
