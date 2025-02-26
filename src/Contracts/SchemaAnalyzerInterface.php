@@ -5,81 +5,58 @@ declare(strict_types=1);
 namespace SAC\EloquentModelGenerator\Contracts;
 
 use SAC\EloquentModelGenerator\Domain\ValueObjects\TableDefinition;
-use SAC\EloquentModelGenerator\Exceptions\SchemaAnalysisException;
 
 /**
- * @template TDefinition of TableDefinition
+ * Contract for database schema analysis services.
  */
 interface SchemaAnalyzerInterface
 {
-    /**
-     * Analyze a database table structure.
-     *
-     * @return TDefinition
-     *
-     * @throws SchemaAnalysisException
-     */
-    public function analyze(string $table): TableDefinition;
 
     /**
-     * Get all available table names.
+     * Analyze a database table and return its definition.
      *
-     * @return array<string>
+     * @param string $table The table name to analyze
+     * @return TableDefinition The table definition
+     */
+    public function analyzeTable(string $table): TableDefinition;
+
+    /**
+     * Get a list of all tables in the database.
      *
-     * @throws SchemaAnalysisException
+     * @return array<string> List of table names
      */
     public function getTables(): array;
 
     /**
-     * Check if a table exists.
+     * Check if a table exists in the database.
+     *
+     * @param string $table The table name to check
+     * @return bool True if the table exists
      */
     public function tableExists(string $table): bool;
 
     /**
-     * Get table column definitions.
+     * Get column definitions for a table.
      *
-     * @return array<string, array{
-     *     type: string,
-     *     nullable: bool,
-     *     default: mixed,
-     *     length: int|null,
-     *     precision: int|null,
-     *     scale: int|null,
-     *     unsigned: bool,
-     *     autoIncrement: bool,
-     *     primary: bool,
-     *     unique: bool
-     * }>
-     *
-     * @throws SchemaAnalysisException
+     * @param string $table The table name
+     * @return array<\SAC\EloquentModelGenerator\Domain\ValueObjects\ColumnDefinition>
      */
     public function getColumns(string $table): array;
 
     /**
-     * Get table indices.
+     * Get index definitions for a table.
      *
-     * @return array<string, array{
-     *     columns: array<string>,
-     *     type: string,
-     *     unique: bool
-     * }>
-     *
-     * @throws SchemaAnalysisException
+     * @param string $table The table name
+     * @return array<\SAC\EloquentModelGenerator\Domain\ValueObjects\IndexDefinition>
      */
     public function getIndices(string $table): array;
 
     /**
-     * Get foreign key constraints.
+     * Get relationship definitions for a table.
      *
-     * @return array<string, array{
-     *     columns: array<string>,
-     *     foreignTable: string,
-     *     foreignColumns: array<string>,
-     *     onDelete: string|null,
-     *     onUpdate: string|null
-     * }>
-     *
-     * @throws SchemaAnalysisException
+     * @param string $table The table name
+     * @return array<\SAC\EloquentModelGenerator\Domain\ValueObjects\RelationshipDefinition>
      */
-    public function getForeignKeys(string $table): array;
+    public function getRelationships(string $table): array;
+
 }

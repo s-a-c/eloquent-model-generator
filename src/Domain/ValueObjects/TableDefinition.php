@@ -9,32 +9,38 @@ namespace SAC\EloquentModelGenerator\Domain\ValueObjects;
  */
 final class TableDefinition
 {
+
     /**
-     * @param  array<string, Column>  $columns
-     * @param  array<string, Index>  $indices
-     * @param  array<string, ForeignKey>  $foreignKeys
+     * @param  array<ColumnDefinition>  $columns
+     * @param  array<IndexDefinition>  $indices
+     * @param  array<RelationshipDefinition>  $relationships
      */
     public function __construct(
         public readonly string $name,
         public readonly array $columns,
         public readonly array $indices = [],
-        public readonly array $foreignKeys = [],
-        public readonly bool $timestamps = false,
-        public readonly bool $softDeletes = false,
-    ) {}
+        public readonly array $relationships = [],
+        public readonly bool $timestamps = FALSE,
+        public readonly bool $softDeletes = FALSE,
+    ) {
+
+    }
 
     /**
      * Get primary key column.
      */
-    public function getPrimaryKey(): ?Column
+    public function getPrimaryKey(): ?ColumnDefinition
     {
-        foreach ($this->columns as $column) {
-            if ($column->isPrimary) {
+
+        foreach ($this->columns as $column)
+        {
+            if ($column->isPrimary)
+            {
                 return $column;
             }
         }
 
-        return null;
+        return NULL;
     }
 
     /**
@@ -42,6 +48,7 @@ final class TableDefinition
      */
     public function hasTimestamps(): bool
     {
+
         return $this->timestamps;
     }
 
@@ -50,6 +57,7 @@ final class TableDefinition
      */
     public function hasSoftDeletes(): bool
     {
+
         return $this->softDeletes;
     }
 
@@ -60,11 +68,14 @@ final class TableDefinition
      */
     public function getFillableColumns(): array
     {
+
         $fillable = [];
 
-        foreach ($this->columns as $name => $column) {
-            if (! $column->isPrimary && ! $column->isTimestamp && ! $column->isSoftDelete) {
-                $fillable[] = $name;
+        foreach ($this->columns as $column)
+        {
+            if (!$column->isPrimary && !$column->isTimestamp && !$column->isSoftDelete)
+            {
+                $fillable[] = $column->name;
             }
         }
 
@@ -78,11 +89,14 @@ final class TableDefinition
      */
     public function getHiddenColumns(): array
     {
+
         $hidden = [];
 
-        foreach ($this->columns as $name => $column) {
-            if ($column->shouldBeHidden) {
-                $hidden[] = $name;
+        foreach ($this->columns as $column)
+        {
+            if ($column->getAttribute('hidden', FALSE))
+            {
+                $hidden[] = $column->name;
             }
         }
 
@@ -96,11 +110,14 @@ final class TableDefinition
      */
     public function getColumnCasts(): array
     {
+
         $casts = [];
 
-        foreach ($this->columns as $name => $column) {
-            if ($cast = $column->getCastType()) {
-                $casts[$name] = $cast;
+        foreach ($this->columns as $column)
+        {
+            if ($cast = $column->getAttribute('cast_type'))
+            {
+                $casts[$column->name] = $cast;
             }
         }
 
@@ -110,26 +127,30 @@ final class TableDefinition
     /**
      * Get unique indices.
      *
-     * @return array<string, Index>
+     * @return array<IndexDefinition>
      */
     public function getUniqueIndices(): array
     {
+
         return array_filter(
             $this->indices,
-            static fn (Index $index): bool => $index->isUnique
+
+            static fn(IndexDefinition $index): bool => $index->isUnique
         );
     }
 
     /**
-     * Get foreign keys for a column.
+     * Get foreign key indices for a column.
      *
-     * @return array<ForeignKey>
+     * @return array<IndexDefinition>
      */
     public function getForeignKeysForColumn(string $column): array
     {
+
         return array_filter(
-            $this->foreignKeys,
-            static fn (ForeignKey $fk): bool => in_array($column, $fk->columns, true)
+            $this->indices,
+
+            static fn(IndexDefinition $index): bool => $index->isForeign && in_array($column, $index->columns, TRUE)
         );
     }
 
@@ -138,12 +159,31 @@ final class TableDefinition
      */
     public function isColumnUnique(string $column): bool
     {
-        foreach ($this->indices as $index) {
-            if ($index->isUnique && in_array($column, $index->columns, true)) {
-                return true;
+
+        foreach ($this->indices as $index)
+        {
+            if ($index->isUnique && in_array($column, $index->columns, TRUE))
+            {
+                return TRUE;
             }
         }
 
-        return false;
+        return FALSE;
     }
+
+    /**
+     * Get relationships by type.
+     *
+     * @return array<RelationshipDefinition>
+     */
+    public function getRelationshipsByType(string $type): array
+    {
+
+        return array_filter(
+            $this->relationships,
+
+            static fn(RelationshipDefinition $rel): bool => $rel->type === $type
+        );
+    }
+
 }

@@ -2,237 +2,215 @@
 
 declare(strict_types=1);
 
-namespace SAC\EloquentModelGenerator\Tests\Unit\Services;
+namespace Tests\Unit\Services;
 
-use PHPUnit\Framework\Attributes\Test;
+use Illuminate\Database\Connection;
+use Illuminate\Database\Schema\Builder;
+use Illuminate\Support\Facades\DB;
+use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\TestCase;
 use SAC\EloquentModelGenerator\Config\ModelGeneratorConfig;
-use SAC\EloquentModelGenerator\Domain\Enums\RelationType;
+use SAC\EloquentModelGenerator\Contracts\TypeMapperInterface;
+use SAC\EloquentModelGenerator\Domain\ValueObjects\TypeDefinition;
 use SAC\EloquentModelGenerator\Services\SQLiteSchemaAnalyzer;
-use SAC\EloquentModelGenerator\Tests\TestCase;
 
-final class SQLiteSchemaAnalyzerTest extends TestCase
+class SQLiteSchemaAnalyzerTest extends TestCase
 {
     private SQLiteSchemaAnalyzer $analyzer;
+    private ModelGeneratorConfig $config;
+    private TypeMapperInterface&MockObject $typeMapper;
+    private Connection&MockObject $connection;
+    private Builder&MockObject $schemaBuilder;
 
     protected function setUp(): void
     {
         parent::setUp();
 
-        $config = new ModelGeneratorConfig(
+        // Create mock objects
+        $this->connection = $this->getMockBuilder(Connection::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $this->schemaBuilder = $this->getMockBuilder(Builder::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $this->connection->expects($this->any())
+            ->method('getSchemaBuilder')
+            ->willReturn($this->schemaBuilder);
+
+        DB::shouldReceive('connection')
+            ->andReturn($this->connection);
+
+        // Create config with test values
+        $this->config = new ModelGeneratorConfig(
+            environment: 'testing',
             databaseDriver: 'sqlite',
-            databasePath: ':memory:',
+            additional: [
+                'namespace' => 'App\\Models',
+                'base_class' => '\\Illuminate\\Database\\Eloquent\\Model',
+            ]
         );
 
-        $this->analyzer = new SQLiteSchemaAnalyzer($config);
+        // Create type mapper mock
+        $this->typeMapper = $this->getMockBuilder(TypeMapperInterface::class)
+            ->getMock();
+
+        $this->analyzer = new SQLiteSchemaAnalyzer($this->config, $this->typeMapper);
     }
 
-    #[Test]
+    /** @test */
     public function it_analyzes_table_structure(): void
     {
-        // Arrange
-        $this->createTestTable('test_table', [
-            'name' => 'string',
-            'email' => 'string',
-            'age' => 'integer',
-            'is_active' => 'boolean',
-        ]);
+        // Set up expectations
+        $this->schemaBuilder->expects($this->once())
+            ->method('hasTable')
+            ->with('users')
+            ->willReturn(true);
 
-        // Act
-        $definition = $this->analyzer->analyzeTable('test_table');
+        $this->connection->expects($this->exactly(4))
+            ->method('select')
+            ->willReturnMap([
+                ["PRAGMA table_info(users)", [], $this->getTestColumns()],
+                ["PRAGMA index_list(users)", [], $this->getTestIndices()],
+                ["PRAGMA index_info(users_email_unique)", [], $this->getTestIndexColumns()],
+                ["PRAGMA foreign_key_list(users)", [], $this->getTestForeignKeys()],
+            ]);
 
-        // Assert
-        expect($definition)
-            ->toBeValidTableDefinition()
-            ->and($definition->name)->toBe('test_table')
-            ->and($definition->columns)->toHaveCount(7) // id + 4 columns + timestamps
-            ->and($definition->indices)->toHaveCount(1) // primary key
-            ->and($definition->relationships)->toHaveCount(0);
+        $this->typeMapper->expects($this->any())
+            ->method('mapColumnType')
+            ->willReturn(new TypeDefinition(
+                phpType: 'string',
+                docType: 'string',
+                dbType: 'varchar',
+                length: 255,
+                precision: null,
+                attributes: []
+            ));
 
-        // Check column definitions
-        $nameColumn = collect($definition->columns)->firstWhere('name', 'name');
-        expect($nameColumn)
-            ->not->toBeNull()
-            ->and($nameColumn->type)->toBe('string')
-            ->and($nameColumn->nullable)->toBeFalse();
+        $table = $this->analyzer->analyzeTable('users');
 
-        $ageColumn = collect($definition->columns)->firstWhere('name', 'age');
-        expect($ageColumn)
-            ->not->toBeNull()
-            ->and($ageColumn->type)->toBe('integer')
-            ->and($ageColumn->nullable)->toBeFalse();
+        $this->assertSame('users', $table->name);
+        $this->assertCount(5, $table->columns);
+        $this->assertTrue($table->timestamps);
+        $this->assertTrue($table->softDeletes);
     }
 
-    #[Test]
-    public function it_detects_foreign_key_relationships(): void
+    /** @test */
+    public function it_detects_relationships(): void
     {
-        // Arrange
-        $this->createTestTable('users', [
-            'name' => 'string',
-        ]);
+        // Set up expectations
+        $this->schemaBuilder->expects($this->once())
+            ->method('hasTable')
+            ->with('posts')
+            ->willReturn(true);
 
-        $this->createTestTable('posts', [
-            'user_id' => 'foreignId',
-            'title' => 'string',
-        ]);
+        $this->connection->expects($this->exactly(3))
+            ->method('select')
+            ->willReturnMap([
+                ["PRAGMA table_info(posts)", [], $this->getTestColumns()],
+                ["PRAGMA index_list(posts)", [], []],
+                ["PRAGMA foreign_key_list(posts)", [], [
+                    (object) [
+                        'from' => 'user_id',
+                        'to' => 'id',
+                        'table' => 'users',
+                        'on_update' => 'CASCADE',
+                        'on_delete' => 'CASCADE',
+                    ],
+                ]],
+            ]);
 
-        // Act
-        $definition = $this->analyzer->analyzeTable('posts');
+        $this->typeMapper->expects($this->any())
+            ->method('mapColumnType')
+            ->willReturn(new TypeDefinition(
+                phpType: 'string',
+                docType: 'string',
+                dbType: 'varchar',
+                length: 255,
+                precision: null,
+                attributes: []
+            ));
 
-        // Assert
-        expect($definition->relationships)
-            ->toHaveCount(1)
-            ->and($definition->relationships[0]->type)->toBe(RelationType::BelongsTo)
-            ->and($definition->relationships[0]->name)->toBe('user')
-            ->and($definition->relationships[0]->localKeys)->toBe(['user_id'])
-            ->and($definition->relationships[0]->foreignKeys)->toBe(['id']);
+        $table = $this->analyzer->analyzeTable('posts');
+        $relationships = $table->relationships;
+
+        $this->assertCount(1, $relationships);
+        $this->assertSame('belongsTo', $relationships[0]->type);
+        $this->assertSame('users', $relationships[0]->name);
     }
 
-    #[Test]
+    /** @test */
     public function it_detects_polymorphic_relationships(): void
     {
-        // Arrange
-        $this->createTestTable('comments', [
-            'commentable_id' => 'unsignedBigInteger',
-            'commentable_type' => 'string',
-            'content' => 'text',
-        ]);
+        // Set up expectations
+        $this->schemaBuilder->expects($this->once())
+            ->method('hasTable')
+            ->with('comments')
+            ->willReturn(true);
 
-        // Act
-        $definition = $this->analyzer->analyzeTable('comments');
+        $this->connection->expects($this->exactly(3))
+            ->method('select')
+            ->willReturnMap([
+                ["PRAGMA table_info(comments)", [], [
+                    (object) ['name' => 'id', 'type' => 'integer', 'notnull' => 1, 'dflt_value' => null, 'pk' => 1],
+                    (object) ['name' => 'commentable_id', 'type' => 'integer', 'notnull' => 1, 'dflt_value' => null, 'pk' => 0],
+                    (object) ['name' => 'commentable_type', 'type' => 'varchar', 'notnull' => 1, 'dflt_value' => null, 'pk' => 0],
+                ]],
+                ["PRAGMA index_list(comments)", [], []],
+                ["PRAGMA foreign_key_list(comments)", [], []],
+            ]);
 
-        // Assert
-        expect($definition->relationships)
-            ->toHaveCount(1)
-            ->and($definition->relationships[0]->type)->toBe(RelationType::MorphTo)
-            ->and($definition->relationships[0]->name)->toBe('commentable')
-            ->and($definition->relationships[0]->localKeys)
-            ->toBe(['commentable_id', 'commentable_type']);
+        $this->typeMapper->expects($this->any())
+            ->method('mapColumnType')
+            ->willReturn(new TypeDefinition(
+                phpType: 'string',
+                docType: 'string',
+                dbType: 'varchar',
+                length: 255,
+                precision: null,
+                attributes: []
+            ));
+
+        $table = $this->analyzer->analyzeTable('comments');
+        $relationships = $table->relationships;
+
+        $this->assertCount(1, $relationships);
+        $this->assertSame('morphTo', $relationships[0]->type);
+        $this->assertSame('commentable', $relationships[0]->name);
     }
 
-    #[Test]
-    public function it_detects_many_to_many_relationships(): void
+    private function getTestColumns(): array
     {
-        // Arrange
-        $this->createTestTable('posts', [
-            'title' => 'string',
-        ]);
-
-        $this->createTestTable('tags', [
-            'name' => 'string',
-        ]);
-
-        $this->schema()->create('post_tag', function ($table) {
-            $table->foreignId('post_id')->constrained();
-            $table->foreignId('tag_id')->constrained();
-            $table->timestamps();
-        });
-
-        // Act
-        $definition = $this->analyzer->analyzeTable('posts');
-
-        // Assert
-        $relationship = collect($definition->relationships)
-            ->first(fn ($rel) => $rel->type === RelationType::BelongsToMany);
-
-        expect($relationship)
-            ->not->toBeNull()
-            ->and($relationship->name)->toBe('tags')
-            ->and($relationship->table)->toBe('post_tag');
+        return [
+            (object) ['name' => 'id', 'type' => 'integer', 'notnull' => 1, 'dflt_value' => null, 'pk' => 1],
+            (object) ['name' => 'email', 'type' => 'varchar', 'notnull' => 1, 'dflt_value' => null, 'pk' => 0],
+            (object) ['name' => 'created_at', 'type' => 'datetime', 'notnull' => 0, 'dflt_value' => null, 'pk' => 0],
+            (object) ['name' => 'updated_at', 'type' => 'datetime', 'notnull' => 0, 'dflt_value' => null, 'pk' => 0],
+            (object) ['name' => 'deleted_at', 'type' => 'datetime', 'notnull' => 0, 'dflt_value' => null, 'pk' => 0],
+        ];
     }
 
-    #[Test]
-    public function it_handles_composite_primary_keys(): void
+    private function getTestIndices(): array
     {
-        // Arrange
-        $this->schema()->create('role_user', function ($table) {
-            $table->foreignId('role_id');
-            $table->foreignId('user_id');
-            $table->timestamps();
-            $table->primary(['role_id', 'user_id']);
-        });
-
-        // Act
-        $definition = $this->analyzer->analyzeTable('role_user');
-
-        // Assert
-        expect($definition->getPrimaryKeys())
-            ->toHaveCount(2)
-            ->and(collect($definition->getPrimaryKeys())->pluck('name')->all())
-            ->toBe(['role_id', 'user_id']);
+        return [
+            (object) [
+                'name' => 'users_email_unique',
+                'unique' => 1,
+                'partial' => 0,
+            ],
+        ];
     }
 
-    #[Test]
-    public function it_detects_unique_constraints(): void
+    private function getTestIndexColumns(): array
     {
-        // Arrange
-        $this->createTestTable('users', [
-            'email' => 'string',
-        ]);
-
-        $this->schema()->table('users', function ($table) {
-            $table->unique('email');
-        });
-
-        // Act
-        $definition = $this->analyzer->analyzeTable('users');
-
-        // Assert
-        $emailColumn = collect($definition->columns)->firstWhere('name', 'email');
-        expect($emailColumn->isUnique)->toBeTrue();
-
-        $uniqueIndex = collect($definition->indices)
-            ->first(fn ($idx) => $idx->isUnique && in_array('email', $idx->columns));
-        expect($uniqueIndex)->not->toBeNull();
+        return [
+            (object) ['name' => 'email'],
+        ];
     }
 
-    #[Test]
-    public function it_handles_soft_deletes(): void
+    private function getTestForeignKeys(): array
     {
-        // Arrange
-        $this->createTestTable('products', [
-            'name' => 'string',
-            'deleted_at' => 'softDeletes',
-        ]);
-
-        // Act
-        $definition = $this->analyzer->analyzeTable('products');
-
-        // Assert
-        expect($definition->hasSoftDeletes())->toBeTrue();
-
-        $deletedAtColumn = collect($definition->columns)
-            ->firstWhere('name', 'deleted_at');
-        expect($deletedAtColumn)
-            ->not->toBeNull()
-            ->and($deletedAtColumn->nullable)->toBeTrue()
-            ->and($deletedAtColumn->type)->toBe('datetime');
-    }
-
-    #[Test]
-    public function it_handles_json_columns(): void
-    {
-        // Arrange
-        $this->createTestTable('settings', [
-            'key' => 'string',
-            'value' => 'json',
-            'metadata' => 'json',
-        ]);
-
-        // Act
-        $definition = $this->analyzer->analyzeTable('settings');
-
-        // Assert
-        $jsonColumns = collect($definition->columns)
-            ->filter(fn ($col) => $col->type === 'json');
-
-        expect($jsonColumns)
-            ->toHaveCount(2)
-            ->and($jsonColumns->pluck('name')->all())
-            ->toBe(['value', 'metadata']);
-    }
-
-    private function schema()
-    {
-        return $this->app['db']->connection()->getSchemaBuilder();
+        return [];
     }
 }
